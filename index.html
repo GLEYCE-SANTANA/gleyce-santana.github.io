@@ -371,6 +371,185 @@ body::before {
   .container { padding-top: 72px; }
   .name { font-size: 32px; }
 }
+
+/* ===== CHECKLIST STYLES ===== */
+.checklist-section {
+  margin-bottom: 32px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,162,71,0.25);
+  overflow: hidden;
+  animation: btnIn 0.7s 1s cubic-bezier(0.16,1,0.3,1) backwards;
+}
+.checklist-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(201,162,71,0.15);
+}
+.checklist-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(201,162,71,0.12);
+  border: 1px solid rgba(201,162,71,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.checklist-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dourado-champagne);
+  margin: 0;
+}
+.checklist-subtitle {
+  font-size: 11px;
+  color: var(--texto-suave);
+  margin: 2px 0 0;
+}
+.checklist-tabs {
+  display: flex;
+  gap: 0;
+  padding: 12px 16px 0;
+}
+.checklist-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--texto-suave);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+.checklist-tab.active {
+  color: var(--dourado-champagne);
+  border-bottom-color: var(--dourado-luxo);
+}
+.checklist-tab:hover:not(.active) {
+  color: var(--texto-claro);
+}
+.checklist-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px 8px;
+}
+.progress-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--dourado-shadow), var(--dourado-champagne));
+  border-radius: 100px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progress-text {
+  font-size: 10px;
+  color: var(--texto-suave);
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: right;
+}
+.checklist-panel {
+  display: none;
+  padding: 8px 16px 16px;
+}
+.checklist-panel.active { display: block; }
+.panel-desc {
+  font-size: 11.5px;
+  color: var(--texto-suave);
+  margin: 4px 0 14px;
+  line-height: 1.5;
+}
+.checklist-group {
+  margin-bottom: 18px;
+}
+.group-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dourado-luxo);
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(201,162,71,0.15);
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 7px 4px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.check-item:hover { background: rgba(201,162,71,0.05); }
+.check-item input[type="checkbox"] { display: none; }
+.check-box {
+  width: 18px; height: 18px;
+  border: 1.5px solid rgba(201,162,71,0.35);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+.check-item input:checked + .check-box {
+  background: linear-gradient(135deg, var(--dourado-luxo), var(--dourado-shadow));
+  border-color: var(--dourado-luxo);
+}
+.check-item input:checked + .check-box::after {
+  content: '';
+  width: 10px; height: 6px;
+  border-left: 2px solid var(--azul-profundo);
+  border-bottom: 2px solid var(--azul-profundo);
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
+.check-label {
+  font-size: 12.5px;
+  color: var(--texto-claro);
+  line-height: 1.5;
+  transition: opacity 0.2s;
+}
+.check-item input:checked ~ .check-label {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-color: rgba(201,162,71,0.4);
+}
+.checklist-reset {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 16px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--texto-suave);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  padding: 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.checklist-reset:hover {
+  border-color: rgba(201,162,71,0.3);
+  color: var(--dourado-champagne);
+}
+
 </style>
 </head>
 <body>
@@ -458,6 +637,143 @@ body::before {
 
   </nav>
 
+  <!-- ===== MÓDULO CHECKLIST DE EDITAL ===== -->
+  <section class="checklist-section" id="checklist">
+    <div class="checklist-header">
+      <div class="checklist-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A247" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div>
+        <h2 class="checklist-title">Checklist de Edital</h2>
+        <p class="checklist-subtitle">Marque os itens conforme sua análise</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="checklist-tabs">
+      <button class="checklist-tab active" onclick="switchTab('habilitacao', this)">📄 Habilitação</button>
+      <button class="checklist-tab" onclick="switchTab('analise', this)">🔍 Análise do Edital</button>
+      <button class="checklist-tab" onclick="switchTab('proposta', this)">📝 Proposta</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="checklist-progress">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <span class="progress-text" id="progressText">0 de 0 itens</span>
+    </div>
+
+    <!-- Tab: Habilitação -->
+    <div class="checklist-panel active" id="tab-habilitacao">
+      <p class="panel-desc">Documentos de habilitação para obras públicas</p>
+      <div class="checklist-group">
+        <h3 class="group-title">Habilitação Jurídica</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Ato constitutivo, estatuto ou contrato social (última alteração <strong>CONSOLIDADO</strong>)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Registro comercial ou CNPJ ativo</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Alvará de Funcionamento</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Documento de identidade dos sócios/representantes</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Procuração — Dra. Gleyce Santana</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Regularidade Fiscal e Trabalhista</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão de débitos relativos a tributos federais e dívida ativa da União</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Cadastro Estadual</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão negativa de débitos estaduais</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Cadastro Municipal</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão negativa de débitos municipais</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão de regularidade perante o FGTS (CRF)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão negativa de débitos trabalhistas (CNDT)</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Qualificação Técnica</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Registro ou inscrição no CREA/CAU — <strong>da Empresa</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Registro ou inscrição no CREA/CAU — <strong>do Engenheiro</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Atestado de capacidade técnica (ART/RRT) — <strong>Operacional</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Atestado de capacidade técnica (ART/RRT) — <strong>Profissional</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Contrato de Prestação de Serviço com o Engenheiro</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Comprovação de experiência anterior em obras similares</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Qualificação Econômico-Financeira</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Balanço patrimonial dos <strong>2 últimos exercícios</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão negativa de falência ou recuperação judicial</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Certidão Simplificada com no máximo <strong>30 dias</strong></span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Capital social mínimo comprovado (se exigido)</span></label>
+      </div>
+    </div>
+
+    <!-- Tab: Análise do Edital -->
+    <div class="checklist-panel" id="tab-analise">
+      <p class="panel-desc">Checklist completo para análise do edital antes de licitar</p>
+      <div class="checklist-group">
+        <h3 class="group-title">Objeto e Escopo</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Objeto da licitação está claramente definido</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Memorial descritivo e projetos disponíveis</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Planilha orçamentária / composição de custos disponível</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Cronograma físico-financeiro previsto</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Prazos e Datas Críticas</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Data/hora de abertura das propostas</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo de visita técnica ao local (se obrigatória)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo de validade da proposta</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo de execução do contrato</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Critérios de Julgamento</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Critério de julgamento identificado (menor preço, melhor técnica etc.)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Peso dos critérios técnicos (se aplicável)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Requisitos de habilitação compatíveis com a empresa</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Exigências de subcontratação verificadas</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Condições Contratuais</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Forma de pagamento e cronograma de medições</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Garantias exigidas (percentual e forma)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Penalidades e multas previstas</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Reajuste/reequilíbrio econômico-financeiro previsto</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo para impugnação do edital verificado</span></label>
+      </div>
+    </div>
+
+    <!-- Tab: Proposta -->
+    <div class="checklist-panel" id="tab-proposta">
+      <p class="panel-desc">Checklist para montagem da proposta</p>
+      <div class="checklist-group">
+        <h3 class="group-title">Documentação da Proposta</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Carta proposta preenchida conforme modelo do edital</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Planilha de preços preenchida corretamente</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Composições analíticas de custos (se exigido)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">BDI declarado e justificado</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Encargos sociais declarados</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Verificações Financeiras</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Valor global dentro do limite orçamentário do edital</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Preços unitários compatíveis com SINAPI/SICRO</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Verificação de itens com preço inexequível</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo de validade da proposta indicado</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Cronograma e Execução</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Cronograma físico-financeiro elaborado</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Prazo de execução compatível com o edital</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Equipe técnica mínima identificada</span></label>
+      </div>
+      <div class="checklist-group">
+        <h3 class="group-title">Conferência Final</h3>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Todos os documentos assinados pelo responsável legal</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Documentos em formato e número de vias exigidos</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Envelope(s) lacrado(s) e identificado(s) (se presencial)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-label">Upload realizado no sistema eletrônico (se eletrônico)</span></label>
+      </div>
+    </div>
+
+    <!-- Botão Reset -->
+    <button class="checklist-reset" onclick="resetChecklist()">↺ Limpar tudo</button>
+  </section>
+
   <footer class="footer">
     <div class="social-links">
       <a class="social-link" href="https://instagram.com/dra.gleyce.licitacoes" target="_blank" rel="noopener" aria-label="Instagram">
@@ -471,6 +787,30 @@ body::before {
   </footer>
 
 </div>
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.checklist-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.checklist-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  btn.classList.add('active');
+  updateProgress();
+}
+function updateProgress() {
+  const panel = document.querySelector('.checklist-panel.active');
+  if (!panel) return;
+  const all = panel.querySelectorAll('input[type="checkbox"]');
+  const checked = panel.querySelectorAll('input[type="checkbox"]:checked');
+  const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = checked.length + ' de ' + all.length + ' itens';
+}
+function resetChecklist() {
+  document.querySelectorAll('.checklist-panel input[type="checkbox"]').forEach(cb => cb.checked = false);
+  updateProgress();
+}
+window.addEventListener('load', updateProgress);
+</script>
 
 </body>
 </html>
