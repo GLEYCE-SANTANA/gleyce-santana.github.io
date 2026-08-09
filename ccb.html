@@ -171,12 +171,10 @@ function groups(){
 function pass(it){
   const s=dec[it.idx];
   if(filt==='todos')return true;
-  if(filt==='PR')return it.uf==='PR';
-  if(filt==='MA')return it.uf==='MA';
   if(filt==='massa')return /massa|emuls/i.test(it.tipo_obra);
   if(filt==='pend')return !s;
   if(filt==='part')return s==='P';
-  return true;
+  return it.uf===filt;
 }
 
 function render(){
@@ -278,7 +276,8 @@ document.getElementById('btnCopy').addEventListener('click',async()=>{
 });
 
 // filters
-const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],['PR','PR'],['MA','MA'],['massa','🛢 Massa asfáltica']];
+const UFS=[...new Set(ITENS.map(i=>i.uf))].filter(Boolean).sort();
+const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],...UFS.map(u=>[u,u]),['massa','🛢 Massa asfáltica']];
 document.getElementById('filters').innerHTML=FILTERS.map(f=>'<button class="fbtn'+(f[0]==='todos'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
 
 render();
