@@ -403,21 +403,13 @@ footer .b{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14p
   </footer>
 </div>
 
-<div id="tema">
-  <em>Cores</em>
-  <button data-t="onix"  aria-pressed="true"  title="Ônix &amp; Ouro"       style="background:linear-gradient(135deg,#151009,#0B0908 55%,#E8D3AC)"></button>
-  <button data-t="vinho" aria-pressed="false" title="Vinho &amp; Ouro"      style="background:linear-gradient(135deg,#25121B,#150A10 55%,#EBD4AE)"></button>
-  <button data-t="noite" aria-pressed="false" title="Azul-Noite &amp; Ouro" style="background:linear-gradient(135deg,#14203A,#0C1222 55%,#E7D2A8)"></button>
-  <button data-t="claro" aria-pressed="false" title="Champanhe Claro"   style="background:linear-gradient(135deg,#FBF6EC,#EADFCB 55%,#8A6C42)"></button>
-  <button class="x" title="Esconder">&#10005;</button>
-</div>
+
 
 <script>
 (function(){
   const t = new URLSearchParams(location.search).get('t');
   if (t && ['onix','vinho','noite','claro'].includes(t)) {
     document.documentElement.dataset.tema = t;
-    document.querySelectorAll('#tema button[data-t]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.t===t));
   }
   const cur = () => document.documentElement.dataset.tema;
   ['back','back2'].forEach(id=>{
@@ -432,11 +424,7 @@ footer .b{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14p
     bs.forEach((b,j)=>b.addEventListener('click',()=>g.scrollTo({left:j*g.clientWidth,behavior:'smooth'})));
   }
 })();
-document.querySelectorAll('#tema button[data-t]').forEach(b=>{
-  b.addEventListener('click',()=>{document.documentElement.dataset.tema=b.dataset.t;
-    document.querySelectorAll('#tema button[data-t]').forEach(o=>o.setAttribute('aria-pressed',o===b));});
-});
-document.querySelector('#tema .x').addEventListener('click',()=>document.getElementById('tema').remove());
+
 </script>
 </body>
 </html>
