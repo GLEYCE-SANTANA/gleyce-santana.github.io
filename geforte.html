@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#141821">
+<title>GEFORTE — Goiás (obra civil) — Agenda de Licitações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f131b; --bg2:#141a24; --card:#1b222e; --card2:#212a38;
+  --ink:#eef2f7; --mut:#9aa7b8; --line:#2b3543;
+  --amber:#f5a623; --green:#22c55e; --greenD:#15803d; --red:#ef4444; --redD:#b91c1c; --blue:#3b82f6; --yellow:#eab308;
+  --shadow:0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:linear-gradient(180deg,#0d1119,#0f131b 240px);color:var(--ink);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.45;
+  padding-bottom:110px;overscroll-behavior-y:contain}
+h1,h2,h3,.disp{font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px;margin:0}
+
+/* HEADER */
+.top{position:sticky;top:0;z-index:40;background:rgba(15,19,27,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.top .bar{background:repeating-linear-gradient(90deg,var(--amber) 0 22px,#111 22px 40px);height:6px}
+.head{padding:12px 15px 10px}
+.head .kicker{font-size:11px;letter-spacing:2.5px;color:var(--amber);font-weight:700;text-transform:uppercase}
+.head h1{font-size:26px;font-weight:700;line-height:1;margin-top:3px}
+.head .sub{font-size:11.5px;color:var(--mut);margin-top:5px}
+/* SUMMARY */
+.sum{display:flex;gap:6px;padding:0 12px 11px}
+.chipstat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;min-width:0}
+.chipstat .n{font-family:'Barlow Condensed';font-size:24px;font-weight:700;line-height:1}
+.chipstat .l{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.chipstat.p .n{color:var(--green)} .chipstat.d .n{color:var(--red)} .chipstat.a .n{color:var(--yellow)} .chipstat.pd .n{color:var(--mut)}
+.totbar{margin:0 12px 10px;background:linear-gradient(100deg,#15361f,#123)}
+.totbar{border:1px solid #24613a;border-radius:12px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center}
+.totbar .lbl{font-size:11px;color:#8fe3ab;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.totbar .val{font-family:'Barlow Condensed';font-size:22px;font-weight:700;color:#c9f6d8}
+/* progress */
+.prog{height:5px;background:var(--line);border-radius:9px;margin:0 12px 10px;overflow:hidden}
+.prog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--green));transition:width .4s}
+
+/* FILTERS */
+.filters{display:flex;gap:7px;overflow-x:auto;padding:2px 12px 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex:none;background:var(--card);border:1px solid var(--line);color:var(--mut);
+  padding:7px 13px;border-radius:20px;font-size:12.5px;font-weight:600;white-space:nowrap;cursor:pointer}
+.fbtn.on{background:var(--amber);color:#1a1205;border-color:var(--amber)}
+
+/* DAY GROUP */
+.day{margin:16px 12px 0}
+.dayhd{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:11px;color:#fff;
+  font-family:'Barlow Condensed';font-weight:700;box-shadow:var(--shadow);position:sticky;top:6px;z-index:20}
+.dayhd .dw{font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:1px}
+.dayhd .dd{font-size:21px;line-height:1}
+.dayhd .cnt{margin-left:auto;background:rgba(0,0,0,.28);padding:3px 10px;border-radius:20px;font-size:13px;font-weight:600}
+.dayhd .dv{font-size:11px;opacity:.92;font-weight:600;font-family:'Manrope'}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);
+  border-radius:13px;margin-top:9px;padding:12px 13px;box-shadow:var(--shadow);transition:.18s}
+.card.p{border-left-color:var(--green);background:linear-gradient(100deg,#15291d,#1b222e 60%)}
+.card.d{border-left-color:var(--red);opacity:.62}
+.card.d .obj,.card.d .mun{text-decoration:line-through}
+.card.a{border-left-color:var(--yellow);background:linear-gradient(100deg,#282413,#1b222e 60%)}
+.crow{display:flex;align-items:baseline;gap:8px}
+.mun{font-family:'Barlow Condensed';font-size:20px;font-weight:700;line-height:1;flex:1}
+.uf{font-size:10px;font-weight:800;padding:2px 6px;border-radius:5px;background:#33405a;color:#cdd9ee;letter-spacing:.5px}
+.uf.ma{background:#3a2740;color:#eccdf0}
+.hora{font-size:12px;color:var(--amber);font-weight:700;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.tg{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:#26303f;color:#b9c6d8;border:1px solid #313d4e}
+.tg.km{background:#2a2213;color:#f0cf8f;border-color:#4a3a17}
+.tg.mass{background:#2b1533;color:#f0b6ff;border-color:#5a2a68}
+.obj{font-size:13px;color:#d3dce8;margin:2px 0 3px;max-height:38px;overflow:hidden;position:relative;transition:max-height .25s}
+.obj.open{max-height:400px}
+.more{font-size:11.5px;color:var(--amber);font-weight:700;cursor:pointer;display:inline-block;margin-bottom:6px}
+.meta{font-size:11px;color:var(--mut);margin-top:4px;display:flex;flex-wrap:wrap;gap:3px 12px}
+.val{font-family:'Barlow Condensed';font-size:19px;font-weight:700;color:#eef2f7}
+.val.nd{font-size:12px;color:var(--mut);font-family:'Manrope';font-style:italic}
+.warn{font-size:11px;color:#ffcf8f;background:#3a2a12;border:1px solid #5a3f16;border-radius:8px;padding:6px 9px;margin-top:7px}
+/* decision buttons */
+.dec{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:11px}
+.db{border:none;border-radius:10px;padding:12px 4px;font-family:'Manrope';font-weight:800;font-size:13px;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card2);color:var(--mut);border:1.5px solid var(--line)}
+.db .ic{font-size:16px}
+.db.selP{background:var(--green);color:#062b12;border-color:var(--green)}
+.db.selA{background:var(--yellow);color:#3a2f04;border-color:var(--yellow)}
+.db.selD{background:var(--red);color:#fff;border-color:var(--red)}
+.db:active{transform:scale(.96)}
+
+.empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px}
+
+/* FOOTER ACTION */
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,17,25,.96);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.foot .row{display:flex;gap:8px}
+.wapp{flex:1;background:#25d366;color:#053d1c;border:none;border-radius:13px;padding:14px;font-weight:800;font-size:15.5px;
+  font-family:'Manrope';cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.wapp:active{transform:scale(.98)}
+.wapp:disabled{background:#2a3340;color:#6b7688;box-shadow:none}
+.mini{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:13px;padding:0 15px;font-weight:700;font-size:13px;cursor:pointer}
+.foot .hint{font-size:10.5px;color:var(--mut);text-align:center;margin-top:6px}
+
+/* toast */
+.toast{position:fixed;bottom:120px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:#eef2f7;color:#141821;padding:11px 18px;border-radius:11px;font-weight:700;font-size:13px;
+  z-index:80;transition:.3s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:88%}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="nojsBanner" style="background:#f5a623;color:#1a1205;padding:12px 14px;font:600 13.5px -apple-system,BlinkMacSystemFont,sans-serif;text-align:center;line-height:1.5">⚠️ Para a versao INTERATIVA (tocar em Participar/Descartar) abra pelo <b>LINK no navegador</b>:<br><a href="https://gleyce-santana.github.io/geforte.html" style="color:#7a3b00">https://gleyce-santana.github.io/geforte.html</a></div>
+<div class="top">
+  <div class="bar"></div>
+  <div class="head">
+    <div class="kicker">GS Licitações · Agenda Interativa</div>
+    <h1>GEFORTE — Goiás (obra civil)</h1>
+    <div class="sub">Base: Goiânia–GO · Escopo: obra civil e edificações, incluindo piso intertravado / paver / bloquete · NÃO executa pavimentação asfáltica<br>eLicitaBoletim + PNCP — pesquisa 20/08/2026 · abertura 21/08 a 04/09/2026 · GO (+ editais enviados pelo cliente)</div>
+  </div>
+  <div class="sum">
+    <div class="chipstat p"><div class="n" id="cP">0</div><div class="l">Participar</div></div>
+    <div class="chipstat a"><div class="n" id="cA">0</div><div class="l">Análise</div></div>
+    <div class="chipstat d"><div class="n" id="cD">0</div><div class="l">Descartar</div></div>
+    <div class="chipstat pd"><div class="n" id="cN">0</div><div class="l">Pendente</div></div>
+  </div>
+  <div class="totbar"><span class="lbl">💰 Valor a disputar (participar)</span><span class="val" id="totV">R$ 0</span></div>
+  <div class="prog"><i id="progBar"></i></div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="foot">
+  <div class="row">
+    <button class="wapp" id="btnWapp" disabled><span>📲</span><span id="wappTxt">Enviar decisões no WhatsApp</span></button>
+    <button class="mini" id="btnCopy">Copiar</button>
+  </div>
+  <div class="hint" id="footHint">Toque em PARTICIPAR, ANÁLISE ou DESCARTAR em cada card</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+window.onerror=function(m,src,ln,col,err){try{var d=document.getElementById("__err")||document.createElement("div");d.id="__err";d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#b91c1c;color:#fff;padding:10px 12px;font:12px -apple-system,sans-serif;white-space:pre-wrap";d.textContent="⚠ "+m+" (linha "+ln+")";document.body.appendChild(d);}catch(_){}return false;};
+const ITENS = [{"orgao": "Prefeitura Municipal de Vianópolis", "mun": "Vianópolis", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 925739.59, "sit": "", "data": "2026-08-13", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Licitanet (www.licitanet.com.br)", "objeto": "Contratação de empresa especializada em engenharia para execução das obras de construção da Praça Agostinho e da 2ª Etapa da Praça de Lourdes, no município de Vianópolis, Plano de Ação 09032026-095289. EDITAL ENVIADO PELO CLIENTE.", "nota_extra": "⚠ EDITAL ENVIADO PELO CLIENTE. Sessão marcada para 13/08/2026 — prazo JÁ ENCERRADO. Confirmar no Licitanet se houve republicação/nova data.", "tipo_obra": "Obra civil / edificação", "dist_km": 100, "dist_base": "Goiânia", "idx": 0}, {"orgao": "Prefeitura Municipal de Damianópolis", "mun": "Damianópolis", "uf": "GO", "edital": "003/2026", "proc": "", "valor": 999450.59, "sit": "", "data": "2026-08-20", "hora": "08:01", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada para execução de obras de construção de calçadas em concreto, dentro do perímetro urbano, no município de Damianópolis - GO. EDITAL ENVIADO PELO CLIENTE.", "nota_extra": "⚠ EDITAL ENVIADO PELO CLIENTE. Sessão hoje, 20/08/2026 às 08h01 — prazo de proposta encerrado. Confirmar no BNC se houve adiamento.", "tipo_obra": "Obra civil / edificação", "dist_km": 530, "dist_base": "Goiânia", "idx": 1}, {"orgao": "Fundo Municipal de Educação Básica - FMEB Palmeiras de Goiás", "mun": "Palmeiras de Goiás", "uf": "GO", "edital": "018/2026", "proc": "", "valor": 2075242.47, "sit": "", "data": "2026-08-21", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Execução de obra e serviços de engenharia, incluso o fornecimento de mão de obra, materiais, equipamentos e veículos, conforme projeto arquitetônico inerentes à Construção do Bloco Modular CMEI, Setor Maria José, no município de Palmeiras de Goiás - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 90, "dist_base": "Goiânia", "idx": 2}, {"orgao": "Município de Uirapuru", "mun": "Uirapuru", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 1144517.08, "sit": "", "data": "2026-08-21", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada em obras e serviços de engenharia para a implantação de um lago artificial de uso público e do respectivo calçadão perimetral de contemplação no município de Uirapuru - GO, compreendendo terraplenagem, impermeabilização e obras civis.", "nota_extra": "", "tipo_obra": "Obra civil / lago e calçadão", "dist_km": 360, "dist_base": "Goiânia", "idx": 3}, {"orgao": "Coordenação Regional de Educação de Campos Belos - SEDUC/GO", "mun": "Divinópolis de Goiás", "uf": "GO", "edital": "119554/2026", "proc": "", "valor": 6218529.79, "sit": "", "data": "2026-08-24", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SISLOG", "objeto": "Contratação de empresa especializada para reforma e ampliação do Colégio Estadual Germana Gomes do município de Divinópolis de Goiás.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 630, "dist_base": "Goiânia", "idx": 4}, {"orgao": "Prefeitura Municipal de Nova Crixás", "mun": "Nova Crixás", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 579647.66, "sit": "", "data": "2026-08-24", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Diário Oficial do Estado", "objeto": "Contratação de empresa especializada de engenharia para execução da obra de construção do Centro de Referência de Assistência Social - CRAS, localizado na Rua Tarumã, no município de Nova Crixás - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 400, "dist_base": "Goiânia", "idx": 5}, {"orgao": "Município de Valparaíso de Goiás", "mun": "Valparaíso de Goiás", "uf": "GO", "edital": "022/2026", "proc": "", "valor": 723858.35, "sit": "", "data": "2026-08-24", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Prefeitura", "objeto": "Contratação de empresa especializada na execução de obra de construção da pista de caminhada no bairro Valparaíso, no município de Valparaíso de Goiás - GO.", "nota_extra": "", "tipo_obra": "Obra civil / pista de caminhada", "dist_km": 200, "dist_base": "Goiânia", "idx": 6}, {"orgao": "AGESUL - Agência Estadual de Gestão de Empreendimentos de Mato Grosso do Sul", "mun": "Bonito", "uf": "MS", "edital": "103/2026", "proc": "", "valor": 5071615.56, "sit": "", "data": "2026-08-24", "hora": "09:30", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "AGESUL (www.agesul.ms.gov.br)", "objeto": "Contratação de empresa especializada de engenharia para a instalação de cercamento com extensão de 27.618,00 m, para mitigação de acidentes e colisões com fauna, na Rodovia MS-345, trecho: entroncamento BR-419 (B) - início do trecho urbano de Bonito, nos municípios de Anastácio e Bonito/MS. EDITAL ENVIADO PELO CLIENTE.", "nota_extra": "⚠ EDITAL ENVIADO PELO CLIENTE. Obra em MATO GROSSO DO SUL (fora de GO) — 08h30 horário local de MS = 09h30 Brasília. Cercamento de 27.618 m na Rodovia MS-345 (Anastácio e Bonito).", "tipo_obra": "Obra civil / cercamento rodoviário", "dist_km": 1180, "dist_base": "Goiânia", "idx": 7}, {"orgao": "Superintendência Regional do Departamento de Polícia Federal - GO", "mun": "Goiânia", "uf": "GO", "edital": "63/2026", "proc": "", "valor": 689067.86, "sit": "", "data": "2026-08-24", "hora": "10:00", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Comprasnet", "objeto": "Contratação de empresa de engenharia ou arquitetura especializada e habilitada na prestação de serviços de reforma do pátio externo e impermeabilização de lajes da SR/PF/GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 0, "dist_base": "Goiânia", "idx": 8}, {"orgao": "Município de Cavalcante", "mun": "Cavalcante", "uf": "GO", "edital": "015/2026", "proc": "", "valor": 555865.74, "sit": "", "data": "2026-08-25", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Prefeitura", "objeto": "Execução de obras de revitalização da Praça Diogo Teles, no município de Cavalcante/GO, contemplando serviços de demolição, pavimentação, acessibilidade e paisagismo.", "nota_extra": "⚠ Confirmar se está no escopo do cliente.", "tipo_obra": "Obra civil / praça e urbanização", "dist_km": 490, "dist_base": "Goiânia", "idx": 9}, {"orgao": "Município de Cristalina", "mun": "Cristalina", "uf": "GO", "edital": "015/2026", "proc": "", "valor": 2244223.62, "sit": "", "data": "2026-08-25", "hora": "08:59", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Portal de Compras Públicas", "objeto": "Construção da Base de Bombeiros Militar, com área total construída de 776,94 m², a ser implantada na Rua 03, Gleba E, no município de Cristalina - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 230, "dist_base": "Goiânia", "idx": 10}, {"orgao": "Município de Itapaci", "mun": "Itapaci", "uf": "GO", "edital": "004/2026", "proc": "", "valor": 1307808.52, "sit": "", "data": "2026-08-25", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Contratação de empresa de engenharia para a execução da Orla do Lago Azul, no município de Itapaci - GO.", "nota_extra": "⚠ Confirmar se está no escopo do cliente.", "tipo_obra": "Obra civil / urbanização (orla)", "dist_km": 250, "dist_base": "Goiânia", "idx": 11}, {"orgao": "Município de Cristalina", "mun": "Cristalina", "uf": "GO", "edital": "016/2026", "proc": "", "valor": 4145886.69, "sit": "", "data": "2026-08-25", "hora": "09:29", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Portal de Compras Públicas", "objeto": "Contratação de empresa especializada para execução da obra de construção de creche de educação infantil Tipo 2 no município de Cristalina - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 230, "dist_base": "Goiânia", "idx": 12}, {"orgao": "CODEVASF - 9ª Superintendência Regional", "mun": "Goiânia", "uf": "GO", "edital": "001/2026", "proc": "", "valor": 45424800.0, "sit": "", "data": "2026-08-25", "hora": "10:00", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Comprasnet", "objeto": "Contratação para a execução de pontes com cabeceiras modulares em concreto armado e transposição mista, em municípios diversos localizados na área de atuação da 9ª Superintendência Regional da CODEVASF no Estado de Goiás.", "nota_extra": "CODEVASF — pontes modulares em concreto armado em diversos municípios de GO. Exige capacidade técnica em obra de arte corrente. ⚠ Confirmar se está no escopo do cliente.", "tipo_obra": "Ponte / obra de arte", "dist_km": 0, "dist_base": "Goiânia", "idx": 13}, {"orgao": "Município de Palmeiras de Goiás", "mun": "Palmeiras de Goiás", "uf": "GO", "edital": "019/2026", "proc": "", "valor": 3871111.64, "sit": "", "data": "2026-08-26", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada na área de engenharia civil, devidamente registrada no CREA, para execução de obra e serviços de engenharia no município de Palmeiras de Goiás.", "nota_extra": "⚠ Confirmar se está no escopo do cliente.", "tipo_obra": "Obra civil / edificação", "dist_km": 90, "dist_base": "Goiânia", "idx": 14}, {"orgao": "FIMES - Fundação Integrada Municipal de Ensino Superior", "mun": "Mineiros", "uf": "GO", "edital": "017/2026", "proc": "", "valor": 4175792.53, "sit": "", "data": "2026-08-26", "hora": "08:16", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Registro de preços para contratação de empresa especializada na execução de serviços comuns de engenharia, destinados à manutenção predial preventiva e corretiva, conservação, recuperação, adequação, reforma, ampliação de pequeno porte e implantação de estruturas auxiliares de apoio, incluindo fornecimento de mão de obra e materiais.", "nota_extra": "Registro de Preços para manutenção predial (serviços comuns de engenharia) — contrato guarda-chuva, não obra única.", "tipo_obra": "Obra civil / edificação", "dist_km": 470, "dist_base": "Goiânia", "idx": 15}, {"orgao": "Fundo Municipal de Saúde de Crixás", "mun": "Crixás", "uf": "GO", "edital": "009/2026", "proc": "", "valor": 1005600.87, "sit": "", "data": "2026-08-26", "hora": "08:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "PNCP / Prefeitura", "objeto": "Contratação de empresa do ramo de engenharia, para execução de obra de reforma do Hospital Municipal no município de Crixás/GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 320, "dist_base": "Goiânia", "idx": 16}, {"orgao": "Município de Porangatu", "mun": "Porangatu", "uf": "GO", "edital": "003/2026", "proc": "", "valor": 2351045.67, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa para construção de portal, revitalização e reforma da orla da Lagoa Grande e da Praça Tropical no município de Porangatu-GO.", "nota_extra": "", "tipo_obra": "Obra civil / praça e urbanização", "dist_km": 470, "dist_base": "Goiânia", "idx": 17}, {"orgao": "Fundo Municipal de Saúde de Ivolândia", "mun": "Ivolândia", "uf": "GO", "edital": "004/2026", "proc": "", "valor": 6895496.58, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Contratação de empresa para realizar a construção do Hospital Municipal de Ivolândia/GO, mediante projeto básico e memorial descritivo.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 220, "dist_base": "Goiânia", "idx": 18}, {"orgao": "Município de Rio Verde", "mun": "Rio Verde", "uf": "GO", "edital": "229/2026", "proc": "", "valor": 1361268.45, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Prefeitura", "objeto": "Contratação de empresa especializada em serviços de engenharia civil, mediante o regime de empreitada por preço global, para a construção de obra pública no município de Rio Verde - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 280, "dist_base": "Goiânia", "idx": 19}, {"orgao": "Município de Faina", "mun": "Faina", "uf": "GO", "edital": "003/2026", "proc": "", "valor": 2930407.51, "sit": "", "data": "2026-08-27", "hora": "08:59", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Prefeitura", "objeto": "Contratação de empresa especializada em engenharia civil para construção de 20 (vinte) unidades habitacionais, no município de Faina - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 230, "dist_base": "Goiânia", "idx": 20}, {"orgao": "SANEAGO - Saneamento de Goiás S/A", "mun": "Goiânia", "uf": "GO", "edital": "1098069", "proc": "", "valor": null, "sit": "", "data": "2026-08-27", "hora": "09:00", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Banco do Brasil", "objeto": "Contratação empreitada por preço global de obras e serviços de engenharia relativos à demolição de cerca e construção de muro padrão SANEAGO (H=3,00 m), em blocos de concreto e com concertina, na área do Reservatório Curitiba, no município de Goiânia, no Estado de Goiás.", "nota_extra": "Valor estimado não divulgado na publicação (SANEAGO — Lei 13.303/2016, orçamento pode ser sigiloso). Baixar o edital no Licitações-e/Banco do Brasil nº 1098069 e conferir a planilha orçamentária. Valor não informado na fonte — confirmar se é ≥ R$ 0 mi.", "tipo_obra": "Obra civil / edificação", "dist_km": 0, "dist_base": "Goiânia", "idx": 21}, {"orgao": "Município de Chapadão do Céu", "mun": "Chapadão do Céu", "uf": "GO", "edital": "004/2026", "proc": "", "valor": 842838.3, "sit": "", "data": "2026-08-27", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada no ramo da construção civil para execução da obra de construção de um refeitório, de uma cozinha e de um solário, bem como a realização de reparos nas dependências da Creche Municipal Eserci Kanieski.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 520, "dist_base": "Goiânia", "idx": 22}, {"orgao": "Município de Castelândia", "mun": "Castelândia", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 733905.1, "sit": "", "data": "2026-08-28", "hora": "08:15", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Contratação de serviço de engenharia civil, mediante o regime de empreitada global, para construção de um Centro Público de Convivência no município de Castelândia/GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 240, "dist_base": "Goiânia", "idx": 23}, {"orgao": "AGÊNCIA GOIANA DE INFRAESTRUTURA E TRANSPORTES - GOINFRA", "mun": "Mineiros", "uf": "GO", "edital": "116989/2026", "proc": "", "valor": 28238921.85, "sit": "", "data": "2026-08-28", "hora": "10:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SISLOG", "objeto": "Contratação de empresa de engenharia especializada, sob o regime de empreitada por preço global, para a execução da obra de construção da Policlínica Estadual de Mineiros.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 470, "dist_base": "Goiânia", "idx": 24}, {"orgao": "Município de Ouro Verde de Goiás", "mun": "Ouro Verde de Goiás", "uf": "GO", "edital": "020/2026", "proc": "", "valor": 1367805.23, "sit": "", "data": "2026-08-31", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Contratação de pessoa jurídica especializada para a execução de obra de construção de campo de futebol no município de Ouro Verde de Goiás.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 70, "dist_base": "Goiânia", "idx": 25}, {"orgao": "SANEAGO - Saneamento de Goiás S/A", "mun": "Goiânia", "uf": "GO", "edital": "1098290", "proc": "", "valor": null, "sit": "", "data": "2026-09-01", "hora": "09:00", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Banco do Brasil", "objeto": "Contratação por empreitada por preço global de obras e serviços de engenharia relativos à reforma e construção de dois Centros de Controles Operacionais (CCOs), sendo um na sede da SUMEG, em Goiânia, e outro no distrito de Aparecida de Goiânia, no Estado de Goiás.", "nota_extra": "Valor estimado não divulgado na publicação (SANEAGO — Lei 13.303/2016, orçamento pode ser sigiloso). Baixar o edital no Licitações-e/Banco do Brasil nº 1098290 e conferir a planilha orçamentária. Valor não informado na fonte — confirmar se é ≥ R$ 0 mi.", "tipo_obra": "Obra civil / edificação", "dist_km": 0, "dist_base": "Goiânia", "idx": 26}, {"orgao": "Coordenação Regional de Educação de Morrinhos - SEDUC/GO", "mun": "Morrinhos", "uf": "GO", "edital": "118658/2026", "proc": "", "valor": 5005210.87, "sit": "", "data": "2026-09-01", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SISLOG", "objeto": "Execução de muro; execução de calçadas; execução de pátio; execução de passarela; execução de salas de aula; execução de laboratórios; execução de cozinha; execução de refeitório; execução de quadra coberta; instalações elétricas; pintura geral, no Colégio Estadual em Período Integral Alfredo Nasser, no município de Morrinhos/GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 150, "dist_base": "Goiânia", "idx": 27}, {"orgao": "Município de Uruaçu", "mun": "Uruaçu", "uf": "GO", "edital": "021/2026", "proc": "", "valor": 624345.05, "sit": "", "data": "2026-09-01", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Reforma no Centro Popular de Abastecimento (CEPALUR) - feira coberta no município de Uruaçu-GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 310, "dist_base": "Goiânia", "idx": 28}, {"orgao": "Fundo Municipal de Educação de Catalão", "mun": "Catalão", "uf": "GO", "edital": "016/2026", "proc": "", "valor": 665854.74, "sit": "", "data": "2026-09-01", "hora": "09:15", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Contratação de serviços de reforma e ampliação do CMEI Aníbal Rosa do Nascimento, em atendimento às necessidades da Secretaria Municipal de Educação.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 280, "dist_base": "Goiânia", "idx": 29}, {"orgao": "Município de Cachoeira Alta", "mun": "Cachoeira Alta", "uf": "GO", "edital": "031/2026", "proc": "", "valor": 648609.45, "sit": "", "data": "2026-09-02", "hora": "08:15", "fonte_data": "Abertura", "mod": "Pregão Eletrônico", "portal": "Licitanet", "objeto": "Contratação de empresa especializada para prestação de serviço de obra de revitalização da Praça da Independência.", "nota_extra": "⚠ Confirmar se está no escopo do cliente.", "tipo_obra": "Obra civil / praça e urbanização", "dist_km": 380, "dist_base": "Goiânia", "idx": 30}, {"orgao": "Município de Senador Canedo", "mun": "Senador Canedo", "uf": "GO", "edital": "020/2026", "proc": "", "valor": 1030637.34, "sit": "", "data": "2026-09-02", "hora": "08:30", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "PNCP / Portal de Compras Públicas", "objeto": "Contratação de empresa especializada em serviços de arquitetura e engenharia para reforma de prédio público localizado no Parque, no município de Senador Canedo - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 20, "dist_base": "Goiânia", "idx": 31}, {"orgao": "Prefeitura Municipal de Abadia de Goiás", "mun": "Abadia de Goiás", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 3219299.13, "sit": "", "data": "2026-09-02", "hora": "08:59", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SlicX", "objeto": "Contratação de empresa especializada para execução de obras, em regime de empreitada global, visando à construção de sistema de drenagem pluvial e pavimentação asfáltica no município de Abadia de Goiás/GO.", "nota_extra": "⚠ Escopo MISTO: drenagem pluvial (obra civil, no ramo da GEFORTE) + pavimentação asfáltica (fora do ramo). Avaliar consórcio/subcontratação da parte asfáltica.", "tipo_obra": "Drenagem", "dist_km": 30, "dist_base": "Goiânia", "idx": 32}, {"orgao": "Prefeitura Municipal de Montividiu", "mun": "Montividiu", "uf": "GO", "edital": "004/2026", "proc": "", "valor": 1332497.57, "sit": "", "data": "2026-09-02", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Diário Oficial do Município", "objeto": "Contratação de empresa de construção civil para a execução de obra de construção de Transbordo para lixo doméstico urbano, localizado na Fazenda Montividiu Tiuba, à margem esquerda da GO-174, zona rural, Montividiu - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 290, "dist_base": "Goiânia", "idx": 33}, {"orgao": "Prefeitura Municipal de Hidrolândia", "mun": "Hidrolândia", "uf": "GO", "edital": "005/2026", "proc": "", "valor": 719342.09, "sit": "", "data": "2026-09-03", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Diário Oficial do Estado", "objeto": "Execução de obra de construção de bueiro celular de concreto sobre o Córrego Bocaina, no município de Hidrolândia - GO.", "nota_extra": "", "tipo_obra": "Drenagem", "dist_km": 40, "dist_base": "Goiânia", "idx": 34}, {"orgao": "Prefeitura Municipal de Monte Alegre de Goiás", "mun": "Monte Alegre de Goiás", "uf": "GO", "edital": "007/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-03", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Diário Oficial do Estado", "objeto": "Execução de obra pública de ampliação e reforma da Escola Areia, região Kalunga do município de Monte Alegre de Goiás-GO.", "nota_extra": "Valor ainda não publicado no PNCP até 20/08/2026. Solicitar a planilha orçamentária à Prefeitura / conferir no Licitanet. Valor não informado na fonte — confirmar se é ≥ R$ 0 mi.", "tipo_obra": "Obra civil / edificação", "dist_km": 600, "dist_base": "Goiânia", "idx": 35}, {"orgao": "Coordenação Regional de Educação de Luziânia - SEDUC/GO", "mun": "Luziânia", "uf": "GO", "edital": "110300/2026", "proc": "", "valor": 3937734.94, "sit": "", "data": "2026-09-03", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SISLOG", "objeto": "Demolições, implantação de barracão de obra, realocação do reservatório de água, aterro de fossa, 3 salas, sanitários, muro, acessibilidade, tapume, quadra de esportes coberta, áreas de convívio, paisagismo, circulações, nova cozinha, salas de aula, administrativo, passarelas, esquadrias, projeto elétrico e hidrossanitário no Colégio Estadual Nair Tiveron.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 190, "dist_base": "Goiânia", "idx": 36}, {"orgao": "Município de Quirinópolis", "mun": "Quirinópolis", "uf": "GO", "edital": "012/2026", "proc": "", "valor": 553706.16, "sit": "", "data": "2026-09-03", "hora": "09:01", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa para execução dos serviços, sob o regime de empreitada por preço global, objetivando a construção de um campo de futebol e vestiários no Complexo do Lago Sol Poente, no município de Quirinópolis-GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 300, "dist_base": "Goiânia", "idx": 37}, {"orgao": "Fundo Municipal de Ação Social de Caldas Novas", "mun": "Caldas Novas", "uf": "GO", "edital": "007/2026", "proc": "", "valor": 801400.48, "sit": "", "data": "2026-09-04", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SlicX", "objeto": "Contratação de empresa de engenharia especializada para construção de Centro de Referência de Assistência Social do Itaici - CRAS - no município de Caldas Novas/GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 180, "dist_base": "Goiânia", "idx": 38}, {"orgao": "Município de Palmeiras de Goiás", "mun": "Palmeiras de Goiás", "uf": "GO", "edital": "021/2026", "proc": "", "valor": 981637.96, "sit": "", "data": "2026-09-04", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Reforma da Praça do Boi de Palmeiras de Goiás.", "nota_extra": "", "tipo_obra": "Obra civil / praça e urbanização", "dist_km": 90, "dist_base": "Goiânia", "idx": 39}, {"orgao": "Município de Buritinópolis", "mun": "Buritinópolis", "uf": "GO", "edital": "002/2026", "proc": "", "valor": 130000.0, "sit": "", "data": "2026-09-04", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada em execução de serviços de engenharia para execução de serviços de PAVIMENTAÇÃO EM PISO INTERTRAVADO e execução de meio-fio, integrantes do módulo 02 do projeto de requalificação do canteiro central situado no cruzamento da BR-020 com a GO-236, sentido Mambaí, no município de Buritinópolis-GO.", "nota_extra": "★ ESPECIALIDADE DA GEFORTE (piso intertravado/paver). Valor abaixo do piso de R$ 500 mil definido para o cliente — mantida na agenda por ser exatamente o ramo dele.", "tipo_obra": "Pavimentação em piso intertravado / paver", "dist_km": 480, "dist_base": "Goiânia", "idx": 40}, {"orgao": "Coordenação Regional de Educação de Minaçu - SEDUC/GO", "mun": "Minaçu", "uf": "GO", "edital": "120391/2026", "proc": "", "valor": 6011897.4, "sit": "", "data": "2026-09-04", "hora": "14:30", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "SISLOG", "objeto": "Reforma e ampliação do Colégio Estadual em Período Integral Antônio Albino Ferreira, no município de Minaçu - GO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 480, "dist_base": "Goiânia", "idx": 41}];
+const DAYCOLORS = ["#E8743B", "#2E8B8B", "#6C6CE0", "#C0392B", "#2E7D32", "#B7791F", "#0E7490", "#9333EA", "#DB2777", "#4D7C0F", "#1D4ED8", "#B45309"];
+const CLIENTE = "GEFORTE — Goiás (obra civil)";
+const STORE = "agdec_" + CLIENTE.replace(/[^a-z0-9]/gi,'').toLowerCase();
+const WA_NUM = ""; // se vazio, WhatsApp abre para escolher contato
+
+let dec = {};
+try{ dec = JSON.parse(localStorage.getItem(STORE)||"{}"); }catch(e){ dec={}; }
+let filt = "todos";
+
+const WD = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+function brl(v){ if(v==null) return null; return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function brlShort(v){ if(v==null)return 'R$ —'; if(v>=1e6)return 'R$ '+(v/1e6).toFixed(2).replace('.',',')+' mi'; if(v>=1e3)return 'R$ '+Math.round(v/1e3)+' mil'; return 'R$ '+v.toFixed(0); }
+function dpar(s){ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+function dlabel(s){ const dt=dpar(s); return {wd:WD[dt.getDay()], dd:String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonthIndex?dt.getMonthIndex:dt.getMonth()+1).toString().padStart(2,'0')}; }
+
+function save(){ try{ localStorage.setItem(STORE, JSON.stringify(dec)); }catch(e){} }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2200); }
+
+// group by date
+function groups(){
+  const g={}; ITENS.forEach(it=>{ (g[it.data]=g[it.data]||[]).push(it); });
+  return Object.keys(g).sort().map((k,i)=>({data:k, color:DAYCOLORS[i%DAYCOLORS.length], itens:g[k].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''))}));
+}
+function pass(it){
+  const s=dec[it.idx];
+  if(filt==='todos')return true;
+  if(filt==='massa')return /massa|emuls/i.test(it.tipo_obra);
+  if(filt==='pend')return !s;
+  if(filt==='part')return s==='P';
+  return it.uf===filt;
+}
+
+function render(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  const gs=groups(); let shown=0;
+  gs.forEach(g=>{
+    const vis=g.itens.filter(pass); if(!vis.length)return; shown+=vis.length;
+    const dt=dpar(g.data); const wd=WD[dt.getDay()]; const dd=String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0');
+    const dayV=vis.reduce((a,b)=>a+(b.valor||0),0);
+    const day=document.createElement('div'); day.className='day';
+    day.innerHTML='<div class="dayhd" style="background:'+g.color+'"><span class="dw">'+wd+'</span><span class="dd">'+dd+'</span>'
+      +'<span class="cnt">'+vis.length+' licit.</span></div>';
+    vis.forEach(it=>{ day.appendChild(card(it)); });
+    list.appendChild(day);
+  });
+  if(!shown){ list.innerHTML='<div class="empty">Nenhuma licitação neste filtro.</div>'; }
+  updateSummary();
+}
+
+function card(it){
+  const s=dec[it.idx];
+  const el=document.createElement('div');
+  el.className='card'+(s==='P'?' p':s==='D'?' d':s==='A'?' a':'');
+  const isMass=/massa|emuls/i.test(it.tipo_obra);
+  const vtxt = it.valor==null ? '<span class="val nd">valor não informado</span>' : '<span class="val">'+brl(it.valor)+'</span>';
+  let badges='<span class="tg'+(isMass?' mass':'')+'">'+it.tipo_obra+'</span>';
+  if(it.dist_km) badges+='<span class="tg km">📍 ~'+it.dist_km+' km · '+it.dist_base+'</span>';
+  const warn = it.nota_extra ? '<div class="warn">⚠ '+it.nota_extra+'</div>' : '';
+  el.innerHTML=
+   '<div class="crow"><span class="mun">'+it.mun+'</span><span class="uf'+(it.uf==='MA'?' ma':'')+'">'+it.uf+'</span><span class="hora">🕐 '+(it.hora||'—')+'</span></div>'
+   +'<div class="badges">'+badges+'</div>'
+   +'<div class="obj" id="ob'+it.idx+'">'+it.objeto+'</div>'
+   +'<span class="more" data-ob="'+it.idx+'">ver mais ▾</span>'
+   +'<div class="meta"><span>'+vtxt+'</span><span>📄 '+it.edital+'</span><span>🏛 '+it.portal+'</span><span>'+it.mod+'</span></div>'
+   +warn
+   +'<div class="dec">'
+     +'<button class="db'+(s==='P'?' selP':'')+'" data-a="P" data-i="'+it.idx+'"><span class="ic">✅</span>Participar</button>'
+     +'<button class="db'+(s==='A'?' selA':'')+'" data-a="A" data-i="'+it.idx+'"><span class="ic">🔎</span>Análise</button>'
+     +'<button class="db'+(s==='D'?' selD':'')+'" data-a="D" data-i="'+it.idx+'"><span class="ic">❌</span>Descartar</button>'
+   +'</div>';
+  return el;
+}
+
+function updateSummary(){
+  let p=0,a=0,d=0;
+  ITENS.forEach(it=>{ const s=dec[it.idx]; if(s==='P')p++; else if(s==='A')a++; else if(s==='D')d++; });
+  const n=ITENS.length-p-a-d;
+  const tot=ITENS.reduce((x,it)=>x+(dec[it.idx]==='P'?(it.valor||0):0),0);
+  document.getElementById('cP').textContent=p;
+  document.getElementById('cA').textContent=a;
+  document.getElementById('cD').textContent=d;
+  document.getElementById('cN').textContent=n;
+  document.getElementById('totV').textContent=brlShort(tot).replace(' mi',' mi').replace('R$ ', 'R$ ');
+  document.getElementById('totV').textContent='R$ '+tot.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const done=p+a+d;
+  document.getElementById('progBar').style.width=(done/ITENS.length*100)+'%';
+  const btn=document.getElementById('btnWapp');
+  btn.disabled = (p===0 && a===0);
+  document.getElementById('wappTxt').textContent = (p||a)? 'Enviar '+(p+a)+' decisões no WhatsApp' : 'Enviar decisões no WhatsApp';
+  document.getElementById('footHint').textContent = done+' de '+ITENS.length+' decididas';
+}
+
+// build WhatsApp / copy message
+function buildMsg(){
+  const gs=groups(); let L=[];
+  L.push('*'+CLIENTE+'*'); L.push('_Decisões da agenda de licitações — GS Licitações_'); L.push('');
+  const P=[],A=[];
+  gs.forEach(g=>{ g.itens.forEach(it=>{ if(dec[it.idx]==='P')P.push(it); else if(dec[it.idx]==='A')A.push(it); }); });
+  const totP=P.reduce((a,b)=>a+(b.valor||0),0);
+  L.push('✅ *VAMOS PARTICIPAR ('+P.length+')* — R$ '+totP.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}));
+  let curd='';
+  P.forEach(it=>{ if(it.data!==curd){curd=it.data; const dt=dpar(it.data); L.push(''); L.push('📅 '+WD[dt.getDay()]+' '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0'));}
+    L.push('• '+(it.hora||'')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra+(it.valor?(' — R$ '+it.valor.toLocaleString('pt-BR')): ' — valor n/inf.')+(it.dist_km?(' (~'+it.dist_km+'km)'):'')); });
+  if(A.length){ L.push(''); L.push('🔎 *EM ANÁLISE ('+A.length+')*');
+    A.forEach(it=>{ const dt=dpar(it.data); L.push('• '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra); }); }
+  L.push(''); L.push('_Enviado pela agenda interativa • '+new Date().toLocaleDateString('pt-BR')+'_');
+  return L.join('\n');
+}
+
+document.addEventListener('click',e=>{
+  const db=e.target.closest('.db');
+  if(db){ const i=db.dataset.i, a=db.dataset.a; dec[i]=(dec[i]===a)?undefined:a; if(!dec[i])delete dec[i]; save();
+    // re-render only the card's day for snappiness -> simplest: full render keeps scroll
+    const y=window.scrollY; render(); window.scrollTo(0,y); return; }
+  const mr=e.target.closest('.more');
+  if(mr){ const ob=document.getElementById('ob'+mr.dataset.ob); ob.classList.toggle('open'); mr.textContent=ob.classList.contains('open')?'ver menos ▴':'ver mais ▾'; return; }
+  const fb=e.target.closest('.fbtn');
+  if(fb){ filt=fb.dataset.f; document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===fb)); render(); window.scrollTo(0,0); return; }
+});
+
+function __init(){
+var __nb=document.getElementById("nojsBanner"); if(__nb) __nb.style.display="none";
+document.getElementById('btnWapp').addEventListener('click',()=>{
+  const msg=encodeURIComponent(buildMsg());
+  const url = WA_NUM ? ('https://wa.me/'+WA_NUM+'?text='+msg) : ('https://wa.me/?text='+msg);
+  window.open(url,'_blank');
+});
+document.getElementById('btnCopy').addEventListener('click',async()=>{
+  try{ await navigator.clipboard.writeText(buildMsg()); toast('Resumo copiado ✓ cole no WhatsApp'); }
+  catch(e){ const t=document.createElement('textarea'); t.value=buildMsg(); document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); toast('Resumo copiado ✓'); }
+});
+
+// filters
+const UFS=[...new Set(ITENS.map(i=>i.uf))].filter(Boolean).sort();
+const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],...UFS.map(u=>[u,u]),['massa','🛢 Massa asfáltica']];
+document.getElementById('filters').innerHTML=FILTERS.map(f=>'<button class="fbtn'+(f[0]==='todos'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
+render();
+}
+try{ __init(); }
+catch(e){
+  var box=document.getElementById('list');
+  if(box){ box.innerHTML='<div class="empty">Nao foi possivel montar a versao interativa neste navegador. Lista simples abaixo.</div>'+
+    ITENS.map(function(it){return '<div class="card"><div class="crow"><span class="mun">'+it.mun+'</span><span class="uf">'+it.uf+'</span><span class="hora">'+(it.hora||'')+' '+(it.data||'')+'</span></div><div class="obj open">'+it.objeto+'</div><div class="meta">'+(it.tipo_obra||'')+(it.valor?(' — R$ '+it.valor):'')+'</div></div>';}).join(''); }
+  if(window.onerror) window.onerror('init: '+(e&&e.message?e.message:e),'',0,0,e);
+}
+</script>
+</body>
+</html>
