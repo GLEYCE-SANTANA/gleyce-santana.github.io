@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#141821">
+<title>INTEGRAL CONSTRUÇÕES — MA e TO — Agenda de Licitações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f131b; --bg2:#141a24; --card:#1b222e; --card2:#212a38;
+  --ink:#eef2f7; --mut:#9aa7b8; --line:#2b3543;
+  --amber:#f5a623; --green:#22c55e; --greenD:#15803d; --red:#ef4444; --redD:#b91c1c; --blue:#3b82f6; --yellow:#eab308;
+  --shadow:0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:linear-gradient(180deg,#0d1119,#0f131b 240px);color:var(--ink);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.45;
+  padding-bottom:110px;overscroll-behavior-y:contain}
+h1,h2,h3,.disp{font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px;margin:0}
+
+/* HEADER */
+.top{position:sticky;top:0;z-index:40;background:rgba(15,19,27,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.top .bar{background:repeating-linear-gradient(90deg,var(--amber) 0 22px,#111 22px 40px);height:6px}
+.head{padding:12px 15px 10px}
+.head .kicker{font-size:11px;letter-spacing:2.5px;color:var(--amber);font-weight:700;text-transform:uppercase}
+.head h1{font-size:26px;font-weight:700;line-height:1;margin-top:3px}
+.head .sub{font-size:11.5px;color:var(--mut);margin-top:5px}
+/* SUMMARY */
+.sum{display:flex;gap:6px;padding:0 12px 11px}
+.chipstat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;min-width:0}
+.chipstat .n{font-family:'Barlow Condensed';font-size:24px;font-weight:700;line-height:1}
+.chipstat .l{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.chipstat.p .n{color:var(--green)} .chipstat.d .n{color:var(--red)} .chipstat.a .n{color:var(--yellow)} .chipstat.pd .n{color:var(--mut)}
+.totbar{margin:0 12px 10px;background:linear-gradient(100deg,#15361f,#123)}
+.totbar{border:1px solid #24613a;border-radius:12px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center}
+.totbar .lbl{font-size:11px;color:#8fe3ab;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.totbar .val{font-family:'Barlow Condensed';font-size:22px;font-weight:700;color:#c9f6d8}
+/* progress */
+.prog{height:5px;background:var(--line);border-radius:9px;margin:0 12px 10px;overflow:hidden}
+.prog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--green));transition:width .4s}
+
+/* FILTERS */
+.filters{display:flex;gap:7px;overflow-x:auto;padding:2px 12px 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex:none;background:var(--card);border:1px solid var(--line);color:var(--mut);
+  padding:7px 13px;border-radius:20px;font-size:12.5px;font-weight:600;white-space:nowrap;cursor:pointer}
+.fbtn.on{background:var(--amber);color:#1a1205;border-color:var(--amber)}
+
+/* DAY GROUP */
+.day{margin:16px 12px 0}
+.dayhd{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:11px;color:#fff;
+  font-family:'Barlow Condensed';font-weight:700;box-shadow:var(--shadow);position:sticky;top:6px;z-index:20}
+.dayhd .dw{font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:1px}
+.dayhd .dd{font-size:21px;line-height:1}
+.dayhd .cnt{margin-left:auto;background:rgba(0,0,0,.28);padding:3px 10px;border-radius:20px;font-size:13px;font-weight:600}
+.dayhd .dv{font-size:11px;opacity:.92;font-weight:600;font-family:'Manrope'}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);
+  border-radius:13px;margin-top:9px;padding:12px 13px;box-shadow:var(--shadow);transition:.18s}
+.card.p{border-left-color:var(--green);background:linear-gradient(100deg,#15291d,#1b222e 60%)}
+.card.d{border-left-color:var(--red);opacity:.62}
+.card.d .obj,.card.d .mun{text-decoration:line-through}
+.card.a{border-left-color:var(--yellow);background:linear-gradient(100deg,#282413,#1b222e 60%)}
+.crow{display:flex;align-items:baseline;gap:8px}
+.mun{font-family:'Barlow Condensed';font-size:20px;font-weight:700;line-height:1;flex:1}
+.uf{font-size:10px;font-weight:800;padding:2px 6px;border-radius:5px;background:#33405a;color:#cdd9ee;letter-spacing:.5px}
+.uf.ma{background:#3a2740;color:#eccdf0}
+.hora{font-size:12px;color:var(--amber);font-weight:700;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.tg{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:#26303f;color:#b9c6d8;border:1px solid #313d4e}
+.tg.km{background:#2a2213;color:#f0cf8f;border-color:#4a3a17}
+.tg.mass{background:#2b1533;color:#f0b6ff;border-color:#5a2a68}
+.obj{font-size:13px;color:#d3dce8;margin:2px 0 3px;max-height:38px;overflow:hidden;position:relative;transition:max-height .25s}
+.obj.open{max-height:400px}
+.more{font-size:11.5px;color:var(--amber);font-weight:700;cursor:pointer;display:inline-block;margin-bottom:6px}
+.meta{font-size:11px;color:var(--mut);margin-top:4px;display:flex;flex-wrap:wrap;gap:3px 12px}
+.val{font-family:'Barlow Condensed';font-size:19px;font-weight:700;color:#eef2f7}
+.val.nd{font-size:12px;color:var(--mut);font-family:'Manrope';font-style:italic}
+.warn{font-size:11px;color:#ffcf8f;background:#3a2a12;border:1px solid #5a3f16;border-radius:8px;padding:6px 9px;margin-top:7px}
+/* decision buttons */
+.dec{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:11px}
+.db{border:none;border-radius:10px;padding:12px 4px;font-family:'Manrope';font-weight:800;font-size:13px;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card2);color:var(--mut);border:1.5px solid var(--line)}
+.db .ic{font-size:16px}
+.db.selP{background:var(--green);color:#062b12;border-color:var(--green)}
+.db.selA{background:var(--yellow);color:#3a2f04;border-color:var(--yellow)}
+.db.selD{background:var(--red);color:#fff;border-color:var(--red)}
+.db:active{transform:scale(.96)}
+
+.empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px}
+
+/* FOOTER ACTION */
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,17,25,.96);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.foot .row{display:flex;gap:8px}
+.wapp{flex:1;background:#25d366;color:#053d1c;border:none;border-radius:13px;padding:14px;font-weight:800;font-size:15.5px;
+  font-family:'Manrope';cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.wapp:active{transform:scale(.98)}
+.wapp:disabled{background:#2a3340;color:#6b7688;box-shadow:none}
+.mini{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:13px;padding:0 15px;font-weight:700;font-size:13px;cursor:pointer}
+.foot .hint{font-size:10.5px;color:var(--mut);text-align:center;margin-top:6px}
+
+/* toast */
+.toast{position:fixed;bottom:120px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:#eef2f7;color:#141821;padding:11px 18px;border-radius:11px;font-weight:700;font-size:13px;
+  z-index:80;transition:.3s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:88%}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="nojsBanner" style="background:#f5a623;color:#1a1205;padding:12px 14px;font:600 13.5px -apple-system,BlinkMacSystemFont,sans-serif;text-align:center;line-height:1.5">⚠️ Para a versao INTERATIVA (tocar em Participar/Descartar) abra pelo <b>LINK no navegador</b>:<br><a href="https://gleyce-santana.github.io/integral.html" style="color:#7a3b00">https://gleyce-santana.github.io/integral.html</a></div>
+<div class="top">
+  <div class="bar"></div>
+  <div class="head">
+    <div class="kicker">GS Licitações · Agenda Interativa</div>
+    <h1>INTEGRAL CONSTRUÇÕES — MA e TO</h1>
+    <div class="sub">Base: Imperatriz–MA · Escopo: obra civil/edificações e piso intertravado · Obras de até R$ 3 milhões · Concorrência<br>eLicitaBoletim — pesquisa 22/08/2026 · abertura 23/08 a 06/09/2026 · MA e TO</div>
+  </div>
+  <div class="sum">
+    <div class="chipstat p"><div class="n" id="cP">0</div><div class="l">Participar</div></div>
+    <div class="chipstat a"><div class="n" id="cA">0</div><div class="l">Análise</div></div>
+    <div class="chipstat d"><div class="n" id="cD">0</div><div class="l">Descartar</div></div>
+    <div class="chipstat pd"><div class="n" id="cN">0</div><div class="l">Pendente</div></div>
+  </div>
+  <div class="totbar"><span class="lbl">💰 Valor a disputar (participar)</span><span class="val" id="totV">R$ 0</span></div>
+  <div class="prog"><i id="progBar"></i></div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="foot">
+  <div class="row">
+    <button class="wapp" id="btnWapp" disabled><span>📲</span><span id="wappTxt">Enviar decisões no WhatsApp</span></button>
+    <button class="mini" id="btnCopy">Copiar</button>
+  </div>
+  <div class="hint" id="footHint">Toque em PARTICIPAR, ANÁLISE ou DESCARTAR em cada card</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+window.onerror=function(m,src,ln,col,err){try{var d=document.getElementById("__err")||document.createElement("div");d.id="__err";d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#b91c1c;color:#fff;padding:10px 12px;font:12px -apple-system,sans-serif;white-space:pre-wrap";d.textContent="⚠ "+m+" (linha "+ln+")";document.body.appendChild(d);}catch(_){}return false;};
+const ITENS = [{"id": "7202416", "orgao": "MUNICIPIO DE TUTOIA", "mun": "Tutóia", "uf": "MA", "edital": "007/2026", "proc": "", "valor": 1027258.93, "sit": "", "data": "2026-09-02", "hora": "09:01", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "CONTRATAÇÃO DE EMPRESA PARA CONSTRUÇÃO DE POSTO DE SAÚDE DO POVOADO JARDIM NO MUNICIPIO DE TUTÓIA - MA", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 850, "dist_base": "Imperatriz", "idx": 0}, {"id": "7230728", "orgao": "MUNICIPIO DE PARANA", "mun": "Paranã", "uf": "TO", "edital": "004/2026", "proc": "", "valor": 457016.58, "sit": "", "data": "2026-08-27", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "CONSTRUÇÃO DE ÁREAS DE LAZER PARA ATIVIDADES FÍSICAS EM ESPAÇOS PÚBLICOS NO SETOR AEROPORTO NO MUNICÍPIO DE PARANÃ-TO, CONFOME EDITAL .", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 1030, "dist_base": "Imperatriz", "idx": 1}, {"id": "7240866", "orgao": "Prefeitura Municipal de Caxias", "mun": "Caxias", "uf": "MA", "edital": "016/2026", "proc": "", "valor": 950095.0, "sit": "", "data": "2026-08-31", "hora": "08:01", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA REFORMA DE GINÁSIOS, CAMPOS DE FUTEBOL E QUADRAS NO MUNICIPIO DE CAXIAS/MA, ARENINHA VILA PARAISO, ARENINHA PARQUE DA CIDADE, GINÁSIO POLIESPORTIVO DO EUGÊNIO D’AGUA E ESTÁDIO ALUIZO LOBO NA VOLTA REDONDA.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 600, "dist_base": "Imperatriz", "idx": 2}, {"id": "7248992", "orgao": "Prefeitura Municipal de São Domingos do Maranhão", "mun": "São Domingos do Maranhão", "uf": "MA", "edital": "10/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-26", "hora": "09:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial da União", "objeto": "Contratação de empresa especializada na Reforma da Praça Getúlio Vargas - através do Contrato de Repasse nº 991962/2025/MTUR/CAIXA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 450, "dist_base": "Imperatriz", "idx": 3}, {"id": "7248993", "orgao": "Prefeitura Municipal de Igarape do Meio", "mun": "Igarape do Meio", "uf": "MA", "edital": "5/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-24", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial da União", "objeto": "objetivando a contratação de empresa especializada na execução de obra de engenharia para construção de Unidade Básica de Saúde (UBS), localizada no Povoado Bacuri, zona rural do Município de Igarapé do Meio - MA, na forma da Lei nº 14.", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 430, "dist_base": "Imperatriz", "idx": 4}, {"id": "7257464", "orgao": "Prefeitura Municipal de Paraiso do Tocantins", "mun": "Paraíso do Tocantins", "uf": "TO", "edital": "58058/2026", "proc": "", "valor": 1620500.0, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA CONSTRUÇÃO DE REDE E ILUMINAÇÃO PÚBLICA EM BAIRROS DE PARAÍSO DO TOCANTINS E SERRA DO ESTRONDO ATRAVÉS DA SECRETARIA MUNICIPAL DE INFRAESTRUTURA, OBRAS E MOBILIDADE URBANA.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 700, "dist_base": "Imperatriz", "idx": 5}, {"id": "7266973", "orgao": "MUNICIPIO DE BURITI", "mun": "Buriti", "uf": "MA", "edital": "9/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Contratação de empresa de engenharia para execução dos serviços de construção de uma Escola de 12 salas, sem quadra coberta, padrão FNDE, localizada no Povoado Barra Nova, no Município de Buriti-MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 700, "dist_base": "Imperatriz", "idx": 6}, {"id": "7267668", "orgao": "FUNDO MUNICIPAL DE EDUCAÇÃO DE BRASILÂNDIA DO TOCANTINS", "mun": "Brasilândia Do Tocantins", "uf": "TO", "edital": "001/2026", "proc": "", "valor": 409072.49, "sit": "", "data": "2026-08-26", "hora": "07:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "CONTRATAÇÃO DE EMPRESA DO RAMO PARA REFORMA DO CMEI ODÁLIA MARIA NUNES DE BRASILÂNDIA DO TOCANTINS - TO", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 390, "dist_base": "Imperatriz", "idx": 7}, {"id": "7268087", "orgao": "Prefeitura Municipal de Santo Amaro do Maranhao", "mun": "Santo Amaro do Maranhao", "uf": "MA", "edital": "14/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-26", "hora": "11:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial do Estado", "objeto": "contratação de empresa especializada para construção da Praça Mandacaru, no bairro Mandacaru, no município de Santo Amaro do Maranhão - MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 750, "dist_base": "Imperatriz", "idx": 8}, {"id": "7269143", "orgao": "Prefeitura Municipal de Sambaíba", "mun": "Sambaíba", "uf": "MA", "edital": "005/2026", "proc": "", "valor": 1421650.0, "sit": "", "data": "2026-08-28", "hora": "08:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "Contratação de Empresa para futura e eventual Construção de uma Unidade Escolar na Zona Rural do Município de Sambaiba/MA.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 390, "dist_base": "Imperatriz", "idx": 9}, {"id": "7269895", "orgao": "Prefeitura Municipal de Paraíso do Tocantins", "mun": "Paraiso do Tocantins", "uf": "TO", "edital": "4/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial da União", "objeto": "Contratação de Empresa Especializada na construção de rede de iluminação pública em bairros de Paraíso do Tocantins e Serra do Estrondo.", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 700, "dist_base": "Imperatriz", "idx": 10}, {"id": "7271049", "orgao": "MUNICIPIO DE BARRA DO OURO", "mun": "Barra Do Ouro", "uf": "TO", "edital": "05/2026", "proc": "", "valor": 806643.81, "sit": "", "data": "2026-08-28", "hora": "11:30", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "CONSTRUÇÃO DE PAVIMENTAÇÃO EM ZONA URBANA DO MUNICÍPIO DE BARRA DO OURO/TO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 310, "dist_base": "Imperatriz", "idx": 11}, {"id": "7273046", "orgao": "Prefeitura Municipal de Milagres do Maranhao", "mun": "Milagres do Maranhao", "uf": "MA", "edital": "6/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-25", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Diário Oficial da União", "objeto": "objeto Construção de Quadra Coberta no Povoado Lagoa Seca e Povoado São Roque Município de Milagres do Maranhão/MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 740, "dist_base": "Imperatriz", "idx": 12}, {"id": "7273798", "orgao": "SECRETARIA MUNICIPAL DE EDUCAÇÃO DE PINHEIRO", "mun": "Pinheiro", "uf": "MA", "edital": "8/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-26", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Contratação de empresa especializada em serviços de engenharia para construção de escola de 09 salas de aula padrão FNDE no município de Pinheiro – MA.", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 560, "dist_base": "Imperatriz", "idx": 13}, {"id": "7275586", "orgao": "MUNICÍPIO DE TURIAÇU", "mun": "Turiaçu", "uf": "MA", "edital": "006/2026", "proc": "", "valor": 1463255.27, "sit": "", "data": "2026-09-02", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência Eletrônica", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Contratação de empresa especializada para execução de obra de construção de quadra poliesportiva no Município de Turiaçu/MA.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 640, "dist_base": "Imperatriz", "idx": 14}, {"id": "7276884", "orgao": "Prefeitura Municipal de Santo Amaro do Maranhao", "mun": "Santo Amaro do Maranhao", "uf": "MA", "edital": "15/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-27", "hora": "10:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial do Estado", "objeto": "contratação de empresa especializada para reforma do espaço urbano para revitalização da Praça de Convivência Vila de Encantos, no Município de Santo Amaro do Maranhão - MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 750, "dist_base": "Imperatriz", "idx": 15}, {"id": "7284640", "orgao": "Prefeitura Municipal de Bom Jardim", "mun": "Bom Jardim", "uf": "MA", "edital": "167/2026", "proc": "", "valor": 1237180.0, "sit": "", "data": "2026-08-28", "hora": "09:59", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Não Identificado", "objeto": "Contratação de pessoa jurídica especializada para a construção da praça e adequação da rodoviária para área de eventos no município de Bom Jardim/MA.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 1740, "dist_base": "Imperatriz", "idx": 16}, {"id": "7285333", "orgao": "Prefeitura Municipal de Belagua", "mun": "Belagua", "uf": "MA", "edital": "9/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-28", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial da União", "objeto": "Formação de Registro de preços para futura e eventual Contratação de Empresa Especializada na Construção de 01 (uma) Escola Padrão FNDE, no Povoado Anajá dos Dias zona Rural do Município de Belágua/M", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 630, "dist_base": "Imperatriz", "idx": 17}, {"id": "7285334", "orgao": "Prefeitura Municipal de Passagem Franca", "mun": "Passagem Franca", "uf": "MA", "edital": "10/2026", "proc": "", "valor": null, "sit": "", "data": "2026-08-31", "hora": "15:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial da União", "objeto": "CONTRATAÇÃO DE EMPRESA PARA CONSTRUÇÃO DA CRECHE JACY SARAIVA NO MUNICÍPIO DE PASSAGEM FRANCA -MA.", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 540, "dist_base": "Imperatriz", "idx": 18}, {"id": "7285351", "orgao": "Prefeitura Municipal de Bom Jardim", "mun": "Bom Jardim", "uf": "MA", "edital": "172/2026", "proc": "", "valor": 1203950.0, "sit": "", "data": "2026-08-28", "hora": "10:59", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Não Identificado", "objeto": "Contratação de pessoa jurídica especializada para a construção de Espaço Educativo Urbano e Rural de 06 salas de aula no Povoado Vila Bandeirante no município de Bom Jardim/MA, termo de compromisso Nº 171708, Obra (1015479) Convênio nº 30249/2014.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 1740, "dist_base": "Imperatriz", "idx": 19}, {"id": "7289823", "orgao": "MUNICÍPIO DE SENADOR ALEXANDRE COSTA", "mun": "Senador Alexandre Costa", "uf": "MA", "edital": "6/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-01", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Contratação de empresa para prestação de serviços de Reforma e Modernização do Ginásio Poliesportivo no Município de Senador Alexandre Costa/MA (Contrato de Repasse MESP 988303/2025) no Município de Senador Alexandre Costa/MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 460, "dist_base": "Imperatriz", "idx": 20}, {"id": "7289850", "orgao": "Prefeitura Municipal de Santa Rita", "mun": "Santa Rita", "uf": "MA", "edital": "010/2026", "proc": "", "valor": 2825220.0, "sit": "", "data": "2026-08-31", "hora": "14:11", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "Contratação de empresa especializada em obras e serviços de engenharia para Construção do Terminal Rodoviário Municipal de Passageiros para atender as necessidades do Município de Santa Rita/MA", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 570, "dist_base": "Imperatriz", "idx": 21}, {"id": "7290523", "orgao": "FUNDO MUNICIPAL DE EDUCAÇÃO DE PALMEIRÂNDIA", "mun": "Palmeirândia", "uf": "MA", "edital": "7/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-02", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA EXECUÇÃO DE OBRAS E SERVIÇOS DE ENGENHARIA DESTINADOS À RETOMADA E CONCLUSÃO DA CRECHE/PRÉ-ESCOLA TIPO 1, PADRÃO FNDE, ID SIMEC Nº 1011065, VINCULADA AO TERMO DE COMPROMISSO Nº 9842, LOCALIZADA NO BAIRRO TRIÂNGULO, NO MUNICÍPIO DE PALMEIRÂNDIA/MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 560, "dist_base": "Imperatriz", "idx": 22}, {"id": "7293510", "orgao": "MUNICÍPIO DE ITAPECURU MIRIM", "mun": "Itapecuru Mirim", "uf": "MA", "edital": "17/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-03", "hora": "08:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Contratação de pessoa jurídica especializada para a execução de Reforma e Revitalização da Praça da Biblioteca no município de Itapecuru Mirim/MA (Contrato de Repasse OGU MTUR 988013/2025).", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 550, "dist_base": "Imperatriz", "idx": 23}, {"id": "7294713", "orgao": "Prefeitura Municipal de Passagem Franca", "mun": "Passagem Franca", "uf": "MA", "edital": "056", "proc": "", "valor": 2039370.0, "sit": "", "data": "2026-08-31", "hora": "15:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Não Identificado", "objeto": "CONTRATAÇÃO DE EMPRESA PARA CONSTRUÇÃO DA CRECHE JACY SARAIVA NO MUNICÍPIO DE PASSAGEM FRANCA -MA", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 540, "dist_base": "Imperatriz", "idx": 24}, {"id": "7297703", "orgao": "Prefeitura Municipal de Pium", "mun": "Pium", "uf": "TO", "edital": "004/2026", "proc": "", "valor": 246763.0, "sit": "", "data": "2026-09-02", "hora": "08:01", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA CONSTRUÇÃO DE COBERTURA DE QUADRA DE ESPORTE LOCALIZADA NO SETOR CHÃO DE ESTRELAS NO MUNICÍPIO DE PIUM/TO, DECORRENTE DA EMENDA ESTADUAL N°. 010408.01226/2026, CONFORME CONDIÇÕES, QUANTIDADE E EXIGÊNCIAS AQUI ESTABELECIDAS.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 750, "dist_base": "Imperatriz", "idx": 25}, {"id": "7298135", "orgao": "SECRETARIA MUNICIPAL DE EDUCAÇÃO DE OLINDA NOVA DO MARANHÃO", "mun": "Olinda Nova do Maranhão", "uf": "MA", "edital": "3/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-03", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "O objeto consiste na Construção de uma escola de tempo integral com 13 salas, em Olinda Nova do Maranhão – FNDE, conforme descriminado no memorial descritivo, além de quantificação da obra, com Anotações de Responsabilidade Tecnica – ART, registrada junto ao CREA/MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 520, "dist_base": "Imperatriz", "idx": 26}, {"id": "7301659", "orgao": "MUNICÍPIO DE SÃO VICENTE FERRER", "mun": "São Vicente Ferrer", "uf": "MA", "edital": "10/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-04", "hora": "08:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Contratação de empresa para prestação de serviços de construção de pontes e bueiros em estradas vicinais no município de São Vicente Férrer – MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Estrada vicinal", "dist_km": 540, "dist_base": "Imperatriz", "idx": 27}, {"id": "7306195", "orgao": "Secretaria Municipal de Educação de Araguaína", "mun": "Araguaína", "uf": "TO", "edital": "011/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-04", "hora": "14:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "Contratação de empresa especializada para a execução da obra de reconstrução da quadra poliesportiva coberta da Escola Municipal Meu Castelinho, em Araguaína/TO.", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 260, "dist_base": "Imperatriz", "idx": 28}, {"id": "7308114", "orgao": "MUNICÍPIO DE SUCUPIRA DO RIACHÃO", "mun": "Sucupira do Riachão", "uf": "MA", "edital": "8/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-04", "hora": "09:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Conclusão da Construção de uma Escola de 4 Salas no Manajós, ID 1002845 no município de Sucupira do Riachão/MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 490, "dist_base": "Imperatriz", "idx": 29}, {"id": "7308719", "orgao": "Secretaria Municipal de Educação de Araguaína", "mun": "Araguaína", "uf": "TO", "edital": "010/2026", "proc": "", "valor": 711397.0, "sit": "", "data": "2026-09-04", "hora": "08:30", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Compras Públicas", "objeto": "Contratação de empresa especializada em engenharia para Reconstrução da Quadra Poliesportiva com cobertura da Escola Aurélio Buarque de Holanda, no município de Araguaína -TO.", "nota_extra": "", "tipo_obra": "Obra civil / edificação", "dist_km": 260, "dist_base": "Imperatriz", "idx": 30}, {"id": "7309133", "orgao": "MUNICÍPIO DE SUCUPIRA DO RIACHÃO", "mun": "Sucupira do Riachão", "uf": "MA", "edital": "9/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-04", "hora": "10:00", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Licitanet", "objeto": "Conclusão da construção de uma Creche Pré-Escola Tipo 2, ID 1015725 no Município de Sucupira do Riachão – MA", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 490, "dist_base": "Imperatriz", "idx": 31}, {"id": "7309879", "orgao": "Prefeitura Municipal de Urbano Santos", "mun": "Urbano Santos", "uf": "MA", "edital": "6/2026", "proc": "", "valor": null, "sit": "", "data": "2026-09-04", "hora": "08:31", "fonte_data": "Abertura", "mod": "Concorrência", "portal": "Diário Oficial do Estado", "objeto": "CONSTRUÇÃO DE 25 UNIDADES HABITACIONAIS, NA ZONAURBANA, EM ATEDIMENTO AO PROGRAMA MCMV - FNHIS2025 SUB 50 NO MUNICÍPIO DE URBANO SANTOS/MA, CON-FORME TERMO DE COMPROMISSO Nº 039642/2024/MCIDA-DES/CAIX", "nota_extra": "Valor não informado na fonte — confirmar se é ≤ R$ 3.000.000.", "tipo_obra": "Obra civil / edificação", "dist_km": 680, "dist_base": "Imperatriz", "idx": 32}];
+const DAYCOLORS = ["#E8743B", "#2E8B8B", "#6C6CE0", "#C0392B", "#2E7D32", "#B7791F", "#0E7490", "#9333EA", "#DB2777", "#4D7C0F", "#1D4ED8", "#B45309"];
+const CLIENTE = "INTEGRAL CONSTRUÇÕES — MA e TO";
+const STORE = "agdec_" + CLIENTE.replace(/[^a-z0-9]/gi,'').toLowerCase();
+const WA_NUM = ""; // se vazio, WhatsApp abre para escolher contato
+
+let dec = {};
+try{ dec = JSON.parse(localStorage.getItem(STORE)||"{}"); }catch(e){ dec={}; }
+let filt = "todos";
+
+const WD = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+function brl(v){ if(v==null) return null; return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function brlShort(v){ if(v==null)return 'R$ —'; if(v>=1e6)return 'R$ '+(v/1e6).toFixed(2).replace('.',',')+' mi'; if(v>=1e3)return 'R$ '+Math.round(v/1e3)+' mil'; return 'R$ '+v.toFixed(0); }
+function dpar(s){ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+function dlabel(s){ const dt=dpar(s); return {wd:WD[dt.getDay()], dd:String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonthIndex?dt.getMonthIndex:dt.getMonth()+1).toString().padStart(2,'0')}; }
+
+function save(){ try{ localStorage.setItem(STORE, JSON.stringify(dec)); }catch(e){} }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2200); }
+
+// group by date
+function groups(){
+  const g={}; ITENS.forEach(it=>{ (g[it.data]=g[it.data]||[]).push(it); });
+  return Object.keys(g).sort().map((k,i)=>({data:k, color:DAYCOLORS[i%DAYCOLORS.length], itens:g[k].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''))}));
+}
+function pass(it){
+  const s=dec[it.idx];
+  if(filt==='todos')return true;
+  if(filt==='massa')return /massa|emuls/i.test(it.tipo_obra);
+  if(filt==='pend')return !s;
+  if(filt==='part')return s==='P';
+  return it.uf===filt;
+}
+
+function render(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  const gs=groups(); let shown=0;
+  gs.forEach(g=>{
+    const vis=g.itens.filter(pass); if(!vis.length)return; shown+=vis.length;
+    const dt=dpar(g.data); const wd=WD[dt.getDay()]; const dd=String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0');
+    const dayV=vis.reduce((a,b)=>a+(b.valor||0),0);
+    const day=document.createElement('div'); day.className='day';
+    day.innerHTML='<div class="dayhd" style="background:'+g.color+'"><span class="dw">'+wd+'</span><span class="dd">'+dd+'</span>'
+      +'<span class="cnt">'+vis.length+' licit.</span></div>';
+    vis.forEach(it=>{ day.appendChild(card(it)); });
+    list.appendChild(day);
+  });
+  if(!shown){ list.innerHTML='<div class="empty">Nenhuma licitação neste filtro.</div>'; }
+  updateSummary();
+}
+
+function card(it){
+  const s=dec[it.idx];
+  const el=document.createElement('div');
+  el.className='card'+(s==='P'?' p':s==='D'?' d':s==='A'?' a':'');
+  const isMass=/massa|emuls/i.test(it.tipo_obra);
+  const vtxt = it.valor==null ? '<span class="val nd">valor não informado</span>' : '<span class="val">'+brl(it.valor)+'</span>';
+  let badges='<span class="tg'+(isMass?' mass':'')+'">'+it.tipo_obra+'</span>';
+  if(it.dist_km) badges+='<span class="tg km">📍 ~'+it.dist_km+' km · '+it.dist_base+'</span>';
+  const warn = it.nota_extra ? '<div class="warn">⚠ '+it.nota_extra+'</div>' : '';
+  el.innerHTML=
+   '<div class="crow"><span class="mun">'+it.mun+'</span><span class="uf'+(it.uf==='MA'?' ma':'')+'">'+it.uf+'</span><span class="hora">🕐 '+(it.hora||'—')+'</span></div>'
+   +'<div class="badges">'+badges+'</div>'
+   +'<div class="obj" id="ob'+it.idx+'">'+it.objeto+'</div>'
+   +'<span class="more" data-ob="'+it.idx+'">ver mais ▾</span>'
+   +'<div class="meta"><span>'+vtxt+'</span><span>📄 '+it.edital+'</span><span>🏛 '+it.portal+'</span><span>'+it.mod+'</span></div>'
+   +warn
+   +'<div class="dec">'
+     +'<button class="db'+(s==='P'?' selP':'')+'" data-a="P" data-i="'+it.idx+'"><span class="ic">✅</span>Participar</button>'
+     +'<button class="db'+(s==='A'?' selA':'')+'" data-a="A" data-i="'+it.idx+'"><span class="ic">🔎</span>Análise</button>'
+     +'<button class="db'+(s==='D'?' selD':'')+'" data-a="D" data-i="'+it.idx+'"><span class="ic">❌</span>Descartar</button>'
+   +'</div>';
+  return el;
+}
+
+function updateSummary(){
+  let p=0,a=0,d=0;
+  ITENS.forEach(it=>{ const s=dec[it.idx]; if(s==='P')p++; else if(s==='A')a++; else if(s==='D')d++; });
+  const n=ITENS.length-p-a-d;
+  const tot=ITENS.reduce((x,it)=>x+(dec[it.idx]==='P'?(it.valor||0):0),0);
+  document.getElementById('cP').textContent=p;
+  document.getElementById('cA').textContent=a;
+  document.getElementById('cD').textContent=d;
+  document.getElementById('cN').textContent=n;
+  document.getElementById('totV').textContent=brlShort(tot).replace(' mi',' mi').replace('R$ ', 'R$ ');
+  document.getElementById('totV').textContent='R$ '+tot.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const done=p+a+d;
+  document.getElementById('progBar').style.width=(done/ITENS.length*100)+'%';
+  const btn=document.getElementById('btnWapp');
+  btn.disabled = (p===0 && a===0);
+  document.getElementById('wappTxt').textContent = (p||a)? 'Enviar '+(p+a)+' decisões no WhatsApp' : 'Enviar decisões no WhatsApp';
+  document.getElementById('footHint').textContent = done+' de '+ITENS.length+' decididas';
+}
+
+// build WhatsApp / copy message
+function buildMsg(){
+  const gs=groups(); let L=[];
+  L.push('*'+CLIENTE+'*'); L.push('_Decisões da agenda de licitações — GS Licitações_'); L.push('');
+  const P=[],A=[];
+  gs.forEach(g=>{ g.itens.forEach(it=>{ if(dec[it.idx]==='P')P.push(it); else if(dec[it.idx]==='A')A.push(it); }); });
+  const totP=P.reduce((a,b)=>a+(b.valor||0),0);
+  L.push('✅ *VAMOS PARTICIPAR ('+P.length+')* — R$ '+totP.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}));
+  let curd='';
+  P.forEach(it=>{ if(it.data!==curd){curd=it.data; const dt=dpar(it.data); L.push(''); L.push('📅 '+WD[dt.getDay()]+' '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0'));}
+    L.push('• '+(it.hora||'')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra+(it.valor?(' — R$ '+it.valor.toLocaleString('pt-BR')): ' — valor n/inf.')+(it.dist_km?(' (~'+it.dist_km+'km)'):'')); });
+  if(A.length){ L.push(''); L.push('🔎 *EM ANÁLISE ('+A.length+')*');
+    A.forEach(it=>{ const dt=dpar(it.data); L.push('• '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra); }); }
+  L.push(''); L.push('_Enviado pela agenda interativa • '+new Date().toLocaleDateString('pt-BR')+'_');
+  return L.join('\n');
+}
+
+document.addEventListener('click',e=>{
+  const db=e.target.closest('.db');
+  if(db){ const i=db.dataset.i, a=db.dataset.a; dec[i]=(dec[i]===a)?undefined:a; if(!dec[i])delete dec[i]; save();
+    // re-render only the card's day for snappiness -> simplest: full render keeps scroll
+    const y=window.scrollY; render(); window.scrollTo(0,y); return; }
+  const mr=e.target.closest('.more');
+  if(mr){ const ob=document.getElementById('ob'+mr.dataset.ob); ob.classList.toggle('open'); mr.textContent=ob.classList.contains('open')?'ver menos ▴':'ver mais ▾'; return; }
+  const fb=e.target.closest('.fbtn');
+  if(fb){ filt=fb.dataset.f; document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===fb)); render(); window.scrollTo(0,0); return; }
+});
+
+function __init(){
+var __nb=document.getElementById("nojsBanner"); if(__nb) __nb.style.display="none";
+document.getElementById('btnWapp').addEventListener('click',()=>{
+  const msg=encodeURIComponent(buildMsg());
+  const url = WA_NUM ? ('https://wa.me/'+WA_NUM+'?text='+msg) : ('https://wa.me/?text='+msg);
+  window.open(url,'_blank');
+});
+document.getElementById('btnCopy').addEventListener('click',async()=>{
+  try{ await navigator.clipboard.writeText(buildMsg()); toast('Resumo copiado ✓ cole no WhatsApp'); }
+  catch(e){ const t=document.createElement('textarea'); t.value=buildMsg(); document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); toast('Resumo copiado ✓'); }
+});
+
+// filters
+const UFS=[...new Set(ITENS.map(i=>i.uf))].filter(Boolean).sort();
+const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],...UFS.map(u=>[u,u]),['massa','🛢 Massa asfáltica']];
+document.getElementById('filters').innerHTML=FILTERS.map(f=>'<button class="fbtn'+(f[0]==='todos'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
+render();
+}
+try{ __init(); }
+catch(e){
+  var box=document.getElementById('list');
+  if(box){ box.innerHTML='<div class="empty">Nao foi possivel montar a versao interativa neste navegador. Lista simples abaixo.</div>'+
+    ITENS.map(function(it){return '<div class="card"><div class="crow"><span class="mun">'+it.mun+'</span><span class="uf">'+it.uf+'</span><span class="hora">'+(it.hora||'')+' '+(it.data||'')+'</span></div><div class="obj open">'+it.objeto+'</div><div class="meta">'+(it.tipo_obra||'')+(it.valor?(' — R$ '+it.valor):'')+'</div></div>';}).join(''); }
+  if(window.onerror) window.onerror('init: '+(e&&e.message?e.message:e),'',0,0,e);
+}
+</script>
+</body>
+</html>
