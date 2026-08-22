@@ -281,7 +281,8 @@ document.getElementById('btnCopy').addEventListener('click',async()=>{
 
 // filters
 const UFS=[...new Set(ITENS.map(i=>i.uf))].filter(Boolean).sort();
-const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],...UFS.map(u=>[u,u]),['massa','🛢 Massa asfáltica']];
+const TEMMASSA=ITENS.some(i=>/asfalt|massa|emuls/i.test((i.tipo_obra||'')+' '+(i.objeto||'')));
+const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],...UFS.map(u=>[u,u])].concat(TEMMASSA?[['massa','🛢 Massa asfáltica']]:[]);
 document.getElementById('filters').innerHTML=FILTERS.map(f=>'<button class="fbtn'+(f[0]==='todos'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
 render();
 }
