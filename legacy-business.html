@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0D1B3E">
+<title>LEGACY BUSINESS — Agenda de Licitações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georgia&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B3E; --navy2:#132352; --gold:#C9A84C; --goldL:#E8C97A; --goldP:#F7EDD4;
+  --ink:#111111; --mut:#555555; --card:#161f45; --line:#2a3868;
+  --green:#22c55e; --greenBg:#D8EFDC; --greenTx:#1B5E20;
+  --red:#ef4444; --redBg:#FBE3E3; --redTx:#9B1C1C;
+  --amber:#eab308; --amberBg:#FDF3D0; --amberTx:#8A6D1F;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:linear-gradient(180deg,#0a1330,#0D1B3E 260px);color:#eef2f7;
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.45;
+  padding-bottom:90px}
+.top{position:sticky;top:0;z-index:30;background:rgba(13,27,62,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{background:repeating-linear-gradient(90deg,var(--gold) 0 22px,#0a1330 22px 40px);height:5px}
+.head{padding:14px 16px 10px}
+.head .kicker{font-size:10.5px;letter-spacing:2.5px;color:var(--goldL);font-weight:700;text-transform:uppercase}
+.head h1{font-family:Georgia,serif;font-size:24px;font-weight:700;margin:4px 0 0;color:#fff}
+.head .sub{font-size:12px;color:#a9b3d0;margin-top:5px}
+.summary{display:flex;gap:8px;padding:12px 16px}
+.chip{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.chip .n{font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--goldL)}
+.chip .l{font-size:9.5px;color:#a9b3d0;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.alert{margin:0 16px 14px;background:var(--amberBg);color:var(--amberTx);border:1px solid #e8d189;border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:600}
+.card{margin:0 16px 16px;background:#fff;color:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.card .banner{background:var(--navy);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.card .banner .date{font-family:Georgia,serif;font-weight:700;font-size:15px;color:var(--goldL)}
+.card .banner .deadline{font-size:11px;background:var(--red);color:#fff;padding:3px 9px;border-radius:20px;font-weight:700}
+.card .body{padding:14px}
+.card .orgao{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;font-weight:700;margin-bottom:6px}
+.card .objeto{font-size:14.5px;font-weight:600;line-height:1.4;margin-bottom:10px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.meta .item{background:var(--goldP);border-radius:10px;padding:7px 9px}
+.meta .item .l{font-size:9.5px;color:#8a6d1f;text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+.meta .item .v{font-size:12.5px;font-weight:600;color:var(--ink);margin-top:1px}
+.note{font-size:12px;color:var(--mut);background:#F4F3EF;border-radius:10px;padding:9px 11px;margin-bottom:12px}
+.actions{display:flex;gap:8px}
+.actions button{flex:1;border:none;border-radius:12px;padding:11px 6px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif}
+.btn-p{background:var(--greenBg);color:var(--greenTx)}
+.btn-a{background:var(--amberBg);color:var(--amberTx)}
+.btn-d{background:var(--redBg);color:var(--redTx)}
+.actions button.sel{outline:3px solid currentColor}
+.card.decided-p{outline:3px solid var(--green)}
+.card.decided-d{opacity:.55}
+.card.decided-a{outline:3px solid var(--amber)}
+.footer{position:fixed;bottom:0;left:0;right:0;background:rgba(13,27,62,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:10px}
+.wa{flex:1;background:#25D366;color:#04331b;border:none;border-radius:12px;padding:13px;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.signature{text-align:center;font-size:10.5px;color:#a9b3d0;padding:6px 16px 0}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="bar"></div>
+  <div class="head">
+    <div class="kicker">Dra. Gleyce Santana · Licitações Públicas</div>
+    <h1>LEGACY BUSINESS</h1>
+    <div class="sub">Cursos de Capacitação em Liderança — Portal OPAS/PAHO (Workday Strategic Sourcing)</div>
+  </div>
+  <div class="summary">
+    <div class="chip"><div class="n" id="c-total">1</div><div class="l">Encontradas</div></div>
+    <div class="chip"><div class="n" id="c-part">0</div><div class="l">Participar</div></div>
+    <div class="chip"><div class="n" id="c-anal">0</div><div class="l">Análise</div></div>
+    <div class="chip"><div class="n" id="c-desc">0</div><div class="l">Descartar</div></div>
+  </div>
+</div>
+
+<div class="alert">⚠️ Prazo apertado: proposta deve ser enviada até <strong>21/09/2026</strong>. É necessário estar cadastrado como fornecedor no portal da OPAS (Workday Strategic Sourcing) para enviar cotação.</div>
+
+<div id="list"></div>
+
+<p class="signature">Documento de apoio à decisão — não substitui a leitura integral do Termo de Referência.<br>Dra. Gleyce Santana — OAB-GO nº 43.167</p>
+
+<div class="footer">
+  <button class="wa" onclick="sendWhats()">📲 Enviar decisões no WhatsApp</button>
+</div>
+
+<script>
+const ITENS = [
+  {
+    id: 1,
+    orgao: "OPAS/PAHO (intermediando para Dathi/SVSA — Ministério da Saúde)",
+    objeto: "Contratação de empresa especializada para ministrar Curso de Desenvolvimento de Lideranças, on-line síncrono, 8h, 30 vagas, para o Departamento de HIV/AIDS, Tuberculose, Hepatites Virais e IST (Dathi/SVSA/MS)",
+    edital: "BRA-REQ26-00009608",
+    proc: "Event ID 1239342",
+    mod: "RFQ — Cotação de Preços (OPAS)",
+    portal: "Workday Strategic Sourcing",
+    data: "21/09/2026",
+    valor: null,
+    nota: "Única oportunidade ABERTA no portal da OPAS com esse perfil (liderança, comunicação, gestão, feedback, desenvolvimento de equipes). As demais licitações de 'curso' no mesmo portal já estão fechadas ou em fase de Intend to Award."
+  }
+];
+
+function loadDecisions(){ try{ return JSON.parse(localStorage.getItem('lb_decisions')||'{}'); }catch(e){ return {}; } }
+function saveDecisions(d){ try{ localStorage.setItem('lb_decisions', JSON.stringify(d)); }catch(e){} }
+let decisions = loadDecisions();
+
+function render(){
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  ITENS.forEach(it=>{
+    const dec = decisions[it.id] || '';
+    const card = document.createElement('div');
+    card.className = 'card' + (dec==='p'?' decided-p':dec==='d'?' decided-d':dec==='a'?' decided-a':'');
+    card.innerHTML = `
+      <div class="banner">
+        <span class="date">📅 ${it.data}</span>
+        <span class="deadline">PRAZO FINAL</span>
+      </div>
+      <div class="body">
+        <div class="orgao">${it.orgao}</div>
+        <div class="objeto">${it.objeto}</div>
+        <div class="meta">
+          <div class="item"><div class="l">Edital / REQ</div><div class="v">${it.edital}</div></div>
+          <div class="item"><div class="l">Modalidade</div><div class="v">${it.mod}</div></div>
+          <div class="item"><div class="l">Portal</div><div class="v">${it.portal}</div></div>
+          <div class="item"><div class="l">Valor</div><div class="v">Não divulgado</div></div>
+        </div>
+        <div class="note">${it.nota}</div>
+        <div class="actions">
+          <button class="btn-p ${dec==='p'?'sel':''}" onclick="decide(${it.id},'p')">✅ Participar</button>
+          <button class="btn-a ${dec==='a'?'sel':''}" onclick="decide(${it.id},'a')">🔎 Análise</button>
+          <button class="btn-d ${dec==='d'?'sel':''}" onclick="decide(${it.id},'d')">❌ Descartar</button>
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  updateCounters();
+}
+
+function decide(id, val){
+  decisions[id] = (decisions[id]===val) ? '' : val;
+  saveDecisions(decisions);
+  render();
+}
+
+function updateCounters(){
+  const vals = Object.values(decisions).filter(v=>v);
+  document.getElementById('c-part').textContent = vals.filter(v=>v==='p').length;
+  document.getElementById('c-anal').textContent = vals.filter(v=>v==='a').length;
+  document.getElementById('c-desc').textContent = vals.filter(v=>v==='d').length;
+}
+
+function sendWhats(){
+  let msg = 'AGENDA DE LICITAÇÕES — LEGACY BUSINESS\n\n';
+  ITENS.forEach(it=>{
+    const dec = decisions[it.id];
+    const label = dec==='p' ? '✅ PARTICIPAR' : dec==='d' ? '❌ DESCARTAR' : dec==='a' ? '🔎 EM ANÁLISE' : '⬜ SEM DECISÃO';
+    msg += `${label}\n${it.edital} — ${it.objeto}\nPrazo: ${it.data}\n\n`;
+  });
+  msg += 'Enviado via Agenda de Licitações — Dra. Gleyce Santana';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+render();
+</script>
+</body>
+</html>
