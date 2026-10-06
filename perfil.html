@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perfil Comportamental GS Licitações</title>
+<meta name="description" content="Teste de perfil comportamental da equipe GS Licitações · Dra. Gleyce Santana. 10 blocos, cerca de 3 minutos.">
+<meta property="og:title" content="Teste de Perfil Comportamental · GS Licitações">
+<meta property="og:description" content="10 blocos, 3 minutos. Descubra se você é Executor, Comunicador, Planejador ou Analista e como isso aparece no seu trabalho com licitações.">
+<meta name="theme-color" content="#061536">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: coluna única de celular (link da bio), cabeçalho com a Dra., ficha do colaborador, 10 blocos, resultado */
+:root{
+  color-scheme:dark;
+  --navy:#0A1F44; --deep:#061536; --mid:#142d5a;
+  --gold:#C9A247; --champ:#F0D582; --goldD:#8B6926;
+  --txt:#E8DCC0; --soft:#B5C4DD; --soft2:rgba(181,196,221,.62);
+  --line:rgba(201,162,71,.22); --line2:rgba(201,162,71,.38);
+  --panel:rgba(20,45,90,.55); --inner:rgba(3,10,28,.55);
+  --wa:#25D366; --waD:#128C7E;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;background:var(--deep)}
+body{
+  min-height:100vh;color:var(--txt);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(700px 420px at 50% -8%, rgba(201,162,71,.16), transparent 62%),
+    linear-gradient(178deg,var(--navy) 0%,var(--deep) 55%,#030c22 100%);
+  background-color:var(--deep);background-repeat:no-repeat;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.wrap{width:100%;max-width:480px;margin:0 auto;padding:22px 16px 44px}
+
+.back{display:inline-flex;align-items:center;gap:8px;padding:8px 15px 8px 11px;border-radius:100px;
+  border:1px solid var(--line2);color:var(--soft);text-decoration:none;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.back span{color:var(--gold);font-size:14px;line-height:1}
+
+.hero{text-align:center;margin-top:22px}
+.ava{width:86px;height:86px;border-radius:50%;margin:0 auto;padding:3px;
+  background:linear-gradient(140deg,var(--champ),var(--gold) 50%,var(--goldD))}
+.ava img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;border:2px solid var(--deep)}
+.kick{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-top:14px;padding-left:.32em}
+h1{font-family:var(--serif);font-weight:600;font-size:42px;line-height:1.02;margin-top:10px;text-wrap:balance;
+  background:linear-gradient(100deg,var(--champ) 0%,var(--gold) 45%,var(--champ) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 em{display:block;font-style:italic;font-weight:500;font-size:38px;color:var(--txt);-webkit-text-fill-color:var(--txt)}
+.lead{font-size:14px;color:var(--soft);margin:12px auto 0;max-width:340px;line-height:1.6}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.orn i{display:block;height:1px;width:54px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i+i{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn b{color:var(--gold);font-family:var(--serif);font-size:13px;font-weight:700;letter-spacing:.18em}
+
+.surf{position:relative;border-radius:18px;background:linear-gradient(150deg,rgba(20,45,90,.75),rgba(6,21,54,.85));
+  box-shadow:inset 0 0 0 1px var(--line),0 18px 36px -28px rgba(0,0,0,.95)}
+.card{padding:18px}
+.card p{font-size:14px;color:var(--soft);line-height:1.65}
+.card p b{color:var(--champ);font-weight:700}
+
+.sect{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--champ);margin:28px 2px 10px;line-height:1.2}
+
+.como{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.como .p{display:flex;gap:12px;padding:13px 15px;border-radius:14px;align-items:flex-start}
+.como .nn{font-family:var(--serif);font-size:23px;font-weight:700;color:var(--gold);flex:0 0 22px;text-align:center;line-height:1}
+.como strong{display:block;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--txt);line-height:1.2}
+.como .cc span{display:block;font-size:12.5px;color:var(--soft2);margin-top:3px;line-height:1.55}
+
+/* ficha */
+.ficha{padding:16px;display:flex;flex-direction:column;gap:12px}
+.fld label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:6px}
+.fld input,.fld select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line2);
+  background:var(--inner);color:var(--txt);font-family:var(--sans);font-size:15px;outline:none;appearance:none;-webkit-appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.fld select option{background:var(--navy);color:var(--txt)}
+.fld input:focus,.fld select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,71,.18)}
+.fld input::placeholder{color:var(--soft2)}
+
+/* teste */
+.tstbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:20;display:flex;align-items:center;gap:11px;
+  padding:10px 14px;border-radius:100px;margin:14px 0 12px;background:rgba(6,21,54,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px var(--line2),0 12px 26px -18px #000}
+.tstbar .lbl{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft2);font-weight:800}
+.tstbar .trk{flex:1;height:5px;border-radius:100px;background:var(--inner);overflow:hidden}
+.tstbar .fil{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--goldD),var(--champ));transition:width .35s ease}
+.tstbar .cnt{font-family:var(--serif);font-size:18px;color:var(--champ);font-weight:700;font-variant-numeric:tabular-nums}
+.fim .tstbar{display:none}
+
+.blk{padding:14px 14px 10px;border-radius:17px;margin-bottom:10px}
+.blk .bh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:2px;border-bottom:1px dashed var(--line2)}
+.blk .bn{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.blk .bs{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft2);font-weight:700}
+.blk.done .bs{color:var(--champ)}
+.row{display:flex;align-items:center;gap:10px;padding:11px 0}
+.row+.row{border-top:1px solid rgba(181,196,221,.08)}
+.row .tag{flex:0 0 3px;align-self:stretch;min-height:44px;border-radius:3px;background:var(--pc);opacity:.9}
+.row .wd{flex:1;min-width:0;display:flex;flex-direction:column}
+.row .wd span{font-size:12.5px;color:var(--soft);line-height:1.4}
+.row .wd span:first-child{font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--txt);line-height:1.25}
+.row.ok .wd span:first-child{color:var(--champ)}
+.opts{display:flex;gap:5px;flex:0 0 auto}
+.opt{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;padding:0;
+  font-family:var(--sans);font-size:13px;font-weight:800;background:transparent;color:var(--soft2);border:1px solid var(--line2);
+  transition:transform .15s ease,background .15s ease,opacity .15s ease}
+.opt:focus-visible{outline:2px solid var(--champ);outline-offset:2px}
+.opt.sel{background:var(--pc);color:#fff;border-color:transparent;transform:scale(1.1);box-shadow:0 6px 16px -8px var(--pc)}
+.opt.usado{opacity:.16}
+.opt:disabled{cursor:not-allowed}
+
+.go{width:100%;margin-top:6px;padding:17px;border-radius:16px;border:none;cursor:pointer;
+  font-family:var(--serif);font-size:22px;font-weight:700;color:#1a1204;
+  background:linear-gradient(100deg,var(--champ),var(--gold) 55%,var(--goldD));box-shadow:0 18px 36px -22px rgba(201,162,71,.9)}
+.go:disabled{opacity:.38;cursor:default;box-shadow:none}
+.hint{text-align:center;font-size:11.5px;color:var(--soft2);margin-top:8px}
+
+/* resultado */
+.res{margin-top:12px;padding:22px 18px;border-radius:20px;border:1px solid var(--line2);
+  background:linear-gradient(160deg,rgba(201,162,71,.13),rgba(20,45,90,.6) 40%,rgba(6,21,54,.9))}
+.res .k{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800;text-align:center}
+.res .quem{text-align:center;font-size:13px;color:var(--soft);margin-top:6px}
+.res .big{font-family:var(--serif);font-size:38px;font-weight:700;text-align:center;line-height:1.05;margin-top:6px;color:var(--champ)}
+.res .big small{display:block;font-size:19px;font-weight:500;font-style:italic;color:var(--txt);margin-top:4px}
+.bars{margin-top:20px;display:flex;flex-direction:column;gap:11px}
+.bar .bt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:5px}
+.bar .bnm{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--txt)}
+.bar .bnm i{font-style:normal;font-family:var(--sans);font-size:11px;font-weight:800;color:var(--c)}
+.bar .bnm u{text-decoration:none;font-family:var(--sans);font-size:8.5px;letter-spacing:.16em;color:var(--soft2);font-weight:700;margin-left:4px}
+.bar .bvl{font-size:16px;font-weight:800;color:var(--c);font-variant-numeric:tabular-nums}
+.bar .btk{height:9px;border-radius:100px;background:var(--inner);overflow:hidden}
+.bar .bfl{height:100%;width:0;border-radius:100px;background:var(--c);transition:width .9s cubic-bezier(.22,.8,.3,1)}
+.res .tot{text-align:center;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft2);font-weight:800;margin-top:14px}
+.desc{margin-top:16px;padding:16px;border-radius:15px;background:var(--inner);border:1px solid var(--line)}
+.desc h4{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--champ);margin-bottom:6px}
+.desc p{font-size:13.5px;color:var(--soft);line-height:1.65}
+.subt{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-top:22px;text-align:center}
+.qual{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:11px}
+.qual span{padding:7px 12px;border-radius:100px;font-size:12px;font-weight:700;color:var(--txt);border:1px solid var(--pcl);background:var(--pcb)}
+.apl{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.ap{position:relative;padding:15px 16px 15px 18px;border-radius:15px;background:var(--inner);border:1px solid var(--line);overflow:hidden}
+.ap::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:3px;border-radius:0 3px 3px 0;background:var(--pc)}
+.ap strong{display:block;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--txt);line-height:1.2}
+.ap p{font-size:13px;color:var(--soft);line-height:1.66;margin-top:6px}
+.frase{margin-top:18px;font-family:var(--serif);font-style:italic;font-size:17px;text-align:center;line-height:1.5;color:var(--txt)}
+.acoes{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.acoes a,.acoes button{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px;border-radius:14px;
+  text-decoration:none;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none}
+.acoes .wapp{background:linear-gradient(104deg,var(--waD),var(--wa));color:#fff}
+.acoes .wapp svg{width:18px;height:18px;fill:#fff}
+.acoes .again{background:transparent;color:var(--soft);border:1px solid var(--line2)}
+.envio{font-size:11.5px;color:var(--soft2);text-align:center;line-height:1.5}
+
+.resumo{margin-top:18px;padding:18px 16px;border-radius:16px;border:1px solid var(--line2);
+  background:linear-gradient(150deg,rgba(201,162,71,.14),var(--inner) 60%)}
+.resumo .rk{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.resumo h3{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--champ);line-height:1.15;margin-top:6px;text-wrap:balance}
+.resumo p{font-size:13.5px;color:var(--soft);line-height:1.68;margin-top:9px}
+.resumo p b{color:var(--txt)}
+.duo{display:flex;gap:8px;margin-top:12px}
+.duo span{flex:1;min-width:0;padding:9px 10px;border-radius:12px;text-align:center;font-size:11.5px;font-weight:800;color:var(--txt);
+  border:1px solid var(--pcl);background:var(--pcb)}
+.duo span em{display:block;font-style:normal;font-family:var(--serif);font-size:22px;color:var(--pc2);line-height:1.1}
+.resumo .lst{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.resumo .lst div{padding:11px 13px;border-radius:12px;background:var(--inner);border:1px solid var(--line)}
+.resumo .lst strong{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.resumo .lst span{display:block;font-size:13px;color:var(--soft);line-height:1.6;margin-top:3px}
+footer{text-align:center;margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+footer .a{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--champ)}
+footer .b{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft2);margin-top:4px;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="https://gleyce-santana.github.io/"><span>&#8592;</span> Dra. Gleyce Santana</a>
+
+  <header class="hero">
+    <div class="ava"><img alt="Dra. Gleyce Santana" src="data:image/jpeg;base64,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"></div>
+    <div class="kick">GS Licitações &middot; Equipe</div>
+    <h1>Perfil<em>comportamental</em></h1>
+    <p class="lead">Seja bem-vindo(a) ao time. Este teste mostra como você trabalha melhor, para a gente distribuir funções e se comunicar do jeito certo com você.</p>
+    <div class="orn"><i></i><b>DISC</b><i></i></div>
+  </header>
+
+  <div class="surf card" style="margin-top:20px">
+    <p>São <b>10 blocos</b>. Cada bloco traz <b>quatro conjuntos de três características</b>. Dê <b>4, 3, 2 e 1</b>, um número para cada conjunto, sem repetir. O <b>4</b> vai para o conjunto que mais se parece com você no trabalho; o <b>1</b>, para o que menos combina.</p>
+  </div>
+
+  <div class="como">
+    <div class="surf p"><span class="nn">1</span><span class="cc"><strong>Olhe o conjunto, não a palavra</strong><span>Avalie as três características juntas e dê o número ao grupo todo.</span></span></div>
+    <div class="surf p"><span class="nn">2</span><span class="cc"><strong>Responda como você é</strong><span>Não existe perfil certo ou errado. A primeira reação costuma ser a mais sincera.</span></span></div>
+    <div class="surf p"><span class="nn">3</span><span class="cc"><strong>O total sempre fecha em 100</strong><span>Cada bloco vale 10 pontos (4+3+2+1). Dez blocos, 100 pontos.</span></span></div>
+  </div>
+
+  <h2 class="sect">Seus dados</h2>
+  <div class="surf ficha">
+    <div class="fld"><label for="fNome">Nome completo</label><input id="fNome" type="text" autocomplete="name" placeholder="Ex.: Raphael Souza"></div>
+    <div class="fld"><label for="fWhats">Seu WhatsApp</label><input id="fWhats" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="(62) 99999-9999"></div>
+    <div class="fld"><label for="fFuncao">Função na GS</label>
+      <select id="fFuncao">
+        <option value="">Selecione</option>
+        <option>Assistente de licitações</option>
+        <option>Analista de documentação / habilitação</option>
+        <option>Orçamentista</option>
+        <option>Cadastro e certidões</option>
+        <option>Advogado(a)</option>
+        <option>Estagiário(a) de Direito</option>
+        <option>Estagiário(a) de Engenharia Civil</option>
+        <option>Auxiliar de Engenharia</option>
+        <option>Administrativo / financeiro</option>
+        <option>Comercial / atendimento</option>
+        <option>Candidato(a) em seleção</option>
+        <option>Outra</option>
+      </select></div>
+  </div>
+
+  <h2 class="sect">O teste</h2>
+  <div id="tst">
+    <div class="tstbar"><span class="lbl">Progresso</span><span class="trk"><span class="fil" id="tFil"></span></span><span class="cnt" id="tCnt">0/10</span></div>
+    <div id="tBlocos"></div>
+    <button class="go" id="tGo" type="button" disabled>Ver o meu perfil</button>
+    <p class="hint" id="tHint">Preencha os 10 blocos para liberar o resultado.</p>
+    <div id="tRes"></div>
+  </div>
+
+  <footer>
+    <div class="a">GS Licitações &middot; Dra. Gleyce Santana</div>
+    <div class="b">Advocacia em licitações públicas &middot; OAB-GO 43.167 &middot; Goiânia – GO</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const WHATS = '556298580927';
+  const PERFIS = [
+    { nome:'Executor', cor:'VERMELHO', letra:'D', c:'#C0533F', cl:'rgba(192,83,63,.45)', cb:'rgba(192,83,63,.16)',
+      tr:'Autoconfiante, decidido e movido a resultado. Gosta de desafio, decide rápido e encara o que ninguém quer encarar. Em licitação, é quem segura a sessão pública, a disputa de lances e o prazo que vence hoje.',
+      quals:['Decisão rápida','Iniciativa','Foco em resultado','Coragem','Liderança','Trabalha bem sob pressão'],
+      rotina:'Você rende quando tem meta clara: quantos editais analisar, quantas propostas enviar, qual prazo bater. Rotina repetitiva cansa você, então peça frentes com começo, meio e fim e tome conta delas.',
+      pressao:'Sessão de lances, prazo de recurso, diligência para ontem: é aqui que você aparece. O risco é a pressa. Antes de enviar, confira valor, anexos e assinatura digital. Um documento esquecido derruba a habilitação inteira.',
+      clientes:'O construtor confia na sua firmeza. Fale primeiro o resultado e o próximo passo, depois o detalhe. Só não decida pelo cliente: leve a recomendação e deixe a palavra final com ele e com a Dra.',
+      equipe:'Você puxa o time para a frente. Quando delegar, explique o porquê e não só o quê. Cobrança sem contexto vira atrito; reconhecer quem entregou multiplica o resultado.',
+      funcao:'Sessões públicas e pregões eletrônicos, disputa de lances, recursos e prazos críticos, frentes novas que precisam de alguém para abrir caminho.',
+      cuidado:'Impaciência com o ritmo dos outros e com a conferência final. Na GS, rápido e certo vale mais que só rápido.' },
+    { nome:'Comunicador', cor:'AMARELO', letra:'I', c:'#D9A93C', cl:'rgba(217,169,60,.45)', cb:'rgba(217,169,60,.16)',
+      tr:'Comunicativo, entusiasmado, otimista e relacional. Aproxima as pessoas, anima o ambiente e tem facilidade para convencer. É quem cria vínculo com o cliente e mantém o time motivado.',
+      quals:['Comunicação','Persuasão','Entusiasmo','Relacionamento','Criatividade','Otimismo'],
+      rotina:'Você trabalha melhor com gente por perto e com variedade. Para a rotina de editais e certidões não virar peso, use listas e o checklist da GS: começar com empolgação é fácil, o valor está em fechar cada item.',
+      pressao:'Sob pressão você mantém o clima leve e ajuda o time a não travar. O cuidado é prometer prazo no entusiasmo. Antes do "sim", confira com quem executa se dá para entregar.',
+      clientes:'Ninguém cria confiança com o cliente como você. Depois da conversa, mande por escrito o que ficou combinado: documentos pendentes, prazo, valor e próximo passo. É isso que transforma simpatia em contrato fechado.',
+      equipe:'Você melhora o clima de qualquer equipe. Use isso para dar voz aos mais quietos e resolver conflito cedo. Combine com um colega mais analítico para revisar o que você produz.',
+      funcao:'Atendimento e relacionamento com construtoras, captação de clientes, apresentação de resultados, treinamentos e comunicação nas redes da GS.',
+      cuidado:'Dispersão e excesso de compromissos. Escolha menos frentes e termine. Concluir o combinado é o que dá peso à sua palavra.' },
+    { nome:'Planejador', cor:'VERDE', letra:'S', c:'#4F9A6B', cl:'rgba(79,154,107,.45)', cb:'rgba(79,154,107,.16)',
+      tr:'Estável, paciente, calmo e constante. Escuta, acolhe e sustenta o trabalho no dia a dia. É a pessoa que mantém a rotina funcionando, os prazos organizados e o time em harmonia.',
+      quals:['Constância','Paciência','Lealdade','Organização da rotina','Escuta','Confiabilidade'],
+      rotina:'Rotina é o seu ponto forte: controle de certidões e validades, agenda de licitações, pastas de habilitação sempre em dia. Você entrega com qualidade quando sabe o que esperar, então peça a prioridade da semana com antecedência.',
+      pressao:'Mudança de última hora desgasta você, mas é comum em licitação: edital retificado, sessão remarcada, diligência inesperada. Peça um minuto para reorganizar e siga. Você é mais adaptável do que imagina.',
+      clientes:'O cliente confia em você porque você não pressiona e sempre dá retorno. Só não deixe de dizer com clareza quando falta um documento ou quando o prazo está em risco. Avisar cedo também é cuidar.',
+      equipe:'Você é quem todos procuram para apoio. Cuidado para não acumular o que não é seu. Dizer "hoje não consigo" protege sua entrega e o time.',
+      funcao:'Controle de prazos e agenda de licitações, gestão de certidões e cadastros (SICAF, CRC), montagem de pastas de habilitação, suporte ao cliente no pós-venda.',
+      cuidado:'Dificuldade com mudanças e com dizer não. Fale o que sente e o que precisa antes que vire sobrecarga.' },
+    { nome:'Analista', cor:'AZUL', letra:'C', c:'#4A7FB8', cl:'rgba(74,127,184,.45)', cb:'rgba(74,127,184,.16)',
+      tr:'Preciso, atento aos detalhes, disciplinado e lógico. Pensa antes de agir, cuida da qualidade e enxerga o que passa despercebido. É quem encontra a exigência escondida no edital antes que ela vire inabilitação.',
+      quals:['Precisão','Atenção aos detalhes','Disciplina','Raciocínio lógico','Critério','Qualidade'],
+      rotina:'Leitura de edital, conferência de documentos, planilha orçamentária e curva ABC são o seu terreno. Você rende com tempo de concentração e regras claras. Peça o padrão da GS por escrito e siga o checklist.',
+      pressao:'Prazo curto incomoda porque você quer revisar tudo. Defina o que é crítico (habilitação, proposta, assinatura) e confira isso primeiro. Entregue completo no prazo; o detalhe secundário pode vir depois.',
+      clientes:'Sua análise passa segurança e constrói a reputação da GS. Traduza o técnico para a linguagem do construtor: diga o risco e a solução em poucas linhas, com o fundamento da Lei 14.133 quando precisar.',
+      equipe:'Você é quem percebe o detalhe que salva a licitação. Traga a crítica junto com a solução e reconheça o que o colega fez bem antes de apontar o ajuste.',
+      funcao:'Análise de editais e checklists de habilitação, conferência de documentos e atestados, orçamentos e curva ABC, impugnações e recursos com fundamento técnico.',
+      cuidado:'Perfeccionismo e demora para decidir. Feito e bem feito no prazo vale mais que perfeito e atrasado.' }
+  ];
+  const BLOCOS = [
+    [['Autoconfiante','Independente','Dominante'],['Comunicativo','Alegre','Extrovertido'],['Acolhedor','Amigável','Paciente'],['Autodisciplinado','Atento a detalhes','Diligente']],
+    [['Pró-ativo','Empreendedor','Corajoso'],['Participativo','Relacional','Flexível'],['Agradável','Tranquilo','Organizado'],['Criterioso','Cuidadoso','Especialista']],
+    [['Prático','Rápido','Eficiente'],['Persuasivo','Contagiante','Estimulador'],['Calmo','Rotineiro','Constante'],['Idealizador','Perfeccionista','Uniforme']],
+    [['Objetivo','Assertivo','Focado em resultados'],['Preza pelo prazer','Emotivo','Divertido'],['Conciliador','Conselheiro','Bom ouvinte'],['Conforme','Sistemático','Sensato']],
+    [['Determinado','Firme','Enérgico'],['Criativo','Falante','Distraído'],['Comedido','Amável','Mediador'],['Preciso','Lógico','Racional']],
+    [['Lutador','Combativo','Agressivo'],['Participativo','Facilitador','Influenciador'],['Autocontrolado','Conservador','Responsável'],['Profundo','Perceptivo','Estratégico']],
+    [['Automotivado','Pioneiro','Impulsionador'],['Articulador','Empolgante','Motivador'],['Persistente','Prevenido','Tolerante'],['Exato','Exigente','Estruturado']],
+    [['Resolvedor','Destemido','Desafiador'],['Vaidoso','Simpático','Gosta de ser reconhecido'],['Aconselhador','Harmônico','Apoiador'],['Ponderado','Ordenador','Analisador']],
+    [['Competitivo','Assume riscos','Desbravador'],['Entusiasmado','Impulsivo','Otimista'],['Moderado','Equilibrado','Estável'],['Teórico','Conservador','Aprofunda conhecimentos']],
+    [['Direcionador','Solucionador','Empreendedor'],['Agregador','Sociabilidade','Mobilidade'],['Conciliador','Observador','Diplomata'],['Regulador','Especialista','Orientador']]
+  ];
+  const COMBOS = {
+    DI:{t:'Liderança com carisma',
+      r:'Você une a vontade de fazer acontecer do Executor com a facilidade de convencer do Comunicador. Puxa o time para a frente e ainda consegue que as pessoas queiram ir junto. Transmite segurança ao cliente e energia à equipe.',
+      f:'Abrir novos clientes, conduzir reuniões e sessões públicas, defender a posição da GS com firmeza e simpatia, motivar o time em semana de muitos prazos.',
+      a:'Pressa somada a promessa. A combinação decide rápido e diz sim fácil, então confirme prazo, valor e documentos antes de comprometer a equipe, e deixe a revisão final com alguém mais analítico.',
+      g:'Dê metas claras e visibilidade; reconheça em público. Cobre a conferência dos detalhes por checklist.'},
+    DS:{t:'Firmeza com constância',
+      r:'Você combina a decisão do Executor com a estabilidade do Planejador. Sabe o que precisa ser feito e sustenta o ritmo até o fim, sem abandonar no meio. É alguém em quem a equipe confia para levar uma demanda do começo ao protocolo.',
+      f:'Tocar processos longos de licitação do edital ao contrato, gerir prazos e cadastros com pulso, organizar a rotina do setor e cobrar com equilíbrio.',
+      a:'Tensão entre acelerar e manter o padrão. Em mudanças de última hora, como edital retificado ou sessão remarcada, você pode endurecer. Respire, replaneje e comunique a nova rota ao time.',
+      g:'Combine prioridades com antecedência e explique o motivo das mudanças. Responde muito bem a responsabilidade sobre uma frente inteira.'},
+    DC:{t:'Resultado com precisão',
+      r:'Você junta a objetividade do Executor com o rigor do Analista. Quer resultado e quer certo. Enxerga o risco no edital e age rápido para resolver. É o perfil que transforma análise em decisão.',
+      f:'Análise de editais, impugnações e recursos, conferência de habilitação e proposta, sessões de lances com estratégia, orçamentos e curva ABC.',
+      a:'Exigência alta consigo e com os outros. A crítica pode sair dura e sem contexto. Reconheça o que o colega fez bem antes de apontar o ajuste e aceite que nem tudo precisa do seu padrão máximo.',
+      g:'Dê autonomia, dados e critérios claros. Evite microgerenciar; peça a entrega e o prazo.'},
+    IS:{t:'Relacionamento que acolhe',
+      r:'Você combina a comunicação do Comunicador com o cuidado do Planejador. As pessoas se sentem ouvidas e bem tratadas com você. Cria vínculo com o cliente e mantém o clima da equipe leve e unido.',
+      f:'Atendimento e pós-venda das construtoras, acompanhamento de pendências de documentos, integração de novos colaboradores, contato com órgãos e pregoeiros.',
+      a:'Evitar conflito e dizer sim para tudo. Quando falta documento ou o prazo aperta, fale cedo e com clareza. Avisar o problema também é cuidar do cliente.',
+      g:'Ofereça ambiente acolhedor e retorno frequente. Ajude a priorizar e a dizer não quando a agenda lotar.'},
+    IC:{t:'Comunicação com conteúdo',
+      r:'Você une a facilidade de falar do Comunicador com a profundidade do Analista. Entende o técnico e consegue explicar de um jeito que o cliente entende. É uma ponte entre a análise jurídica e o construtor.',
+      f:'Apresentar análises e checklists aos clientes, treinar a equipe, produzir conteúdo para as redes da GS, explicar riscos do edital em linguagem simples.',
+      a:'Oscilar entre empolgação e autocrítica. Você começa animado e depois trava no detalhe. Defina o que é suficiente para entregar e siga o prazo.',
+      g:'Valorize a qualidade do que entrega e dê espaço para ensinar. Combine prazos intermediários.'},
+    SC:{t:'Organização e confiabilidade',
+      r:'Você combina a constância do Planejador com a precisão do Analista. É organizado, cuidadoso e não deixa nada passar. Rotina, controle e conferência são o seu terreno, e a equipe dorme tranquila sabendo que você revisou.',
+      f:'Controle de certidões e validades, cadastros (SICAF, CRC), montagem e conferência das pastas de habilitação, planilhas e orçamentos, arquivo e agenda de licitações.',
+      a:'Mudanças rápidas e decisão sob pressão. Na sessão ou no prazo que vence hoje, foque no que é crítico e decida com o que tem. Fale quando estiver sobrecarregado.',
+      g:'Passe instruções por escrito e avise mudanças com antecedência. Reconheça a qualidade e a constância do trabalho.'}
+  };
+  const NUMS = [4,3,2,1];
+  const $ = id => document.getElementById(id);
+  const cont=$('tBlocos'), go=$('tGo'), fil=$('tFil'), cnt=$('tCnt'), res=$('tRes'), hint=$('tHint');
+  const resp = BLOCOS.map(()=>[null,null,null,null]);
+  const fW=$('fWhats');
+  fW.addEventListener('input',()=>{
+    let d=fW.value.replace(/\D/g,'').replace(/^55(?=\d{10,11}$)/,'').slice(0,11);
+    let o=d;
+    if(d.length>2) o='('+d.slice(0,2)+') '+d.slice(2);
+    if(d.length>6) o='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);
+    fW.value=o;
+  });
+
+  cont.innerHTML = BLOCOS.map((b,bi)=>`
+    <div class="surf blk" data-b="${bi}">
+      <div class="bh"><span class="bn">Bloco ${bi+1} de 10</span><span class="bs" data-st="${bi}"></span></div>
+      ${b.map((cel,pi)=>`
+        <div class="row" data-b="${bi}" data-p="${pi}" style="--pc:${PERFIS[pi].c}">
+          <span class="tag"></span>
+          <div class="wd">${cel.map(t=>`<span>${t}</span>`).join('')}</div>
+          <div class="opts">${NUMS.map(n=>`<button class="opt" data-n="${n}" type="button" aria-label="Nota ${n} para ${cel.join(', ')}">${n}</button>`).join('')}</div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  function pinta(bi){
+    const blk = cont.querySelector(`.blk[data-b="${bi}"]`);
+    const usados = resp[bi].filter(v=>v!==null);
+    blk.querySelectorAll('.row').forEach(row=>{
+      const meu = resp[bi][+row.dataset.p];
+      row.classList.toggle('ok', meu!==null);
+      row.querySelectorAll('.opt').forEach(op=>{
+        const n=+op.dataset.n, bloq=(meu!==n && usados.includes(n));
+        op.classList.toggle('sel', meu===n); op.classList.toggle('usado', bloq); op.disabled=bloq;
+      });
+    });
+    const ok = usados.length===4;
+    blk.classList.toggle('done', ok);
+    blk.querySelector('.bs').textContent = ok ? 'Concluído' : 'Faltam ' + NUMS.filter(n=>!usados.includes(n)).join(' · ');
+  }
+  function atualiza(){
+    const p = resp.filter(r=>r.every(v=>v!==null)).length;
+    fil.style.width = (p*10)+'%'; cnt.textContent = p+'/10';
+    go.disabled = p<10;
+    hint.textContent = p<10 ? 'Preencha os 10 blocos para liberar o resultado.' : 'Tudo certo. Toque para ver o seu perfil.';
+  }
+  cont.addEventListener('click', e=>{
+    const op=e.target.closest('.opt'); if(!op) return;
+    const row=op.closest('.row'), bi=+row.dataset.b, pi=+row.dataset.p, n=+op.dataset.n;
+    if(resp[bi][pi]===n) resp[bi][pi]=null;
+    else { const a=resp[bi].indexOf(n); if(a>-1) resp[bi][a]=null; resp[bi][pi]=n; }
+    pinta(bi); atualiza();
+  });
+  BLOCOS.forEach((_,i)=>pinta(i)); atualiza();
+
+  go.addEventListener('click', ()=>{
+    const nome = $('fNome').value.trim(), funcao = $('fFuncao').value;
+    const tot=[0,0,0,0]; resp.forEach(r=>r.forEach((v,i)=>tot[i]+=v));
+    const ord = tot.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v||a.i-b.i);
+    const top=PERFIS[ord[0].i], seg=PERFIS[ord[1].i], low=PERFIS[ord[3].i];
+    const v1=ord[0].v, v2=ord[1].v, dif=v1-v2;
+    const CB = COMBOS[[ord[0].i,ord[1].i].sort().map(i=>PERFIS[i].letra).join('')];
+    const pnome = (nome.split(/\s+/)[0]||'').replace(/[<>&]/g,'');
+    const peso = dif<=3 ? `Os dois perfis aparecem quase na mesma medida, então você transita com facilidade entre eles.`
+      : dif>=10 ? `O ${top.nome} é bem marcante em você, e o ${seg.nome} aparece como apoio.`
+      : `O ${top.nome} conduz o seu jeito de trabalhar e o ${seg.nome} complementa.`;
+    const lead = `${pnome?pnome+', você':'Você'} é <b>${top.nome}</b> (${v1} pontos) com <b>${seg.nome}</b> (${v2} pontos). ${peso}`;
+    const montaMsg = (nm,fn,wp)=>`Olá, RH da GS Licitações! Fiz o Teste de Perfil Comportamental.\n\n`+
+      `Nome: ${nm}\nWhatsApp: ${wp}\nFunção: ${fn}\n\nResultado:\n`+
+      ord.map(o=>`${o.v} pontos — ${PERFIS[o.i].nome} (${PERFIS[o.i].letra}, ${PERFIS[o.i].cor.toLowerCase()})`).join('\n')+
+      `\n\nPerfil predominante: ${top.nome}\nPerfil secundário: ${seg.nome}\nCombinação: ${CB.t}`+
+      `\n\nResumo: ${CB.r}\n\nOnde mais contribui: ${CB.f}\n\nPonto de atenção: ${CB.a}\n\nDica para o gestor: ${CB.g}`+
+      `\n\nRespostas por bloco (D-I-S-C):\n`+resp.map((r,i)=>`${i+1}) ${r.join('-')}`).join('\n');
+    const A = (t,p)=>`<div class="ap"><strong>${t}</strong><p>${p}</p></div>`;
+
+    res.innerHTML = `
+      <div class="res" id="resBox">
+        <div class="k">Seu perfil predominante</div>
+        ${nome?`<div class="quem">${nome.replace(/[<>&]/g,'')}${funcao?' · '+funcao:''}</div>`:''}
+        <div class="big">${top.nome}<small>com traços de ${seg.nome}</small></div>
+        <div class="bars">
+          ${ord.map(o=>{const P=PERFIS[o.i];return `
+            <div class="bar" style="--c:${P.c}">
+              <div class="bt"><span class="bnm"><i>(${P.letra})</i> ${P.nome}<u>${P.cor}</u></span><span class="bvl">${o.v}</span></div>
+              <div class="btk"><div class="bfl" data-w="${o.v}"></div></div>
+            </div>`}).join('')}
+        </div>
+        <div class="tot">Total: 100 pontos · o número é o percentual de cada perfil</div>
+        <div class="resumo">
+          <div class="rk">Seu resumo personalizado</div>
+          <h3>${CB.t}</h3>
+          <div class="duo">
+            <span style="--pcl:${top.cl};--pcb:${top.cb};--pc2:${top.c}"><em>${v1}</em>${top.nome}</span>
+            <span style="--pcl:${seg.cl};--pcb:${seg.cb};--pc2:${seg.c}"><em>${v2}</em>${seg.nome}</span>
+          </div>
+          <p>${lead}</p>
+          <p>${CB.r}</p>
+          <div class="qual" style="justify-content:flex-start">${top.quals.slice(0,4).map(q=>`<span style="--pcl:${top.cl};--pcb:${top.cb}">${q}</span>`).join('')}${seg.quals.slice(0,3).map(q=>`<span style="--pcl:${seg.cl};--pcb:${seg.cb}">${q}</span>`).join('')}</div>
+          <div class="lst">
+            <div><strong>Onde você mais contribui</strong><span>${CB.f}</span></div>
+            <div><strong>Ponto de atenção da combinação</strong><span>${CB.a}</span></div>
+            <div><strong>Você trabalha melhor quando</strong><span>${CB.g}</span></div>
+          </div>
+          <p style="font-size:12.5px">O perfil menos presente em você é <b>${low.nome}</b> (${ord[3].v} pontos). Trabalhar perto de colegas com esse perfil equilibra o time.</p>
+        </div>
+        <div class="subt">Detalhe do seu perfil principal</div>
+        <div class="desc" style="margin-top:10px"><h4>${top.nome}: o que isso diz sobre você</h4><p>${top.tr}</p></div>
+        <div class="subt">Seus pontos fortes</div>
+        <div class="qual" style="--pcl:${top.cl};--pcb:${top.cb}">${top.quals.map(q=>`<span>${q}</span>`).join('')}</div>
+        <div class="subt">Você na GS Licitações</div>
+        <div class="apl" style="--pc:${top.c}">
+          ${A('Na rotina de licitações',top.rotina)}
+          ${A('Sob pressão de prazo e sessão',top.pressao)}
+          ${A('Com os clientes',top.clientes)}
+          ${A('Com a equipe',top.equipe)}
+          ${A('Onde você mais contribui',top.funcao)}
+          <div style="--pc:var(--gold)">${A('Seu ponto de atenção',top.cuidado)}</div>
+        </div>
+        <div class="frase">Perfis diferentes, um mesmo objetivo:<br>licitar com segurança e vencer mais obras.</div>
+        <div class="acoes">
+          <a class="wapp" id="tWa" href="https://wa.me/${WHATS}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>Enviar para o RH no WhatsApp</a>
+          <p class="envio" id="tAviso">RH GS Licitações · <b style="color:var(--champ);white-space:nowrap">+55 62 9858-0927</b><br>O WhatsApp abre com o resultado pronto; é só tocar em enviar.</p>
+          <button class="again" type="button" id="tAgain">Refazer o teste</button>
+        </div>
+      </div>`;
+    $('tst').classList.add('fim'); go.hidden=true; hint.hidden=true;
+    requestAnimationFrame(()=>{
+      res.querySelectorAll('.bfl').forEach(b=>b.style.width=Math.min(100,b.dataset.w/50*100)+'%');
+      $('resBox').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    $('tWa').addEventListener('click', e=>{
+      const nm=$('fNome').value.trim(), fn=$('fFuncao').value, wp=fW.value.trim();
+      const wOk = wp.replace(/\D/g,'').length>=10;
+      if(!nm || !fn || !wOk){
+        e.preventDefault();
+        $('tAviso').innerHTML='<b style="color:#F08C7A">Preencha nome, WhatsApp e função em "Seus dados" e toque de novo em enviar.</b>';
+        const alvo = !nm?$('fNome'):(!wOk?fW:$('fFuncao'));
+        alvo.scrollIntoView({behavior:'smooth',block:'center'});
+        setTimeout(()=>alvo.focus({preventScroll:true}),400);
+        return;
+      }
+      e.currentTarget.href='https://wa.me/'+WHATS+'?text='+encodeURIComponent(montaMsg(nm,fn,wp));
+    });
+    $('tAgain').addEventListener('click', ()=>{
+      $('tst').classList.remove('fim'); go.hidden=false; hint.hidden=false;
+      resp.forEach(r=>r.fill(null)); BLOCOS.forEach((_,i)=>pinta(i)); atualiza(); res.innerHTML='';
+      cont.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
