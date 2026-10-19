@@ -143,6 +143,7 @@ footer b{color:var(--gold);font-family:var(--serif);font-size:15px;letter-spacin
     <div class="surf qc"><div class="qn"><i>1</i><b>Seus dados</b></div>
       <div class="q"><input type="text" data-k="nome" placeholder="Seu nome" autocomplete="name"></div>
       <div class="q" style="margin-top:10px"><input type="text" data-k="empresa" placeholder="Nome da construtora" autocomplete="organization"></div>
+      <div class="q" style="margin-top:10px"><input type="text" data-k="cnpj" placeholder="CNPJ da construtora (opcional)" inputmode="numeric" maxlength="18"></div>
       <div class="q" style="margin-top:10px"><input type="tel" data-k="whats" placeholder="Seu WhatsApp com DDD" autocomplete="tel" inputmode="tel"></div>
     </div>
     <div class="surf qc"><div class="qn"><i>2</i><b>Quais obras você quer disputar?</b></div><div class="chips" data-c="ramo"></div></div>
@@ -180,11 +181,11 @@ $("[data-k=uf]").innerHTML+=UFS.map(u=>`<option>${u}</option>`).join("")+"<optio
 function chips(el,k,one){const o=CH[k];el.innerHTML=o.map(x=>`<button type="button" class="chip${(one?S.c[k]===x:(S.c[k]||[]).includes(x))?" on":""}">${esc(x)}</button>`).join("");
   [...el.children].forEach((b,i)=>b.onclick=()=>{const x=o[i];if(one)S.c[k]=S.c[k]===x?"":x;else{const a=S.c[k]||(S.c[k]=[]),j=a.indexOf(x);j<0?a.push(x):a.splice(j,1)}chips(el,k,one)})}
 $$("[data-c]").forEach(el=>chips(el,el.dataset.c,!!el.dataset.one));
-$$("[data-k]").forEach(f=>f.addEventListener("input",()=>S.f[f.dataset.k]=f.value));
+$$("[data-k]").forEach(f=>f.addEventListener("input",()=>{if(f.dataset.k==="cnpj"){const d=f.value.replace(/\D/g,"").slice(0,14);f.value=d.replace(/^(\d{2})(\d)/,"$1.$2").replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3").replace(/\.(\d{3})(\d)/,".$1/$2").replace(/(\d{4})(\d)/,"$1-$2")}S.f[f.dataset.k]=f.value}));
 $$("select[data-k]").forEach(f=>f.addEventListener("change",()=>S.f[f.dataset.k]=f.value));
 function texto(){const f=S.f,c=S.c,v=x=>x&&String(x).trim()?x:"-",l=a=>a&&a.length?a.join(", "):"-";
   return ["Olá, Dra. Gleyce! Vim pelo Instagram e gostaria de *agendar uma reunião* sobre a consultoria para construtoras.","",
-  `*Nome:* ${v(f.nome)}`,`*Construtora:* ${v(f.empresa)}`,`*WhatsApp:* ${v(f.whats)}`,`*Obras de interesse:* ${l(c.ramo)}`,`*Já participa de licitações:* ${v(c.lic)}`,`*Meta em 10 meses:* ${v(c.meta)}`,`*Estado:* ${v(f.uf)}`,`*Maior dificuldade:* ${l(c.dor)}`,"","Qual o melhor horário para conversarmos?"].join("\n")}
+  `*Nome:* ${v(f.nome)}`,`*Construtora:* ${v(f.empresa)}`,`*CNPJ:* ${v(f.cnpj)}`,`*WhatsApp:* ${v(f.whats)}`,`*Obras de interesse:* ${l(c.ramo)}`,`*Já participa de licitações:* ${v(c.lic)}`,`*Meta em 10 meses:* ${v(c.meta)}`,`*Estado:* ${v(f.uf)}`,`*Maior dificuldade:* ${l(c.dor)}`,"","Qual o melhor horário para conversarmos?"].join("\n")}
 $("#ok").onclick=()=>{const e=!S.f.nome||!S.f.whats?"Informe seu nome e WhatsApp.":!(S.c.ramo||[]).length?"Marque pelo menos um tipo de obra.":"";
   if(e){$("#err").textContent=e;$("#err").classList.add("on");return}$("#err").classList.remove("on");
   $("#dh").textContent="Obrigada, "+S.f.nome.trim().split(" ")[0]+"!";$("#form").classList.add("hide");$("#done").classList.add("on");window.scrollTo({top:$("#done").offsetTop-20,behavior:"smooth"})};
