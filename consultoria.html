@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consultoria para Construtoras</title>
+<meta name="description" content="Consultoria e assessoria em licitações para construtoras · Dra. Gleyce Santana · GS Licitações.">
+<meta property="og:title" content="Consultoria e assessoria para construtoras · GS Licitações">
+<meta property="og:description" content="Responda 6 perguntas rápidas e agende uma reunião com a Dra. Gleyce Santana.">
+<meta name="theme-color" content="#061536">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --navy:#0A1F44;--deep:#061536;--mid:#142d5a;
+  --gold:#C9A247;--champ:#F0D582;--goldD:#8B6926;
+  --txt:#E8DCC0;--soft:#B5C4DD;--soft2:rgba(181,196,221,.66);
+  --line:rgba(201,162,71,.22);--line2:rgba(201,162,71,.4);
+  --inner:rgba(3,10,28,.55);--wa:#25D366;--waD:#128C7E;--red:#e8806f;--ok:#7fd3a3;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--deep)}
+body{min-height:100vh;color:var(--txt);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(700px 420px at 50% -8%,rgba(201,162,71,.16),transparent 62%),linear-gradient(178deg,var(--navy) 0%,var(--deep) 55%,#030c22 100%);
+  background-color:var(--deep);background-repeat:no-repeat}
+.wrap{width:100%;max-width:560px;margin:0 auto;padding:22px 16px 60px}
+.hero{text-align:center;margin-top:8px}
+.ava{width:84px;height:84px;border-radius:50%;margin:0 auto;padding:3px;background:linear-gradient(140deg,var(--champ),var(--gold) 50%,var(--goldD))}
+.ava img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;border:2px solid var(--deep)}
+.kick{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-top:14px;padding-left:.32em}
+h1{font-family:var(--serif);font-weight:600;font-size:44px;line-height:1.02;margin-top:8px;color:var(--champ)}
+h1 em{display:block;font-style:italic;font-weight:500;font-size:24px;color:var(--txt);margin-top:6px}
+.lead{font-size:14px;color:var(--soft);margin:12px auto 0;max-width:400px}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.orn i{display:block;height:1px;width:54px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i+i{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn b{color:var(--gold);font-family:var(--serif);font-size:13px;font-weight:700;letter-spacing:.18em}
+.surf{border-radius:18px;background:linear-gradient(150deg,rgba(20,45,90,.75),rgba(6,21,54,.85));box-shadow:inset 0 0 0 1px var(--line),0 18px 36px -28px rgba(0,0,0,.95)}
+
+.bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:20;display:flex;align-items:center;gap:11px;padding:10px 14px;border-radius:100px;margin:20px 0 14px;
+  background:rgba(6,21,54,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px var(--line2),0 12px 26px -18px #000}
+.bar .lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft2);font-weight:800;white-space:nowrap;max-width:46%;overflow:hidden;text-overflow:ellipsis}
+.bar .trk{flex:1;height:5px;border-radius:100px;background:var(--inner);overflow:hidden}
+.bar .fil{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--goldD),var(--champ));transition:width .35s ease}
+.bar .cnt{font-family:var(--serif);font-size:18px;color:var(--champ);font-weight:700;font-variant-numeric:tabular-nums}
+
+.step{display:none}.step.on{display:block;animation:fd .3s ease}
+@keyframes fd{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sn{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.st{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--champ);line-height:1.1;margin-top:4px}
+.sd{font-size:13.5px;color:var(--soft);margin-top:6px}
+.box{padding:16px;margin-top:14px}
+.q{margin-top:16px}.q:first-child{margin-top:0}
+.ql{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:7px}
+.ql small{letter-spacing:0;text-transform:none;font-weight:600;color:var(--soft2);font-size:11.5px;margin-left:4px}
+input[type=text],input[type=tel],input[type=email],input[type=number],textarea,select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line2);
+  background:var(--inner);color:var(--txt);font-family:var(--sans);font-size:15px;outline:none;-webkit-appearance:none;appearance:none}
+textarea{min-height:84px;resize:vertical;line-height:1.5}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+select option{background:var(--navy)}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,71,.18)}
+::placeholder{color:var(--soft2)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:420px){.g2{grid-template-columns:1fr}}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:9px 13px;border-radius:100px;border:1px solid var(--line2);background:transparent;color:var(--soft);font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;line-height:1.25;text-align:left}
+.chip.on{background:linear-gradient(100deg,var(--champ),var(--gold));color:#1a1204;border-color:transparent;font-weight:800}
+.chip.uf{min-width:52px;text-align:center;font-weight:800;letter-spacing:.04em}
+
+.tipos{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:420px){.tipos{grid-template-columns:1fr}}
+.tipo{display:flex;gap:11px;align-items:flex-start;padding:13px;border-radius:14px;border:1px solid var(--line);background:var(--inner);cursor:pointer;text-align:left;font-family:var(--sans);color:var(--txt)}
+.tipo .ck{flex:0 0 22px;height:22px;border-radius:7px;border:1.5px solid var(--line2);display:grid;place-items:center;margin-top:1px}
+.tipo .ck svg{opacity:0}
+.tipo b{display:block;font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15}
+.tipo span{display:block;font-size:11.5px;color:var(--soft2);margin-top:3px;line-height:1.4}
+.tipo.on{border-color:var(--gold);background:linear-gradient(150deg,rgba(201,162,71,.16),rgba(3,10,28,.6))}
+.tipo.on .ck{background:var(--gold);border-color:var(--gold)}.tipo.on .ck svg{opacity:1}
+.tipo.on b{color:var(--champ)}
+
+.det{padding:16px;margin-top:12px}
+.det h3{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--champ);line-height:1.15}
+.det .dh{display:flex;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px dashed var(--line2)}
+.det .dh i{font-style:normal;font-family:var(--serif);font-size:16px;font-weight:700;color:#1a1204;background:var(--gold);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 28px}
+
+.calc{margin-top:14px;padding:15px;border-radius:15px;background:var(--inner);border:1px solid var(--line)}
+.calc .cr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0}
+.calc .cr+.cr{border-top:1px solid rgba(181,196,221,.1)}
+.calc .cr span{font-size:12.5px;color:var(--soft)}
+.calc .cr b{font-family:var(--serif);font-size:21px;color:var(--champ);white-space:nowrap;font-variant-numeric:tabular-nums}
+.calc .alert{margin-top:10px;padding:10px 12px;border-radius:11px;font-size:12.5px;line-height:1.5}
+.alert.bad{background:rgba(232,128,111,.12);border:1px solid rgba(232,128,111,.4);color:#f4c3b9}
+.alert.good{background:rgba(127,211,163,.1);border:1px solid rgba(127,211,163,.35);color:#c5ecd5}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.presets .chip{padding:7px 11px;font-size:12px}
+.note{font-size:11.5px;color:var(--soft2);margin-top:7px;line-height:1.5}
+
+.nav{display:flex;gap:10px;margin-top:20px}
+.btn{flex:1;padding:16px;border-radius:15px;border:none;cursor:pointer;font-family:var(--serif);font-size:20px;font-weight:700}
+.btn.pri{color:#1a1204;background:linear-gradient(100deg,var(--champ),var(--gold) 55%,var(--goldD));box-shadow:0 18px 36px -22px rgba(201,162,71,.9)}
+.btn.sec{flex:0 0 34%;background:transparent;color:var(--soft);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn.wa{background:linear-gradient(100deg,var(--wa),var(--waD));color:#fff;display:flex;align-items:center;justify-content:center;gap:10px}
+.err{display:none;margin-top:10px;font-size:12.5px;color:#f4c3b9;text-align:center}.err.on{display:block}
+
+.sum{padding:16px;margin-top:14px}
+.sum h4{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:14px 0 6px}
+.sum h4:first-child{margin-top:0}
+.sum p{font-size:13.5px;color:var(--soft);white-space:pre-line}
+.sum p b{color:var(--txt)}
+.small{display:block;text-align:center;font-size:12px;color:var(--soft2);margin-top:10px;cursor:pointer;background:none;border:none;font-family:var(--sans);text-decoration:underline;width:100%}
+footer{margin-top:36px;text-align:center;font-size:11px;color:var(--soft2);letter-spacing:.06em}
+footer b{color:var(--gold);font-family:var(--serif);font-size:15px;letter-spacing:.12em;display:block}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--champ);color:#1a1204;font-weight:800;font-size:13px;padding:11px 18px;border-radius:100px;transition:.25s;pointer-events:none;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+.qn{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.qn i{font-style:normal;font-family:var(--serif);font-size:15px;font-weight:700;color:#1a1204;background:var(--gold);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:0 0 26px}
+.qn b{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--txt);line-height:1.2}
+.qc{padding:16px;margin-top:12px}
+.done{display:none;text-align:center;padding:24px 18px;margin-top:16px}
+.done.on{display:block;animation:fd .35s ease}
+.done h2{font-family:var(--serif);font-size:32px;color:var(--champ);line-height:1.1}
+.done p{font-size:14px;color:var(--soft);margin-top:8px}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="ava"><img alt="Dra. Gleyce Santana" src="data:image/jpeg;base64,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"></div>
+    <div class="kick">GS Licitações · Construtoras</div>
+    <h1>Vença mais obras<em>com mais lucro e segurança</em></h1>
+    <p class="lead">Responda 6 perguntas rápidas. Com elas a Dra. Gleyce já chega na reunião sabendo onde a sua construtora está e onde quer chegar.</p>
+    <div class="orn"><i></i><b>1 MINUTO</b><i></i></div>
+  </div>
+
+  <div id="form">
+    <div class="surf qc"><div class="qn"><i>1</i><b>Seus dados</b></div>
+      <div class="q"><input type="text" data-k="nome" placeholder="Seu nome" autocomplete="name"></div>
+      <div class="q" style="margin-top:10px"><input type="text" data-k="empresa" placeholder="Nome da construtora" autocomplete="organization"></div>
+      <div class="q" style="margin-top:10px"><input type="tel" data-k="whats" placeholder="Seu WhatsApp com DDD" autocomplete="tel" inputmode="tel"></div>
+    </div>
+    <div class="surf qc"><div class="qn"><i>2</i><b>Quais obras você quer disputar?</b></div><div class="chips" data-c="ramo"></div></div>
+    <div class="surf qc"><div class="qn"><i>3</i><b>Sua empresa já participa de licitações?</b></div><div class="chips" data-c="lic" data-one="1"></div></div>
+    <div class="surf qc"><div class="qn"><i>4</i><b>Quanto quer faturar em obras públicas nos próximos 10 meses?</b></div><div class="chips" data-c="meta" data-one="1"></div></div>
+    <div class="surf qc"><div class="qn"><i>5</i><b>Em qual estado?</b></div><select data-k="uf"><option value="">Selecione o estado</option></select></div>
+    <div class="surf qc"><div class="qn"><i>6</i><b>Qual a maior dificuldade hoje?</b></div><div class="chips" data-c="dor"></div></div>
+    <div class="err" id="err"></div>
+    <button class="btn pri" id="ok" style="width:100%;margin-top:18px">Ver próximo passo</button>
+  </div>
+
+  <div class="surf done" id="done">
+    <div class="kick" style="margin-top:0">Tudo certo</div>
+    <h2 id="dh">Obrigada!</h2>
+    <p>As suas respostas estão prontas. Toque no botão abaixo para enviar à Dra. Gleyce no WhatsApp e escolher o melhor horário para a reunião.</p>
+    <button class="btn wa" id="agendar" style="width:100%;margin-top:18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Agendar uma reunião agora</button>
+    <button class="small" id="edit">Corrigir minhas respostas</button>
+  </div>
+
+  <footer><b>GS LICITAÇÕES</b>Dra. Gleyce Santana · OAB/GO 43.167</footer>
+</div>
+<script>
+const WA="556298580927";
+const CH={
+ ramo:["Obra civil e edificações","Asfalto e pavimentação","Saneamento","Drenagem e pontes","Terraplenagem e estradas","Reformas e manutenção","Elétrica e iluminação","Locação de máquinas","Outro"],
+ lic:["Ainda não","Já participei, sem vitórias","Sim, já ganhei obras"],
+ meta:["Até R$ 500 mil","R$ 500 mil a 1 milhão","R$ 1 a 3 milhões","R$ 3 a 10 milhões","Acima de R$ 10 milhões"],
+ dor:["Documentos e habilitação","Encontrar boas licitações","Montar proposta e planilha","Perder no preço","Capital social e balanço","Recursos e impugnações","Começar do zero"]
+};
+const UFS=["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"];
+const S={f:{},c:{}};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("[data-k=uf]").innerHTML+=UFS.map(u=>`<option>${u}</option>`).join("")+"<option>Vários estados</option>";
+function chips(el,k,one){const o=CH[k];el.innerHTML=o.map(x=>`<button type="button" class="chip${(one?S.c[k]===x:(S.c[k]||[]).includes(x))?" on":""}">${esc(x)}</button>`).join("");
+  [...el.children].forEach((b,i)=>b.onclick=()=>{const x=o[i];if(one)S.c[k]=S.c[k]===x?"":x;else{const a=S.c[k]||(S.c[k]=[]),j=a.indexOf(x);j<0?a.push(x):a.splice(j,1)}chips(el,k,one)})}
+$$("[data-c]").forEach(el=>chips(el,el.dataset.c,!!el.dataset.one));
+$$("[data-k]").forEach(f=>f.addEventListener("input",()=>S.f[f.dataset.k]=f.value));
+$$("select[data-k]").forEach(f=>f.addEventListener("change",()=>S.f[f.dataset.k]=f.value));
+function texto(){const f=S.f,c=S.c,v=x=>x&&String(x).trim()?x:"-",l=a=>a&&a.length?a.join(", "):"-";
+  return ["Olá, Dra. Gleyce! Vim pelo Instagram e gostaria de *agendar uma reunião* sobre a consultoria para construtoras.","",
+  `*Nome:* ${v(f.nome)}`,`*Construtora:* ${v(f.empresa)}`,`*WhatsApp:* ${v(f.whats)}`,`*Obras de interesse:* ${l(c.ramo)}`,`*Já participa de licitações:* ${v(c.lic)}`,`*Meta em 10 meses:* ${v(c.meta)}`,`*Estado:* ${v(f.uf)}`,`*Maior dificuldade:* ${l(c.dor)}`,"","Qual o melhor horário para conversarmos?"].join("\n")}
+$("#ok").onclick=()=>{const e=!S.f.nome||!S.f.whats?"Informe seu nome e WhatsApp.":!(S.c.ramo||[]).length?"Marque pelo menos um tipo de obra.":"";
+  if(e){$("#err").textContent=e;$("#err").classList.add("on");return}$("#err").classList.remove("on");
+  $("#dh").textContent="Obrigada, "+S.f.nome.trim().split(" ")[0]+"!";$("#form").classList.add("hide");$("#done").classList.add("on");window.scrollTo({top:$("#done").offsetTop-20,behavior:"smooth"})};
+$("#edit").onclick=()=>{$("#done").classList.remove("on");$("#form").classList.remove("hide")};
+$("#agendar").onclick=()=>window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(texto()),"_blank");
+</script>
+</body>
+</html>
