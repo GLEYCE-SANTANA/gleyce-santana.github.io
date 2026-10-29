@@ -170,6 +170,57 @@ section{margin-top:28px}
 /* notes */
 .note{display:flex;gap:12px;padding:14px 16px;border-radius:var(--r);background:#fff7e3;border:1px solid #f1d58e;font-size:13.5px;color:#5e4100}
 .note b{color:#3d2a00}
+/* novos blocos */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pz{padding:6px 16px}
+.pzrow{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line2)}
+.pzrow:last-child{border-bottom:0}
+.pzrow h5{margin:0;font-size:14.5px}
+.pzrow .o{font-size:12px;color:var(--tx3)}
+.pzbox span{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3)}
+.pzbox b{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:19px}
+.cd{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-weight:700;font-size:22px;color:var(--green)}
+.cd.hot{color:var(--red)}
+.pill2{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:2px}
+.pill2.r{background:#fdecec;color:#b42318}.pill2.y{background:#fff3d6;color:#8a5a00}.pill2.g{background:#e3f6ee;color:#0d7a52}
+.qt{padding:14px 16px}
+.qt table{width:100%;border-collapse:collapse;font-size:13.5px}
+.qt td{padding:7px 0;border-bottom:1px solid var(--line)}
+.qt td:last-child{text-align:right;font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:17px;font-weight:600;white-space:nowrap}
+.qt h4{margin:0 0 2px;font-size:15px}.qt .s{font-size:12px;color:var(--tx3);margin-bottom:6px}
+.qt .nt{font-size:12.5px;color:var(--tx2);margin-top:8px}
+.usina{align-self:start;padding:16px;background:linear-gradient(135deg,#14213d,#1e2f55);color:#fff;border-radius:var(--r)}
+.usina h3{margin:0 0 4px;font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase}
+.usina p{margin:0;color:#c9d3e6;font-size:13px}
+.usina .inp{display:flex;gap:10px;margin:14px 0}
+.usina label{flex:1;font-size:11.5px;color:#c9d3e6;letter-spacing:.06em;text-transform:uppercase}
+.usina input{width:100%;margin-top:4px;background:#0f1a33;border:1px solid #3a4e7a;color:#fff;border-radius:10px;padding:9px 10px;font:600 16px Barlow,system-ui,sans-serif}
+.usina .big{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:44px;font-weight:700;color:#f0cd73;line-height:1}
+.usina .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.usina .row div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px}
+.usina .row span{display:block;font-size:11px;color:#aab7d1;text-transform:uppercase;letter-spacing:.06em}
+.usina .row b{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:22px}
+.lg2{padding:14px 16px}
+.lg2 h4{margin:0;font-size:15px}
+.lg2 .km{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.lg2 .km span{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-size:12.5px}
+.lg2 p{margin:6px 0 0;font-size:13px;color:var(--tx2)}
+.lg2 a{font-size:13px;font-weight:600;text-decoration:none}
+.lg2.ferry{border-color:#f5c2c2;background:#fffafa}
+.ht{padding:14px 16px;overflow-x:auto}
+.ht h4{margin:0 0 4px;font-size:15px}
+.ht .ins{font-size:13px;color:#5e4100;background:#fff7e3;border:1px solid #f1d58e;border-radius:10px;padding:8px 10px;margin:8px 0 10px}
+.ht table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+.ht th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);padding:6px 6px;border-bottom:1px solid var(--line2)}
+.ht td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.ht td.n{text-align:right;white-space:nowrap;font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:15px}
+.dsc{display:inline-block;min-width:52px;text-align:center;font-weight:700;border-radius:6px;padding:2px 6px}
+.dsc.hi{background:#fdecec;color:#b42318}.dsc.md{background:#fff3d6;color:#8a5a00}.dsc.lo{background:#e3f6ee;color:#0d7a52}
+.cap{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:22px;border-radius:6px;font-weight:800;font-size:12px;padding:0 6px}
+.cap.A{background:#dff5ea;color:#0d7a52}.cap.B{background:#e8f0ff;color:#1d4ed8}.cap.C{background:#fff1d6;color:#8a5a00}.cap.D,.cap.E{background:#fdecec;color:#b42318}.cap.ND{background:#eef1f5;color:#7a879b}
+.alrt{margin-top:8px;font-size:12.5px;color:#7a4b00;background:#fff6e0;border:1px solid #f1d58e;border-radius:10px;padding:7px 9px}
+.dl{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff !important;border-radius:9px;padding:7px 11px;font:600 12.5px Barlow,system-ui,sans-serif;text-decoration:none;margin:4px 6px 0 0}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}.pzrow{grid-template-columns:1fr 1fr}.pzrow>div:first-child{grid-column:1/-1}}
 /* bottom bar */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(9,14,22,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:10px 16px calc(10px + var(--safe))}
 .dock .wrap{display:flex;align-items:center;gap:12px;padding:0}
@@ -255,7 +306,7 @@ footer{margin-top:40px;padding:24px 0 10px;border-top:1px solid var(--line);colo
   <div class="kgrid reveal">
     <div class="kpi sm"><div class="lb">Via ferry-boat</div><div class="vl cond c-blue" data-count="54067713.19" data-fmt="mi">R$ 0</div><div class="ft">São Luís (Consórcio CIM)</div></div>
     <div class="kpi sm"><div class="lb">Maior edital</div><div class="vl cond" id="kMax">—</div><div class="ft" id="kMaxFt">—</div></div>
-    <div class="kpi sm"><div class="lb">Distância média</div><div class="vl cond" id="kDist">—</div><div class="ft">da usina até a sede do município</div></div>
+    <div class="kpi sm"><div class="lb">CBUQ previsto</div><div class="vl cond" id="kCbuq">—</div><div class="ft">só no edital do CIM (limite da ata)</div></div><span id="kDist" hidden></span>
     <div class="kpi sm"><div class="lb">Cidades monitoradas</div><div class="vl cond" id="kTerra">23</div><div class="ft">até 150 km da usina</div></div>
   </div>
 
@@ -286,8 +337,34 @@ footer{margin-top:40px;padding:24px 0 10px;border-top:1px solid var(--line);colo
     <div id="list"></div>
   </section>
 
-  <section class="reveal">
-    <div class="note"><div style="font-size:22px">⚠️</div><div><b>Atenção à logística do CBUQ.</b> A licitação de São Luís depende de ferry-boat a partir da Baixada. A distância nominal não garante viabilidade para massa quente — nessa obra vale avaliar usina móvel, parceria local ou fornecimento em São Luís. São Vicente Ferrer e Santa Helena são atendidos por rodovia.</div></div>
+  <section class="reveal" id="prazos">
+    <div class="sh"><h2>Prazos críticos<small>Contagem regressiva e data-limite para impugnar ou pedir esclarecimento (3 dias úteis antes da sessão — Lei 14.133, art. 164)</small></h2></div>
+    <div class="panel pz" id="pzList"></div>
+  </section>
+
+  <section class="reveal" id="usina">
+    <div class="sh"><h2>Quantidades e uso da usina<small>Extraído das planilhas orçamentárias dos editais no PNCP</small></h2></div>
+    <div class="grid2">
+      <div class="usina">
+        <h3>Usina de Mirinzal</h3>
+        <p>Ajuste a capacidade real da usina para ver quantos dias de produção o CBUQ do CIM ocupa.</p>
+        <div class="inp"><label>Produção (t/hora)<input id="uTh" type="number" min="10" max="400" value="80"></label><label>Horas por dia<input id="uHd" type="number" min="1" max="24" value="8"></label></div>
+        <div class="big" id="uDias">—</div><p>dias de usina para as <b id="uTon">—</b> t de CBUQ do CIM</p>
+        <div class="row"><div><span>Por dia</span><b id="uDia">—</b></div><div><span>Em 12 meses*</span><b id="uPct">—</b></div><div><span>Meses úteis</span><b id="uMes">—</b></div></div>
+        <p style="margin-top:10px;font-size:11.5px;color:#aab7d1">* Percentual da capacidade anual (22 dias úteis/mês). Estimativa: confirme com o histórico real da usina. As outras 3 licitações não usam CBUQ.</p>
+      </div>
+      <div id="qtList" style="display:flex;flex-direction:column;gap:14px"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="logistica">
+    <div class="sh"><h2>Logística por obra<small>Distância rodoviária da usina (levantamento do cliente) e tempo estimado de caminhão carregado a 50 km/h</small></h2></div>
+    <div class="cards" id="lgList"></div>
+  </section>
+
+  <section class="reveal" id="historico">
+    <div class="sh"><h2>Histórico dos órgãos<small>Licitações de pavimentação já homologadas pelos mesmos órgãos (PNCP) — quem ganhou e com que desconto</small></h2></div>
+    <div id="htList" style="display:flex;flex-direction:column;gap:14px"></div>
   </section>
 
   <section class="reveal">
@@ -299,7 +376,7 @@ footer{margin-top:40px;padding:24px 0 10px;border-top:1px solid var(--line);colo
     <div class="panel cities">
       <h3>Os 23 municípios monitorados</h3>
       <div class="cgrid" id="cgrid"></div>
-      <p style="font-size:12.5px;color:var(--tx3);margin:12px 0 0">Distâncias rodoviárias aproximadas a partir da usina em Mirinzal, conforme levantamento da CONSTRUPAV. Municípios sem edital no período continuam sendo monitorados.</p>
+      <p style="font-size:12.5px;color:var(--tx3);margin:12px 0 0">Distâncias rodoviárias aproximadas a partir da usina em Mirinzal, conforme levantamento da CONSTRUPAV. Municípios sem edital no período continuam sendo monitorados. <b>CAPAG</b> = nota de capacidade de pagamento do Tesouro Nacional (A melhor, D pior), consultada no eLicitação em 29/10/2026.</p>
     </div>
   </section>
 
@@ -309,7 +386,7 @@ footer{margin-top:40px;padding:24px 0 10px;border-top:1px solid var(--line);colo
       <div>
         <div style="color:var(--tx2);font-weight:600">GS Licitações · Dra. Gleyce Santana</div>
         <div>Assessoria em licitações públicas · Lei 14.133/2021</div>
-        <div style="margin-top:8px">Fontes: Portal Nacional de Contratações Públicas (PNCP), eLicitaBoletim e avisos oficiais (DOU / portais de compras). Consulta em 29/10/2026. Datas, horários e valores devem ser conferidos no edital antes do envio da proposta.</div>
+        <div style="margin-top:8px">Fontes: Portal Nacional de Contratações Públicas (PNCP) — editais, planilhas orçamentárias e resultados; eLicitaBoletim e eLicitação (nota CAPAG); avisos oficiais (DOU / portais de compras). Consulta em 29/10/2026. Datas, horários e valores devem ser conferidos no edital antes do envio da proposta.</div>
       </div>
     </div>
   </footer>
@@ -318,7 +395,7 @@ footer{margin-top:40px;padding:24px 0 10px;border-top:1px solid var(--line);colo
 <div class="toast" id="toast"></div>
 
 <script>
-const DATA = {"itens": [{"id": "A1", "cat": "foco", "orgao": "Consórcio Intermunicipal Multimodal – CIM", "mun": "São Luís", "uf": "MA", "edital": "01/2026", "proc": "107/2025", "mod": "Concorrência Eletrônica (SRP)", "portal": "BNC Compras", "data": "2026-11-11", "hora": "10:00", "valor": 54067713.19, "dist_km": 125, "ferry": true, "tipo_obra": "Pavimentação asfáltica / recape (SRP)", "objeto": "Registro de preços para execução, sob demanda, de serviços de engenharia de implantação, recuperação, manutenção e conservação de pavimentação asfáltica — terraplenagem, pavimentação, recapeamento, tapa-buraco, drenagem superficial e obras de arte corrente — nos municípios integrantes do CIM.", "nota_extra": "PNCP indica envio de propostas até 09:00; disputa às 10:00 no BNC. Confirmar no edital.", "pncp": "https://pncp.gov.br/app/editais/18562245000178/2026/7"}, {"id": "A3", "cat": "foco", "orgao": "Prefeitura de São Vicente Ferrer", "mun": "São Vicente Ferrer", "uf": "MA", "edital": "16/2026", "proc": "97/2026", "mod": "Concorrência Eletrônica", "portal": "Licitanet", "data": "2026-11-06", "hora": "08:00", "valor": 956000.0, "dist_km": 139, "ferry": false, "tipo_obra": "Pavimentação de estradas vicinais", "objeto": "Prestação de serviços de pavimentação de estradas vicinais no município de São Vicente Ferrer/MA.", "nota_extra": "", "pncp": "https://pncp.gov.br/app/editais/06421119000114/2026/35"}, {"id": "A4", "cat": "foco", "orgao": "Prefeitura de São Vicente Ferrer", "mun": "São Vicente Ferrer", "uf": "MA", "edital": "15/2026", "proc": "96/2026", "mod": "Concorrência Eletrônica", "portal": "Licitanet", "data": "2026-11-05", "hora": "08:00", "valor": 2359243.67, "dist_km": 139, "ferry": false, "tipo_obra": "Ciclovia / pavimentação urbana", "objeto": "Construção de ciclovia de acesso à Praça da Matriz — 3ª etapa.", "nota_extra": "", "pncp": "https://pncp.gov.br/app/editais/06421119000114/2026/34"}, {"id": "A5", "cat": "foco", "orgao": "Sec. Municipal de Transporte, Obras e Urbanismo de Santa Helena", "mun": "Santa Helena", "uf": "MA", "edital": "CE-011/2026-SRP", "mod": "Concorrência Eletrônica (SRP)", "portal": "Licita + Brasil", "data": "2026-12-03", "hora": "08:00", "valor": 8601165.74, "dist_km": 96, "ferry": false, "tipo_obra": "Pavimentação em bloquetes (SRP)", "objeto": "Pavimentação em bloquetes de concreto com implantação de meios-fios, sarjetas e serviços complementares em vias públicas de Santa Helena/MA.", "pncp": "https://pncp.gov.br/app/editais/06226583000150/2026/80", "proc": "", "nota_extra": "Registro de preços (SRP). Pavimento em bloquetes de concreto — conferir acervo técnico."}], "radar": [], "cidades": [["Central do Maranhão", 16], ["Guimarães", 32], ["Cururupu", 34], ["Cedral", 36], ["Porto Rico do Maranhão", 37], ["Bequimão", 48], ["Serrano do Maranhão", 64], ["Pinheiro", 76], ["Peri Mirim", 77], ["Bacuri", 85], ["Palmeirândia", 87], ["Santa Helena", 96], ["Turilândia", 100], ["São Bento", 107], ["Presidente Sarney", 111], ["Apicum-Açu", 113], ["Bacurituba", 118], ["Alcântara", 122], ["São Luís", 125], ["Pedro do Rosário", 139], ["São Vicente Ferrer", 139], ["Cajapió", 141], ["Paço do Lumiar", 149]]};
+const DATA = {"itens": [{"id": "A1", "cat": "foco", "orgao": "Consórcio Intermunicipal Multimodal – CIM", "mun": "São Luís", "uf": "MA", "proc": "107/2025", "mod": "Concorrência Eletrônica (SRP)", "portal": "BNC Compras", "data": "2026-11-11", "hora": "10:00", "valor": 54067713.19, "dist_km": 125, "ferry": true, "tipo_obra": "CBUQ, TSD, recape e tapa-buraco (SRP)", "objeto": "Registro de preços para execução, sob demanda, de serviços de engenharia de implantação, recuperação, manutenção e conservação de pavimentação asfáltica — terraplenagem, pavimentação, recapeamento, tapa-buraco, drenagem superficial e obras de arte corrente — nos municípios integrantes do CIM.", "nota_extra": "PNCP indica envio de propostas até 09:00; disputa às 10:00 no BNC. Confirmar no edital.", "pncp": "https://pncp.gov.br/app/editais/18562245000178/2026/7", "org_key": "CIM", "cbuq_t": 27857.34, "quant": [["CBUQ — concreto asfáltico faixa C-12,5", "27.857 t"], ["TSD — tratamento superficial duplo", "197.400 m²"], ["Imprimação / pintura de ligação", "629.862 m²"], ["Microrrevestimento a frio", "24.714 m²"], ["CAP 50/70 (aquisição)", "1.545 t"]], "quant_nota": "Quantidades são o limite máximo do registro de preços; cada contratação depende de demanda dos municípios do consórcio.", "alertas": ["Registro de preços: o CIM não é obrigado a contratar o total. Os trechos e municípios são definidos por ordem de serviço.", "O edital exige CBUQ saindo da usina entre 135 e 177 °C e chegando à obra com no mínimo 107 °C."], "capag": null, "capag_txt": "Consórcio intermunicipal — a nota CAPAG é de cada município consorciado.", "rota": "São Luís, MA", "downloads": [["Edital + anexos (PDF, 2,8 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/18562245000178/compras/2026/7/arquivos/1"]], "edital": "01/2026"}, {"id": "A3", "cat": "foco", "orgao": "Prefeitura de São Vicente Ferrer", "mun": "São Vicente Ferrer", "uf": "MA", "proc": "97/2026", "mod": "Concorrência Eletrônica", "portal": "Licitanet", "data": "2026-11-06", "hora": "08:00", "valor": 956000.0, "dist_km": 139, "ferry": false, "tipo_obra": "Piso intertravado (bloco sextavado) em estrada vicinal", "objeto": "Pavimentação em piso intertravado (bloco sextavado) de estrada vicinal no Povoado Santa Tereza, com meio-fio e sarjeta.", "nota_extra": "", "pncp": "https://pncp.gov.br/app/editais/06421119000114/2026/35", "org_key": "SVF", "cbuq_t": 0, "quant": [["Piso intertravado bloco sextavado 25×25×8 cm", "5.160 m²"], ["Meio-fio de concreto", "2.000 m"], ["Sarjeta de concreto", "2.000 m"], ["Base de solo estabilizado", "900 m³"]], "quant_nota": "Não usa CBUQ. Obra no Povoado Santa Tereza, prazo de 4 meses, recurso do convênio 982051 (Ministério da Integração).", "alertas": ["Apesar do nome 'pavimentação de estradas vicinais', o serviço é piso intertravado (bloquete), não asfalto."], "rota": "São Vicente Ferrer, MA", "downloads": [["Edital, projeto e planilhas (ZIP, 14 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/06421119000114/compras/2026/35/arquivos/1"]], "edital": "16/2026"}, {"id": "A4", "cat": "foco", "orgao": "Prefeitura de São Vicente Ferrer", "mun": "São Vicente Ferrer", "uf": "MA", "proc": "96/2026", "mod": "Concorrência Eletrônica", "portal": "Licitanet", "data": "2026-11-05", "hora": "08:00", "valor": 2359243.67, "dist_km": 139, "ferry": false, "tipo_obra": "Ciclovia em concreto poroso + iluminação", "objeto": "Construção da 3ª etapa da ciclovia de acesso à Praça da Matriz: piso em concreto poroso colorido, terraplenagem e iluminação com 49 postes.", "nota_extra": "", "pncp": "https://pncp.gov.br/app/editais/06421119000114/2026/34", "org_key": "SVF", "cbuq_t": 0, "quant": [["Piso em concreto poroso colorido (e = 7 cm)", "4.200 m²"], ["Contrapiso em argamassa", "4.200 m²"], ["Iluminação pública", "49 postes"]], "quant_nota": "Não usa CBUQ: o pavimento é de concreto, e 20% do orçamento é instalação elétrica.", "alertas": ["57,8% do orçamento (R$ 1,36 mi) está como recurso 'a indicar' pelo município — só R$ 995 mil têm fonte garantida (emenda parlamentar).", "A mesma empresa venceu a 1ª e a 2ª etapa desta ciclovia com descontos de 4% a 5%."], "rota": "São Vicente Ferrer, MA", "downloads": [["Edital (ZIP, 0,6 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/06421119000114/compras/2026/34/arquivos/2"], ["Projeto e planilhas (ZIP, 2,7 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/06421119000114/compras/2026/34/arquivos/3"]], "edital": "15/2026"}, {"id": "A5", "cat": "foco", "orgao": "Sec. Municipal de Transporte, Obras e Urbanismo de Santa Helena", "mun": "Santa Helena", "uf": "MA", "mod": "Concorrência Eletrônica (SRP)", "portal": "Licita + Brasil", "data": "2026-12-03", "hora": "08:00", "valor": 8601165.74, "dist_km": 96, "ferry": false, "tipo_obra": "Pavimentação em bloquetes (SRP)", "objeto": "Pavimentação em bloquetes de concreto com implantação de meios-fios, sarjetas e serviços complementares em vias públicas de Santa Helena/MA.", "pncp": "https://pncp.gov.br/app/editais/06226583000150/2026/80", "proc": "", "nota_extra": "Registro de preços (SRP). Pavimento em bloquetes de concreto — conferir acervo técnico.", "org_key": "SH", "cbuq_t": 0, "quant": [["Bloquete sextavado 25×25 cm com fornecimento", "27.000 m²"], ["Assentamento de bloquete doado pelo Estado", "5.400 m²"], ["Meio-fio", "12.000 m"], ["Sarjeta de concreto", "12.000 m"]], "quant_nota": "Não usa CBUQ. Parte do bloquete e do meio-fio (lote 1, R$ 1,0 mi) é fornecida pelo Estado; a CONSTRUPAV só assenta.", "alertas": ["Garantia de proposta de 1% do valor estimado (≈ R$ 86 mil), exigida junto com a proposta.", "Ata de registro de preços com vigência de 12 meses."], "rota": "Santa Helena, MA", "downloads": [["Edital + anexos (PDF, 25 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/06226583000150/compras/2026/80/arquivos/1"], ["Projetos e planilha (PDF, 6 MB)", "https://pncp.gov.br/pncp-api/v1/orgaos/06226583000150/compras/2026/80/arquivos/2"]], "edital": "CE-011/2026-SRP"}], "radar": [], "cidades": [["Central do Maranhão", 16], ["Guimarães", 32], ["Cururupu", 34], ["Cedral", 36], ["Porto Rico do Maranhão", 37], ["Bequimão", 48], ["Serrano do Maranhão", 64], ["Pinheiro", 76], ["Peri Mirim", 77], ["Bacuri", 85], ["Palmeirândia", 87], ["Santa Helena", 96], ["Turilândia", 100], ["São Bento", 107], ["Presidente Sarney", 111], ["Apicum-Açu", 113], ["Bacurituba", 118], ["Alcântara", 122], ["São Luís", 125], ["Pedro do Rosário", 139], ["São Vicente Ferrer", 139], ["Cajapió", 141], ["Paço do Lumiar", 149]], "capag": {"Bacuri": {"nota": "C", "end": "0,00%", "end_n": "A", "poup": "90,60%", "poup_n": "B", "liq": "-4,64%", "liq_n": "C", "rank": "B"}, "Bequimão": {"nota": "N/D"}, "Cedral": {"nota": "A", "end": "0,00%", "end_n": "A", "poup": "86,90%", "poup_n": "B", "liq": "7,49%", "liq_n": "A", "rank": "C"}, "Central do Maranhão": {"nota": "B", "end": "0,19%", "end_n": "A", "poup": "93,61%", "poup_n": "B", "liq": "2,46%", "liq_n": "B", "rank": "C"}, "Cururupu": {"nota": "C", "end": "0,18%", "end_n": "A", "poup": "98,88%", "poup_n": "C", "liq": "0,13%", "liq_n": "B", "rank": "C"}, "Guimarães": {"nota": "C", "end": "10,04%", "end_n": "A", "poup": "97,67%", "poup_n": "C", "liq": "-12,06%", "liq_n": "C", "rank": "B"}, "Palmeirândia": {"nota": "N/D"}, "Peri Mirim": {"nota": "C", "end": "0,00%", "end_n": "A", "poup": "1,05%", "poup_n": "C", "liq": "-53,35%", "liq_n": "C", "rank": "B"}, "Pinheiro": {"nota": "B", "end": "1,79%", "end_n": "A", "poup": "93,04%", "poup_n": "B", "liq": "0,74%", "liq_n": "B", "rank": "C"}, "Porto Rico do Maranhão": {"nota": "B", "end": "5,99%", "end_n": "A", "poup": "89,55%", "poup_n": "B", "liq": "2,42%", "liq_n": "B", "rank": "B"}, "Santa Helena": {"nota": "N/D"}, "Serrano do Maranhão": {"nota": "C", "end": "11,43%", "end_n": "A", "poup": "87,07%", "poup_n": "B", "liq": "-3,96%", "liq_n": "C", "rank": "B"}, "Turilândia": {"nota": "N/D"}, "São Bento": {"nota": "C", "end": "0,36%", "end_n": "A", "poup": "93,68%", "poup_n": "B", "liq": "-1,02%", "liq_n": "C", "rank": "C"}, "Presidente Sarney": {"nota": "N/D"}, "Apicum-Açu": {"nota": "B", "end": "0,00%", "end_n": "A", "poup": "88,62%", "poup_n": "B", "liq": "3,20%", "liq_n": "B", "rank": "B"}, "Bacurituba": {"nota": "A", "end": "0,20%", "end_n": "A", "poup": "89,50%", "poup_n": "B", "liq": "7,42%", "liq_n": "A", "rank": "C"}, "Alcântara": {"nota": "N/D"}, "São Luís": {"nota": "A", "end": "12,73%", "end_n": "A", "poup": "89,48%", "poup_n": "B", "liq": "22,41%", "liq_n": "A", "rank": "C"}, "Pedro do Rosário": {"nota": "C", "end": "7,41%", "end_n": "A", "poup": "86,29%", "poup_n": "B", "liq": "-1,40%", "liq_n": "C", "rank": "B"}, "São Vicente Ferrer": {"nota": "C", "end": "1,65%", "end_n": "A", "poup": "98,51%", "poup_n": "C", "liq": "-11,43%", "liq_n": "C", "rank": "C"}, "Cajapió": {"nota": "A", "end": "0,29%", "end_n": "A", "poup": "90,77%", "poup_n": "B", "liq": "5,90%", "liq_n": "A", "rank": "C"}, "Paço do Lumiar": {"nota": "B", "end": "0,00%", "end_n": "A", "poup": "86,35%", "poup_n": "B", "liq": "4,42%", "liq_n": "B", "rank": "B"}}, "hist": {"CIM": [], "SVF": [{"ano": 2026, "num": "CE 28/2026 (SRP)", "obj": "Pavimentação em blocos intertravados", "venc": "A3 Construção e Engenharia", "est": 5000899.63, "hom": 4174432.19, "desc": 16.5, "link": "https://pncp.gov.br/app/editais/06421119000114/2026/28"}, {"ano": 2025, "num": "CE 48/2025", "obj": "Pavimentação, iluminação e ciclovia — Praça da Matriz (2ª etapa)", "venc": "Andrade Variedades e Construção", "est": 2873210.0, "hom": 2731679.39, "desc": 4.9, "link": "https://pncp.gov.br/app/editais/06421119000114/2025/48"}, {"ano": 2025, "num": "CE 44/2025 (SRP)", "obj": "Pavimentação em bloquetes sextavados", "venc": "Sangar Construções", "est": 1180630.1, "hom": 885472.58, "desc": 25.0, "link": "https://pncp.gov.br/app/editais/06421119000114/2025/44"}, {"ano": 2024, "num": "PE 27/2024", "obj": "Pavimentação, iluminação e ciclovia — Praça da Matriz (1ª etapa)", "venc": "Andrade Variedades e Construção", "est": 1917356.0, "hom": 1832936.24, "desc": 4.4, "link": "https://pncp.gov.br/app/editais/06421119000114/2024/27"}, {"ano": 2024, "num": "PE 22/2024 (SRP)", "obj": "Pavimentação de ruas com bloquetes", "venc": "N G Costa Construtora", "est": 4477931.05, "hom": 3362925.84, "desc": 24.9, "link": "https://pncp.gov.br/app/editais/06421119000114/2024/22"}], "SH": [{"ano": 2026, "num": "CE 08/2026", "obj": "Recapeamento asfáltico em vias urbanas", "venc": "ABG Empreendimentos", "est": 2204712.0, "hom": 1926359.55, "desc": 12.6, "link": "https://pncp.gov.br/app/editais/06226583000150/2026/8"}, {"ano": 2025, "num": "PE 67/2025", "obj": "Recuperação de estradas vicinais (regiões 1 e 2)", "venc": "J D Amorim", "est": 5797941.0, "hom": 4348455.7, "desc": 25.0, "link": "https://pncp.gov.br/app/editais/06226583000150/2025/67"}, {"ano": 2025, "num": "PE 68/2025", "obj": "Recuperação de estradas vicinais (região 3)", "venc": "J D Amorim", "est": 5878500.86, "hom": 4408875.6, "desc": 25.0, "link": "https://pncp.gov.br/app/editais/06226583000150/2025/68"}, {"ano": 2025, "num": "CE 52/2025", "obj": "Pavimentação em bloquetes (material e mão de obra)", "venc": "J D Amorim", "est": 2758200.8, "hom": 2068550.6, "desc": 25.0, "link": "https://pncp.gov.br/app/editais/06226583000150/2025/52"}, {"ano": 2024, "num": "CE 26/2024", "obj": "Qualificação viária — pavimentação em bloquete na sede", "venc": "Construções e Comércio Lupa", "est": 1914356.0, "hom": 1435767.0, "desc": 25.0, "link": "https://pncp.gov.br/app/editais/06226583000150/2024/26"}]}, "hist_nome": {"CIM": "Consórcio Intermunicipal Multimodal (CIM)", "SVF": "Prefeitura de São Vicente Ferrer", "SH": "Prefeitura de Santa Helena"}};
 const ITENS = DATA.itens, RADAR = DATA.radar, CIDADES = DATA.cidades;
 const STORE = 'radar-mirinzal-construpav-v1';
 const WA_NUM = '';
@@ -335,6 +412,15 @@ const rel = n => n<0 ? 'sessão encerrada' : n===0 ? 'é hoje' : n===1 ? 'amanh�
 const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+/* ---------- CAPAG / prazos helpers ---------- */
+const CAP = DATA.capag||{}, HIST=DATA.hist||{}, HNOME=DATA.hist_nome||{};
+function capBadge(n){ const c=CAP[n]; if(!c) return ''; const k=c.nota==='N/D'?'ND':c.nota[0]; return `<span class="cap ${k}" title="CAPAG ${c.nota}">${c.nota==='N/D'?'N/D':c.nota}</span>`; }
+function capTag(i){ if(i.capag_txt) return `<span class="tag">CAPAG: consórcio</span>`; const c=CAP[i.mun]; if(!c) return ''; return `<span class="tag">CAPAG ${capBadge(i.mun)}</span>`; }
+const FERIADOS=['2026-11-02','2026-11-15','2026-11-20','2026-12-25','2027-01-01'];
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const util=d=>d.getDay()!==0&&d.getDay()!==6&&!FERIADOS.includes(iso(d));
+function limiteImpug(s){ const d=dt(s); let n=0; while(n<3){ d.setDate(d.getDate()-1); if(util(d)) n++; } return d; }
+const fmt=d=>String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0');
 /* ---------- KPIs ---------- */
 const munCom = [...new Set(ITENS.map(i=>i.mun))];
 document.getElementById('kQtd').textContent = ITENS.length;
@@ -345,6 +431,7 @@ document.getElementById('kMax').textContent = mi(mx.valor);
 document.getElementById('kMaxFt').textContent = mx.orgao.split('–')[0].trim();
 document.getElementById('kDist').textContent = Math.round(ITENS.reduce((s,i)=>s+i.dist_km,0)/ITENS.length)+' km';
 const terra = ITENS.filter(i=>!i.ferry);
+document.getElementById('kCbuq').textContent = Math.round(ITENS.reduce((s,i)=>s+(i.cbuq_t||0),0)).toLocaleString('pt-BR')+' t';
 
 (function(){
   const fut = ITENS.filter(i=>daysTo(i.data)>=0).sort((a,b)=>(a.data+a.hora).localeCompare(b.data+b.hora));
@@ -441,6 +528,7 @@ function cardHTML(i,isRadar){
     <span class="tag ${i.cat==='obra'?'obra':'foco'}">${esc(i.tipo_obra)}</span>
     ${i.ferry?'<span class="tag ferry">⛴ Ferry-boat</span>':'<span class="tag">🛣 Rodoviário</span>'}
     ${!isRadar&&d>=0?`<span class="tag ${urg?'urg':''}">${rel(d)}</span>`:''}
+    ${capTag(i)}
   </div>
   <h4>${esc(i.mun)}/MA — ${esc(i.mod)} ${esc(i.edital)}</h4>
   <div class="org">${esc(i.orgao)}</div>
@@ -457,8 +545,10 @@ function cardHTML(i,isRadar){
     <dt>Plataforma</dt><dd>${esc(i.portal)}</dd>
     <dt>Data</dt><dd>${DOW[dt(i.data).getDay()]}, ${dt(i.data).toLocaleDateString('pt-BR')} às ${i.hora}</dd>
     <dt>Logística</dt><dd>${i.dist_km} km de Mirinzal${i.ferry?' + travessia de ferry-boat':' por rodovia'}</dd>
-  </dl>${i.nota_extra?`<div class="warn">${esc(i.nota_extra)}</div>`:''}</div>
-  <div class="lnk"><button class="tg">Ver detalhes ▾</button><a href="${i.pncp}" target="_blank" rel="noopener">Edital no PNCP ↗</a></div>
+    <dt>Quantidades</dt><dd>${(i.quant||[]).map(q=>esc(q[0])+': <b>'+esc(q[1])+'</b>').join('<br>')}</dd>
+  </dl>${(i.alertas||[]).map(a=>`<div class="alrt">⚠ ${esc(a)}</div>`).join('')}${i.nota_extra?`<div class="warn">${esc(i.nota_extra)}</div>`:''}
+  <div style="margin-top:8px">${(i.downloads||[]).map(e=>`<a class="dl" href="${e[1]}" target="_blank" rel="noopener">⬇ ${esc(e[0])}</a>`).join('')}</div></div>
+  <div class="lnk"><button class="tg">Ver detalhes ▾</button><a href="${i.pncp}" target="_blank" rel="noopener">Ver no PNCP ↗</a>${i.downloads&&i.downloads[0]?`<a href="${i.downloads[0][1]}" target="_blank" rel="noopener">⬇ Baixar edital</a>`:''}</div>
 </article>`;
 }
 function bind(root){
@@ -495,8 +585,63 @@ document.getElementById('next').innerHTML=RADAR.map(i=>cardHTML(i,true)).join(''
 bind(document.getElementById('next'));
 (function(){
   const c={}; ITENS.forEach(i=>c[i.mun]=(c[i.mun]||0)+1);
-  document.getElementById('cgrid').innerHTML=CIDADES.map(([n,km])=>`<div class="city ${c[n]?'hot':''}" data-c="${esc(n)}"><div>${esc(n)}<div class="st">${c[n]?c[n]+' licitação(ões)':'sem edital no período'}</div></div><span class="km">${km} km</span></div>`).join('');
+  document.getElementById('cgrid').innerHTML=CIDADES.map(([n,km])=>`<div class="city ${c[n]?'hot':''}" data-c="${esc(n)}"><div>${esc(n)}<div class="st">${c[n]?c[n]+' licitação(ões)':'sem edital no período'}</div></div><span style="display:flex;gap:6px;align-items:center">${capBadge(n)}<span class="km">${km} km</span></span></div>`).join('');
   document.querySelectorAll('.city').forEach(x=>x.onclick=()=>setCity(x.dataset.c));
+})();
+
+/* ---------- prazos ---------- */
+function renderPrazos(){
+  const now=new Date();
+  const arr=[...ITENS].sort((a,b)=>(a.data+a.hora).localeCompare(b.data+b.hora));
+  document.getElementById('pzList').innerHTML=arr.map(i=>{
+    const [hh,mm]=i.hora.split(':').map(Number); const S=dt(i.data); S.setHours(hh,mm||0,0,0);
+    const ms=S-now, dd=Math.floor(ms/864e5), hr=Math.floor(ms%864e5/36e5), mn=Math.floor(ms%36e5/6e4);
+    const L=limiteImpug(i.data), dl=Math.round((L-today)/864e5);
+    const st= ms<0?'<span class="pill2 g">sessão realizada</span>': dl<0?'<span class="pill2 y">prazo de impugnação encerrado</span>': dl<=1?'<span class="pill2 r">impugnação vence '+(dl===0?'hoje':'amanhã')+'</span>':'<span class="pill2 g">no prazo</span>';
+    return `<div class="pzrow"><div><h5>${esc(i.mun)} — ${esc(i.tipo_obra)}</h5><div class="o">${esc(i.mod)} ${esc(i.edital)} · ${mi(i.valor)}</div></div>
+      <div class="pzbox"><span>Sessão ${fmt(S)} · ${i.hora}</span><div class="cd ${ms>0&&dd<3?'hot':''}">${ms<0?'—':(dd>0?dd+'d ':'')+hr+'h '+mn+'min'}</div></div>
+      <div class="pzbox"><span>Impugnar / esclarecer até</span><b>${fmt(L)}</b>${st}</div></div>`; }).join('')+`<p style="font-size:12px;color:var(--tx3);margin:8px 0 10px">Prazo calculado em dias úteis (descontando sábados, domingos e feriados nacionais). O edital pode fixar horário-limite — confira no item de impugnação.</p>`;
+}
+renderPrazos(); setInterval(renderPrazos,60000);
+
+/* ---------- usina + quantidades ---------- */
+function renderUsina(){
+  const ton=ITENS.reduce((s,i)=>s+(i.cbuq_t||0),0), th=+document.getElementById('uTh').value||1, hd=+document.getElementById('uHd').value||1;
+  const dia=th*hd, dias=ton/dia;
+  document.getElementById('uTon').textContent=Math.round(ton).toLocaleString('pt-BR');
+  document.getElementById('uDias').textContent=Math.ceil(dias).toLocaleString('pt-BR');
+  document.getElementById('uDia').textContent=Math.round(dia).toLocaleString('pt-BR')+' t';
+  document.getElementById('uPct').textContent=Math.round(dias/264*100)+'%';
+  document.getElementById('uMes').textContent=(dias/22).toLocaleString('pt-BR',{maximumFractionDigits:1});
+}
+['uTh','uHd'].forEach(x=>document.getElementById(x).addEventListener('input',renderUsina)); renderUsina();
+document.getElementById('qtList').innerHTML=[...ITENS].sort((a,b)=>(b.cbuq_t||0)-(a.cbuq_t||0)||b.valor-a.valor).map(i=>`<div class="panel qt"><h4>${esc(i.mun)} — ${esc(i.tipo_obra)}</h4><div class="s">${esc(i.mod)} ${esc(i.edital)} · ${mi(i.valor)}</div>
+  <table>${(i.quant||[]).map(q=>`<tr><td>${esc(q[0])}</td><td>${esc(q[1])}</td></tr>`).join('')}</table><div class="nt">${i.cbuq_t?'🔥':'ℹ️'} ${esc(i.quant_nota||'')}</div></div>`).join('');
+
+/* ---------- logística ---------- */
+document.getElementById('lgList').innerHTML=[...ITENS].sort((a,b)=>a.dist_km-b.dist_km).map(i=>{ const h=i.dist_km/50, hh=Math.floor(h), mm=Math.round((h-hh)*60);
+  const maps='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('Mirinzal, MA')+'&destination='+encodeURIComponent(i.rota||i.mun+', MA')+'&travelmode=driving';
+  const txt = i.ferry ? 'Trajeto inclui a travessia de ferry-boat Cujupe ↔ Ponta da Espera, com fila e horários que mudam em feriados (caminhões têm restrição em datas de pico). Com o tempo de estrada mais a travessia, é difícil o CBUQ chegar a São Luís acima dos 107 °C exigidos pelo edital — avalie usina móvel, parceria ou fornecedor na ilha.'
+    : (i.cbuq_t ? 'Acesso por rodovia.' : 'Acesso por rodovia. Obra sem CBUQ: a logística é de bloquete/concreto, equipe e equipamentos — a usina não é usada.');
+  return `<article class="panel lg2 ${i.ferry?'ferry':''}"><h4>${esc(i.mun)} — ${esc(i.tipo_obra)}</h4>
+    <div class="km"><span>📍 ${i.dist_km} km da usina</span><span>🚚 ~${hh}h${String(mm).padStart(2,'0')} de estrada</span>${i.ferry?'<span>⛴ + travessia de balsa</span>':'<span>🛣 100% rodoviário</span>'}${i.cbuq_t?'<span>🔥 '+Math.round(i.cbuq_t).toLocaleString('pt-BR')+' t CBUQ</span>':''}</div>
+    <p>${txt}</p><p><a href="${maps}" target="_blank" rel="noopener">Ver rota no Google Maps ↗</a></p></article>`; }).join('');
+
+/* ---------- histórico ---------- */
+(function(){
+  const keys=[...new Set(ITENS.map(i=>i.org_key))];
+  document.getElementById('htList').innerHTML=keys.map(k=>{ const L=HIST[k]||[]; const its=ITENS.filter(i=>i.org_key===k);
+    const dcl=v=>v>=20?'hi':v>=10?'md':'lo';
+    let ins='';
+    if(!L.length) ins='Nenhuma licitação de pavimentação anterior deste órgão foi encontrada no PNCP — é a primeira do consórcio, sem histórico de preços para comparar.';
+    else { const md=L.reduce((s,x)=>s+x.desc,0)/L.length; const w={}; L.forEach(x=>w[x.venc]=(w[x.venc]||0)+1); const top=Object.entries(w).sort((a,b)=>b[1]-a[1])[0];
+      ins=`Desconto médio de <b>${md.toLocaleString('pt-BR',{maximumFractionDigits:1})}%</b> nas ${L.length} licitações. `+(top[1]>1?`<b>${esc(top[0])}</b> venceu ${top[1]} delas. `:'');
+      if(k==='SH') ins+='Quase todas fecharam com <b>25% de desconto</b>, que é o limite de exequibilidade para obras — disputa agressiva.';
+      if(k==='SVF') ins+='Nas obras de bloquete o desconto chega a 25%; nas duas etapas anteriores da ciclovia, a mesma empresa venceu com apenas 4% a 5%.'; }
+    return `<div class="panel ht"><h4>${esc(HNOME[k]||k)}</h4><div class="o" style="font-size:12.5px;color:var(--tx3)">Licitações escolhidas deste órgão: ${its.map(i=>esc(i.tipo_obra)).join(' · ')}</div>
+      <div class="ins">💡 ${ins}</div>
+      ${L.length?`<table><tr><th>Ano</th><th>Licitação</th><th>Objeto</th><th>Vencedor</th><th style="text-align:right">Estimado</th><th style="text-align:right">Contratado</th><th style="text-align:right">Desconto</th></tr>
+      ${L.map(x=>`<tr><td>${x.ano}</td><td><a href="${x.link}" target="_blank" rel="noopener">${esc(x.num)}</a></td><td>${esc(x.obj)}</td><td>${esc(x.venc)}</td><td class="n">${mi(x.est)}</td><td class="n">${mi(x.hom)}</td><td class="n"><span class="dsc ${dcl(x.desc)}">${x.desc.toLocaleString('pt-BR')}%</span></td></tr>`).join('')}</table>`:''}</div>`; }).join('');
 })();
 
 let tt; function toast(s){ const t=document.getElementById('toast'); t.textContent=s; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),1800) }
