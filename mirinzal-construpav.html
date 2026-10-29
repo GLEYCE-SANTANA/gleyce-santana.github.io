@@ -363,7 +363,7 @@ document.getElementById('kTerra').textContent = terra.length+' editais';
 })();
 function countUp(el){
   const target=+el.dataset.count, t0=performance.now(), dur=1400;
-  const step=t=>{ const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3); el.textContent = mi(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=mi(target) };
+  const step=t=>{ const p=Math.max(0,Math.min(1,(t-t0)/dur)), e=1-Math.pow(1-p,3); el.textContent = mi(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=mi(target) };
   requestAnimationFrame(step);
 }
 document.querySelectorAll('[data-count]').forEach(countUp);
