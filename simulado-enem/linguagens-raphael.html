@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Linguagens para o ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#3b0d2e;color:#f472b6;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>📚 Linguagens para o ENEM · Raphael</h1><div class="sub" id="sub">Interpretação · Gêneros · Propaganda · Variação · Inglês · Romantismo</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-ling-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"interp",t:"1. Interpretação de texto: o jeito ENEM",tempo:"30 min",h:`
+<p>Linguagens foi sua melhor área no simulado (7 de 10). Aqui o objetivo é transformar isso em <b>quase 100%</b>, com técnica.</p>
+<h3>Passo a passo para cada questão</h3>
+<ol><li><b>Leia o comando primeiro</b> (a pergunta no final). Assim você sabe o que procurar no texto.</li>
+<li><b>Leia o texto inteiro</b>, inclusive título, autor, data e fonte. Eles dão pistas do contexto.</li>
+<li><b>Responda com o texto, não com a sua opinião.</b> A resposta certa sempre tem apoio no texto.</li>
+<li><b>Desconfie de alternativas com exageros:</b> "sempre", "nunca", "todos", "somente", "exclusivamente".</li>
+<li>Sobrou dúvida entre duas? Fique com a que responde <b>exatamente</b> o que o comando pediu.</li></ol>
+<h3>Palavras do comando</h3>
+<div class="tbl"><table><tr><th>O comando diz</th><th>O que ele quer</th></tr>
+<tr><td><b>Tema</b></td><td>O assunto geral do texto</td></tr>
+<tr><td><b>Tese</b></td><td>A opinião principal que o autor defende</td></tr>
+<tr><td><b>Infere-se / depreende-se</b></td><td>Uma conclusão que não está escrita, mas que o texto permite tirar</td></tr>
+<tr><td><b>Finalidade / objetivo</b></td><td>Para que o texto foi escrito (informar, convencer, divertir, criticar)</td></tr>
+<tr><td><b>Efeito de sentido</b></td><td>O que uma palavra, imagem ou pontuação provoca no leitor</td></tr></table></div>
+<h3>Humor, ironia e crítica</h3>
+<ul><li><b>Ironia:</b> dizer o contrário do que se quer dizer. Ex.: "Que dia lindo!" debaixo de um temporal.</li>
+<li><b>Humor</b> em charges e tirinhas quase sempre nasce de uma <b>quebra de expectativa</b> ou de um <b>duplo sentido</b>.</li>
+<li>No ENEM, o humor geralmente serve para <b>criticar</b> algo da sociedade. Pergunte: <b>o que está sendo criticado?</b></li></ul>`},
+{id:"generos",t:"2. Gêneros textuais e funções da linguagem",tempo:"35 min",h:`
+<p>O ENEM pede para reconhecer o gênero e a função de cada texto. Saber isso ajuda a entender para que o texto foi feito.</p>
+<h3>Gêneros que mais aparecem</h3>
+<div class="tbl"><table><tr><th>Gênero</th><th>Para que serve</th><th>Marca</th></tr>
+<tr><td><b>Notícia</b></td><td>Informar um fato</td><td>Linguagem objetiva, 3ª pessoa</td></tr>
+<tr><td><b>Artigo de opinião</b></td><td>Defender um ponto de vista</td><td>Argumentos, assinatura do autor</td></tr>
+<tr><td><b>Crônica</b></td><td>Refletir sobre o cotidiano</td><td>Linguagem leve, humor ou lirismo</td></tr>
+<tr><td><b>Charge</b></td><td>Criticar um fato atual com humor</td><td>Desenho + fato do momento</td></tr>
+<tr><td><b>Tirinha</b></td><td>Humor ou crítica em sequência</td><td>Quadrinhos, personagens fixos</td></tr>
+<tr><td><b>Propaganda / campanha</b></td><td>Convencer a comprar ou mudar um comportamento</td><td>Verbos no imperativo, slogan, imagem</td></tr>
+<tr><td><b>Poema</b></td><td>Expressar sentimentos e reflexões</td><td>Versos, ritmo, linguagem figurada</td></tr></table></div>
+<h3>Funções da linguagem</h3>
+<div class="tbl"><table><tr><th>Função</th><th>Foco</th><th>Onde aparece</th></tr>
+<tr><td><b>Referencial</b></td><td>A informação</td><td>Notícia, texto científico</td></tr>
+<tr><td><b>Emotiva</b></td><td>O emissor (quem fala), em 1ª pessoa</td><td>Diário, depoimento, poema</td></tr>
+<tr><td><b>Conativa (apelativa)</b></td><td>O receptor: quer convencer você</td><td>Propaganda ("Compre já!", "Vacine-se")</td></tr>
+<tr><td><b>Fática</b></td><td>O canal: testar o contato</td><td>"Alô?", "Tá me ouvindo?"</td></tr>
+<tr><td><b>Metalinguística</b></td><td>A própria linguagem</td><td>Dicionário, poema que fala de fazer poema</td></tr>
+<tr><td><b>Poética</b></td><td>A forma da mensagem</td><td>Poema, slogan com rima</td></tr></table></div>
+<div class="dica">💡 Um texto pode ter várias funções. A questão pede a <b>predominante</b>. Verbo no imperativo falando com "você" = <b>conativa</b>.</div>`},
+{id:"public",t:"3. Texto publicitário e argumentação",tempo:"30 min",h:`
+<p>Foi um dos tipos de questão que você errou. A propaganda usa vários recursos para <b>convencer</b> o leitor, e o ENEM pede para você identificar quais são.</p>
+<h3>Recursos da publicidade</h3>
+<ul><li><b>Verbos no imperativo:</b> "Experimente", "Doe sangue", "Não dirija depois de beber".</li>
+<li><b>Fala direta com o leitor:</b> uso de "você".</li>
+<li><b>Linguagem conotativa</b> (sentido figurado): "Este carro é uma fera".</li>
+<li><b>Duplo sentido (ambiguidade):</b> uma frase com dois significados para chamar atenção.</li>
+<li><b>Intertextualidade:</b> referência a outro texto famoso (ditado, música, filme).</li>
+<li><b>Imagem + texto:</b> o sentido completo vem da junção dos dois. Sempre leia a imagem!</li>
+<li><b>Público-alvo:</b> a linguagem muda conforme quem a propaganda quer atingir (jovens, mães, idosos).</li></ul>
+<h3>Propaganda comercial x campanha social</h3>
+<div class="tbl"><table><tr><th></th><th>Comercial</th><th>Campanha social</th></tr>
+<tr><td><b>Objetivo</b></td><td>Vender um produto ou marca</td><td>Mudar um comportamento</td></tr>
+<tr><td><b>Exemplo</b></td><td>Anúncio de celular</td><td>Vacinação, trânsito, combate à dengue</td></tr></table></div>
+<h3>Estratégias de argumentação</h3>
+<ul><li><b>Dados e números:</b> "70% dos acidentes…"</li><li><b>Autoridade:</b> citar um especialista ou instituição.</li><li><b>Exemplo:</b> contar um caso concreto.</li><li><b>Comparação</b> e <b>apelo emocional</b>.</li></ul>`},
+{id:"variacao",t:"4. Variação linguística",tempo:"25 min",h:`
+<p>Cai em <b>todo ENEM</b>. A ideia central: não existe "português errado" na fala; existem variedades diferentes, e cada uma é <b>adequada</b> ou não a uma situação.</p>
+<div class="tbl"><table><tr><th>Tipo</th><th>Muda conforme</th><th>Exemplo</th></tr>
+<tr><td><b>Regional (geográfica)</b></td><td>O lugar</td><td>"mandioca", "aipim" e "macaxeira"</td></tr>
+<tr><td><b>Social</b></td><td>Idade, grupo, profissão, escolaridade</td><td>Gírias dos jovens, jargão dos médicos</td></tr>
+<tr><td><b>Situacional (estilística)</b></td><td>A situação, formal ou informal</td><td>Falar com o diretor x com os amigos</td></tr>
+<tr><td><b>Histórica</b></td><td>O tempo</td><td>"Vossa mercê" → "vosmecê" → "você" → "cê"</td></tr></table></div>
+<ul><li><b>Norma-padrão:</b> o modelo das gramáticas, usado em textos formais (redação do ENEM, documentos).</li>
+<li><b>Preconceito linguístico:</b> discriminar alguém pelo jeito de falar. O ENEM <b>sempre condena</b> o preconceito linguístico.</li>
+<li>A palavra-chave das respostas certas costuma ser <b>adequação</b> ao contexto, e não "certo ou errado".</li></ul>`},
+{id:"ingles",t:"5. Inglês no ENEM",tempo:"30 min",h:`
+<p>São 5 questões de Inglês. Você não precisa saber tudo: precisa de <b>estratégia</b>. As perguntas e alternativas vêm em português.</p>
+<h3>Estratégias</h3>
+<ol><li><b>Leia o comando e as alternativas primeiro</b> (estão em português). Elas já contam o assunto do texto.</li>
+<li><b>Skimming:</b> leitura rápida para pegar a ideia geral (título, imagens, primeira frase).</li>
+<li><b>Scanning:</b> procurar a informação específica que a questão pede.</li>
+<li>Use os <b>cognatos</b>, palavras parecidas com o português: <i>important, family, problem, technology</i>.</li>
+<li>Não traduza palavra por palavra. Entenda a ideia.</li></ol>
+<h3>Falsos cognatos: cuidado!</h3>
+<div class="tbl"><table><tr><th>Inglês</th><th>Parece</th><th>Significa</th></tr>
+<tr><td><b>actually</b></td><td>atualmente</td><td>na verdade</td></tr>
+<tr><td><b>pretend</b></td><td>pretender</td><td>fingir</td></tr>
+<tr><td><b>push</b></td><td>puxar</td><td>empurrar</td></tr>
+<tr><td><b>library</b></td><td>livraria</td><td>biblioteca</td></tr>
+<tr><td><b>parents</b></td><td>parentes</td><td>pais (pai e mãe)</td></tr>
+<tr><td><b>college</b></td><td>colégio</td><td>faculdade</td></tr>
+<tr><td><b>exquisite</b></td><td>esquisito</td><td>refinado, requintado</td></tr></table></div>
+<h3>Conectivos que mudam o sentido</h3>
+<ul><li><b>but, however, although</b> = mas, porém, embora (oposição)</li>
+<li><b>because, since</b> = porque (causa)</li>
+<li><b>so, therefore</b> = então, portanto (conclusão)</li>
+<li><b>also, moreover</b> = também, além disso (adição)</li></ul>
+<div class="dica">🎵 Em <b>poemas e músicas</b> em inglês (você errou um poema), o ENEM pergunta o <b>sentimento</b> ou a <b>mensagem</b>, não a tradução exata. Preste atenção nas imagens e no tom: tristeza, esperança, crítica.</div>`},
+{id:"roman",t:"6. Literatura: Romantismo brasileiro",tempo:"20 min",h:`
+<p>O Romantismo chegou ao Brasil logo depois da Independência (1822). Por isso, um dos objetivos dos escritores era <b>criar uma identidade nacional</b>.</p>
+<h3>Características</h3>
+<ul><li><b>Subjetivismo e sentimentalismo:</b> o "eu" e as emoções no centro.</li><li><b>Nacionalismo:</b> exaltação da natureza e do povo brasileiro.</li><li><b>Idealização:</b> da mulher (pura, perfeita), do amor e do indígena (herói nobre).</li><li><b>Fuga da realidade:</b> sonho, passado, morte.</li></ul>
+<h3>As gerações da poesia</h3>
+<div class="tbl"><table><tr><th>Geração</th><th>Tema</th><th>Autor</th></tr>
+<tr><td><b>1ª: indianista/nacionalista</b></td><td>Indígena como herói, saudade da pátria</td><td>Gonçalves Dias ("Canção do Exílio", "I-Juca Pirama")</td></tr>
+<tr><td><b>2ª: ultrarromântica (mal do século)</b></td><td>Tédio, melancolia, amor impossível, morte</td><td>Álvares de Azevedo</td></tr>
+<tr><td><b>3ª: condoreira (social)</b></td><td>Crítica social e abolicionismo</td><td>Castro Alves ("O navio negreiro")</td></tr></table></div>
+<h3>Prosa (romances)</h3>
+<ul><li><b>José de Alencar:</b> indianistas (<i>Iracema</i>, <i>O Guarani</i>), urbanos (<i>Senhora</i>, <i>Lucíola</i>) e regionalistas.</li>
+<li><b>Joaquim Manuel de Macedo:</b> <i>A Moreninha</i>, romance urbano.</li></ul>
+<div class="dica">🔑 Pista de prova: <b>indígena idealizado como herói</b> = Romantismo (1ª geração ou Alencar). <b>Denúncia da escravidão em poesia</b> = Castro Alves.</div>`}
+];
+
+const CARDS=[
+["O que ler primeiro na questão?","O comando (a pergunta no final)."],
+["Tema x tese","Tema = assunto. Tese = opinião que o autor defende."],
+["\"Infere-se\" significa…","Uma conclusão que não está escrita, mas que o texto permite tirar."],
+["Alternativas com \"sempre\", \"nunca\", \"todos\"","Desconfie: geralmente estão erradas."],
+["Ironia","Dizer o contrário do que se quer dizer."],
+["Charge","Desenho que critica um fato atual com humor."],
+["Função conativa (apelativa)","Foco no receptor: quer convencer. Imperativo e \"você\". Ex.: propaganda."],
+["Função emotiva","Foco em quem fala: 1ª pessoa, sentimentos."],
+["Função referencial","Foco na informação: notícia, texto científico."],
+["Função metalinguística","A linguagem falando dela mesma: dicionário, poema sobre poema."],
+["Função fática","Testa o canal de comunicação: \"Alô?\", \"Tá me ouvindo?\""],
+["Recursos da propaganda","Imperativo, \"você\", sentido figurado, duplo sentido, intertextualidade, imagem."],
+["Campanha social","Propaganda para mudar comportamento (vacina, trânsito), não para vender."],
+["Intertextualidade","Referência a outro texto conhecido (ditado, música, filme)."],
+["Variação regional","Muda conforme o lugar: mandioca, aipim, macaxeira."],
+["Variação situacional","Muda conforme a situação: formal ou informal."],
+["Preconceito linguístico","Discriminar pelo jeito de falar. O ENEM sempre condena."],
+["Palavra-chave da variação linguística","Adequação ao contexto (não \"certo ou errado\")."],
+["actually","Na verdade (não é \"atualmente\")."],
+["pretend","Fingir (não é \"pretender\")."],
+["parents / library","Pais / biblioteca."],
+["however / therefore","Porém / portanto."],
+["Romantismo: 1ª geração","Indianista e nacionalista. Gonçalves Dias."],
+["Romantismo: 3ª geração","Condoreira, social, abolicionista. Castro Alves."]
+];
+
+const QS=[
+{p:"Ao resolver uma questão de interpretação no ENEM, a melhor estratégia é:",a:["ler só as alternativas e escolher a mais bonita","ler o comando primeiro e depois o texto inteiro, buscando apoio no texto","responder com a própria opinião sobre o tema","ignorar a fonte e o título do texto","escolher sempre a alternativa mais longa"],r:1,e:"Ler o comando primeiro mostra o que procurar. A resposta certa sempre tem apoio no texto, não na opinião do leitor."},
+{p:"Uma alternativa diz que o autor \"defende que todos os jovens nunca leem livros\". Esse tipo de alternativa:",a:["costuma estar certa por ser mais completa","deve gerar desconfiança, por usar generalizações absolutas","é sempre a resposta do ENEM","mostra a tese de qualquer texto","indica a função fática"],r:1,e:"Palavras como \"todos\" e \"nunca\" generalizam demais. Raramente um texto afirma algo tão absoluto."},
+{p:"Durante uma chuva forte, alguém olha pela janela e diz: \"Que dia perfeito para ir à praia!\". O recurso usado é:",a:["metalinguagem","ironia","função referencial","variação regional","intertextualidade"],r:1,e:"Ironia é dizer o contrário do que se pensa. A pessoa quer dizer que o dia está péssimo para a praia."},
+{p:"Um texto publicado num jornal, com assinatura do autor, que defende um ponto de vista sobre o uso do celular nas escolas com argumentos, é um(a):",a:["notícia","artigo de opinião","receita","tirinha","verbete de dicionário"],r:1,e:"O artigo de opinião defende uma tese com argumentos e é assinado. A notícia apenas informa o fato, de forma objetiva."},
+{p:"Uma charge mostra um político prometendo hospitais enquanto a fila do posto de saúde vai até a esquina. O objetivo principal da charge é:",a:["vender um produto","criticar, com humor, uma situação da realidade","ensinar regras de gramática","informar dados científicos","testar o canal de comunicação"],r:1,e:"A charge usa o humor para criticar fatos atuais. Aqui, a contradição entre a promessa e a realidade da saúde pública."},
+{p:"No anúncio \"Vacine-se! Proteja você e quem você ama\", predomina a função:",a:["referencial","emotiva","conativa (apelativa)","metalinguística","fática"],r:2,e:"O verbo no imperativo (\"vacine-se\") e o uso de \"você\" mostram que o foco é convencer o leitor: função conativa."},
+{p:"Um verbete de dicionário que explica o significado da palavra \"saudade\" apresenta predominantemente a função:",a:["metalinguística","conativa","fática","emotiva","poética"],r:0,e:"Quando a linguagem é usada para explicar a própria linguagem (o significado de uma palavra), a função é metalinguística."},
+{p:"No início de uma ligação, alguém diz: \"Alô? Tá me ouvindo? Alô?\". A função da linguagem é a:",a:["referencial","fática","conativa","poética","metalinguística"],r:1,e:"A função fática serve para testar ou manter o contato pelo canal de comunicação."},
+{p:"Uma campanha do governo diz: \"Água parada é casa do mosquito. Não deixe a dengue entrar\". O objetivo principal é:",a:["vender um repelente","convencer a população a mudar um comportamento","contar uma história de ficção","informar o preço da água","ensinar gramática"],r:1,e:"É uma campanha social: não vende produto, quer que as pessoas eliminem água parada para combater a dengue."},
+{p:"Uma propaganda de café usa o slogan \"Quem não arrisca, não toma café\", lembrando o ditado \"quem não arrisca, não petisca\". Esse recurso é chamado de:",a:["intertextualidade","variação histórica","função fática","ironia","tese"],r:0,e:"Intertextualidade é a referência a outro texto conhecido. Aqui, o slogan retoma um ditado popular."},
+{p:"No Sul se diz \"aipim\", no Nordeste \"macaxeira\" e em outras regiões \"mandioca\". Esse é um exemplo de variação:",a:["histórica","regional","situacional","social de profissão","da norma-padrão"],r:1,e:"A mesma coisa recebe nomes diferentes conforme o lugar: variação regional (geográfica)."},
+{p:"Sobre a forma como um morador do interior fala, uma pessoa comenta: \"Ele fala tudo errado\". De acordo com os estudos de linguagem, essa atitude é:",a:["correta, porque só a norma-padrão é português","um exemplo de preconceito linguístico","um caso de função conativa","a defesa da variação linguística","uma ironia"],r:1,e:"Discriminar alguém pelo jeito de falar é preconceito linguístico. As variedades são diferentes e adequadas a contextos, não \"erradas\"."},
+{p:"Em um texto em inglês, aparece a frase: \"Actually, the study shows the opposite\". A palavra \"actually\" significa:",a:["atualmente","na verdade","talvez","antigamente","rapidamente"],r:1,e:"\"Actually\" é um falso cognato: significa \"na verdade\". \"Atualmente\" em inglês é \"currently\" ou \"nowadays\"."},
+{p:"Na frase \"The city is beautiful; however, it is very expensive\", a palavra \"however\" indica:",a:["adição","causa","oposição","conclusão","tempo"],r:2,e:"\"However\" significa \"porém, no entanto\": introduz uma ideia oposta (bonita, porém cara)."},
+{p:"\"My parents work at the library\" quer dizer:",a:["Meus parentes trabalham na livraria","Meus pais trabalham na biblioteca","Meus pais trabalham na livraria","Meus parentes trabalham na biblioteca","Meus amigos trabalham na escola"],r:1,e:"Dois falsos cognatos: \"parents\" = pais (pai e mãe) e \"library\" = biblioteca. Livraria é \"bookstore\"."},
+{p:"Um romance do século XIX apresenta um herói indígena corajoso, leal e nobre, em meio à natureza exuberante do Brasil. Essas características indicam o:",a:["Modernismo","Romantismo","Realismo","Barroco","Concretismo"],r:1,e:"A idealização do indígena como herói e a exaltação da natureza são marcas do Romantismo nacionalista (José de Alencar, Gonçalves Dias)."},
+{p:"O poeta romântico conhecido por denunciar a escravidão, com obras como \"O navio negreiro\", é:",a:["Álvares de Azevedo","Gonçalves Dias","Castro Alves","José de Alencar","Machado de Assis"],r:2,e:"Castro Alves é o principal nome da 3ª geração romântica (condoreira), de poesia social e abolicionista."}
+];
+
+const BOLSO=["Leia o <b>comando primeiro</b>; responda <b>com o texto</b>, não com sua opinião.","Desconfie de <b>sempre, nunca, todos, somente</b>.","<b>Tema</b> = assunto · <b>tese</b> = opinião do autor · <b>inferir</b> = concluir pelo texto.","<b>Ironia</b> = dizer o contrário. Humor no ENEM quase sempre <b>critica</b> algo.","<b>Charge</b> = crítica de fato atual · <b>artigo de opinião</b> = defende tese · <b>notícia</b> = informa.","Funções: <b>referencial</b> (informação) · <b>emotiva</b> (eu) · <b>conativa</b> (convencer você) · <b>fática</b> (alô?) · <b>metalinguística</b> (língua explicando língua) · <b>poética</b> (forma).","Propaganda: <b>imperativo, \"você\", sentido figurado, duplo sentido, intertextualidade, imagem</b>.","<b>Campanha social</b> quer mudar comportamento; <b>comercial</b> quer vender.","Variação: <b>regional, social, situacional, histórica</b>. Palavra-chave: <b>adequação</b>.","O ENEM <b>condena o preconceito linguístico</b>.","Inglês: leia as alternativas (em português) primeiro, use <b>cognatos</b>, cuidado com os <b>falsos</b>.","<b>actually</b> = na verdade · <b>pretend</b> = fingir · <b>parents</b> = pais · <b>library</b> = biblioteca.","<b>however</b> = porém · <b>because</b> = porque · <b>therefore</b> = portanto.","Romantismo: <b>indígena herói</b> e nacionalismo (Gonçalves Dias, Alencar) · <b>abolicionismo</b> (Castro Alves)."];
+
+const CHK=["Leio o comando antes do texto","Diferencio tema, tese e inferência","Reconheço ironia e o que uma charge critica","Diferencio notícia, artigo de opinião, crônica e charge","Identifico as 6 funções da linguagem","Reconheço os recursos de uma propaganda","Sei o que é intertextualidade","Identifico os tipos de variação linguística","Conheço os principais falsos cognatos do inglês","Sei as características do Romantismo e seus autores"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>Linguagens foi sua melhor área no simulado: <b>7 de 10</b>. Os erros foram em texto publicitário, poema em inglês e Romantismo. Estude as 6 partes abaixo para chegar perto de 100%. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h50 no total</span><span class="pill">📖 6 partes</span><span class="pill">✍️ 17 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente! Linguagens dominada 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
