@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Ciências da Natureza para o ENEM – Ester</title>
+<meta name="theme-color" content="#2a0f2e">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0c2a40;color:#38bdf8;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+
+:root{--ciano:#f472b6;--lima:#ff1493;--roxo:#a855f7;--fundo:#140a17;--card:#1f1224;--linha:#3d2347;--suave:#2a1730;--cinza:#c4a8cf}
+header{background:linear-gradient(135deg,#2a0f2e,#4a1550 55%,#7e22ce)!important;border-bottom:1px solid #7e3a8f!important}
+header .sub{color:#f5d0fe!important}
+.bar>div{background:linear-gradient(90deg,#f472b6,#c084fc)!important}
+.btn.y{background:#ff1493!important;color:#fff!important;box-shadow:0 0 16px rgba(255,20,147,.45)}
+.btn.p{background:linear-gradient(90deg,#db2777,#9333ea)!important}
+.big{background:linear-gradient(90deg,#f472b6,#c084fc)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.tag{background:#3b0d2e!important;color:#f9a8d4!important}
+.dica{background:rgba(255,20,147,.1)!important;border-left-color:#ff1493!important}
+.eq{color:#f9a8d4!important}
+.flip .f{background:linear-gradient(135deg,#4a1550,#1f1224)!important}.flip .v{background:linear-gradient(135deg,#3a1638,#1f1224)!important}
+.chk input{accent-color:#ff1493!important}
+</style>
+</head>
+<body>
+<header><h1>💜 Ciências da Natureza · Ester</h1><div class="sub" id="sub">Gases · Gráficos de Química · Refração · Vírus</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-cn-ester-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"gases",t:"1. Química: gases e a equação PV = nRT",tempo:"35 min",h:`
+<p>Foi a questão do <b>frasco de aerossol que explode</b> no fogo. Com uma única equação você resolve quase todas as questões de gases.</p>
+<h3>Equação de Clapeyron</h3>
+<div class="eq">P × V = n × R × T</div>
+<div class="tbl"><table><tr><th>Letra</th><th>O que é</th><th>Unidade</th></tr>
+<tr><td><b>P</b></td><td>Pressão</td><td>atm</td></tr>
+<tr><td><b>V</b></td><td>Volume</td><td>litros (L)</td></tr>
+<tr><td><b>n</b></td><td>Quantidade de gás</td><td>mol</td></tr>
+<tr><td><b>R</b></td><td>Constante dos gases</td><td>0,082 atm·L/(mol·K)</td></tr>
+<tr><td><b>T</b></td><td>Temperatura</td><td><b>kelvin (K)</b></td></tr></table></div>
+<div class="dica">⚠️ <b>As duas pegadinhas:</b> temperatura sempre em <b>kelvin</b> (K = °C + 273) e volume em <b>litros</b> (100 mL = 0,1 L).</div>
+<h3>A questão do aerossol, resolvida</h3>
+<p>Frasco de 100 mL com 0,1 mol de gás a 650 °C:</p>
+<ol><li>V = 100 mL = <b>0,1 L</b></li><li>T = 650 + 273 = <b>923 K</b></li><li>P = n × R × T ÷ V = 0,1 × 0,082 × 923 ÷ 0,1 ≈ <b>76 atm</b></li></ol>
+<p>Uma pressão 76 vezes maior que a do ar: por isso o frasco explode.</p>
+<h3>Lei geral dos gases (mesma quantidade de gás)</h3>
+<div class="eq">P₁ × V₁ ÷ T₁ = P₂ × V₂ ÷ T₂</div>
+<div class="tbl"><table><tr><th>Transformação</th><th>Fica constante</th><th>O que acontece</th></tr>
+<tr><td><b>Isotérmica</b></td><td>Temperatura</td><td>Pressão dobra → volume cai pela metade</td></tr>
+<tr><td><b>Isovolumétrica</b></td><td>Volume</td><td>Temperatura dobra (em K) → pressão dobra (aerossol, pneu, panela de pressão)</td></tr>
+<tr><td><b>Isobárica</b></td><td>Pressão</td><td>Temperatura dobra (em K) → volume dobra (balão aquecido)</td></tr></table></div>
+<p>Nas <b>CNTP</b> (0 °C e 1 atm), 1 mol de qualquer gás ocupa <b>22,4 L</b>.</p>`},
+{id:"graficos",t:"2. Química: gráficos, soluções e velocidade das reações",tempo:"35 min",h:`
+<p>O ENEM adora gráficos de Química. Muitas vezes a resposta está toda no gráfico, desde que você saiba o que procurar.</p>
+<h3>Taxa média de variação</h3>
+<div class="eq">taxa média = (valor final − valor inicial) ÷ tempo</div>
+<ul><li>A taxa é a <b>inclinação</b> da curva. Linha subindo forte = taxa alta. Linha quase <b>horizontal</b> = taxa perto de <b>zero</b>.</li>
+<li>Foi a questão do micro-ondas: o solvente com <b>linha quase reta</b> no gráfico era o que quase não esquentava.</li></ul>
+<h3>Por que o micro-ondas não aquece tudo igual</h3>
+<p>O micro-ondas faz girar as moléculas <b>polares</b>, como a água, e isso gera calor. Moléculas <b>apolares</b>, como o hexano (só carbono e hidrogênio), quase não esquentam. Quanto mais longa a cadeia de carbono, menos polar a substância.</p>
+<h3>Curva de solubilidade</h3>
+<ul><li>Mostra quanto de uma substância dissolve em 100 g de água em cada temperatura.</li>
+<li><b>Abaixo da curva:</b> solução insaturada (cabe mais). <b>Na curva:</b> saturada. <b>Acima:</b> supersaturada (instável) ou com sobra no fundo (corpo de fundo).</li>
+<li>A maioria dos <b>sólidos</b> dissolve mais no quente. <b>Gases</b> dissolvem <b>menos</b> no quente: refrigerante quente perde o gás, e água aquecida tem menos oxigênio para os peixes.</li></ul>
+<h3>Gráfico de aquecimento</h3>
+<p><b>Substância pura</b> tem <b>patamares</b> (trechos retos) na fusão e na ebulição, porque a temperatura não muda enquanto muda de estado. <b>Mistura</b> não tem patamar bem definido.</p>
+<h3>O que acelera uma reação</h3>
+<div class="tbl"><table><tr><th>Fator</th><th>Exemplo</th></tr>
+<tr><td><b>Temperatura</b> maior</td><td>Comida estraga mais rápido fora da geladeira</td></tr>
+<tr><td><b>Superfície de contato</b> maior</td><td>Comprimido em pó dissolve mais rápido que inteiro</td></tr>
+<tr><td><b>Concentração</b> maior</td><td>Fogo mais forte com mais oxigênio</td></tr>
+<tr><td><b>Catalisador</b></td><td>Enzimas no corpo; catalisador do carro</td></tr></table></div>`},
+{id:"optica",t:"3. Física: luz e refração",tempo:"35 min",h:`
+<p><b>Refração</b> é quando a luz passa de um meio para outro (ar → água, ar → vidro) e <b>muda de velocidade</b>. Se chegar inclinada, também <b>muda de direção</b>.</p>
+<h3>Índice de refração</h3>
+<div class="eq">n = c ÷ v</div>
+<ul><li>c = velocidade da luz no vácuo = 3 × 10⁸ m/s; v = velocidade da luz no meio.</li>
+<li><b>Quanto maior o n, mais devagar a luz anda</b> naquele meio. Ar ≈ 1; água ≈ 1,33; vidro ≈ 1,5.</li>
+<li>No vidro (n = 1,5): v = 3 × 10⁸ ÷ 1,5 = <b>2 × 10⁸ m/s</b>.</li>
+<li>Ao entrar num meio de n maior, a luz <b>se aproxima da normal</b> (a linha perpendicular à superfície).</li>
+<li>Lei de Snell: n₁ × sen θ₁ = n₂ × sen θ₂.</li></ul>
+<div class="dica">⛽ Foi a sua questão: o índice de refração depende da <b>composição</b> do líquido. Gasolina adulterada tem outro índice e desvia a luz de outro jeito. Assim dá para detectar a fraude.</div>
+<h3>Refração no dia a dia</h3>
+<ul><li><b>Lápis "quebrado"</b> dentro do copo d'água.</li><li><b>Piscina parece mais rasa</b> do que é.</li>
+<li><b>Arco-íris e prisma:</b> cada cor refrata um pouco diferente e a luz branca se separa nas cores. Isso é a <b>dispersão</b>.</li>
+<li><b>Fibra óptica:</b> a luz fica presa dentro do fio por <b>reflexão total</b>. É assim que funciona a internet por fibra.</li></ul>
+<h3>Lentes e visão</h3>
+<div class="tbl"><table><tr><th>Problema</th><th>O que acontece</th><th>Lente que corrige</th></tr>
+<tr><td><b>Miopia</b></td><td>Não enxerga bem de longe</td><td>Divergente</td></tr>
+<tr><td><b>Hipermetropia</b></td><td>Não enxerga bem de perto</td><td>Convergente</td></tr>
+<tr><td><b>Presbiopia</b> (vista cansada)</td><td>Dificuldade de perto com a idade</td><td>Convergente</td></tr>
+<tr><td><b>Astigmatismo</b></td><td>Imagem distorcida</td><td>Cilíndrica</td></tr></table></div>`},
+{id:"virus",t:"4. Biologia: vírus e doenças",tempo:"35 min",h:`
+<p>Vírus caem muito no ENEM, sempre ligados à saúde pública: epidemias, vacinas e prevenção.</p>
+<h3>O que é um vírus</h3>
+<ul><li><b>Não tem célula</b> (é acelular). É uma cápsula de proteína (<b>capsídeo</b>) com material genético dentro: <b>DNA ou RNA</b>.</li>
+<li>É <b>parasita intracelular obrigatório:</b> só se reproduz dentro de uma célula viva, usando a "fábrica" dela.</li>
+<li>Muda muito (<b>mutações</b>), surgindo <b>variantes</b>. Por isso a vacina da gripe é tomada todo ano.</li></ul>
+<h3>Retrovírus e HIV (a sua questão)</h3>
+<ul><li>Retrovírus têm <b>RNA</b> e fazem o caminho "ao contrário": usam a enzima <b>transcriptase reversa</b> para produzir <b>DNA a partir de RNA</b>.</li>
+<li>Esse DNA se encaixa no DNA da célula (pela enzima integrase), que passa a fabricar novos vírus.</li>
+<li>O <b>HIV</b> ataca os <b>linfócitos T CD4</b>, células de defesa. Sem tratamento, a imunidade cai e surge a <b>AIDS</b>.</li>
+<li>Os <b>antirretrovirais</b> bloqueiam enzimas do vírus, como a transcriptase reversa. Prevenção: <b>camisinha</b>, testagem e PrEP.</li></ul>
+<h3>Doenças virais que mais caem</h3>
+<div class="tbl"><table><tr><th>Doença</th><th>Transmissão</th><th>Prevenção</th></tr>
+<tr><td><b>Gripe e COVID-19</b></td><td>Gotículas e ar</td><td>Vacina, máscara, higiene das mãos</td></tr>
+<tr><td><b>Dengue, zika, chikungunya</b></td><td>Picada do mosquito <i>Aedes aegypti</i></td><td>Eliminar água parada; vacina da dengue</td></tr>
+<tr><td><b>Febre amarela</b></td><td>Picada de mosquito</td><td>Vacina</td></tr>
+<tr><td><b>Sarampo</b></td><td>Ar (muito contagioso)</td><td>Vacina (tríplice viral)</td></tr>
+<tr><td><b>HPV</b></td><td>Relação sexual</td><td>Vacina; pode causar câncer de colo do útero</td></tr>
+<tr><td><b>Hepatite B</b></td><td>Sangue e relação sexual</td><td>Vacina, camisinha</td></tr>
+<tr><td><b>Poliomielite</b></td><td>Água e alimentos contaminados</td><td>Vacina (gotinha)</td></tr></table></div>
+<h3>Vacina, soro e antibiótico</h3>
+<ul><li><b>Vacina:</b> estimula o corpo a produzir os próprios anticorpos e memória. É <b>preventiva</b> (imunização ativa).</li>
+<li><b>Soro:</b> já traz anticorpos prontos. Ação rápida, para tratamento, como em picada de cobra (imunização passiva).</li>
+<li><b>Antibiótico não funciona contra vírus</b>, só contra bactérias. Tomar antibiótico para gripe não adianta e ainda favorece bactérias resistentes.</li></ul>`}
+];
+
+const CARDS=[
+["Equação de Clapeyron","P × V = n × R × T"],
+["Unidade da temperatura nas contas de gases","Sempre kelvin: K = °C + 273."],
+["Valor de R","0,082 atm·L/(mol·K)"],
+["100 mL em litros","0,1 L"],
+["Gás aquecido em volume fixo","A pressão aumenta (aerossol explode, pneu, panela de pressão)."],
+["Transformação isotérmica","Temperatura constante: pressão dobra, volume cai pela metade."],
+["1 mol de gás nas CNTP","Ocupa 22,4 L (0 °C e 1 atm)."],
+["Taxa média num gráfico","É a inclinação. Linha horizontal = taxa zero."],
+["Por que o hexano quase não esquenta no micro-ondas?","É apolar. O micro-ondas aquece moléculas polares, como a água."],
+["Solubilidade de gases e temperatura","Gás dissolve menos no quente (refrigerante quente perde gás)."],
+["Solução abaixo da curva de solubilidade","Insaturada: ainda cabe mais soluto."],
+["Gráfico de aquecimento com patamares","Substância pura (temperatura fixa na mudança de estado)."],
+["Fatores que aceleram reações","Temperatura, superfície de contato, concentração e catalisador."],
+["Refração","A luz muda de velocidade (e de direção) ao mudar de meio."],
+["Índice de refração","n = c ÷ v. Maior n = luz mais lenta."],
+["Lápis quebrado no copo","Refração da luz."],
+["Arco-íris","Dispersão: cada cor refrata de um jeito diferente."],
+["Fibra óptica","Reflexão total: a luz fica presa no fio."],
+["Miopia","Não vê bem de longe; corrige com lente divergente."],
+["Hipermetropia","Não vê bem de perto; corrige com lente convergente."],
+["Vírus","Acelular, capsídeo + DNA ou RNA, parasita intracelular obrigatório."],
+["Transcriptase reversa","Enzima dos retrovírus (HIV) que produz DNA a partir de RNA."],
+["HIV ataca…","Linfócitos T CD4 (células de defesa)."],
+["Vacina x soro","Vacina: preventiva, o corpo faz anticorpos. Soro: anticorpos prontos, tratamento."],
+["Antibiótico funciona contra vírus?","Não. Só contra bactérias."]
+];
+
+const QS=[
+{p:"Um recipiente de 4,1 L contém 0,5 mol de gás a 27 °C. Usando R = 0,082 atm·L/(mol·K), a pressão do gás é:",a:["0,3 atm","1,5 atm","3 atm","12,3 atm","27 atm"],r:2,e:"T = 27 + 273 = 300 K. P = n × R × T ÷ V = 0,5 × 0,082 × 300 ÷ 4,1 = 12,3 ÷ 4,1 = 3 atm."},
+{p:"Para usar a equação PV = nRT, a temperatura de 650 °C deve ser convertida para:",a:["377 K","650 K","923 K","1.202 °F","273 K"],r:2,e:"Nas contas de gases a temperatura é sempre em kelvin: K = 650 + 273 = 923 K."},
+{p:"Um frasco de aerossol jogado no fogo pode explodir porque, com o volume do frasco fixo:",a:["a temperatura cai e a pressão aumenta","o aumento da temperatura aumenta a pressão do gás","o gás vira sólido","a quantidade de gás diminui","a pressão diminui"],r:1,e:"Em volume constante, pressão e temperatura (em K) são proporcionais. O gás esquenta, a pressão sobe até romper a embalagem."},
+{p:"Um gás está a 2 atm e 300 K num recipiente fechado e rígido. Aquecido até 600 K, sua pressão passa a ser:",a:["1 atm","2 atm","3 atm","4 atm","8 atm"],r:3,e:"Volume constante: P₁ ÷ T₁ = P₂ ÷ T₂ → 2 ÷ 300 = P₂ ÷ 600 → P₂ = 4 atm. Dobrou a temperatura em kelvin, dobrou a pressão."},
+{p:"Um gás ocupa 6 L a 1 atm. Comprimido, sem mudar a temperatura, até 2 L, sua pressão será:",a:["0,33 atm","2 atm","3 atm","6 atm","12 atm"],r:2,e:"Isotérmica: P₁ × V₁ = P₂ × V₂ → 1 × 6 = P₂ × 2 → P₂ = 3 atm. O volume ficou 3 vezes menor, a pressão 3 vezes maior."},
+{p:"A concentração de um reagente caiu de 0,8 mol/L para 0,2 mol/L em 10 minutos. A taxa média de consumo foi de:",a:["0,02 mol/L·min","0,06 mol/L·min","0,08 mol/L·min","0,6 mol/L·min","6 mol/L·min"],r:1,e:"Taxa média = (0,8 − 0,2) ÷ 10 = 0,6 ÷ 10 = 0,06 mol/L por minuto."},
+{p:"Num gráfico de temperatura × tempo de vários líquidos no micro-ondas, o líquido que quase não esquentou aparece como:",a:["a linha mais inclinada para cima","uma linha quase horizontal","uma linha vertical","a linha que começa mais alto","uma linha descendo"],r:1,e:"Taxa de aquecimento perto de zero significa que a temperatura quase não mudou: linha quase horizontal."},
+{p:"No micro-ondas, a água esquenta rápido e o hexano (C₆H₁₄) quase não esquenta. Isso acontece porque:",a:["o hexano é mais pesado","a água é polar e o hexano é apolar","o hexano é um metal","a água não absorve energia","o hexano é sólido"],r:1,e:"O micro-ondas faz girar moléculas polares, como a água. O hexano, só com carbono e hidrogênio, é apolar e quase não interage."},
+{p:"Um refrigerante perde o gás mais rápido quando está quente porque:",a:["gases dissolvem melhor no quente","gases dissolvem menos em temperatura alta","o açúcar evapora","o calor cria mais gás","a garrafa fica maior"],r:1,e:"A solubilidade dos gases diminui com o aumento da temperatura. O CO₂ escapa do líquido quente."},
+{p:"Um comprimido efervescente triturado dissolve mais rápido que um inteiro, na mesma água. O fator que explica isso é:",a:["temperatura","superfície de contato","catalisador","pressão","massa total"],r:1,e:"Triturado, o comprimido tem muito mais área em contato com a água, e a reação acontece mais rápido."},
+{p:"Um lápis dentro de um copo com água parece \"quebrado\". Esse fenômeno é a:",a:["reflexão","refração","difração","dispersão","polarização"],r:1,e:"A luz muda de velocidade e de direção ao passar da água para o ar. Esse desvio é a refração."},
+{p:"O índice de refração de um vidro é 1,5. Sendo a velocidade da luz no vácuo 3 × 10⁸ m/s, no vidro ela vale:",a:["1,5 × 10⁸ m/s","2 × 10⁸ m/s","3 × 10⁸ m/s","4,5 × 10⁸ m/s","4,5 × 10⁸ km/s"],r:1,e:"n = c ÷ v → v = c ÷ n = 3 × 10⁸ ÷ 1,5 = 2 × 10⁸ m/s. Maior índice, luz mais lenta."},
+{p:"Um aparelho detecta gasolina adulterada medindo o desvio de um feixe de luz que atravessa o combustível. Isso funciona porque:",a:["a gasolina não deixa a luz passar","o índice de refração depende da composição do líquido","a luz só reflete em gasolina pura","a adulteração muda a cor da luz para vermelho","a luz para dentro da gasolina"],r:1,e:"Cada mistura tem seu índice de refração. Mudou a composição, muda o desvio da luz, e o aparelho percebe a fraude."},
+{p:"A separação da luz branca nas cores do arco-íris, ao passar por um prisma ou por gotas de chuva, é chamada de:",a:["reflexão total","dispersão","absorção","eco","interferência"],r:1,e:"Cada cor tem um índice de refração um pouco diferente e desvia de um jeito. A luz branca se abre nas cores: dispersão."},
+{p:"Uma pessoa míope não enxerga bem de longe. Para corrigir, ela usa óculos com lentes:",a:["convergentes","divergentes","cilíndricas","espelhadas","planas"],r:1,e:"Na miopia a imagem se forma antes da retina. A lente divergente corrige isso. Hipermetropia e vista cansada usam convergente."},
+{p:"Os vírus são chamados de parasitas intracelulares obrigatórios porque:",a:["vivem só no intestino","só se reproduzem dentro de células vivas","fazem fotossíntese","são bactérias muito pequenas","têm muitas organelas"],r:1,e:"Vírus não têm célula nem metabolismo próprio. Precisam usar a maquinaria de uma célula viva para se multiplicar."},
+{p:"Nos retrovírus, como o HIV, a enzima transcriptase reversa:",a:["produz proteína a partir de DNA","produz DNA a partir de RNA","destrói o capsídeo","produz anticorpos","faz fotossíntese"],r:1,e:"A transcriptase reversa faz o caminho inverso do normal: fabrica DNA usando o RNA do vírus como molde. Muitos remédios contra o HIV bloqueiam essa enzima."},
+{p:"Um paciente com gripe pede antibiótico ao médico. O médico explica que não vai receitar porque:",a:["antibióticos só funcionam contra vírus","a gripe é causada por vírus e antibióticos só agem contra bactérias","a gripe é causada por fungos","antibióticos são vacinas","antibióticos curam qualquer doença"],r:1,e:"Antibióticos combatem bactérias, não vírus. Usar sem necessidade favorece o surgimento de bactérias resistentes."},
+{p:"A diferença entre vacina e soro é que:",a:["a vacina traz anticorpos prontos e o soro estimula sua produção","a vacina estimula o corpo a produzir anticorpos e o soro já traz anticorpos prontos","os dois são antibióticos","o soro previne e a vacina trata picada de cobra","não há diferença"],r:1,e:"Vacina = imunização ativa e preventiva (o corpo produz anticorpos e memória). Soro = anticorpos prontos, ação rápida para tratamento."}
+];
+
+const BOLSO=["<b>PV = nRT</b> · R = 0,082 · T em <b>kelvin</b> (°C + 273) · V em <b>litros</b>.","Volume fixo + calor = <b>pressão sobe</b> (aerossol explode, pneu, panela de pressão).","<b>P₁V₁/T₁ = P₂V₂/T₂</b>. Isotérmica: P × V constante. CNTP: 22,4 L/mol.","<b>Taxa média</b> = (final − inicial) ÷ tempo = inclinação. Linha horizontal = zero.","Micro-ondas aquece <b>polares</b> (água); <b>apolares</b> (hexano) quase não.","Gás dissolve <b>menos no quente</b>. Abaixo da curva = insaturada.","Substância pura: <b>patamares</b> no gráfico de aquecimento.","Aceleram reações: <b>temperatura, superfície, concentração, catalisador</b>.","<b>Refração</b> = luz muda de velocidade ao mudar de meio. <b>n = c ÷ v</b>.","Lápis quebrado, piscina rasa = refração · arco-íris = <b>dispersão</b> · fibra óptica = <b>reflexão total</b>.","<b>Miopia</b> → divergente · <b>hipermetropia</b> → convergente.","<b>Vírus</b>: acelular, capsídeo + DNA ou RNA, parasita intracelular obrigatório.","<b>Retrovírus/HIV</b>: transcriptase reversa (RNA → DNA); ataca linfócitos T CD4.","<b>Vacina</b> previne (ativa) · <b>soro</b> trata (anticorpos prontos) · <b>antibiótico não age em vírus</b>.","Dengue, zika, chikungunya: <b>Aedes aegypti</b> → eliminar água parada."];
+
+const CHK=["Uso PV = nRT convertendo °C para K e mL para L","Explico por que o aerossol explode","Resolvo transformações isotérmica, isobárica e isovolumétrica","Calculo e leio taxa média num gráfico","Sei por que substâncias polares esquentam no micro-ondas","Leio uma curva de solubilidade","Sei os fatores que aceleram reações","Explico refração e calculo com n = c ÷ v","Sei o que é dispersão e reflexão total","Sei qual lente corrige miopia e hipermetropia","Explico o que é vírus e como age o HIV","Diferencio vacina, soro e antibiótico"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Ester! 👋</h2><p>Você acertou <b>6 de 10</b> em Ciências da Natureza. Os erros foram em gases (PV = nRT), leitura de gráfico em Química, refração da luz e vírus. Estude as 4 partes abaixo, nesta ordem. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h20 no total</span><span class="pill">📖 4 partes</span><span class="pill">✍️ 19 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente, Ester! Ciências da Natureza dominada 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
