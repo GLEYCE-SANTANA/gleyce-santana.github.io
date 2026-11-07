@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Biologia para o ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0b3320;color:#4ade80;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>🧬 Biologia para o ENEM · Raphael</h1><div class="sub" id="sub">Célula · Energia · Ecologia</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-bio-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"cito",t:"1. Citologia: a célula",tempo:"40 min",h:`
+<p>Todo ser vivo é feito de células, e cada parte da célula tem um trabalho. Pense na célula como uma <b>cidade</b>: tem muro com portaria, prefeitura, usina de energia, fábricas, correio e coleta de lixo.</p>
+<h3>Dois tipos de célula</h3>
+<div class="tbl"><table><tr><th></th><th>Procarionte</th><th>Eucarionte</th></tr>
+<tr><td><b>Núcleo</b></td><td>Não tem. DNA solto no citoplasma</td><td>Tem núcleo com membrana protegendo o DNA</td></tr>
+<tr><td><b>Organelas com membrana</b></td><td>Não tem</td><td>Tem (mitocôndria, Golgi e outras)</td></tr>
+<tr><td><b>Ribossomos</b></td><td>Tem</td><td>Tem</td></tr>
+<tr><td><b>Quem tem</b></td><td>Bactérias</td><td>Animais, plantas, fungos, protozoários</td></tr></table></div>
+<div class="dica">💡 <b>Pró</b> = antes do núcleo (sem núcleo). <b>Eu</b> = verdadeiro núcleo.</div>
+<h3>Membrana plasmática: a portaria</h3>
+<p>Envolve a célula e escolhe o que entra e o que sai (<b>permeabilidade seletiva</b>). É uma dupla camada de lipídios com proteínas encaixadas.</p>
+<ul><li><b>Difusão:</b> do mais concentrado para o menos concentrado, sem gastar energia. Ex.: oxigênio entrando na célula.</li>
+<li><b>Osmose:</b> é a <b>água</b> que se move, para o lado mais concentrado. Ex.: salada com sal murcha.</li>
+<li><b>Transporte ativo:</b> gasta energia (ATP) para ir contra a concentração. Ex.: bomba de sódio e potássio.</li></ul>
+<h3>As organelas</h3>
+<div class="tbl"><table><tr><th>Organela</th><th>Função</th><th>Na cidade</th></tr>
+<tr><td><b>Núcleo</b></td><td>Guarda o DNA e comanda a célula</td><td>Prefeitura</td></tr>
+<tr><td><b>Mitocôndria</b></td><td>Respiração celular, produz energia (ATP)</td><td>Usina de energia</td></tr>
+<tr><td><b>Cloroplasto</b></td><td>Fotossíntese (só plantas e algas)</td><td>Usina solar</td></tr>
+<tr><td><b>Ribossomo</b></td><td>Produz proteínas (todas as células)</td><td>Fábrica</td></tr>
+<tr><td><b>Retículo rugoso</b></td><td>Produz e transporta proteínas</td><td>Indústria com esteiras</td></tr>
+<tr><td><b>Retículo liso</b></td><td>Produz lipídios e desintoxica (fígado)</td><td>Estação de tratamento</td></tr>
+<tr><td><b>Complexo golgiense</b></td><td>Embala e envia para fora (secreção)</td><td>Correio</td></tr>
+<tr><td><b>Lisossomo</b></td><td>Digestão dentro da célula</td><td>Coleta de lixo</td></tr>
+<tr><td><b>Vacúolo central</b></td><td>Guarda água, deixa a planta firme</td><td>Caixa d'água</td></tr>
+<tr><td><b>Parede celular</b></td><td>Forma e proteção (celulose nas plantas)</td><td>Muralha</td></tr></table></div>
+<div class="dica">🌱 Só a célula <b>vegetal</b> tem <b>parede celular, cloroplasto e vacúolo grande</b>. As duas têm mitocôndria: planta também respira, de dia e de noite!</div>
+<h3>Como cai no ENEM</h3>
+<ul><li>Músculo tem <b>muitas mitocôndrias</b>: gasta muita energia.</li>
+<li>Pâncreas tem <b>muito retículo rugoso e Golgi</b>: fabrica e exporta proteínas (enzimas, insulina).</li>
+<li>Glóbulos brancos têm <b>muitos lisossomos</b>: digerem micróbios.</li>
+<li>Alguns antibióticos atacam <b>ribossomos ou parede das bactérias</b>, diferentes dos nossos.</li></ul>`},
+{id:"energia",t:"2. Energia: fotossíntese, respiração e fermentação",tempo:"40 min",h:`
+<p>A <b>fotossíntese guarda</b> a energia do Sol na glicose. A <b>respiração tira</b> essa energia da glicose para a célula usar. Uma é o contrário da outra!</p>
+<h3>Fotossíntese (no cloroplasto)</h3>
+<div class="eq">6 CO₂ + 6 H₂O + luz → glicose + 6 O₂</div>
+<ul><li><b>Entra:</b> gás carbônico, água e luz.</li><li><b>Sai:</b> glicose e oxigênio.</li><li><b>Quem faz:</b> plantas, algas e cianobactérias (os <b>produtores</b>).</li><li>O oxigênio liberado vem da <b>água</b>, não do CO₂.</li></ul>
+<h3>Respiração celular (na mitocôndria)</h3>
+<div class="eq">glicose + 6 O₂ → 6 CO₂ + 6 H₂O + energia (ATP)</div>
+<ul><li><b>Entra:</b> glicose e oxigênio.</li><li><b>Sai:</b> gás carbônico, água e energia.</li><li><b>Quem faz:</b> quase todos os seres vivos, inclusive plantas, o tempo todo.</li><li>Rende muita energia: cerca de 30 a 38 ATP por glicose.</li><li>Etapas: glicólise (citoplasma), ciclo de Krebs e cadeia respiratória (mitocôndria).</li></ul>
+<h3>Fermentação (sem oxigênio)</h3>
+<p>Quebra a glicose só em parte. Rende pouca energia: <b>2 ATP</b>.</p>
+<div class="tbl"><table><tr><th>Tipo</th><th>Quem faz</th><th>Produz</th><th>No dia a dia</th></tr>
+<tr><td><b>Alcoólica</b></td><td>Levedura (fermento)</td><td>Álcool + CO₂</td><td>Pão cresce, etanol, cerveja</td></tr>
+<tr><td><b>Lática</b></td><td>Bactérias do leite e músculos</td><td>Ácido lático</td><td>Iogurte; músculo cansado</td></tr></table></div>
+<h3>Comparando</h3>
+<div class="tbl"><table><tr><th></th><th>Fotossíntese</th><th>Respiração</th><th>Fermentação</th></tr>
+<tr><td><b>Onde</b></td><td>Cloroplasto</td><td>Citoplasma + mitocôndria</td><td>Citoplasma</td></tr>
+<tr><td><b>Luz?</b></td><td>Sim</td><td>Não</td><td>Não</td></tr>
+<tr><td><b>Usa O₂?</b></td><td>Não, libera</td><td>Sim</td><td>Não</td></tr>
+<tr><td><b>Energia</b></td><td>Guarda</td><td>Libera muita</td><td>Libera pouca</td></tr></table></div>
+<h3>Como cai no ENEM</h3>
+<ul><li><b>Planta no quarto à noite:</b> sem luz só respira; consome pouco oxigênio, não faz mal.</li><li><b>Florestas x efeito estufa:</b> árvores crescendo tiram CO₂ do ar; queimadas devolvem.</li><li><b>Etanol:</b> feito por fermentação alcoólica do caldo de cana.</li><li><b>Pão fofo:</b> a levedura solta CO₂, as bolhas fazem a massa crescer.</li></ul>`},
+{id:"eco",t:"3. Ecologia e meio ambiente",tempo:"50 min",h:`
+<p>Um dos assuntos que <b>mais caem</b> no ENEM. A <b>energia</b> entra pelos produtores e vai <b>diminuindo</b> a cada passo; a <b>matéria circula</b> e é reaproveitada.</p>
+<h3>Cadeia alimentar</h3>
+<div class="eq" style="font-size:14px">capim → gafanhoto → sapo → cobra → gavião</div>
+<p>A seta aponta para <b>quem come</b> (para onde vai a energia).</p>
+<div class="tbl"><table><tr><th>Nível</th><th>Quem é</th><th>Exemplo</th></tr>
+<tr><td><b>Produtor</b></td><td>Faz fotossíntese</td><td>Capim</td></tr>
+<tr><td><b>Consumidor 1º</b></td><td>Herbívoro</td><td>Gafanhoto</td></tr>
+<tr><td><b>Consumidor 2º</b></td><td>Come o 1º</td><td>Sapo</td></tr>
+<tr><td><b>Consumidor 3º</b></td><td>Come o 2º</td><td>Cobra</td></tr>
+<tr><td><b>Consumidor 4º</b></td><td>Topo</td><td>Gavião</td></tr>
+<tr><td><b>Decompositores</b></td><td>Fungos e bactérias; devolvem nutrientes ao solo</td><td>Todos os níveis</td></tr></table></div>
+<div class="dica">⚡ Só cerca de <b>10% da energia</b> passa para o próximo nível. Por isso há muito mais capim que gaviões, e comer vegetais aproveita mais energia que comer carne.</div>
+<h3>Relações ecológicas</h3>
+<div class="tbl"><table><tr><th>Relação</th><th>O que acontece</th><th>Exemplo</th></tr>
+<tr><td><b>Mutualismo</b></td><td>Os dois ganham</td><td>Líquen; bactérias na raiz do feijão</td></tr>
+<tr><td><b>Comensalismo</b></td><td>Um ganha, outro neutro</td><td>Peixe-piloto e tubarão</td></tr>
+<tr><td><b>Predação</b></td><td>Um mata e come o outro</td><td>Onça e capivara</td></tr>
+<tr><td><b>Parasitismo</b></td><td>Um vive à custa do outro</td><td>Lombriga, carrapato</td></tr>
+<tr><td><b>Competição</b></td><td>Disputam o mesmo recurso</td><td>Plantas disputando luz</td></tr></table></div>
+<h3>Ciclos da matéria</h3>
+<ul><li><b>Carbono:</b> fotossíntese tira CO₂ do ar; respiração, decomposição e queimadas devolvem.</li>
+<li><b>Nitrogênio:</b> bactérias nas raízes de feijão e soja transformam o nitrogênio do ar em adubo natural (rotação de culturas).</li>
+<li><b>Água:</b> evaporação, transpiração das plantas, nuvens e chuva. A Amazônia manda umidade para outras regiões ("rios voadores").</li></ul>
+<h3>Problemas ambientais</h3>
+<div class="tbl"><table><tr><th>Problema</th><th>Causa</th><th>Consequência</th></tr>
+<tr><td><b>Efeito estufa</b></td><td>Mais CO₂ e metano (combustíveis, desmatamento, gado)</td><td>Aquecimento global</td></tr>
+<tr><td><b>Eutrofização</b></td><td>Esgoto e adubo na água</td><td>Algas crescem e morrem, falta oxigênio, peixes morrem</td></tr>
+<tr><td><b>Biomagnificação</b></td><td>Mercúrio, alguns agrotóxicos</td><td>Acumulam até o topo da cadeia</td></tr>
+<tr><td><b>Chuva ácida</b></td><td>Gases de enxofre e nitrogênio</td><td>Corrói monumentos, acidifica lagos</td></tr>
+<tr><td><b>Camada de ozônio</b></td><td>Gases CFC</td><td>Mais raios ultravioleta</td></tr></table></div>
+<div class="dica">⚠️ Não confunda: <b>efeito estufa</b> esquenta o planeta; <b>ozônio</b> protege contra ultravioleta.</div>
+<h3>Reciclagem e educação ambiental</h3>
+<p>Ordem de prioridade: <b>1. reduzir → 2. reutilizar → 3. reciclar</b>. Reduzir vem primeiro porque evita que o lixo exista.</p>
+<ul><li><b>Coleta seletiva:</b> azul papel · vermelho plástico · verde vidro · amarelo metal · marrom orgânico.</li><li><b>Compostagem:</b> restos de comida viram adubo.</li><li><b>Aterro sanitário</b> trata o chorume; <b>lixão</b> contamina solo e água.</li></ul>`}
+];
+
+const CARDS=[
+["Célula sem núcleo","Procarionte. Exemplo: bactérias."],
+["Célula com núcleo","Eucarionte. Animais, plantas, fungos e protozoários."],
+["Mitocôndria","Respiração celular. Produz energia (ATP). A usina da célula."],
+["Cloroplasto","Fotossíntese. Só em plantas e algas."],
+["Ribossomo","Produz proteínas. Existe em todas as células."],
+["Complexo golgiense","Embala e envia substâncias para fora (secreção). O correio."],
+["Lisossomo","Digestão dentro da célula. A coleta de lixo."],
+["Só a célula vegetal tem…","Parede celular, cloroplasto e vacúolo central grande."],
+["Osmose","A água se move para o lado mais concentrado. Por isso a salada murcha com sal."],
+["Fotossíntese: entra e sai","Entra CO₂ + água + luz. Sai glicose + O₂."],
+["Respiração: entra e sai","Entra glicose + O₂. Sai CO₂ + água + energia."],
+["Planta respira quando?","O tempo todo, de dia e de noite."],
+["Fermentação alcoólica","Levedura. Produz álcool + CO₂. Faz o pão crescer."],
+["Fermentação lática","Bactérias do leite e músculos. Produz ácido lático (iogurte, músculo cansado)."],
+["Quanto da energia passa de um nível ao outro?","Cerca de 10%. O resto vira calor e é gasto pelo ser vivo."],
+["Decompositores","Fungos e bactérias. Devolvem os nutrientes ao solo."],
+["Eutrofização","Excesso de nutrientes na água → algas crescem e morrem → falta oxigênio → peixes morrem."],
+["Biomagnificação","Substância tóxica que acumula ao longo da cadeia. O topo recebe mais."],
+["Efeito estufa x Ozônio","Estufa: aquecimento por CO₂ e metano. Ozônio: protege contra ultravioleta."],
+["Por que plantar feijão recupera o solo?","Bactérias nas raízes fixam o nitrogênio do ar (mutualismo)."],
+["Ordem do lixo","Reduzir → reutilizar → reciclar."]
+];
+
+const QS=[
+{p:"Uma célula não tem núcleo nem organelas com membrana, mas tem ribossomos e DNA. Ela é:",a:["Eucarionte, como a de uma planta","Procarionte, como a de uma bactéria","Eucarionte, como a de um fungo","Procarionte, como a de um animal","Uma célula vegetal sem cloroplasto"],r:1,e:"Sem núcleo = procarionte. O exemplo é a bactéria. Plantas, fungos e animais são eucariontes."},
+{p:"Qual alternativa traz apenas estruturas que existem na célula vegetal e NÃO na animal?",a:["Mitocôndria, núcleo e ribossomo","Parede celular, cloroplasto e vacúolo central","Lisossomo, Golgi e membrana","Ribossomo, cloroplasto e mitocôndria","Membrana, núcleo e parede celular"],r:1,e:"Só a vegetal tem parede celular, cloroplasto e vacúolo central grande. Mitocôndria existe nas duas."},
+{p:"Uma alface temperada com sal fica murcha depois de alguns minutos porque:",a:["o sal entra nas células e as destrói","a água sai das células da folha por osmose","a alface faz fermentação","o sal bloqueia a fotossíntese","as mitocôndrias param de funcionar"],r:1,e:"O sal deixa o meio de fora mais concentrado. A água sai das células por osmose e a folha murcha."},
+{p:"Um maratonista tem, nas células dos músculos da perna, mais quantidade de qual organela?",a:["Lisossomo","Complexo golgiense","Mitocôndria","Cloroplasto","Vacúolo"],r:2,e:"Correr exige muita energia. A mitocôndria produz energia (ATP) pela respiração celular. Célula animal não tem cloroplasto."},
+{p:"Na fotossíntese, o que entra e o que sai?",a:["Entra O₂ e glicose; sai CO₂ e água","Entra CO₂, água e luz; sai glicose e O₂","Entra glicose e luz; sai O₂ e água","Entra CO₂ e O₂; sai glicose","Entra água e O₂; sai CO₂ e glicose"],r:1,e:"Fotossíntese: CO₂ + água + luz → glicose + O₂. A respiração faz exatamente o contrário."},
+{p:"\"As plantas fazem fotossíntese de dia e respiram só à noite.\" Essa frase está:",a:["Certa, porque de dia elas só fazem fotossíntese","Errada, porque as plantas não respiram","Errada, porque as plantas respiram o tempo todo","Certa, porque a respiração precisa de escuro","Errada, porque a fotossíntese acontece à noite"],r:2,e:"A planta respira dia e noite. De dia ela faz fotossíntese e respira ao mesmo tempo."},
+{p:"O pão caseiro cresce porque as leveduras do fermento:",a:["fazem fotossíntese e liberam oxigênio","fazem fermentação e liberam gás carbônico","absorvem a água da massa","produzem ácido lático","fazem respiração e liberam vapor"],r:1,e:"Leveduras são fungos e fazem fermentação alcoólica: soltam CO₂, que forma as bolhas. Fungo não faz fotossíntese."},
+{p:"Depois de correr muito rápido, o músculo \"queima\" e cansa. Sem oxigênio suficiente, o músculo fez:",a:["Fotossíntese","Fermentação alcoólica","Fermentação lática, produzindo ácido lático","Respiração aeróbia, produzindo álcool","Digestão celular"],r:2,e:"Faltando oxigênio, o músculo faz fermentação lática e produz ácido lático."},
+{p:"Na cadeia milho → rato → cobra → gavião, o consumidor secundário é:",a:["Milho","Rato","Cobra","Gavião","Os decompositores"],r:2,e:"Milho é o produtor, o rato é o consumidor primário e a cobra, que come o rato, é o consumidor secundário."},
+{p:"Por que numa região existem muito mais plantas do que onças?",a:["Porque as onças vivem pouco","Porque só cerca de 10% da energia passa de um nível para o outro","Porque as plantas fazem respiração","Porque as onças são decompositoras","Porque as plantas não têm predadores"],r:1,e:"A energia diminui muito a cada nível. No topo da cadeia sobra pouca energia, que sustenta poucos animais."},
+{p:"Uma lagoa recebe esgoto, fica verde e, semanas depois, os peixes morrem. Esse fenômeno é:",a:["Biomagnificação","Efeito estufa","Eutrofização","Chuva ácida","Compostagem"],r:2,e:"Excesso de nutrientes → algas crescem e morrem → bactérias decompõem e gastam o oxigênio → peixes morrem. É eutrofização."},
+{p:"Uma indústria jogou mercúrio num rio. A concentração ficou maior nos peixes grandes e nos pescadores do que nas algas. Isso é:",a:["Eutrofização","Biomagnificação","Decomposição","Efeito estufa","Mutualismo"],r:1,e:"O mercúrio não sai do corpo e acumula ao longo da cadeia. Quem está no topo recebe mais: biomagnificação."},
+{p:"Plantar feijão ou soja ajuda a recuperar um solo pobre porque:",a:["essas plantas fazem mais fotossíntese","bactérias nas raízes fixam o nitrogênio do ar no solo","elas não precisam de água","elas matam os parasitas do solo","elas produzem ácido lático"],r:1,e:"As leguminosas têm bactérias nas raízes que transformam o nitrogênio do ar em nutriente. É mutualismo e faz parte do ciclo do nitrogênio."},
+{p:"Uma escola quer diminuir o impacto do lixo. A ação com PRIORIDADE é:",a:["Instalar lixeiras coloridas","Vender latinhas para reciclagem","Trocar copos descartáveis por canecas laváveis","Levar o lixo para o aterro","Queimar o lixo seco"],r:2,e:"A ordem é reduzir, reutilizar e só depois reciclar. Trocar descartáveis por canecas reduz o lixo na origem."}
+];
+
+const BOLSO=["<b>Procarionte</b> = sem núcleo (bactérias). <b>Eucarionte</b> = com núcleo.","<b>Mitocôndria</b> = energia. <b>Cloroplasto</b> = fotossíntese. <b>Ribossomo</b> = proteína. <b>Golgi</b> = embala e envia. <b>Lisossomo</b> = digere.","Só a vegetal tem <b>parede, cloroplasto e vacúolo grande</b>. As duas têm mitocôndria.","<b>Osmose</b> = água vai para o lado mais concentrado (salada murcha com sal).","<b>Fotossíntese:</b> CO₂ + água + luz → glicose + O₂. <b>Respiração:</b> o contrário, liberando energia.","<b>Planta respira o tempo todo</b>, de dia e de noite.","<b>Fermentação</b> = sem oxigênio, pouca energia. Alcoólica (pão, álcool) e lática (iogurte, músculo).","Cadeia: produtor → consumidores. Decompositores em todos os níveis. A seta aponta para quem come.","Só <b>~10% da energia</b> passa de nível. A matéria circula; a energia não volta.","<b>Biomagnificação</b> = veneno acumula no topo. <b>Eutrofização</b> = nutrientes demais, falta oxigênio.","<b>Efeito estufa</b> = aquecimento. <b>Ozônio</b> = proteção contra ultravioleta.","<b>Feijão e soja</b> recuperam o solo (bactérias fixadoras de nitrogênio).","<b>Lixo:</b> reduzir → reutilizar → reciclar."];
+
+const CHK=["Sei a diferença entre procarionte e eucarionte","Sei a função de cada organela","Sei o que entra e sai na fotossíntese e na respiração","Sei explicar por que a fermentação faz o pão crescer","Sei montar uma cadeia alimentar","Sei por que a energia diminui a cada nível","Sei explicar efeito estufa, eutrofização e biomagnificação","Sei a ordem: reduzir, reutilizar, reciclar"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>No simulado você acertou <b>2 de 6</b> em Biologia. Estude as 3 partes abaixo, nesta ordem. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h10 no total</span><span class="pill">📖 3 partes</span><span class="pill">✍️ 14 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente! Pode passar para Matemática 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  q.a.map((t,k)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[k]}</span><span>${t}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[q.r]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
