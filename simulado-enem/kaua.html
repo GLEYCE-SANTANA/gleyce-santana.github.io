@@ -213,12 +213,27 @@ function resultado(){
   <p style="font-size:12.5px;color:#94a3b8;text-align:center;margin:10px 0 0">Vai abrir o WhatsApp com o resultado e todas as respostas prontas para enviar.</p></div>
   <div class="card rev"><h3 style="margin:0 0 6px">Correção questão por questão</h3><p style="font-size:13px;color:#94a3b8;margin:0 0 6px">Toque numa questão para ver a correção.</p>`+
   Q.map((q,i)=>{const ok=S.resp[i]===gab(i);return `<div class="item" onclick="ir(${i})"><span>${ok?"✅":"❌"} ${i+1}. ${AREAS[q.d]} <span class="origem">· ENEM ${q.y}</span></span><span>Sua: <b>${S.resp[i]||"–"}</b> · Gab: <b>${gab(i)}</b></span></div>`}).join("")+`</div>
+  <div class="card" style="text-align:center"><button class="btn s" style="width:100%" onclick="pedirSenha()">🔒 Refazer o simulado do zero</button><p style="font-size:12.5px;color:#94a3b8;margin:8px 0 0">Precisa da senha do responsável.</p></div>
   <div class="autora">Elaborado por <b>Dra. Gleyce Santana</b></div>`;
   $("app").innerHTML=h;window.scrollTo(0,0);prog();
 }
+const SH=2683428419;
+function hs(x){let h=5381;for(const c of "gs-enem|"+x)h=((h*33)^c.charCodeAt(0))>>>0;return h}
+function pedirSenha(){
+  $("mbox").innerHTML=`<h3 style="margin-top:0">🔒 Liberar nova tentativa</h3><p style="font-size:14px">Peça para o responsável digitar a senha. As respostas serão apagadas e o relógio volta para 2 horas.</p>
+  <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="Senha" style="width:100%;padding:14px;border-radius:12px;border:2px solid var(--linha);background:#0b0f1a;color:#fff;font-size:20px;text-align:center;letter-spacing:6px;margin:6px 0 4px">
+  <p id="pwmsg" style="color:#f87171;font-size:13px;min-height:18px;margin:4px 0"></p>
+  <button class="btn y" onclick="liberar()">Liberar</button><button class="btn s" style="width:100%;margin-top:8px" onclick="fechar()">Cancelar</button>`;
+  $("modal").classList.add("on");setTimeout(()=>$("pw").focus(),100);
+  $("pw").onkeydown=e=>{if(e.key==="Enter")liberar()};
+}
+function liberar(){
+  if(hs($("pw").value.trim())!==SH){$("pwmsg").textContent="Senha incorreta.";vibra(200);return}
+  const tent=(S.tent||1)+1;S={resp:Array(Q.length).fill(null),cur:0,ini:null,fim:null,tent:tent};save();fechar();inicio();
+}
 function whats(){
   const r=calc();
-  let t=`📝 *SIMULADO ENEM – RESULTADO*\n👤 ${ALUNO}\n\n🎯 *Nota: ${nota10(r.tot)}* (de 0 a 10)\n✅ ${r.tot} acertos de ${Q.length} (${Math.round(r.tot/Q.length*100)}%)\n⏱ Tempo: ${S.esgotado?"ESGOTADO (2h)":fmt(tempo())+" de 2h"}\n\n*Por área:*\n`;
+  let t=`📝 *SIMULADO ENEM – RESULTADO*\n👤 ${ALUNO}${(S.tent||1)>1?" · tentativa "+S.tent:""}\n\n🎯 *Nota: ${nota10(r.tot)}* (de 0 a 10)\n✅ ${r.tot} acertos de ${Q.length} (${Math.round(r.tot/Q.length*100)}%)\n⏱ Tempo: ${S.esgotado?"ESGOTADO (2h)":fmt(tempo())+" de 2h"}\n\n*Por área:*\n`;
   Object.keys(AREAS).forEach(k=>t+=`• ${AREAS[k]}: ${r.a[k][0]}/${r.a[k][1]}\n`);
   t+=`\n*Respostas marcadas:*\n`+Q.map((q,i)=>`${i+1}-${S.resp[i]||"_"}${S.resp[i]===gab(i)?"✓":"✗"}`).join("  ");
   t+=`\n\n_Simulado elaborado por Dra. Gleyce Santana_`;
