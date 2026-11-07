@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>História para o ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#3a2a05;color:#fbbf24;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>🏛️ História para o ENEM · Raphael</h1><div class="sub" id="sub">Brasil Colônia · Escravidão · África · Independências</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-hist-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"colonia",t:"1. Brasil Colônia: economia e sociedade",tempo:"40 min",h:`
+<p>De 1500 a 1822 o Brasil foi colônia de Portugal. Tudo funcionava para dar lucro à metrópole: é o que o ENEM chama de <b>pacto colonial</b>.</p>
+<h3>Mercantilismo e pacto colonial</h3>
+<ul><li><b>Mercantilismo:</b> política econômica dos países europeus (séculos XV a XVIII): acumular ouro e prata, vender mais do que comprar, Estado controlando a economia.</li>
+<li><b>Pacto colonial (exclusivo metropolitano):</b> a colônia só podia vender e comprar de Portugal. Produzia matéria-prima barata e comprava produtos caros da metrópole.</li></ul>
+<h3>Os ciclos econômicos</h3>
+<div class="tbl"><table><tr><th>Período</th><th>Produto</th><th>Onde</th><th>Mão de obra</th></tr>
+<tr><td><b>Século XVI</b></td><td>Pau-brasil</td><td>Litoral</td><td>Indígenas, por escambo (troca)</td></tr>
+<tr><td><b>Séculos XVI–XVII</b></td><td>Açúcar</td><td>Nordeste (Pernambuco e Bahia)</td><td>Africanos escravizados</td></tr>
+<tr><td><b>Século XVIII</b></td><td>Ouro e diamantes</td><td>Minas Gerais, Goiás, Mato Grosso</td><td>Africanos escravizados</td></tr></table></div>
+<h3>O engenho de açúcar: o modelo plantation</h3>
+<p>Quatro palavras que caem sempre: <b>latifúndio</b> (grande propriedade), <b>monocultura</b> (um só produto), <b>mão de obra escravizada</b> e <b>produção para exportação</b>.</p>
+<p>A sociedade era <b>patriarcal</b>: o senhor de engenho mandava na família, nos trabalhadores e na política local. A casa-grande e a senzala mostram essa divisão.</p>
+<h3>Organização política</h3>
+<ul><li><b>Capitanias hereditárias (1534):</b> o rei dividiu o território em faixas e entregou a nobres (donatários). A maioria fracassou.</li>
+<li><b>Governo-geral (1548):</b> um governador para centralizar a administração. Tomé de Sousa fundou Salvador, a primeira capital, em 1549.</li>
+<li><b>Mineração:</b> Portugal cobrava o <b>quinto</b> (20% do ouro). Por causa do ouro, a capital mudou para o Rio de Janeiro em 1763.</li></ul>
+<h3>E os indígenas?</h3>
+<p>Os povos indígenas sofreram com guerras, escravização, doenças trazidas pelos europeus e a catequese dos jesuítas. O ENEM cobra muito a <b>resistência indígena</b> e a defesa das terras e culturas originárias até hoje.</p>`},
+{id:"escrav",t:"2. Escravidão e resistência",tempo:"40 min",h:`
+<p>O Brasil recebeu cerca de <b>4,8 milhões</b> de africanos escravizados, o maior número das Américas, e foi o <b>último país das Américas a abolir</b> a escravidão, em 1888. O ENEM liga sempre esse passado ao racismo e à desigualdade de hoje.</p>
+<h3>O tráfico negreiro</h3>
+<ul><li>Pessoas eram capturadas na África e trazidas nos <b>navios negreiros</b>, em condições desumanas. Muitas morriam na travessia.</li>
+<li>O tráfico era um negócio muito lucrativo para comerciantes portugueses e brasileiros.</li>
+<li>Os africanos trouxeram saberes, técnicas, línguas, religiões, música e culinária que formam a cultura brasileira.</li></ul>
+<h3>A resistência</h3>
+<ul><li><b>Quilombos:</b> comunidades formadas por pessoas que fugiam da escravidão. O maior foi <b>Palmares</b> (Serra da Barriga, Alagoas), no século XVII.</li>
+<li><b>Zumbi dos Palmares</b> foi morto em 20 de novembro de 1695. Por isso, 20 de novembro é o <b>Dia da Consciência Negra</b>.</li>
+<li><b>Revolta dos Malês (1835):</b> levante de africanos muçulmanos em Salvador.</li>
+<li>Resistência do dia a dia: fugas, trabalho mais lento, preservação da religião e da cultura.</li></ul>
+<h3>O caminho até a abolição</h3>
+<div class="tbl"><table><tr><th>Ano</th><th>Lei</th><th>O que fez</th></tr>
+<tr><td><b>1850</b></td><td>Eusébio de Queirós</td><td>Proibiu o tráfico de africanos para o Brasil</td></tr>
+<tr><td><b>1871</b></td><td>Ventre Livre</td><td>Filhos de escravizadas nasciam livres</td></tr>
+<tr><td><b>1885</b></td><td>Sexagenários</td><td>Libertou escravizados com mais de 60 anos</td></tr>
+<tr><td><b>1888</b></td><td>Lei Áurea (13 de maio)</td><td>Aboliu a escravidão</td></tr></table></div>
+<div class="dica">⚠️ <b>Ponto que o ENEM cobra:</b> a Lei Áurea libertou, mas não deu terra, trabalho, educação nem indenização aos libertos. Muitos foram para as periferias e trabalhos mal pagos. Isso ajuda a explicar a desigualdade racial no Brasil de hoje.</div>
+<h3>Hoje</h3>
+<ul><li><b>Lei 10.639/2003:</b> tornou obrigatório o ensino de história e cultura afro-brasileira nas escolas.</li>
+<li><b>Comunidades quilombolas</b> lutam pelo direito às suas terras.</li>
+<li>Políticas como as <b>cotas raciais</b> buscam reduzir desigualdades herdadas da escravidão.</li></ul>`},
+{id:"africa",t:"3. História da África",tempo:"40 min",h:`
+<p>A África não começa com a escravidão: teve <b>reinos ricos e poderosos</b> muito antes da chegada dos europeus. O ENEM gosta de combater a visão de uma África "sem história".</p>
+<h3>Reinos africanos</h3>
+<div class="tbl"><table><tr><th>Reino</th><th>Destaque</th></tr>
+<tr><td><b>Egito</b></td><td>Faraós, pirâmides, escrita hieroglífica, às margens do rio Nilo</td></tr>
+<tr><td><b>Kush (Núbia)</b></td><td>Vizinho do Egito, chegou a dominá-lo; grande produção de ferro</td></tr>
+<tr><td><b>Gana</b></td><td>Rico em ouro, controlava o comércio pelo deserto do Saara</td></tr>
+<tr><td><b>Mali</b></td><td>Mansa Musa, um dos homens mais ricos da história; Tombuctu era centro de estudos islâmicos</td></tr>
+<tr><td><b>Congo</b></td><td>Reino organizado na África Central, com contato com os portugueses no século XV</td></tr></table></div>
+<ul><li><b>Tradição oral:</b> os <b>griôs</b> guardavam a história e a memória dos povos contando, cantando e recitando.</li>
+<li>Muitos dos africanos trazidos ao Brasil vieram da região do <b>Congo e Angola</b> (povos bantos) e do <b>Golfo da Guiné</b> (iorubás, jejes, haussás).</li></ul>
+<h3>Imperialismo e partilha da África</h3>
+<ul><li>No século XIX, as potências industriais europeias queriam matérias-primas, mercados e áreas para investir.</li>
+<li><b>Conferência de Berlim (1884–1885):</b> os europeus dividiram a África entre si, sem nenhum africano presente.</li>
+<li>As fronteiras foram traçadas <b>"com régua"</b>, separando povos aliados e juntando povos rivais. Isso gerou conflitos que duram até hoje.</li>
+<li>Só a <b>Etiópia</b> (que venceu a Itália em 1896) e a <b>Libéria</b> continuaram independentes.</li></ul>
+<div class="dica">📌 <b>Justificativas do imperialismo:</b> "missão civilizadora", "fardo do homem branco" e <b>darwinismo social</b> (a falsa ideia de que alguns povos seriam superiores). O ENEM pede para você reconhecer essas ideias como racistas.</div>`},
+{id:"guerra",t:"4. África, Segunda Guerra e independências",tempo:"35 min",h:`
+<p>A Segunda Guerra Mundial (1939–1945) enfraqueceu as potências europeias e acelerou o fim dos impérios coloniais na África e na Ásia.</p>
+<h3>A África na Segunda Guerra</h3>
+<ul><li>As colônias forneceram <b>soldados</b> (como os atiradores senegaleses do exército francês) e <b>recursos</b> (borracha, minérios, alimentos) para as metrópoles.</li>
+<li>Houve batalhas no <b>Norte da África</b>, como El Alamein (Egito, 1942).</li>
+<li>Os africanos lutaram "pela liberdade" da Europa, mas continuavam sem liberdade em casa. Essa contradição fortaleceu os movimentos de independência.</li></ul>
+<h3>Depois da guerra</h3>
+<ul><li><b>ONU (1945):</b> defendeu o direito dos povos à <b>autodeterminação</b>.</li>
+<li>Europa enfraquecida e <b>Guerra Fria</b>: EUA e URSS disputavam influência sobre os novos países.</li>
+<li><b>Conferência de Bandung (1955):</b> países da Ásia e da África se uniram contra o colonialismo; origem do <b>Movimento dos Não Alinhados</b>.</li></ul>
+<h3>As independências</h3>
+<div class="tbl"><table><tr><th>Ano</th><th>Fato</th></tr>
+<tr><td><b>1957</b></td><td>Gana, primeiro país da África subsaariana a se tornar independente (Kwame Nkrumah)</td></tr>
+<tr><td><b>1960</b></td><td>"Ano da África": 17 países ficaram independentes</td></tr>
+<tr><td><b>1962</b></td><td>Argélia, depois de uma guerra violenta contra a França (1954–1962)</td></tr>
+<tr><td><b>1974–1975</b></td><td>Angola, Moçambique, Guiné-Bissau e Cabo Verde, após a Revolução dos Cravos em Portugal</td></tr></table></div>
+<h3>Apartheid na África do Sul</h3>
+<ul><li>Regime de <b>segregação racial</b> oficial de 1948 a 1994: negros não podiam votar, morar ou estudar nos mesmos lugares que brancos.</li>
+<li><b>Nelson Mandela</b> ficou 27 anos preso e, em 1994, foi eleito o primeiro presidente negro do país.</li></ul>
+<div class="dica">🔗 <b>Ligação que o ENEM faz:</b> fronteiras artificiais + exploração colonial ajudam a explicar guerras civis, pobreza e conflitos étnicos na África depois da independência, como o genocídio em Ruanda (1994).</div>`}
+];
+
+const CARDS=[
+["Pacto colonial","A colônia só podia comerciar com a metrópole: vendia matéria-prima barata e comprava produtos caros."],
+["Mercantilismo","Política econômica europeia: acumular metais, vender mais que comprar, Estado controlando a economia."],
+["Primeiro produto explorado no Brasil","Pau-brasil, com trabalho indígena por escambo (troca)."],
+["Plantation (4 características)","Latifúndio, monocultura, mão de obra escravizada e exportação."],
+["Onde foi o ciclo do açúcar?","Nordeste, principalmente Pernambuco e Bahia (séculos XVI e XVII)."],
+["O quinto","Imposto de 20% sobre o ouro, cobrado por Portugal no século XVIII."],
+["Primeira capital do Brasil","Salvador (1549). Em 1763 a capital foi para o Rio de Janeiro."],
+["Quilombo dos Palmares","Maior quilombo, na Serra da Barriga (AL), século XVII. Líder: Zumbi."],
+["20 de novembro","Dia da Consciência Negra: morte de Zumbi dos Palmares (1695)."],
+["Lei Eusébio de Queirós (1850)","Proibiu o tráfico de africanos escravizados para o Brasil."],
+["Lei do Ventre Livre (1871)","Filhos de mulheres escravizadas nasciam livres."],
+["Lei Áurea (1888)","Aboliu a escravidão, sem dar terra, trabalho ou indenização aos libertos."],
+["Revolta dos Malês (1835)","Levante de africanos muçulmanos em Salvador."],
+["Lei 10.639/2003","Obriga o ensino de história e cultura afro-brasileira nas escolas."],
+["Mansa Musa","Imperador do Mali, extremamente rico. Tombuctu era centro de estudos."],
+["Griôs","Guardiões da tradição oral africana: contam a história dos povos."],
+["Conferência de Berlim (1884–1885)","Europeus dividiram a África entre si, sem africanos presentes."],
+["Países africanos que não foram colonizados","Etiópia (venceu a Itália em 1896) e Libéria."],
+["Darwinismo social","Falsa ideia de que alguns povos seriam superiores; usada para justificar o imperialismo."],
+["1960","\"Ano da África\": 17 países ficaram independentes."],
+["Conferência de Bandung (1955)","Países da Ásia e da África contra o colonialismo; origem dos Não Alinhados."],
+["Apartheid","Segregação racial na África do Sul (1948–1994). Fim com Mandela presidente."]
+];
+
+const QS=[
+{p:"No Brasil Colônia, a regra de que a colônia só podia comprar e vender para Portugal era chamada de:",a:["Liberalismo econômico","Pacto colonial","Socialismo","Feudalismo","Livre-comércio"],r:1,e:"O pacto colonial (exclusivo metropolitano) garantia que todo o comércio da colônia fosse feito com Portugal, para enriquecer a metrópole."},
+{p:"O sistema de plantation, usado nos engenhos de açúcar, tinha como características:",a:["pequenas propriedades, vários produtos e trabalho livre","latifúndio, monocultura, mão de obra escravizada e exportação","indústrias, trabalho assalariado e mercado interno","terras coletivas e produção para subsistência","comércio livre com todos os países europeus"],r:1,e:"Plantation = grande propriedade (latifúndio), um só produto (monocultura), trabalho escravizado e produção voltada para fora (exportação)."},
+{p:"O primeiro produto explorado pelos portugueses no Brasil, com trabalho indígena em troca de objetos, foi:",a:["o café","o ouro","o açúcar","o pau-brasil","o algodão"],r:3,e:"O pau-brasil foi explorado no século XVI com trabalho indígena pelo sistema de escambo (troca por objetos)."},
+{p:"No século XVIII, a descoberta de ouro em Minas Gerais levou Portugal a:",a:["abolir a escravidão","cobrar o quinto e mudar a capital para o Rio de Janeiro","dar independência ao Brasil","abandonar o Nordeste açucareiro","proibir o tráfico negreiro"],r:1,e:"Portugal cobrava o quinto (20% do ouro) e, em 1763, transferiu a capital de Salvador para o Rio de Janeiro, mais perto das minas."},
+{p:"O Quilombo dos Palmares, no século XVII, representou:",a:["um engenho de açúcar holandês","uma forma de resistência à escravidão","uma vila fundada pelos jesuítas","um centro de comércio de escravizados","uma capitania hereditária"],r:1,e:"Palmares foi o maior quilombo do Brasil, formado por pessoas que fugiram da escravidão. Seu líder mais conhecido foi Zumbi."},
+{p:"O Dia da Consciência Negra, em 20 de novembro, homenageia:",a:["a assinatura da Lei Áurea","a Princesa Isabel","Zumbi dos Palmares","o fim do tráfico negreiro","a Revolta dos Malês"],r:2,e:"20 de novembro marca a morte de Zumbi dos Palmares (1695), símbolo da resistência negra. O 13 de maio é a data da Lei Áurea."},
+{p:"Qual lei, de 1850, proibiu o tráfico de africanos escravizados para o Brasil?",a:["Lei Áurea","Lei do Ventre Livre","Lei dos Sexagenários","Lei Eusébio de Queirós","Lei de Terras"],r:3,e:"A Lei Eusébio de Queirós (1850) proibiu o tráfico. Depois vieram Ventre Livre (1871), Sexagenários (1885) e Áurea (1888)."},
+{p:"Historiadores afirmam que a abolição de 1888 foi \"incompleta\" porque:",a:["a escravidão continuou legal em algumas províncias","os libertos não receberam terra, trabalho, educação ou indenização","só os idosos foram libertados","os senhores receberam os libertos de volta","o tráfico continuou permitido"],r:1,e:"A Lei Áurea acabou com a escravidão, mas não criou nenhuma política de integração dos libertos. Isso está na origem da desigualdade racial no Brasil."},
+{p:"A Lei 10.639/2003 tornou obrigatório nas escolas:",a:["o ensino de língua inglesa","o ensino de história e cultura afro-brasileira","a educação ambiental","o ensino religioso","o ensino de filosofia"],r:1,e:"A Lei 10.639/2003 obriga o ensino de história e cultura afro-brasileira, valorizando a contribuição africana na formação do Brasil."},
+{p:"O Império do Mali, no século XIV, é lembrado por:",a:["ser uma colônia portuguesa","ter sido governado por Mansa Musa e ter Tombuctu como centro de estudos","ter construído as pirâmides","ter vencido a Itália em 1896","ter criado o apartheid"],r:1,e:"Mansa Musa governou o Mali, um dos reinos mais ricos do mundo na época. Tombuctu era um importante centro de saber islâmico."},
+{p:"Na Conferência de Berlim (1884–1885):",a:["os africanos conquistaram a independência","as potências europeias dividiram a África entre si","foi abolida a escravidão no mundo","foi criada a ONU","o Brasil declarou independência"],r:1,e:"Na Conferência de Berlim, os europeus partilharam a África sem a presença de africanos, traçando fronteiras artificiais."},
+{p:"As fronteiras de muitos países africanos causam conflitos até hoje porque:",a:["foram definidas pelos próprios povos africanos","foram traçadas pelos europeus sem respeitar os povos e culturas locais","seguem exatamente os rios e montanhas","foram criadas pela ONU em 2000","não existem fronteiras na África"],r:1,e:"As fronteiras foram desenhadas pelos colonizadores \"com régua\", separando povos aliados e juntando rivais. Isso gerou conflitos depois da independência."},
+{p:"O darwinismo social, usado para justificar o imperialismo, defendia que:",a:["todos os povos são iguais","alguns povos seriam superiores e teriam o direito de dominar outros","a África deveria ser independente","a escravidão deveria acabar","a natureza deveria ser preservada"],r:1,e:"O darwinismo social aplicava de forma errada ideias da biologia às sociedades, para justificar a dominação europeia. Hoje é reconhecido como uma ideia racista."},
+{p:"Após a Segunda Guerra Mundial, as independências africanas foram favorecidas por:",a:["o fortalecimento dos impérios europeus","o enfraquecimento das potências europeias e a defesa da autodeterminação dos povos pela ONU","a Conferência de Berlim","o fim da Guerra Fria em 1945","a chegada dos portugueses à África"],r:1,e:"A guerra enfraqueceu a Europa, a ONU defendeu a autodeterminação e os africanos que lutaram na guerra passaram a exigir liberdade."},
+{p:"O apartheid, na África do Sul, foi:",a:["um movimento pela independência","um regime oficial de segregação racial entre 1948 e 1994","um reino africano medieval","uma lei que proibiu o tráfico","um acordo de paz da ONU"],r:1,e:"O apartheid separava legalmente brancos e negros. Acabou em 1994, quando Nelson Mandela foi eleito presidente."}
+];
+
+const BOLSO=["<b>Pacto colonial</b>: colônia só comercia com a metrópole.","Ciclos: <b>pau-brasil</b> (séc. XVI) → <b>açúcar</b> no Nordeste (XVI–XVII) → <b>ouro</b> em Minas (XVIII).","<b>Plantation</b> = latifúndio + monocultura + escravizados + exportação.","<b>Quinto</b> = 20% do ouro. Capital: Salvador (1549) → Rio (1763).","O Brasil recebeu ~<b>4,8 milhões</b> de africanos e foi o <b>último</b> das Américas a abolir.","Resistência: <b>quilombos</b> (Palmares, Zumbi), fugas, <b>Revolta dos Malês</b> (1835).","Leis: <b>1850</b> fim do tráfico · <b>1871</b> Ventre Livre · <b>1885</b> Sexagenários · <b>1888</b> Áurea.","Abolição <b>sem terra, trabalho ou indenização</b> → desigualdade racial de hoje.","<b>20 de novembro</b> = Consciência Negra (Zumbi). <b>Lei 10.639/2003</b> = cultura afro nas escolas.","Reinos africanos: <b>Egito, Kush, Gana, Mali</b> (Mansa Musa, Tombuctu), <b>Congo</b>. Griôs = tradição oral.","<b>Conferência de Berlim (1884–85)</b>: partilha da África; fronteiras artificiais.","Imperialismo justificado por <b>darwinismo social</b> e \"missão civilizadora\" (ideias racistas).","Pós-1945: Europa fraca + <b>ONU</b> + Guerra Fria → independências. <b>1960</b> = Ano da África.","<b>Apartheid</b> (1948–1994) na África do Sul; fim com <b>Mandela</b>."];
+
+const CHK=["Explico o que foi o pacto colonial","Sei a ordem dos ciclos: pau-brasil, açúcar, ouro","Sei as 4 características da plantation","Sei o que foi Palmares e por que 20 de novembro é feriado","Sei a ordem das leis abolicionistas (1850, 1871, 1885, 1888)","Explico por que a abolição foi incompleta","Cito pelo menos 3 reinos africanos","Sei o que foi a Conferência de Berlim","Explico por que as independências vieram depois da Segunda Guerra","Sei o que foi o apartheid"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>No simulado você acertou <b>1 de 4</b> em História. Os erros foram em colonização e escravidão, História da África e África na Segunda Guerra. Estude as 4 partes abaixo, nesta ordem. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h35 no total</span><span class="pill">📖 4 partes</span><span class="pill">✍️ 15 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente! História em dia 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>

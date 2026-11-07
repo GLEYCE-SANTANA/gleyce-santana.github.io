@@ -241,12 +241,13 @@ function exercicios(){
   }
   const q=QS[qi],r=S.q[qi];
   let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
-  q.a.map((t,k)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[k]}</span><span>${t}</span></button>`}).join("");
-  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[q.r]}</b><br>${q.e}</div>`;
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
   h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
   <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
   return h;
 }
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
 function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
 function refazer(){S.q={};qi=0;save();render()}
 function revisao(){
