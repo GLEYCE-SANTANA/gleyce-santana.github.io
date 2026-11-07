@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Geografia para o ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0b3320;color:#34d399;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>🌎 Geografia para o ENEM · Raphael</h1><div class="sub" id="sub">Globalização · Cidades · Meio ambiente · Biomas</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-geo-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"glob",t:"1. Globalização e economia global",tempo:"40 min",h:`
+<p><b>Globalização</b> é a ligação cada vez maior entre os países: mercadorias, dinheiro, informações e pessoas circulam pelo mundo todo, muito rápido. O ENEM cobra o lado bom e o lado ruim.</p>
+<h3>O que move a globalização</h3>
+<ul><li><b>Meio técnico-científico-informacional</b> (termo do geógrafo Milton Santos): internet, satélites, celulares e transportes rápidos ligam o mundo.</li>
+<li><b>Empresas transnacionais (multinacionais):</b> têm sede num país e fábricas em vários outros, onde a mão de obra, os impostos e a energia são mais baratos.</li>
+<li><b>Fluxos:</b> de mercadorias, de capitais (dinheiro investido nas bolsas), de informações e de pessoas (turistas e migrantes).</li></ul>
+<h3>Divisão internacional do trabalho</h3>
+<div class="tbl"><table><tr><th>Países</th><th>O que costumam vender</th></tr>
+<tr><td><b>Desenvolvidos</b></td><td>Tecnologia, máquinas, serviços, patentes (alto valor)</td></tr>
+<tr><td><b>Emergentes como o Brasil</b></td><td><b>Commodities:</b> soja, minério de ferro, petróleo, carne, café (produtos primários, preço definido no mercado mundial)</td></tr></table></div>
+<p>A <b>China</b> é hoje o maior parceiro comercial do Brasil e o principal comprador de soja e minério de ferro.</p>
+<h3>Blocos econômicos</h3>
+<div class="tbl"><table><tr><th>Bloco</th><th>Quem</th><th>Destaque</th></tr>
+<tr><td><b>Mercosul</b> (1991)</td><td>Brasil, Argentina, Uruguai, Paraguai e Bolívia</td><td>Menos impostos no comércio entre os membros</td></tr>
+<tr><td><b>União Europeia</b></td><td>27 países europeus</td><td>Moeda única (euro) e livre circulação de pessoas. O Reino Unido saiu em 2020 (Brexit)</td></tr>
+<tr><td><b>BRICS</b></td><td>Brasil, Rússia, Índia, China, África do Sul e novos membros desde 2024</td><td>Grupo de emergentes que busca mais peso nas decisões mundiais</td></tr></table></div>
+<h3>Os dois lados da globalização</h3>
+<ul><li><b>Positivo:</b> acesso a produtos, tecnologia e informação; mais comércio e investimentos.</li>
+<li><b>Negativo:</b> desigualdade entre países e pessoas, desemprego quando fábricas mudam de país, crises que se espalham pelo mundo, cultura padronizada.</li></ul>
+<div class="dica">🌐 <b>Palavra-chave do ENEM:</b> a globalização é <b>desigual</b>. Nem todos os lugares e pessoas participam dela da mesma forma.</div>`},
+{id:"urb",t:"2. Urbanização e redes urbanas",tempo:"40 min",h:`
+<p>Hoje <b>mais de 80% dos brasileiros vivem em cidades</b>. Essa mudança aconteceu muito rápido, principalmente entre 1950 e 1980, e sem planejamento. Daí vêm muitos problemas urbanos.</p>
+<h3>Por que as cidades cresceram</h3>
+<ul><li><b>Industrialização</b>, principalmente no Sudeste, atraindo trabalhadores.</li>
+<li><b>Êxodo rural:</b> saída do campo para a cidade, causada pela <b>mecanização do campo</b> e pela concentração de terras.</li></ul>
+<h3>Conceitos que mais caem</h3>
+<div class="tbl"><table><tr><th>Conceito</th><th>O que é</th><th>Exemplo</th></tr>
+<tr><td><b>Metrópole</b></td><td>Grande cidade que comanda uma região</td><td>São Paulo, Rio de Janeiro</td></tr>
+<tr><td><b>Região metropolitana</b></td><td>A metrópole e as cidades ligadas a ela</td><td>Grande São Paulo</td></tr>
+<tr><td><b>Conurbação</b></td><td>Cidades que crescem até se juntar, sem limite visível</td><td>São Paulo e Guarulhos</td></tr>
+<tr><td><b>Megalópole</b></td><td>Duas ou mais metrópoles ligadas</td><td>Eixo Rio–São Paulo</td></tr>
+<tr><td><b>Rede urbana</b></td><td>Cidades ligadas por fluxos de pessoas, mercadorias e serviços, em hierarquia</td><td>Cidade pequena → capital regional → metrópole</td></tr></table></div>
+<p>Na <b>hierarquia urbana</b>, cidades menores dependem das maiores para serviços como hospitais especializados, universidades e aeroportos. Com a internet, uma cidade pequena também se liga diretamente a grandes centros.</p>
+<h3>Problemas urbanos</h3>
+<div class="tbl"><table><tr><th>Problema</th><th>Causa</th></tr>
+<tr><td><b>Favelização</b></td><td>Falta de moradia acessível; ocupação de morros e beiras de rio</td></tr>
+<tr><td><b>Segregação socioespacial</b></td><td>Ricos e pobres em áreas separadas (condomínios x periferias)</td></tr>
+<tr><td><b>Enchentes</b></td><td>Asfalto e concreto impermeabilizam o solo; rios canalizados; lixo nos bueiros</td></tr>
+<tr><td><b>Ilha de calor</b></td><td>Pouca vegetação e muito asfalto e concreto deixam o centro mais quente</td></tr>
+<tr><td><b>Mobilidade</b></td><td>Muitos carros, transporte público ruim, longas viagens casa–trabalho</td></tr>
+<tr><td><b>Gentrificação</b></td><td>Um bairro é valorizado e os moradores pobres são expulsos pelo aumento do custo de vida</td></tr></table></div>`},
+{id:"amb",t:"3. Questões ambientais e energia",tempo:"40 min",h:`
+<p>O ENEM liga meio ambiente à economia: desmatamento por causa da soja e do gado, energia, mudanças climáticas e acordos internacionais.</p>
+<h3>Desmatamento</h3>
+<ul><li>Principais causas no Brasil: <b>pecuária</b> (abrir pasto), <b>soja</b>, extração ilegal de madeira, garimpo e grilagem de terras.</li>
+<li>O <b>"arco do desmatamento"</b> fica no sul e leste da Amazônia, onde avança a fronteira agrícola.</li>
+<li>Consequências: perda de biodiversidade, mais CO₂ no ar, menos chuva em outras regiões (os rios voadores), ameaça a povos indígenas.</li></ul>
+<h3>Problemas do solo e da água</h3>
+<div class="tbl"><table><tr><th>Problema</th><th>O que é</th></tr>
+<tr><td><b>Erosão</b></td><td>Desgaste do solo pela chuva e pelo vento, pior sem vegetação</td></tr>
+<tr><td><b>Assoreamento</b></td><td>Terra levada pela erosão se acumula no fundo dos rios, que ficam rasos. Causa principal: retirada da <b>mata ciliar</b></td></tr>
+<tr><td><b>Desertificação</b></td><td>O solo perde fertilidade em áreas secas, como o semiárido nordestino</td></tr>
+<tr><td><b>Lixiviação</b></td><td>A chuva "lava" os nutrientes do solo</td></tr></table></div>
+<h3>Mudanças climáticas</h3>
+<ul><li><b>Acordo de Paris (2015):</b> países se comprometeram a limitar o aquecimento global a bem menos de 2 °C, buscando 1,5 °C.</li>
+<li>O Brasil sediou a <b>COP30</b> em Belém (2025), a conferência do clima da ONU.</li>
+<li><b>Desenvolvimento sustentável:</b> crescer economicamente sem destruir os recursos para as próximas gerações.</li></ul>
+<h3>Energia no Brasil</h3>
+<ul><li>A matriz elétrica brasileira é muito <b>renovável</b>: mais de 80% da eletricidade vem de hidrelétricas, eólicas, solar e biomassa.</li>
+<li><b>Hidrelétricas:</b> energia limpa, mas alagam grandes áreas e afetam povos e ecossistemas (ex.: Belo Monte).</li>
+<li><b>Eólica</b> cresce muito no Nordeste; <b>solar</b> se espalha pelos telhados; o <b>etanol</b> da cana é um biocombustível.</li>
+<li>Fontes não renováveis: petróleo, carvão e gás natural, que emitem gases do efeito estufa.</li></ul>`},
+{id:"biomas",t:"4. Biomas brasileiros",tempo:"30 min",h:`
+<p>O Brasil tem 6 biomas terrestres. O ENEM pede para você reconhecer cada um pela vegetação, pelo clima e pelos problemas ambientais.</p>
+<div class="tbl"><table><tr><th>Bioma</th><th>Como é</th><th>Principal ameaça</th></tr>
+<tr><td><b>Amazônia</b></td><td>Maior bioma, floresta densa, clima quente e úmido, enorme biodiversidade</td><td>Desmatamento para gado e soja, garimpo</td></tr>
+<tr><td><b>Cerrado</b></td><td>Savana com árvores tortas e casca grossa; "berço das águas" (nascentes de grandes rios)</td><td>Expansão da soja e do gado</td></tr>
+<tr><td><b>Mata Atlântica</b></td><td>Floresta no litoral, onde vive a maior parte da população</td><td>É o bioma mais devastado; restou pouco da área original</td></tr>
+<tr><td><b>Caatinga</b></td><td>Semiárido, plantas que perdem folhas na seca; só existe no Brasil</td><td>Desertificação e desmatamento</td></tr>
+<tr><td><b>Pantanal</b></td><td>Maior planície alagável do mundo, cheia e seca ao longo do ano</td><td>Queimadas e pecuária</td></tr>
+<tr><td><b>Pampa</b></td><td>Campos (gramíneas) no Rio Grande do Sul</td><td>Monoculturas e arenização</td></tr></table></div>
+<div class="dica">🌳 <b>Dicas de prova:</b> "árvores tortas e casca grossa" = <b>Cerrado</b>. "Plantas que perdem as folhas na seca" e "cactos" = <b>Caatinga</b>. "Mais devastado" = <b>Mata Atlântica</b>. "Planície alagável" = <b>Pantanal</b>.</div>
+<h3>Áreas protegidas</h3>
+<ul><li><b>Unidades de conservação</b>, como parques nacionais, protegem a natureza.</li>
+<li><b>Terras indígenas</b> estão entre as áreas mais preservadas da Amazônia.</li>
+<li><b>Código Florestal:</b> obriga a manter a mata ciliar (Área de Preservação Permanente) e uma parte de cada propriedade rural preservada (Reserva Legal).</li></ul>`}
+];
+
+const CARDS=[
+["Globalização","Integração entre os países: mercadorias, dinheiro, informação e pessoas circulando pelo mundo."],
+["Empresa transnacional","Tem sede num país e fábricas em outros, onde os custos são menores."],
+["Commodities","Produtos primários vendidos no mercado mundial: soja, minério de ferro, petróleo, carne."],
+["Maior parceiro comercial do Brasil","China."],
+["Mercosul","Bloco de 1991: Brasil, Argentina, Uruguai, Paraguai e Bolívia."],
+["União Europeia","27 países, moeda euro e livre circulação de pessoas. Reino Unido saiu (Brexit)."],
+["BRICS","Emergentes: Brasil, Rússia, Índia, China, África do Sul e novos membros desde 2024."],
+["Globalização é…","Desigual: nem todos participam dela da mesma forma."],
+["Êxodo rural","Saída do campo para a cidade, causada pela mecanização e concentração de terras."],
+["Conurbação","Cidades que crescem até se juntar, sem limite visível."],
+["Megalópole","Duas ou mais metrópoles ligadas. Ex.: eixo Rio–São Paulo."],
+["Rede urbana","Cidades ligadas por fluxos, em hierarquia (pequena → regional → metrópole)."],
+["Ilha de calor","Centro da cidade mais quente por causa do asfalto, concreto e pouca vegetação."],
+["Por que as cidades alagam?","Solo impermeabilizado, rios canalizados e lixo nos bueiros."],
+["Gentrificação","Bairro valorizado expulsa os moradores pobres pelo custo de vida."],
+["Segregação socioespacial","Ricos e pobres vivendo em áreas separadas da cidade."],
+["Assoreamento","Terra acumulada no fundo dos rios. Causa: retirada da mata ciliar."],
+["Acordo de Paris (2015)","Limitar o aquecimento global a bem menos de 2 °C, buscando 1,5 °C."],
+["Matriz elétrica brasileira","Muito renovável: mais de 80% vem de hidrelétricas, eólica, solar e biomassa."],
+["Cerrado","Savana de árvores tortas e casca grossa; berço das águas; ameaçado pela soja."],
+["Bioma mais devastado","Mata Atlântica."],
+["Caatinga","Semiárido, plantas que perdem folhas na seca; só existe no Brasil."],
+["Pantanal","Maior planície alagável do mundo."]
+];
+
+const QS=[
+{p:"Uma empresa com sede nos Estados Unidos instala fábricas na Ásia e no Brasil para reduzir custos com mão de obra e impostos. Ela é um exemplo de:",a:["empresa estatal","empresa transnacional","cooperativa agrícola","bloco econômico","agricultura familiar"],r:1,e:"Empresas transnacionais (multinacionais) espalham a produção por vários países buscando custos menores. É uma marca da globalização."},
+{p:"Na divisão internacional do trabalho, o Brasil se destaca principalmente como exportador de:",a:["softwares e patentes","aviões e satélites","commodities, como soja e minério de ferro","serviços financeiros","chips de computador"],r:2,e:"O Brasil exporta principalmente commodities (produtos primários): soja, minério de ferro, petróleo, carne e café."},
+{p:"O bloco econômico formado por Brasil, Argentina, Uruguai, Paraguai e Bolívia é o:",a:["União Europeia","BRICS","Nafta","Mercosul","G7"],r:3,e:"O Mercosul foi criado em 1991 para facilitar o comércio entre os países do Cone Sul."},
+{p:"Uma característica da União Europeia que a diferencia de outros blocos é:",a:["ser formada só por países da América","ter moeda única (euro) e livre circulação de pessoas","não permitir comércio entre os membros","ter sido criada pelo Brasil","incluir a China e a Índia"],r:1,e:"A UE é o bloco mais integrado: muitos membros usam o euro e as pessoas podem circular e trabalhar entre os países."},
+{p:"Os geógrafos afirmam que a globalização é desigual porque:",a:["todos os países se beneficiam igualmente","nem todos os lugares e pessoas participam dela da mesma forma","ela acabou com o comércio internacional","só os países pobres participam","ela eliminou as empresas transnacionais"],r:1,e:"Os benefícios da globalização se concentram em alguns países, regiões e grupos sociais, enquanto outros ficam à margem."},
+{p:"A principal causa do êxodo rural no Brasil, a partir de 1950, foi:",a:["o fim da indústria","a mecanização do campo e a concentração de terras","o aumento de empregos rurais","a reforma agrária completa","a falta de cidades"],r:1,e:"Máquinas substituíram trabalhadores e as terras se concentraram em grandes propriedades. Sem trabalho, muitos foram para as cidades industriais."},
+{p:"Quando duas ou mais cidades crescem até se juntar, sem limite visível entre elas, ocorre:",a:["êxodo rural","gentrificação","conurbação","assoreamento","desertificação"],r:2,e:"Conurbação é o encontro físico de cidades vizinhas. É comum nas regiões metropolitanas."},
+{p:"O eixo formado pelas metrópoles do Rio de Janeiro e de São Paulo e as cidades entre elas é chamado de:",a:["vila","megalópole","aldeia global","quilombo","zona rural"],r:1,e:"Megalópole é a ligação entre duas ou mais metrópoles. O eixo Rio–São Paulo é o exemplo brasileiro."},
+{p:"As enchentes são comuns nas grandes cidades brasileiras porque:",a:["há muita vegetação nas ruas","o solo é impermeabilizado por asfalto e concreto e há lixo nos bueiros","as cidades ficam longe dos rios","não chove nas cidades","os rios são muito largos"],r:1,e:"Com o solo coberto, a água da chuva não infiltra e escorre toda para ruas e rios canalizados. Lixo nos bueiros piora."},
+{p:"O centro de uma grande cidade costuma ser mais quente que as áreas ao redor. Esse fenômeno é chamado de:",a:["efeito estufa","ilha de calor","chuva ácida","inversão térmica","El Niño"],r:1,e:"A ilha de calor é causada pelo excesso de asfalto e concreto, que absorvem calor, e pela falta de vegetação."},
+{p:"Um bairro antigo é revitalizado, os aluguéis sobem e os moradores mais pobres precisam se mudar. Esse processo é chamado de:",a:["conurbação","favelização","gentrificação","êxodo rural","metropolização"],r:2,e:"Gentrificação é a valorização de um bairro que expulsa os moradores de menor renda pelo aumento do custo de vida."},
+{p:"A retirada da mata ciliar nas margens de um rio provoca principalmente:",a:["aumento da profundidade do rio","assoreamento, com terra se acumulando no fundo do rio","formação de geleiras","fim da erosão","aumento da biodiversidade"],r:1,e:"Sem a mata ciliar, a chuva leva terra para o rio. Os sedimentos se acumulam no fundo e o rio fica raso: é o assoreamento."},
+{p:"O Acordo de Paris, de 2015, tem como objetivo principal:",a:["criar o Mercosul","limitar o aquecimento global","acabar com a globalização","dividir a Amazônia","proibir a agricultura"],r:1,e:"O Acordo de Paris busca limitar o aquecimento global a bem menos de 2 °C, reduzindo a emissão de gases do efeito estufa."},
+{p:"Sobre a geração de eletricidade no Brasil, é correto afirmar que:",a:["vem principalmente do carvão mineral","é majoritariamente renovável, com destaque para as hidrelétricas","vem só de usinas nucleares","não usa energia eólica","é a mais poluente do mundo"],r:1,e:"Mais de 80% da eletricidade brasileira vem de fontes renováveis, principalmente hidrelétricas, seguidas de eólica, solar e biomassa."},
+{p:"Um bioma com árvores de troncos tortos e casca grossa, onde nascem grandes rios e que é ameaçado pela expansão da soja, é o(a):",a:["Amazônia","Caatinga","Cerrado","Pampa","Mata Atlântica"],r:2,e:"O Cerrado é uma savana com árvores tortas e casca grossa, chamado de \"berço das águas\". A soja e o gado são suas maiores ameaças."},
+{p:"O bioma brasileiro mais devastado, onde vive a maior parte da população do país, é a:",a:["Amazônia","Caatinga","Mata Atlântica","Pantanal","Pampa"],r:2,e:"A Mata Atlântica ocupa o litoral, onde as cidades cresceram desde a colonização. Restou só uma pequena parte da área original."}
+];
+
+const BOLSO=["<b>Globalização</b> = mundo integrado por fluxos de mercadorias, dinheiro, informação e pessoas. É <b>desigual</b>.","<b>Transnacionais</b> espalham fábricas pelo mundo atrás de custos menores.","O Brasil exporta <b>commodities</b> (soja, minério, petróleo, carne). A <b>China</b> é o maior parceiro.","<b>Mercosul</b> (BR, AR, UY, PY, BO) · <b>União Europeia</b> (euro) · <b>BRICS</b> (emergentes).","<b>Êxodo rural</b>: mecanização + concentração de terras empurraram o povo para as cidades.","<b>Conurbação</b> = cidades que se juntam · <b>megalópole</b> = metrópoles ligadas (Rio–SP).","<b>Rede urbana</b> = cidades em hierarquia, ligadas por fluxos.","Problemas urbanos: <b>enchentes</b> (solo impermeável), <b>ilha de calor</b>, favelização, <b>gentrificação</b>, segregação.","<b>Assoreamento</b> = rio raso por causa da retirada da mata ciliar.","<b>Acordo de Paris (2015)</b>: limitar o aquecimento a bem menos de 2 °C. COP30 em Belém (2025).","Eletricidade do Brasil: <b>mais de 80% renovável</b> (hidrelétricas na frente).","<b>Cerrado</b> = árvores tortas, berço das águas · <b>Caatinga</b> = semiárido · <b>Mata Atlântica</b> = mais devastada · <b>Pantanal</b> = planície alagável."];
+
+const CHK=["Explico o que é globalização e por que ela é desigual","Sei o que é uma empresa transnacional","Sei o que o Brasil exporta e quem é nosso maior parceiro","Diferencio Mercosul, União Europeia e BRICS","Explico o êxodo rural","Sei o que é conurbação, metrópole e megalópole","Explico enchentes, ilha de calor e gentrificação","Sei o que é assoreamento e erosão","Sei o objetivo do Acordo de Paris","Reconheço os 6 biomas brasileiros"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>No simulado você acertou <b>3 de 5</b> em Geografia. Os erros foram em questões ambientais e economia global, e em redes urbanas e globalização. Estude as 4 partes abaixo, nesta ordem. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h30 no total</span><span class="pill">📖 4 partes</span><span class="pill">✍️ 16 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente! Geografia em dia 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
