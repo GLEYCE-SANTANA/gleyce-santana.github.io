@@ -63,7 +63,7 @@ main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
 .modal{position:fixed;inset:0;background:rgba(10,20,40,.55);display:none;align-items:flex-end;justify-content:center;z-index:20}
 .modal.on{display:flex}
 .modal .box{background:var(--card);border:1px solid var(--linha);border-radius:20px 20px 0 0;padding:20px;width:100%;max-width:720px;max-height:85vh;overflow:auto}
-.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:26px 0 8px}
+.autora{text-align:center;font-size:12.5px;line-height:1.7;color:var(--cinza);margin:26px 0 8px}
 .autora b{color:var(--azul)}
 .rev{font-size:14px}
 .rev .item{padding:10px 0;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;gap:8px;cursor:pointer}
@@ -166,7 +166,7 @@ function inicio(){
   <div class="info"><div><b>40</b>questões</div><div><b>4</b>áreas</div><div><b>10</b>provas misturadas</div><div><b>2h</b>de prova</div></div>
   <p style="text-align:left;font-size:14px">✅ São 10 questões de cada área: Linguagens (com Inglês), Ciências Humanas, Ciências da Natureza e Matemática.<br>⏳ Você tem <b>2 horas</b>. O relógio começa quando tocar em começar e não para, mesmo fechando o app. Ele avisa com som quando faltar 1 hora, 30 minutos e 5 minutos. Quando zerar, a prova é recolhida automaticamente. 🔊 Deixe o som do celular ligado.<br>✅ Toque na letra para marcar. Dá para voltar e trocar antes de finalizar.<br>✅ Se fechar o app, as respostas ficam salvas neste celular.<br>✅ No final aparece sua nota e um botão para mandar o resultado pelo WhatsApp.</p>
   <button class="btn y" onclick="comecar()">${S.ini?"Continuar simulado":"Começar simulado"} ›</button></div>
-  <div class="autora">Elaborado por <b>Dra. Gleyce Santana</b></div>`;
+  <div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank" style="color:var(--azul);text-decoration:none;font-weight:700">📷 @dragleyce.licitacoes</a></div>`;
   prog();
 }
 function comecar(){audioOn();if(!S.ini){S.ini=Date.now();save();bip(2,660,0.15);vibra(150)}questao()}
@@ -181,7 +181,7 @@ function questao(){
     if(fim){if(L===gab(i))c="certa";else if(S.resp[i]===L)c="errada"}else if(S.resp[i]===L)c="sel";
     return `<button class="alt ${c}" onclick="marcar('${L}')"><span class="l">${L}</span><span>${q.af&&q.af[k]?`<img class="altimg" src="${q.af[k]}" alt="Alternativa ${L}">`:""}${md(a).replace(/<\/?p[^>]*>/g,"")}</span></button>`}).join("")+`</div>`;
   if(fim)h+=`<p style="margin-top:12px;font-size:14px">${S.resp[i]===gab(i)?"✅ Você acertou!":`❌ Sua resposta: <b>${S.resp[i]||"em branco"}</b> · Gabarito: <b>${gab(i)}</b>`}</p>`;
-  h+=`</div><div class="autora">Elaborado por <b>Dra. Gleyce Santana</b></div>`;
+  h+=`</div><div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank" style="color:var(--azul);text-decoration:none;font-weight:700">📷 @dragleyce.licitacoes</a></div>`;
   $("app").innerHTML=h;
   $("bPrev").disabled=i===0;
   $("bNext").textContent=fim?(i===Q.length-1?"Ver resultado":"Próxima ›"):(i===Q.length-1?"Finalizar ✓":"Próxima ›");
@@ -228,7 +228,7 @@ function resultado(){
   <div class="card rev"><h3 style="margin:0 0 6px">Correção questão por questão</h3><p style="font-size:13px;color:#94a3b8;margin:0 0 6px">Toque numa questão para ver a correção.</p>`+
   Q.map((q,i)=>{const ok=S.resp[i]===gab(i);return `<div class="item" onclick="ir(${i})"><span>${ok?"✅":"❌"} ${i+1}. ${AREAS[q.d]} <span class="origem">· ENEM ${q.y}</span></span><span>Sua: <b>${S.resp[i]||"–"}</b> · Gab: <b>${gab(i)}</b></span></div>`}).join("")+`</div>
   <div class="card" style="text-align:center"><button class="btn s" style="width:100%" onclick="pedirSenha()">🔒 Refazer o simulado do zero</button><p style="font-size:12.5px;color:#94a3b8;margin:8px 0 0">Precisa da senha do responsável.</p></div>
-  <div class="autora">Elaborado por <b>Dra. Gleyce Santana</b></div>`;
+  <div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank" style="color:var(--azul);text-decoration:none;font-weight:700">📷 @dragleyce.licitacoes</a></div>`;
   $("app").innerHTML=h;window.scrollTo(0,0);prog();
 }
 const SH=2683428419;
@@ -250,7 +250,7 @@ function whats(){
   let t=`📝 *SIMULADO ENEM – RESULTADO*\n👤 ${ALUNO}${(S.tent||1)>1?" · tentativa "+S.tent:""}\n\n🎯 *Nota: ${nota10(r.tot)}* (de 0 a 10)\n✅ ${r.tot} acertos de ${Q.length} (${Math.round(r.tot/Q.length*100)}%)\n⏱ Tempo: ${S.esgotado?"ESGOTADO (2h)":fmt(tempo())+" de 2h"}\n\n*Por área:*\n`;
   Object.keys(AREAS).forEach(k=>t+=`• ${AREAS[k]}: ${r.a[k][0]}/${r.a[k][1]}\n`);
   t+=`\n*Respostas marcadas:*\n`+Q.map((q,i)=>`${i+1}-${S.resp[i]||"_"}${S.resp[i]===gab(i)?"✓":"✗"}`).join("  ");
-  t+=`\n\n_Simulado elaborado por Dra. Gleyce Santana_`;
+  t+=`\n\n_Simulado elaborado por Dra. Gleyce Santana · OAB/GO 43.167_\n_Advogada especialista em Licitações Públicas · @dragleyce.licitacoes_`;
   S.enviado=1;save();
   const url="https://wa.me/5562999005058?text="+encodeURIComponent(t);
   const w=window.open(url,"_blank");if(!w)location.href=url;
