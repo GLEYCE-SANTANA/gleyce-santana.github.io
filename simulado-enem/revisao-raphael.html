@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Revisão Geral ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#1e1b4b;color:#a5b4fc;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>🎯 Revisão Geral ENEM · Raphael</h1><div class="sub" id="sub">Conteúdo do 1º ano · Estratégia de prova</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-rev-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"estrat",t:"1. Estratégia para o dia da prova",tempo:"15 min",h:`
+<p>No simulado você acertou <b>50%</b> estando no 1º ano: muito bom! Você terminou em <b>1h10 de 2h</b>, então ainda tinha tempo para reler. Na prova de verdade, o objetivo é <b>treinar o ritmo</b> e garantir as questões que você já sabe.</p>
+<h3>Como é a prova</h3>
+<div class="tbl"><table><tr><th>Dia</th><th>Provas</th><th>Tempo</th></tr>
+<tr><td><b>1º dia</b></td><td>Linguagens (45) + Ciências Humanas (45) + Redação</td><td>5h30</td></tr>
+<tr><td><b>2º dia</b></td><td>Ciências da Natureza (45) + Matemática (45)</td><td>5h</td></tr></table></div>
+<p>São cerca de <b>3 minutos por questão</b>. No 1º dia, reserve 1h a 1h30 para a redação.</p>
+<h3>A TRI em linguagem simples</h3>
+<ul><li>O ENEM olha <b>quais</b> questões você acertou, não só quantas.</li>
+<li>Acertar as <b>fáceis</b> é o que mais vale. Elas são o seu foco: você ainda não viu o conteúdo de 2º e 3º anos, e tudo bem.</li>
+<li><b>Nunca deixe em branco.</b> Não há desconto por erro. Na dúvida, elimine as alternativas absurdas e marque.</li></ul>
+<h3>Táticas para quem está no 1º ano</h3>
+<ol><li>Leia todas as questões e resolva primeiro as que entender. Muitas dependem só de <b>interpretação</b>, e Linguagens é o seu ponto forte (7 de 10)!</li>
+<li>Questão de conteúdo que você nunca viu? Não perca tempo: use o texto, elimine e marque.</li>
+<li><b>Use o tempo todo.</b> Releia o comando antes de marcar: muitos erros vêm de leitura rápida.</li>
+<li>Passe para o cartão-resposta aos poucos.</li></ol>
+<div class="dica">🎒 <b>Leve:</b> documento original com foto, caneta esferográfica <b>preta de tubo transparente</b>, água e lanche. Confira horário e local no cartão de confirmação; os portões seguem o horário de Brasília.</div>`},
+{id:"ling",t:"2. Linguagens do 1º ano",tempo:"30 min",h:`
+<h3>Figuras de linguagem</h3>
+<div class="tbl"><table><tr><th>Figura</th><th>O que é</th><th>Exemplo</th></tr>
+<tr><td><b>Metáfora</b></td><td>Comparação sem "como"</td><td>"Meu quarto é um forno."</td></tr>
+<tr><td><b>Comparação</b></td><td>Com "como", "tal qual"</td><td>"Rápido como um raio."</td></tr>
+<tr><td><b>Metonímia</b></td><td>Troca por algo relacionado</td><td>"Tomei dois copos" (o líquido).</td></tr>
+<tr><td><b>Hipérbole</b></td><td>Exagero</td><td>"Morri de rir."</td></tr>
+<tr><td><b>Antítese</b></td><td>Ideias opostas</td><td>"Amor e ódio."</td></tr>
+<tr><td><b>Paradoxo</b></td><td>Opostos ao mesmo tempo, na mesma coisa</td><td>"Ferida que dói e não se sente."</td></tr>
+<tr><td><b>Personificação</b></td><td>Ação humana a coisas</td><td>"A cidade dorme."</td></tr>
+<tr><td><b>Eufemismo</b></td><td>Suavizar</td><td>"Ele nos deixou" (morreu).</td></tr></table></div>
+<h3>Literatura do 1º ano</h3>
+<div class="tbl"><table><tr><th>Escola</th><th>Marca</th><th>Nomes</th></tr>
+<tr><td><b>Quinhentismo</b> (séc. XVI)</td><td>Textos sobre a nova terra: informação e catequese</td><td>Carta de Pero Vaz de Caminha; José de Anchieta</td></tr>
+<tr><td><b>Barroco</b> (séc. XVII)</td><td>Conflito entre fé e prazer, céu e terra; antíteses e paradoxos</td><td>Gregório de Matos; Padre Antônio Vieira</td></tr>
+<tr><td><b>Arcadismo</b> (séc. XVIII)</td><td>Vida simples no campo (bucolismo), equilíbrio, "aproveite o dia"</td><td>Tomás Antônio Gonzaga; Cláudio Manuel da Costa</td></tr></table></div>
+<h3>Sempre cai</h3>
+<ul><li><b>Funções da linguagem</b> e <b>gêneros textuais</b> (veja o app de Linguagens).</li>
+<li><b>Variação linguística:</b> adequação ao contexto; o ENEM condena o <b>preconceito linguístico</b>.</li>
+<li><b>Inglês:</b> leia as alternativas primeiro (em português) e cuidado com os falsos cognatos.</li></ul>`},
+{id:"hum",t:"3. Ciências Humanas do 1º ano",tempo:"40 min",h:`
+<h3>História: da Antiguidade às Navegações</h3>
+<div class="tbl"><table><tr><th>Período</th><th>O essencial para o ENEM</th></tr>
+<tr><td><b>Grécia (Atenas)</b></td><td>Berço da <b>democracia</b>, mas só para cidadãos: homens livres nascidos em Atenas. Mulheres, escravizados e estrangeiros ficavam de fora.</td></tr>
+<tr><td><b>Roma</b></td><td>República com Senado; <b>direito romano</b>, base das leis atuais; pão e circo.</td></tr>
+<tr><td><b>Idade Média</b></td><td><b>Feudalismo:</b> economia agrária, servos presos à terra, relação suserano–vassalo, Igreja muito poderosa.</td></tr>
+<tr><td><b>Renascimento</b> (séc. XIV–XVI)</td><td><b>Antropocentrismo</b> (ser humano no centro), valorização da razão e da ciência; Leonardo da Vinci, Michelangelo.</td></tr>
+<tr><td><b>Grandes Navegações</b></td><td>Portugal pioneiro; Colombo chega à América (1492); Cabral ao Brasil (1500); busca de especiarias e metais.</td></tr></table></div>
+<h3>Geografia do 1º ano</h3>
+<ul><li><b>Cartografia:</b> escala (1:100.000 → 1 cm = 1 km), latitude (norte–sul do Equador) e longitude (leste–oeste de Greenwich).</li>
+<li><b>Fusos horários:</b> cada fuso tem <b>15°</b> (1 hora). Para o <b>leste, as horas aumentam</b>; para o oeste, diminuem. Brasília está 3 horas atrás de Greenwich.</li>
+<li><b>Placas tectônicas:</b> terremotos e vulcões acontecem nas bordas das placas. O Brasil está no meio da Placa Sul-Americana, por isso quase não tem terremotos fortes.</li>
+<li><b>Clima e vegetação:</b> biomas brasileiros e fatores do clima (altitude, maritimidade, massas de ar).</li></ul>
+<h3>Filosofia e Sociologia</h3>
+<ul><li><b>Pré-socráticos:</b> buscavam o princípio de todas as coisas na natureza (a água, para Tales).</li>
+<li><b>Sócrates:</b> "só sei que nada sei"; questionar para chegar à verdade.</li>
+<li><b>Platão:</b> mito da caverna (aparências x verdade). <b>Aristóteles:</b> virtude como meio-termo.</li>
+<li><b>Cultura e etnocentrismo:</b> etnocentrismo é julgar outras culturas tendo a sua como a "certa". O ENEM valoriza o <b>respeito à diversidade cultural</b> (relativismo cultural).</li></ul>`},
+{id:"nat",t:"4. Ciências da Natureza do 1º ano",tempo:"40 min",h:`
+<h3>Biologia</h3>
+<ul><li><b>Citologia, fotossíntese, respiração e ecologia:</b> revise no seu app de Biologia.</li>
+<li><b>Bioquímica:</b> <b>carboidratos</b> = energia rápida (glicose, amido) · <b>lipídios</b> = reserva de energia · <b>proteínas</b> = estrutura e enzimas · <b>água</b> = solvente da vida.</li></ul>
+<div class="tbl"><table><tr><th>Vitamina</th><th>Falta causa</th><th>Onde achar</th></tr>
+<tr><td><b>A</b></td><td>Cegueira noturna</td><td>Cenoura, fígado</td></tr>
+<tr><td><b>C</b></td><td>Escorbuto (sangramento na gengiva)</td><td>Frutas cítricas</td></tr>
+<tr><td><b>D</b></td><td>Raquitismo (ossos fracos)</td><td>Sol na pele, peixes</td></tr></table></div>
+<h3>Química</h3>
+<div class="tbl"><table><tr><th>Modelo atômico</th><th>Ideia</th></tr>
+<tr><td><b>Dalton</b></td><td>Esfera maciça e indivisível ("bola de bilhar")</td></tr>
+<tr><td><b>Thomson</b></td><td>Esfera positiva com elétrons ("pudim de passas")</td></tr>
+<tr><td><b>Rutherford</b></td><td>Núcleo pequeno e denso; elétrons ao redor (modelo planetário)</td></tr>
+<tr><td><b>Bohr</b></td><td>Elétrons em camadas de energia; ao mudar de camada, emitem luz (fogos de artifício)</td></tr></table></div>
+<ul><li><b>Tabela periódica:</b> colunas = famílias (propriedades parecidas); linhas = períodos. Gases nobres (última coluna) são estáveis.</li>
+<li><b>Ligações:</b> <b>iônica</b> = metal + ametal, transfere elétrons (sal de cozinha, NaCl) · <b>covalente</b> = ametais compartilham elétrons (água, H₂O) · <b>metálica</b> = entre metais (conduz eletricidade).</li>
+<li><b>Misturas:</b> filtração, decantação, destilação, evaporação.</li></ul>
+<h3>Física</h3>
+<ul><li><b>Velocidade média</b> = distância ÷ tempo. Para converter: km/h ÷ 3,6 = m/s.</li>
+<li><b>Aceleração e queda livre:</b> v = v₀ + a × t. Na queda livre, a velocidade aumenta 10 m/s a cada segundo (g ≈ 10 m/s²).</li>
+<li><b>Leis de Newton:</b> inércia (cinto de segurança) · F = m × a · ação e reação (foguete, remar).</li>
+<li><b>Energia:</b> cinética, potencial e conservação (veja o app de Física).</li></ul>`},
+{id:"mat",t:"5. Matemática do 1º ano",tempo:"40 min",h:`
+<h3>Os campeões do ENEM</h3>
+<p><b>Porcentagem, proporção, escala, estatística e geometria plana</b>: revise no seu app de Matemática. Aqui entram os conteúdos novos do 1º ano.</p>
+<h3>Conjuntos (diagrama de Venn)</h3>
+<p>30 alunos gostam de futebol, 20 de vôlei e 10 dos dois. Total = 30 + 20 − 10 = <b>40</b>. Quem gosta dos dois foi contado duas vezes, então subtraia uma vez.</p>
+<h3>Função do 1º grau</h3>
+<div class="eq">y = a × x + b</div>
+<p>b = valor fixo; a = valor por unidade. Táxi com bandeirada de R$ 5 e R$ 2 por km: em 10 km, y = 2 × 10 + 5 = <b>R$ 25</b>. Gráfico: <b>reta</b>.</p>
+<h3>Função do 2º grau</h3>
+<div class="eq">y = a × x² + b × x + c</div>
+<ul><li>Gráfico: <b>parábola</b>. Se <b>a</b> é negativo, ela tem um <b>ponto máximo</b> (lucro máximo, altura máxima de uma bola).</li>
+<li>O x do vértice é <b>x = −b ÷ (2 × a)</b>.</li>
+<li>Ex.: lucro L = −x² + 10x. Vértice: x = −10 ÷ (−2) = 5 → L = −25 + 50 = <b>25</b> (lucro máximo).</li></ul>
+<h3>Progressões</h3>
+<ul><li><b>PA</b> (soma sempre o mesmo valor): 2, 5, 8, 11… → aₙ = a₁ + (n − 1) × r. O 10º termo é 2 + 9 × 3 = <b>29</b>.</li>
+<li><b>PG</b> (multiplica sempre pelo mesmo valor): 3, 6, 12, 24… → aₙ = a₁ × qⁿ⁻¹. O 6º termo é 3 × 2⁵ = <b>96</b>.</li></ul>
+<h3>Trigonometria básica</h3>
+<p>No triângulo retângulo: <b>sen</b> = oposto ÷ hipotenusa · <b>cos</b> = adjacente ÷ hipotenusa · <b>tg</b> = oposto ÷ adjacente. sen 30° = 1/2.</p>`}
+];
+
+const CARDS=[
+["TRI para quem está no 1º ano","Foque nas questões fáceis e nunca deixe em branco."],
+["Metáfora x comparação","Metáfora: sem \"como\". Comparação: com \"como\"."],
+["Paradoxo","Ideias opostas ao mesmo tempo na mesma coisa: \"dói e não se sente\"."],
+["Hipérbole","Exagero: \"morri de rir\"."],
+["Quinhentismo","Textos do séc. XVI sobre a nova terra: Carta de Caminha, Anchieta."],
+["Barroco","Conflito fé x prazer; antíteses e paradoxos. Gregório de Matos, Padre Vieira."],
+["Arcadismo","Bucolismo (vida simples no campo). Tomás Antônio Gonzaga."],
+["Democracia ateniense","Só para cidadãos: homens livres nascidos em Atenas."],
+["Feudalismo","Economia agrária, servos, suseranos e vassalos, Igreja poderosa."],
+["Renascimento","Antropocentrismo: ser humano e razão no centro."],
+["Fusos horários","15° = 1 hora. Para o leste, as horas aumentam."],
+["Por que o Brasil tem poucos terremotos?","Está no meio da Placa Sul-Americana, longe das bordas."],
+["Etnocentrismo","Julgar outras culturas tendo a sua como a \"certa\"."],
+["Carboidratos x lipídios","Carboidratos: energia rápida. Lipídios: reserva de energia."],
+["Falta de vitamina C","Escorbuto. Falta de D: raquitismo. Falta de A: cegueira noturna."],
+["Modelo de Rutherford","Núcleo pequeno e denso com elétrons ao redor (planetário)."],
+["Modelo de Bohr","Elétrons em camadas de energia; ao mudar de camada, emitem luz."],
+["Ligação iônica","Metal + ametal; transferência de elétrons (NaCl)."],
+["Ligação covalente","Ametais compartilham elétrons (H₂O)."],
+["km/h para m/s","Divide por 3,6."],
+["Queda livre","A velocidade aumenta 10 m/s a cada segundo."],
+["Conjuntos: A ou B","n(A) + n(B) − n(A e B)"],
+["Vértice da parábola","x = −b ÷ 2a"],
+["Termo geral da PA","aₙ = a₁ + (n − 1) × r"],
+["Termo geral da PG","aₙ = a₁ × qⁿ⁻¹"]
+];
+
+const QS=[
+{p:"Você chegou a uma questão de um conteúdo que nunca estudou. Pela lógica da TRI, o melhor a fazer é:",a:["deixar em branco","gastar 20 minutos tentando","usar o texto, eliminar alternativas absurdas e marcar","marcar duas alternativas","sair da prova"],r:2,e:"Não há desconto por erro. Use o que o texto oferece, elimine o que der e marque, sem perder muito tempo."},
+{p:"Em \"Meu quarto é um forno no verão\", a figura de linguagem é:",a:["comparação","metáfora","eufemismo","metonímia","antítese"],r:1,e:"É uma comparação sem \"como\": o quarto é chamado de forno. Isso é metáfora."},
+{p:"\"É ferida que dói e não se sente\" junta ideias opostas na mesma coisa, ao mesmo tempo. Essa figura é o:",a:["paradoxo","eufemismo","pleonasmo","hipérbole","comparação"],r:0,e:"Paradoxo: duas ideias contraditórias sobre a mesma coisa ao mesmo tempo. É muito usado no Barroco."},
+{p:"Um texto do século XVI descreve a nova terra, seus habitantes e suas riquezas para o rei de Portugal. Ele pertence ao:",a:["Barroco","Arcadismo","Quinhentismo","Modernismo","Romantismo"],r:2,e:"Os textos de informação sobre o Brasil no século XVI, como a Carta de Pero Vaz de Caminha, fazem parte do Quinhentismo."},
+{p:"Um poema que valoriza a vida simples no campo, com pastores e tranquilidade, é característico do:",a:["Barroco","Arcadismo","Quinhentismo","Realismo","Modernismo"],r:1,e:"O bucolismo, a vida simples no campo, é marca do Arcadismo (século XVIII)."},
+{p:"Na democracia de Atenas, na Grécia Antiga, podiam participar das decisões políticas:",a:["todos os moradores da cidade","apenas homens livres nascidos em Atenas","mulheres e escravizados","somente o rei","os estrangeiros ricos"],r:1,e:"A democracia ateniense era limitada: mulheres, escravizados e estrangeiros (metecos) não eram cidadãos."},
+{p:"O sistema da Idade Média baseado na terra, com servos, senhores e relações entre suseranos e vassalos, é o:",a:["capitalismo","feudalismo","socialismo","mercantilismo","absolutismo"],r:1,e:"O feudalismo tinha economia agrária, servos presos à terra e relações de fidelidade entre suseranos e vassalos."},
+{p:"O Renascimento valorizava o antropocentrismo, que significa:",a:["Deus no centro de tudo","o ser humano e a razão no centro","a Terra no centro do universo","o fim da arte","a volta do feudalismo"],r:1,e:"Antropocentrismo: o ser humano no centro das preocupações, valorizando a razão, a ciência e as artes."},
+{p:"Em Brasília são 10h. Numa cidade 2 fusos a leste, são:",a:["8h","10h","12h","14h","9h"],r:2,e:"Para o leste as horas aumentam. Dois fusos = 2 horas a mais: 10h + 2h = 12h."},
+{p:"O Brasil quase não tem terremotos fortes porque:",a:["não possui rochas","está no centro da Placa Sul-Americana, longe das bordas","fica no Hemisfério Sul","tem muitos rios","fica perto do Equador"],r:1,e:"Terremotos fortes ocorrem nas bordas das placas tectônicas. O Brasil fica no interior da Placa Sul-Americana."},
+{p:"Julgar os costumes de outro povo como \"atrasados\" por serem diferentes dos seus é um exemplo de:",a:["relativismo cultural","etnocentrismo","democracia","antropocentrismo","Renascimento"],r:1,e:"Etnocentrismo é considerar a própria cultura superior e usá-la para julgar as outras."},
+{p:"Um atleta come massas antes da prova para ter energia rápida. Ele está consumindo principalmente:",a:["lipídios","proteínas","carboidratos","vitaminas","sais minerais"],r:2,e:"Massas são ricas em amido, um carboidrato: a principal fonte de energia rápida do corpo."},
+{p:"Marinheiros antigos, sem frutas frescas por meses, tinham sangramento nas gengivas. Faltava a vitamina:",a:["A","C","D","K","B12"],r:1,e:"A falta de vitamina C causa escorbuto. Frutas cítricas como laranja e limão previnem a doença."},
+{p:"O modelo atômico que propôs um núcleo pequeno e denso, com elétrons girando ao redor, foi o de:",a:["Dalton","Thomson","Rutherford","Demócrito","Lavoisier"],r:2,e:"Rutherford descobriu o núcleo no experimento com a folha de ouro: o modelo planetário."},
+{p:"As cores dos fogos de artifício são explicadas pelo modelo de Bohr porque:",a:["o átomo é uma bola maciça","elétrons que mudam de camada emitem luz de cores específicas","os prótons explodem","a pólvora é colorida","o núcleo se divide"],r:1,e:"No modelo de Bohr, o elétron ganha energia, sobe de camada e, ao voltar, libera essa energia como luz de cor característica."},
+{p:"O sal de cozinha (NaCl) é formado por um metal (sódio) e um ametal (cloro). Sua ligação é:",a:["covalente","iônica","metálica","de hidrogênio","nuclear"],r:1,e:"Metal + ametal = ligação iônica: o sódio transfere um elétron para o cloro."},
+{p:"Uma pedra cai do alto de um prédio, a partir do repouso. Após 3 segundos, sua velocidade é (g = 10 m/s²):",a:["3 m/s","10 m/s","13 m/s","30 m/s","90 m/s"],r:3,e:"v = v₀ + g × t = 0 + 10 × 3 = 30 m/s. A velocidade aumenta 10 m/s a cada segundo."},
+{p:"Numa turma, 30 alunos gostam de futebol, 20 de vôlei e 10 gostam dos dois. Quantos gostam de pelo menos um dos esportes?",a:["30","40","50","60","20"],r:1,e:"30 + 20 − 10 = 40. Os 10 que gostam dos dois foram contados duas vezes, então subtrai uma vez."},
+{p:"O lucro de uma loja é dado por L = −x² + 10x, em que x é a quantidade vendida. O lucro máximo acontece quando x vale:",a:["2","5","10","20","25"],r:1,e:"O x do vértice é −b ÷ (2a) = −10 ÷ (2 × −1) = 5. Nesse ponto o lucro é −25 + 50 = 25."},
+{p:"Na sequência 2, 5, 8, 11, …, o 10º termo é:",a:["26","29","30","32","35"],r:1,e:"É uma PA de razão 3: a₁₀ = a₁ + 9 × r = 2 + 9 × 3 = 29."}
+];
+
+const BOLSO=["<b>Nunca deixe em branco</b>. Foque nas fáceis. Use o tempo todo e releia o comando.","Figuras: <b>metáfora</b> · <b>comparação</b> · <b>hipérbole</b> · <b>antítese</b> · <b>paradoxo</b> · <b>eufemismo</b>.","<b>Quinhentismo</b> (Carta de Caminha) · <b>Barroco</b> (fé x prazer, Gregório de Matos) · <b>Arcadismo</b> (vida no campo).","<b>Atenas</b>: democracia só para homens livres atenienses · <b>Roma</b>: direito romano.","<b>Feudalismo</b>: servos, terra, Igreja · <b>Renascimento</b>: antropocentrismo.","<b>Fusos</b>: 15° = 1 h; leste adianta.","<b>Placas tectônicas</b>: terremotos nas bordas; Brasil no meio da placa.","<b>Etnocentrismo</b> = julgar a cultura do outro pela sua.","<b>Carboidrato</b> energia rápida · <b>lipídio</b> reserva · <b>proteína</b> estrutura e enzimas.","Vitamina <b>C</b> escorbuto · <b>D</b> raquitismo · <b>A</b> cegueira noturna.","Átomo: Dalton bola · Thomson pudim · <b>Rutherford núcleo</b> · <b>Bohr camadas</b>.","<b>Iônica</b> metal + ametal · <b>covalente</b> ametais · <b>metálica</b> metais.","km/h ÷ 3,6 = m/s · queda livre: +10 m/s por segundo.","Conjuntos: A + B − (A e B) · <b>vértice x = −b ÷ 2a</b>.","<b>PA</b>: aₙ = a₁ + (n − 1)r · <b>PG</b>: aₙ = a₁ × qⁿ⁻¹."];
+
+const CHK=["Sei a estratégia: fáceis primeiro, nada em branco","Reconheço as principais figuras de linguagem","Diferencio Quinhentismo, Barroco e Arcadismo","Sei como era a democracia ateniense e o feudalismo","Sei o que foi o Renascimento","Calculo fusos horários","Explico onde ocorrem terremotos","Sei a função dos carboidratos, lipídios, proteínas e vitaminas","Diferencio os modelos atômicos","Identifico ligação iônica e covalente","Calculo velocidade em queda livre","Resolvo problemas com conjuntos, função e PA/PG"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>Você acertou <b>50%</b> do simulado estando no 1º ano: muito bom! Esta revisão reúne os conteúdos do <b>1º ano do ensino médio</b> que mais caem no ENEM, mais a estratégia para o dia da prova. Comece pela parte 1. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h45 no total</span><span class="pill">📖 5 partes</span><span class="pill">✍️ 20 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente, Raphael! Pronto para a prova 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
