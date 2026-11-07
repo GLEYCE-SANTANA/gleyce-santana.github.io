@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Revisão Geral ENEM – Ester</title>
+<meta name="theme-color" content="#2a0f2e">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0c2a40;color:#38bdf8;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+
+:root{--ciano:#f472b6;--lima:#ff1493;--roxo:#a855f7;--fundo:#140a17;--card:#1f1224;--linha:#3d2347;--suave:#2a1730;--cinza:#c4a8cf}
+header{background:linear-gradient(135deg,#2a0f2e,#4a1550 55%,#7e22ce)!important;border-bottom:1px solid #7e3a8f!important}
+header .sub{color:#f5d0fe!important}
+.bar>div{background:linear-gradient(90deg,#f472b6,#c084fc)!important}
+.btn.y{background:#ff1493!important;color:#fff!important;box-shadow:0 0 16px rgba(255,20,147,.45)}
+.btn.p{background:linear-gradient(90deg,#db2777,#9333ea)!important}
+.big{background:linear-gradient(90deg,#f472b6,#c084fc)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.tag{background:#3b0d2e!important;color:#f9a8d4!important}
+.dica{background:rgba(255,20,147,.1)!important;border-left-color:#ff1493!important}
+.eq{color:#f9a8d4!important}
+.flip .f{background:linear-gradient(135deg,#4a1550,#1f1224)!important}.flip .v{background:linear-gradient(135deg,#3a1638,#1f1224)!important}
+.chk input{accent-color:#ff1493!important}
+</style>
+</head>
+<body>
+<header><h1>💜 Revisão Geral ENEM · Ester</h1><div class="sub" id="sub">Estratégia · Linguagens · Humanas · Natureza · Matemática</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-rev-ester-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"estrat",t:"1. Estratégia para o dia da prova",tempo:"15 min",h:`
+<p>No simulado você terminou em <b>48 minutos</b> e acertou 80%. Na prova, com calma e técnica, dá para subir ainda mais. Comece por aqui.</p>
+<h3>Como é a prova</h3>
+<div class="tbl"><table><tr><th>Dia</th><th>Provas</th><th>Tempo</th></tr>
+<tr><td><b>1º dia</b></td><td>Linguagens (45) + Ciências Humanas (45) + Redação</td><td>5h30</td></tr>
+<tr><td><b>2º dia</b></td><td>Ciências da Natureza (45) + Matemática (45)</td><td>5h</td></tr></table></div>
+<p>Dá cerca de <b>3 minutos por questão</b>. No 1º dia, reserve 1h a 1h30 para a redação.</p>
+<h3>A TRI: como a nota é calculada</h3>
+<ul><li>Não conta só quantas você acertou: o ENEM analisa <b>quais</b> acertou.</li>
+<li>Acertar as <b>fáceis e médias</b> vale muito. Errar uma fácil e acertar uma difícil parece "chute" e vale menos.</li>
+<li><b>Nunca deixe em branco:</b> não há desconto por erro. Na dúvida, elimine o que puder e marque.</li></ul>
+<h3>Táticas</h3>
+<ol><li>Faça primeiro as questões que você sabe. Pulou uma difícil? Volte depois.</li>
+<li>Comece pela área em que é mais forte (você gabaritou Linguagens e Humanas!) para ganhar confiança e tempo.</li>
+<li><b>Refaça as contas</b> de Matemática e Natureza: foi onde você perdeu pontos e ainda sobrou tempo no simulado.</li>
+<li>Passe para o cartão-resposta aos poucos, não deixe tudo para o final.</li></ol>
+<div class="dica">🎒 <b>Leve:</b> documento com foto original, caneta esferográfica <b>preta de tubo transparente</b>, água e lanche. Confira o horário e o local no cartão de confirmação. Os portões seguem o horário de Brasília.</div>`},
+{id:"ling",t:"2. Linguagens: o que mais cai",tempo:"30 min",h:`
+<p>Você gabaritou Linguagens. Aqui estão os temas campeões para manter esse nível.</p>
+<h3>Figuras de linguagem</h3>
+<div class="tbl"><table><tr><th>Figura</th><th>O que é</th><th>Exemplo</th></tr>
+<tr><td><b>Metáfora</b></td><td>Comparação sem "como"</td><td>"Ela é uma flor."</td></tr>
+<tr><td><b>Comparação</b></td><td>Com "como", "tal qual"</td><td>"Forte como um touro."</td></tr>
+<tr><td><b>Metonímia</b></td><td>Troca por algo relacionado (parte pelo todo, autor pela obra)</td><td>"Li Machado de Assis."</td></tr>
+<tr><td><b>Hipérbole</b></td><td>Exagero</td><td>"Já te falei mil vezes."</td></tr>
+<tr><td><b>Antítese</b></td><td>Ideias opostas</td><td>"O riso e o choro."</td></tr>
+<tr><td><b>Personificação</b></td><td>Ações humanas a seres não humanos</td><td>"O vento cantava."</td></tr>
+<tr><td><b>Eufemismo</b></td><td>Suavizar algo desagradável</td><td>"Ele partiu" (morreu).</td></tr>
+<tr><td><b>Ironia</b></td><td>Dizer o contrário</td><td>"Que beleza, perdi o ônibus!"</td></tr></table></div>
+<h3>Funções da linguagem (revisão)</h3>
+<p><b>Referencial</b> (informar) · <b>emotiva</b> (eu) · <b>conativa</b> (convencer você, imperativo) · <b>fática</b> (testar o canal) · <b>metalinguística</b> (língua sobre a língua) · <b>poética</b> (forma da mensagem).</p>
+<h3>Literatura que mais cai</h3>
+<ul><li><b>Modernismo:</b> Semana de Arte Moderna (1922, São Paulo); ruptura com o tradicional, linguagem coloquial, verso livre, identidade nacional crítica. Mário de Andrade, Oswald de Andrade (Manifesto Antropófago, 1928), depois Drummond, Graciliano Ramos, Clarice Lispector.</li>
+<li><b>Romantismo:</b> indígena idealizado, nacionalismo, sentimentalismo. <b>Realismo:</b> crítica social e psicológica (Machado de Assis).</li></ul>
+<h3>Também cai sempre</h3>
+<ul><li><b>Variação linguística</b> e <b>preconceito linguístico</b> (o ENEM sempre o condena).</li>
+<li><b>Arte:</b> vanguardas europeias (cubismo, surrealismo), arte contemporânea e arte como crítica social.</li>
+<li><b>Educação física:</b> práticas corporais como cultura, saúde e inclusão, não só competição.</li>
+<li><b>Tecnologia e redes sociais:</b> fake news, linguagem da internet, exposição e privacidade.</li></ul>`},
+{id:"hum",t:"3. Ciências Humanas: o que mais cai",tempo:"40 min",h:`
+<p>Outra área gabaritada. Revise os temas que mais aparecem.</p>
+<h3>História do Brasil</h3>
+<div class="tbl"><table><tr><th>Período</th><th>O essencial</th></tr>
+<tr><td><b>Era Vargas (1930–1945)</b></td><td>Direitos trabalhistas, CLT (1943), voto feminino (1932), Estado Novo (ditadura, 1937–1945)</td></tr>
+<tr><td><b>Ditadura militar (1964–1985)</b></td><td>Censura, repressão, AI-5 (1968), "milagre econômico", Diretas Já (1984)</td></tr>
+<tr><td><b>Constituição de 1988</b></td><td>"Constituição Cidadã": direitos sociais, voto aos 16 anos (facultativo), SUS, fim da censura</td></tr></table></div>
+<h3>História geral</h3>
+<ul><li><b>Iluminismo (séc. XVIII):</b> razão, liberdade, crítica ao absolutismo; Montesquieu e a <b>separação dos poderes</b>.</li>
+<li><b>Revolução Industrial (Inglaterra, séc. XVIII):</b> máquina a vapor, fábricas, êxodo rural, trabalho operário explorado.</li>
+<li><b>Guerra Fria (1947–1991):</b> EUA (capitalismo) x URSS (socialismo), corrida armamentista e espacial, Muro de Berlim (1961–1989).</li></ul>
+<h3>Filosofia e Sociologia</h3>
+<div class="tbl"><table><tr><th>Pensador</th><th>Ideia-chave</th></tr>
+<tr><td><b>Sócrates</b></td><td>"Só sei que nada sei"; diálogo e questionamento</td></tr>
+<tr><td><b>Platão</b></td><td>Mito da caverna: mundo das ideias x mundo das aparências</td></tr>
+<tr><td><b>Aristóteles</b></td><td>Virtude como equilíbrio (meio-termo); ser humano como animal político</td></tr>
+<tr><td><b>Hobbes</b></td><td>"O homem é o lobo do homem"; Estado forte para garantir a paz</td></tr>
+<tr><td><b>Locke</b></td><td>Direitos naturais: vida, liberdade e propriedade</td></tr>
+<tr><td><b>Rousseau</b></td><td>O ser humano nasce bom; a sociedade o corrompe; vontade geral</td></tr>
+<tr><td><b>Durkheim</b></td><td>Fato social: regras que existem fora do indivíduo e o influenciam</td></tr>
+<tr><td><b>Weber</b></td><td>Ação social: o sentido que as pessoas dão às suas ações</td></tr>
+<tr><td><b>Marx</b></td><td>Luta de classes, exploração do trabalho (mais-valia)</td></tr></table></div>
+<h3>Geografia</h3>
+<ul><li><b>Questões ambientais</b>, <b>urbanização</b> e <b>globalização</b> (veja o app de Geografia do Raphael se quiser aprofundar).</li>
+<li><b>Agropecuária:</b> agronegócio exportador x agricultura familiar (que produz a maior parte dos alimentos do dia a dia), concentração de terras.</li>
+<li><b>Clima:</b> El Niño, ilhas de calor, efeito estufa, desastres (enchentes e secas).</li></ul>`},
+{id:"nat",t:"4. Ciências da Natureza: o que mais cai",tempo:"40 min",h:`
+<p>Além do que está no seu app de Ciências da Natureza, estes são os temas mais frequentes.</p>
+<h3>Biologia</h3>
+<ul><li><b>Ecologia:</b> cadeias alimentares, só ~10% da energia passa de nível, eutrofização, biomagnificação.</li>
+<li><b>Genética (1ª Lei de Mendel):</b> Aa × Aa gera 1 AA : 2 Aa : 1 aa → <b>3 dominantes : 1 recessivo</b> (25% aa).</li>
+<li><b>Evolução:</b> <b>Darwin</b> = seleção natural (os mais adaptados sobrevivem e deixam mais descendentes). <b>Lamarck</b> = uso e desuso (ideia superada). Bactérias resistentes a antibióticos são exemplo de seleção natural.</li>
+<li><b>Saúde:</b> vacinas, vírus, doenças transmitidas por mosquitos e água contaminada.</li></ul>
+<h3>Química</h3>
+<ul><li><b>pH:</b> menor que 7 = ácido (limão, vinagre) · 7 = neutro (água pura) · maior que 7 = básico (sabão, bicarbonato).</li>
+<li><b>Concentração:</b> C = massa ÷ volume. 20 g em 2 L = <b>10 g/L</b>.</li>
+<li><b>Separação de misturas:</b> filtração (sólido de líquido), decantação, destilação (líquidos ou sal da água), evaporação.</li>
+<li><b>Química ambiental:</b> chuva ácida, efeito estufa (CO₂, metano), combustíveis renováveis (etanol).</li></ul>
+<h3>Física</h3>
+<ul><li><b>Velocidade média:</b> distância ÷ tempo. 120 km em 2 h = <b>60 km/h</b>.</li>
+<li><b>Leis de Newton:</b> inércia (cinto de segurança), F = m × a, ação e reação (foguete).</li>
+<li><b>Ondas:</b> v = λ × f (velocidade = comprimento de onda × frequência). Som não se propaga no vácuo; luz sim.</li>
+<li><b>Eletricidade:</b> P = U × i, consumo em kWh, chuveiro, circuitos em série e paralelo (casas usam paralelo).</li></ul>`},
+{id:"mat",t:"5. Matemática: o que mais cai",tempo:"40 min",h:`
+<p>A matemática do ENEM é muito aplicada. Estes temas aparecem todo ano.</p>
+<h3>Os campeões</h3>
+<ul><li><b>Porcentagem</b> e fator multiplicativo (veja seu app de Matemática).</li>
+<li><b>Razão, proporção e escala.</b></li>
+<li><b>Estatística:</b> média, mediana, moda e leitura de gráficos.</li>
+<li><b>Probabilidade</b> e contagem.</li></ul>
+<h3>Geometria espacial: volumes</h3>
+<div class="tbl"><table><tr><th>Sólido</th><th>Volume</th></tr>
+<tr><td><b>Cubo</b></td><td>aresta³</td></tr>
+<tr><td><b>Paralelepípedo (caixa)</b></td><td>comprimento × largura × altura</td></tr>
+<tr><td><b>Cilindro</b></td><td>π × r² × h</td></tr>
+<tr><td><b>Cone</b></td><td>π × r² × h ÷ 3</td></tr>
+<tr><td><b>Esfera</b></td><td>4 × π × r³ ÷ 3</td></tr></table></div>
+<p>Ex.: cilindro de raio 2 e altura 5 (π = 3): 3 × 4 × 5 = <b>60</b>. Lembre: 1 dm³ = 1 litro.</p>
+<h3>Função do 1º grau</h3>
+<div class="eq">y = a × x + b</div>
+<p><b>b</b> é o valor fixo e <b>a</b> é o que muda por unidade. Táxi com bandeirada de R$ 5 e R$ 2 por km: y = 2x + 5. Em 10 km: 2 × 10 + 5 = <b>R$ 25</b>. O gráfico é uma reta.</p>
+<h3>Também aparecem</h3>
+<ul><li><b>Função do 2º grau:</b> gráfico em parábola; ponto máximo ou mínimo no vértice (lucro máximo, altura máxima).</li>
+<li><b>Grandezas e unidades:</b> m³ e litros, horas e minutos, notação científica.</li>
+<li><b>Juros:</b> simples (sempre sobre o valor inicial) e compostos (juros sobre juros, como aumentos seguidos).</li></ul>`}
+];
+
+const CARDS=[
+["TRI em uma frase","Acertar as fáceis e médias vale muito; chutar não tira ponto, então nunca deixe em branco."],
+["Tempo por questão no ENEM","Cerca de 3 minutos."],
+["Metáfora x comparação","Metáfora: sem \"como\" (Ela é uma flor). Comparação: com \"como\"."],
+["Metonímia","Troca por algo relacionado: \"Li Machado de Assis\" (autor pela obra)."],
+["Hipérbole","Exagero: \"Já te falei mil vezes\"."],
+["Eufemismo","Suavizar: \"Ele partiu\" (morreu)."],
+["Semana de Arte Moderna","1922, São Paulo. Início do Modernismo: ruptura e linguagem coloquial."],
+["CLT","Consolidação das Leis do Trabalho, 1943, Era Vargas."],
+["AI-5","1968, ditadura militar: censura e repressão endurecidas."],
+["Constituição de 1988","\"Cidadã\": direitos sociais, SUS, voto facultativo aos 16."],
+["Montesquieu","Separação dos poderes: Executivo, Legislativo e Judiciário."],
+["Hobbes","\"O homem é o lobo do homem\"; Estado forte."],
+["Locke","Direitos naturais: vida, liberdade e propriedade."],
+["Rousseau","O ser humano nasce bom, a sociedade corrompe."],
+["Durkheim","Fato social."],
+["Marx","Luta de classes e mais-valia."],
+["1ª Lei de Mendel: Aa × Aa","3 dominantes : 1 recessivo (25% aa)."],
+["Darwin","Seleção natural: os mais adaptados sobrevivem e se reproduzem mais."],
+["pH","< 7 ácido · 7 neutro · > 7 básico."],
+["Concentração comum","C = massa ÷ volume (g/L)."],
+["Ondas","v = λ × f. Som não se propaga no vácuo."],
+["1ª Lei de Newton","Inércia: o corpo tende a manter seu estado (por isso o cinto de segurança)."],
+["Volume do cilindro","π × r² × h"],
+["Volume do cone","π × r² × h ÷ 3"],
+["Função do 1º grau","y = a·x + b: b é o fixo, a é o valor por unidade. Gráfico: reta."]
+];
+
+const QS=[
+{p:"Pela TRI, usada no ENEM, a melhor atitude diante de uma questão em que você está em dúvida é:",a:["deixar em branco para não perder pontos","eliminar as alternativas erradas e marcar uma resposta","marcar sempre a letra C","pular todas as questões fáceis","marcar duas alternativas"],r:1,e:"No ENEM não há desconto por erro. Questão em branco é ponto perdido. Elimine o que puder e marque."},
+{p:"Na frase \"Esperei uma eternidade na fila do banco\", a figura de linguagem é:",a:["metonímia","eufemismo","hipérbole","antítese","comparação"],r:2,e:"\"Uma eternidade\" é um exagero para dizer que esperou muito: hipérbole."},
+{p:"Em \"Adoro ler Clarice Lispector\", há uma troca do autor pela obra. Essa figura é a:",a:["metáfora","metonímia","ironia","personificação","hipérbole"],r:1,e:"Metonímia: troca de um termo por outro relacionado. Aqui, o nome da autora no lugar dos livros dela."},
+{p:"A Semana de Arte Moderna de 1922, em São Paulo, marcou:",a:["o início do Romantismo no Brasil","o início do Modernismo, com ruptura e linguagem mais coloquial","o fim da literatura brasileira","a chegada do Barroco","a independência do Brasil"],r:1,e:"A Semana de 22 é o marco do Modernismo: rompeu com modelos tradicionais e buscou uma identidade brasileira crítica."},
+{p:"A Consolidação das Leis do Trabalho (CLT), de 1943, foi criada durante:",a:["a ditadura militar","a Era Vargas","o Brasil Colônia","o governo de Dom Pedro II","a República Velha"],r:1,e:"A CLT foi assinada por Getúlio Vargas em 1943, reunindo direitos trabalhistas como férias e carteira assinada."},
+{p:"O AI-5, de 1968, é lembrado como o momento em que a ditadura militar:",a:["acabou","endureceu a censura e a repressão","criou o SUS","aprovou o voto aos 16 anos","convocou eleições diretas"],r:1,e:"O Ato Institucional nº 5 fechou o Congresso, suspendeu direitos e ampliou a censura e a repressão."},
+{p:"A Constituição de 1988 ficou conhecida como \"Constituição Cidadã\" porque:",a:["restabeleceu a monarquia","ampliou direitos sociais e políticos após a ditadura","proibiu o voto","criou a CLT","instalou o Estado Novo"],r:1,e:"Ela garantiu direitos sociais (como saúde pelo SUS e educação), voto facultativo aos 16 anos e o fim da censura."},
+{p:"A divisão do poder em Executivo, Legislativo e Judiciário foi defendida pelo iluminista:",a:["Hobbes","Montesquieu","Marx","Platão","Durkheim"],r:1,e:"Montesquieu propôs a separação dos poderes para evitar o abuso e o absolutismo."},
+{p:"A frase \"o homem é o lobo do homem\" e a defesa de um Estado forte para garantir a paz pertencem a:",a:["Rousseau","Locke","Hobbes","Sócrates","Weber"],r:2,e:"Para Hobbes, sem um Estado forte as pessoas viveriam em guerra de todos contra todos."},
+{p:"O conceito de \"fato social\", regras que existem fora do indivíduo e o influenciam, é do sociólogo:",a:["Marx","Weber","Durkheim","Aristóteles","Locke"],r:2,e:"Émile Durkheim definiu o fato social como maneiras de agir e pensar exteriores e coercitivas sobre o indivíduo."},
+{p:"Do cruzamento de dois indivíduos Aa (heterozigotos), a proporção esperada de filhos aa é:",a:["0%","25%","50%","75%","100%"],r:1,e:"Aa × Aa → 1 AA : 2 Aa : 1 aa. Um em quatro é aa: 25%."},
+{p:"O surgimento de bactérias resistentes a antibióticos é explicado pela teoria da:",a:["geração espontânea","seleção natural de Darwin","lei do uso e desuso de Lamarck","fotossíntese","evolução por vontade própria"],r:1,e:"O antibiótico mata as sensíveis; as resistentes sobrevivem e se multiplicam. É seleção natural."},
+{p:"Uma substância com pH 3 é:",a:["neutra","básica","ácida","um gás","sempre um sal"],r:2,e:"pH menor que 7 é ácido. Limão e vinagre têm pH baixo; sabão tem pH alto (básico)."},
+{p:"Dissolveram-se 20 g de sal em água até completar 2 L de solução. A concentração é:",a:["4 g/L","10 g/L","22 g/L","40 g/L","0,1 g/L"],r:1,e:"C = massa ÷ volume = 20 g ÷ 2 L = 10 g/L."},
+{p:"Um carro percorre 120 km em 2 horas. Sua velocidade média é:",a:["30 km/h","60 km/h","120 km/h","240 km/h","62 km/h"],r:1,e:"Velocidade média = distância ÷ tempo = 120 ÷ 2 = 60 km/h."},
+{p:"Uma onda tem comprimento de onda de 2 m e frequência de 5 Hz. Sua velocidade é:",a:["0,4 m/s","2,5 m/s","7 m/s","10 m/s","3 m/s"],r:3,e:"v = λ × f = 2 × 5 = 10 m/s."},
+{p:"Numa freada brusca, o passageiro sem cinto é jogado para frente. Isso se explica pela:",a:["Lei da inércia (1ª Lei de Newton)","Lei da ação e reação","gravidade da Lua","refração","Lei de Ohm"],r:0,e:"Pela inércia, o corpo tende a continuar em movimento quando o carro para. O cinto impede isso."},
+{p:"Um reservatório cilíndrico tem raio de 2 m e altura de 5 m. Usando π = 3, seu volume é:",a:["30 m³","60 m³","20 m³","120 m³","10 m³"],r:1,e:"V = π × r² × h = 3 × 2² × 5 = 3 × 4 × 5 = 60 m³ (ou 60.000 litros)."},
+{p:"Um táxi cobra R$ 5,00 de bandeirada mais R$ 2,00 por quilômetro. Uma corrida de 10 km custa:",a:["R$ 20,00","R$ 25,00","R$ 70,00","R$ 15,00","R$ 12,00"],r:1,e:"y = 2x + 5 → y = 2 × 10 + 5 = R$ 25,00. É uma função do 1º grau."},
+{p:"Um produto sofreu dois aumentos seguidos de 10%. O aumento total foi de:",a:["20%","21%","10%","11%","100%"],r:1,e:"Multiplique os fatores: 1,1 × 1,1 = 1,21, aumento de 21%. Nunca some as porcentagens."}
+];
+
+const BOLSO=["<b>Nunca deixe em branco</b>. Acerte as fáceis primeiro. ~3 min por questão. Refaça as contas.","Figuras: <b>metáfora</b> (sem como) · <b>metonímia</b> (autor pela obra) · <b>hipérbole</b> (exagero) · <b>eufemismo</b> (suaviza) · <b>antítese</b> (opostos) · <b>ironia</b>.","<b>Modernismo</b>: Semana de 1922, ruptura, linguagem coloquial.","<b>Era Vargas</b>: CLT (1943), voto feminino (1932) · <b>Ditadura</b>: 1964–1985, AI-5 (1968) · <b>CF 1988</b>: Cidadã.","<b>Montesquieu</b>: três poderes · <b>Hobbes</b>: Estado forte · <b>Locke</b>: vida, liberdade, propriedade · <b>Rousseau</b>: nasce bom.","<b>Durkheim</b>: fato social · <b>Weber</b>: ação social · <b>Marx</b>: luta de classes.","<b>Mendel</b>: Aa × Aa = 3:1 (25% aa) · <b>Darwin</b>: seleção natural.","<b>pH</b> < 7 ácido, 7 neutro, > 7 básico · <b>C = m ÷ V</b>.","<b>v = d ÷ t</b> · <b>v = λ × f</b> · <b>inércia</b> = cinto de segurança.","Volumes: cubo a³ · caixa c×l×h · <b>cilindro πr²h</b> · cone πr²h ÷ 3.","<b>y = ax + b</b>: b fixo, a por unidade. Gráfico reta.","Aumentos seguidos: <b>multiplica os fatores</b> (1,1 × 1,1 = 21%)."];
+
+const CHK=["Sei como funciona a TRI e não deixo questões em branco","Reconheço as principais figuras de linguagem","Sei o que foi a Semana de 1922","Sei o essencial de Era Vargas, ditadura e Constituição de 1988","Associo cada filósofo e sociólogo à sua ideia","Resolvo cruzamentos simples de Mendel","Explico seleção natural com o exemplo das bactérias","Sei o que é pH e calculo concentração","Calculo velocidade média e velocidade de onda","Calculo volume de cilindro, cone e caixa","Resolvo problemas de função do 1º grau"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Ester! 👋</h2><p>Você tirou <b>8,0</b> no simulado e gabaritou Linguagens e Humanas! Esta revisão reúne os assuntos que <b>mais caem no ENEM</b> nas 4 áreas, mais a estratégia para o dia da prova. Comece pela parte 1. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h45 no total</span><span class="pill">📖 5 partes</span><span class="pill">✍️ 20 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente, Ester! Pronta para a prova 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
