@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Física para o ENEM – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0e2a36;color:#22d3ee;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>⚡ Física para o ENEM · Raphael</h1><div class="sub" id="sub">Energia · Usinas · Conta de luz · Calor e gases</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-fis-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"energia",t:"1. Energia: formas e conservação",tempo:"35 min",h:`
+<p>Energia <b>não se cria nem se destrói: ela se transforma</b>. Essa frase resolve boa parte das questões de Física do ENEM.</p>
+<h3>Formas de energia mecânica</h3>
+<div class="tbl"><table><tr><th>Energia</th><th>Quando existe</th><th>Fórmula</th></tr>
+<tr><td><b>Cinética</b></td><td>Corpo em movimento</td><td>Ec = m × v² ÷ 2</td></tr>
+<tr><td><b>Potencial gravitacional</b></td><td>Corpo no alto</td><td>Ep = m × g × h</td></tr>
+<tr><td><b>Potencial elástica</b></td><td>Mola ou elástico esticado</td><td>Ee = k × x² ÷ 2</td></tr></table></div>
+<p>Unidades: massa (m) em kg, velocidade (v) em m/s, altura (h) em m, g ≈ 10 m/s². Energia em <b>joule (J)</b>.</p>
+<ul><li>Bola de 2 kg a 3 m/s: Ec = 2 × 9 ÷ 2 = <b>9 J</b>.</li><li>Caixa de 10 kg a 5 m de altura: Ep = 10 × 10 × 5 = <b>500 J</b>.</li></ul>
+<h3>Conservação da energia</h3>
+<p>Sem atrito, a energia mecânica total (cinética + potencial) <b>fica igual</b>. Numa montanha-russa: no alto, mais potencial; embaixo, mais cinética.</p>
+<div class="eq">v = √(2 × g × h)</div>
+<p>Um objeto solto de 5 m de altura chega ao chão a √(2 × 10 × 5) = √100 = <b>10 m/s</b>.</p>
+<div class="dica">🔥 Com atrito, parte da energia vira <b>calor</b> (energia térmica). Ela não some: só deixa de ser útil.</div>
+<h3>Potência e rendimento</h3>
+<ul><li><b>Potência</b> = energia ÷ tempo. Unidade: <b>watt (W)</b> = 1 joule por segundo.</li>
+<li><b>Rendimento</b> = energia útil ÷ energia total. Nenhuma máquina tem 100%: sempre há perdas, principalmente em calor.</li></ul>`},
+{id:"usinas",t:"2. Geração de energia elétrica: as usinas",tempo:"35 min",h:`
+<p>Quase toda usina funciona pelo mesmo princípio: <b>girar uma turbina ligada a um gerador</b>. No gerador, ímãs giram perto de bobinas de fio e produzem corrente elétrica. Isso se chama <b>indução eletromagnética</b>.</p>
+<h3>Cadeia de transformações em cada usina</h3>
+<div class="tbl"><table><tr><th>Usina</th><th>Transformações de energia</th></tr>
+<tr><td><b>Hidrelétrica</b></td><td>potencial (água no alto da represa) → cinética (água descendo) → elétrica</td></tr>
+<tr><td><b>Termelétrica</b></td><td>química (carvão, gás, óleo, bagaço) → térmica (queima) → cinética (vapor gira a turbina) → elétrica</td></tr>
+<tr><td><b>Nuclear</b></td><td>nuclear (fissão do urânio) → térmica → cinética (vapor) → elétrica</td></tr>
+<tr><td><b>Eólica</b></td><td>cinética (vento) → elétrica</td></tr>
+<tr><td><b>Solar fotovoltaica</b></td><td>luminosa (luz do Sol) → elétrica, direto na placa, sem turbina</td></tr></table></div>
+<h3>Vantagens e desvantagens</h3>
+<div class="tbl"><table><tr><th>Usina</th><th>Vantagem</th><th>Desvantagem</th></tr>
+<tr><td><b>Hidrelétrica</b></td><td>Renovável, base da energia do Brasil</td><td>Alaga grandes áreas, afeta povos e peixes; depende de chuva</td></tr>
+<tr><td><b>Termelétrica a combustível fóssil</b></td><td>Funciona a qualquer hora</td><td>Emite CO₂ (efeito estufa) e poluentes</td></tr>
+<tr><td><b>Nuclear</b></td><td>Não emite CO₂, muita energia</td><td>Lixo radioativo e risco de acidentes</td></tr>
+<tr><td><b>Eólica</b></td><td>Limpa e renovável</td><td>Depende do vento, ruído, impacto em aves</td></tr>
+<tr><td><b>Solar</b></td><td>Limpa, pode ficar no telhado</td><td>Não gera à noite, precisa de área</td></tr></table></div>
+<div class="dica">💡 Pergunta clássica: <b>"qual a sequência de transformações"</b> numa usina. Monte a cadeia: de onde vem a energia → o que gira a turbina → elétrica.</div>`},
+{id:"eletr",t:"3. Eletricidade no dia a dia: potência e conta de luz",tempo:"35 min",h:`
+<p>O ENEM adora calcular <b>consumo de energia e valor da conta de luz</b>. São só duas fórmulas.</p>
+<h3>Potência elétrica</h3>
+<div class="eq">P = U × i</div>
+<p>P = potência (W), U = tensão (volts, V), i = corrente (ampères, A).</p>
+<p>Um chuveiro ligado em 220 V com corrente de 20 A: P = 220 × 20 = <b>4.400 W</b>.</p>
+<h3>Energia consumida</h3>
+<div class="eq">E = P × t   (em kWh: potência em kW e tempo em horas)</div>
+<ul><li>Converta: 4.400 W = <b>4,4 kW</b> · 30 minutos = <b>0,5 h</b>.</li>
+<li>Chuveiro de 4,4 kW ligado 30 minutos por dia, durante 30 dias: 4,4 × 0,5 × 30 = <b>66 kWh</b>.</li>
+<li>Se o kWh custa R$ 0,80: 66 × 0,80 = <b>R$ 52,80</b> no mês.</li></ul>
+<div class="dica">⚠️ <b>kWh é energia, não potência.</b> É o que aparece na conta de luz. Os aparelhos que mais gastam são os de alta potência ligados por muito tempo: chuveiro elétrico, ar-condicionado, ferro de passar.</div>
+<h3>O chuveiro: verão e inverno</h3>
+<ul><li>A água esquenta porque a corrente passa pela <b>resistência</b> (efeito Joule: elétrica → térmica).</li>
+<li>Na posição <b>inverno</b>, a resistência é <b>menor</b>. Passa mais corrente, a potência é maior e a água sai mais quente.</li></ul>
+<h3>Economia de energia</h3>
+<ul><li>Uma lâmpada <b>LED</b> de cerca de 10 W ilumina mais ou menos como uma incandescente de 60 W, porque a incandescente transforma a maior parte da energia em calor.</li>
+<li>O <b>selo Procel</b> indica os aparelhos mais econômicos.</li></ul>`},
+{id:"termo",t:"4. Calor e termodinâmica",tempo:"40 min",h:`
+<p><b>Temperatura</b> mede a agitação das partículas. <b>Calor</b> é a energia que passa do corpo mais quente para o mais frio. Não se diz "o corpo tem calor"; diz-se que ele recebe ou cede calor.</p>
+<h3>Escalas de temperatura</h3>
+<ul><li><b>Kelvin:</b> K = °C + 273. Ex.: 25 °C = 298 K. Não existe temperatura negativa em kelvin (0 K é o zero absoluto).</li>
+<li><b>Fahrenheit:</b> °F = 1,8 × °C + 32. Ex.: 25 °C = 77 °F.</li></ul>
+<h3>Como o calor se propaga</h3>
+<div class="tbl"><table><tr><th>Forma</th><th>Como funciona</th><th>Exemplo</th></tr>
+<tr><td><b>Condução</b></td><td>Passa de partícula em partícula, em sólidos</td><td>Cabo da panela esquentando</td></tr>
+<tr><td><b>Convecção</b></td><td>Correntes em líquidos e gases: o quente sobe, o frio desce</td><td>Ar-condicionado no alto; brisa do mar</td></tr>
+<tr><td><b>Radiação</b></td><td>Ondas eletromagnéticas, até no vácuo</td><td>Calor do Sol chegando à Terra</td></tr></table></div>
+<div class="dica">🧪 <b>Garrafa térmica:</b> o vácuo entre as paredes impede condução e convecção, e as paredes espelhadas refletem a radiação.</div>
+<h3>Calor sensível</h3>
+<div class="eq">Q = m × c × ΔT</div>
+<p>Q = calor, m = massa, c = calor específico (água: 1 cal/g·°C), ΔT = variação de temperatura. Aquecer 1.000 g de água de 20 °C a 70 °C: Q = 1.000 × 1 × 50 = <b>50.000 cal</b>.</p>
+<p>A água tem calor específico alto: demora para esquentar e para esfriar. Por isso o mar regula o clima das cidades do litoral.</p>
+<h3>Gases</h3>
+<div class="eq">P × V ÷ T = constante   (T sempre em kelvin)</div>
+<ul><li><b>Isotérmica</b> (temperatura constante): se a pressão dobra, o volume cai pela metade.</li>
+<li><b>Isovolumétrica</b> (volume constante): esquentou, a pressão aumenta. Por isso se calibra o pneu frio, e por isso a panela de pressão funciona.</li>
+<li><b>Isobárica</b> (pressão constante): esquentou, o volume aumenta. Ex.: balão que enche ao ser aquecido.</li></ul>
+<h3>Leis da termodinâmica</h3>
+<ul><li><b>1ª lei:</b> ΔU = Q − τ. O calor recebido vira aumento de energia interna e/ou trabalho realizado. É a conservação da energia.</li>
+<li><b>2ª lei:</b> nenhuma máquina térmica transforma 100% do calor em trabalho. Num motor de carro, boa parte da energia do combustível vira calor perdido.</li>
+<li><b>Geladeira:</b> retira calor de dentro e joga para fora (por isso a parte de trás esquenta), gastando energia elétrica.</li></ul>`}
+];
+
+const CARDS=[
+["Princípio da conservação da energia","Energia não se cria nem se destrói: se transforma."],
+["Energia cinética","Ec = m × v² ÷ 2 (corpo em movimento)."],
+["Energia potencial gravitacional","Ep = m × g × h (corpo no alto)."],
+["Velocidade de queda livre","v = √(2 × g × h)"],
+["Potência","Energia ÷ tempo. Unidade: watt (W) = J/s."],
+["Rendimento","Energia útil ÷ energia total. Nunca chega a 100%."],
+["Princípio do gerador","Indução eletromagnética: ímã girando perto de bobinas gera corrente."],
+["Hidrelétrica","Potencial (água no alto) → cinética → elétrica."],
+["Termelétrica","Química (combustível) → térmica → cinética (vapor) → elétrica."],
+["Usina nuclear","Nuclear (fissão do urânio) → térmica → cinética → elétrica. Problema: lixo radioativo."],
+["Solar fotovoltaica","Luz → eletricidade direto na placa, sem turbina."],
+["Potência elétrica","P = U × i (watts = volts × ampères)."],
+["Energia consumida","E = P × t. Em kWh: potência em kW e tempo em horas."],
+["kWh é…","Unidade de ENERGIA (o que se paga na conta de luz), não de potência."],
+["Chuveiro na posição inverno","Resistência menor → mais corrente → mais potência → água mais quente."],
+["Temperatura x calor","Temperatura = agitação das partículas. Calor = energia em trânsito do quente para o frio."],
+["Celsius para kelvin","K = °C + 273"],
+["Condução, convecção, radiação","Sólidos (contato) · correntes em fluidos · ondas (até no vácuo)."],
+["Por que o ar-condicionado fica no alto?","O ar frio é mais denso e desce (convecção)."],
+["Calor sensível","Q = m × c × ΔT"],
+["Gás aquecido em volume constante","A pressão aumenta (pneu quente, panela de pressão)."],
+["1ª lei da termodinâmica","ΔU = Q − τ (conservação da energia)."],
+["2ª lei da termodinâmica","Nenhuma máquina térmica converte 100% do calor em trabalho."]
+];
+
+const QS=[
+{p:"Uma bola de 2 kg rola a 3 m/s. Sua energia cinética é:",a:["3 J","6 J","9 J","18 J","36 J"],r:2,e:"Ec = m × v² ÷ 2 = 2 × 3² ÷ 2 = 2 × 9 ÷ 2 = 9 J."},
+{p:"Uma caixa de 10 kg está a 5 m de altura (g = 10 m/s²). Sua energia potencial gravitacional é:",a:["50 J","100 J","150 J","500 J","5.000 J"],r:3,e:"Ep = m × g × h = 10 × 10 × 5 = 500 J."},
+{p:"Desprezando a resistência do ar, um objeto solto de 5 m de altura chega ao chão com velocidade de (g = 10 m/s²):",a:["5 m/s","10 m/s","25 m/s","50 m/s","100 m/s"],r:1,e:"Pela conservação da energia: v = √(2 × g × h) = √(2 × 10 × 5) = √100 = 10 m/s."},
+{p:"Ao frear, um carro para e os freios esquentam. A energia cinética do carro:",a:["desapareceu","foi transformada principalmente em energia térmica","virou energia nuclear","virou energia potencial gravitacional","aumentou"],r:1,e:"A energia não some: o atrito nos freios transforma a energia cinética em calor (energia térmica)."},
+{p:"Em uma usina hidrelétrica, a sequência correta de transformações de energia é:",a:["química → térmica → elétrica","potencial gravitacional → cinética → elétrica","nuclear → térmica → cinética → elétrica","luminosa → elétrica","elétrica → cinética → potencial"],r:1,e:"A água acumulada no alto tem energia potencial. Ao descer, ganha energia cinética, gira a turbina e o gerador produz energia elétrica."},
+{p:"O funcionamento dos geradores das usinas se baseia na:",a:["fotossíntese","indução eletromagnética: ímãs girando perto de bobinas","fissão do urânio dentro do gerador","combustão do fio de cobre","reflexão da luz"],r:1,e:"No gerador, o movimento de ímãs perto de bobinas de fio induz uma corrente elétrica. É a indução eletromagnética."},
+{p:"Uma desvantagem das termelétricas que queimam carvão ou petróleo é:",a:["não funcionar à noite","emitir CO₂ e poluentes, agravando o efeito estufa","produzir lixo radioativo","alagar grandes áreas de floresta","depender do vento"],r:1,e:"A queima de combustíveis fósseis libera gás carbônico e outros poluentes. Lixo radioativo é problema das nucleares; alagamento, das hidrelétricas."},
+{p:"A principal desvantagem das usinas nucleares é:",a:["emitir muito CO₂","gerar lixo radioativo e ter risco de acidentes","depender de chuva","não gerar energia em dias nublados","alagar cidades"],r:1,e:"As nucleares quase não emitem CO₂, mas produzem resíduos radioativos perigosos por muito tempo e têm risco de acidentes graves."},
+{p:"Um chuveiro ligado em 220 V é percorrido por uma corrente de 20 A. Sua potência é:",a:["11 W","240 W","2.200 W","4.400 W","44.000 W"],r:3,e:"P = U × i = 220 × 20 = 4.400 W."},
+{p:"Um chuveiro de 4,4 kW fica ligado 30 minutos por dia durante 30 dias. A energia consumida no mês é:",a:["13,2 kWh","66 kWh","132 kWh","4.400 kWh","6.600 kWh"],r:1,e:"E = P × t = 4,4 kW × 0,5 h × 30 dias = 66 kWh. Lembre de converter 30 min em 0,5 h."},
+{p:"Na conta de luz, o consumo aparece em kWh. Essa unidade mede:",a:["potência","corrente elétrica","energia","tensão","resistência"],r:2,e:"kWh (quilowatt-hora) é unidade de energia: potência em kW multiplicada pelo tempo em horas."},
+{p:"Ao mudar o chuveiro da posição \"verão\" para \"inverno\", a água esquenta mais porque:",a:["a resistência aumenta e a corrente diminui","a resistência diminui, a corrente aumenta e a potência aumenta","a tensão da rede dobra","a água passa mais rápido","o chuveiro desliga a resistência"],r:1,e:"Com resistência menor, passa mais corrente e a potência dissipada em calor aumenta. A água sai mais quente."},
+{p:"A temperatura de 25 °C corresponde, na escala kelvin, a:",a:["25 K","77 K","248 K","273 K","298 K"],r:4,e:"K = °C + 273 = 25 + 273 = 298 K."},
+{p:"Os aparelhos de ar-condicionado são instalados na parte de cima das paredes porque:",a:["o ar frio é mais denso e desce, espalhando-se pelo ambiente por convecção","o calor se propaga só por condução","o ar frio sobe","assim o aparelho consome mais energia","a radiação só funciona no alto"],r:0,e:"O ar frio é mais denso e desce, e o ar quente sobe. Isso cria correntes de convecção que resfriam todo o ambiente."},
+{p:"A garrafa térmica mantém o café quente porque:",a:["produz calor","o vácuo evita condução e convecção, e as paredes espelhadas refletem a radiação","esquenta o café com eletricidade","o vidro é um ótimo condutor de calor","o café perde calor só por radiação"],r:1,e:"O vácuo entre as paredes bloqueia condução e convecção; o espelhamento reflete a radiação térmica. Assim o calor demora a sair."},
+{p:"Os pneus devem ser calibrados frios porque, depois de rodar, eles esquentam e:",a:["a pressão do ar dentro deles aumenta","o volume do ar diminui muito","a temperatura do ar cai","a massa de ar aumenta","o ar vira líquido"],r:0,e:"Com volume quase constante, aquecer o gás aumenta a pressão (P × V ÷ T = constante). A medida com o pneu quente sai maior que a real."},
+{p:"A 2ª lei da termodinâmica afirma que:",a:["a energia pode ser criada","uma máquina térmica pode transformar 100% do calor em trabalho","nenhuma máquina térmica transforma todo o calor recebido em trabalho","o calor passa espontaneamente do frio para o quente","a temperatura não existe"],r:2,e:"Toda máquina térmica perde parte da energia como calor. Por isso o rendimento é sempre menor que 100%."}
+];
+
+const BOLSO=["Energia <b>não se cria nem se destrói</b>: se transforma.","<b>Ec = m v² ÷ 2</b> · <b>Ep = m g h</b> · queda livre: <b>v = √(2 g h)</b>.","Atrito transforma energia em <b>calor</b>. <b>Rendimento</b> nunca chega a 100%.","<b>Potência</b> = energia ÷ tempo (watt = J/s).","Gerador = <b>indução eletromagnética</b> (ímã + bobina girando).","<b>Hidrelétrica</b>: potencial → cinética → elétrica. <b>Termelétrica</b>: química → térmica → cinética → elétrica.","<b>Nuclear</b>: lixo radioativo. <b>Fóssil</b>: CO₂. <b>Hidrelétrica</b>: alaga áreas.","<b>P = U × i</b> · <b>E = P × t</b> (kW × h = kWh). kWh é <b>energia</b>.","Chuveiro <b>inverno</b> = resistência menor = mais potência.","<b>K = °C + 273</b> · °F = 1,8 °C + 32.","<b>Condução</b> (sólidos) · <b>convecção</b> (quente sobe, frio desce) · <b>radiação</b> (até no vácuo).","<b>Q = m c ΔT</b>. Água demora a esquentar e esfriar.","Gases: <b>P V ÷ T = constante</b> (T em kelvin). Esquentou em volume fixo → pressão sobe.","<b>1ª lei</b>: ΔU = Q − τ · <b>2ª lei</b>: nenhuma máquina térmica tem 100% de rendimento."];
+
+const CHK=["Calculo energia cinética e potencial","Uso a conservação da energia para achar velocidade","Sei a sequência de transformações de cada usina","Sei vantagens e desvantagens das usinas","Sei o que é indução eletromagnética","Calculo potência com P = U × i","Calculo consumo em kWh e valor da conta","Explico o chuveiro verão/inverno","Converto Celsius em kelvin","Diferencio condução, convecção e radiação","Explico o comportamento dos gases ao esquentar","Sei a 1ª e a 2ª lei da termodinâmica"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>No simulado você acertou <b>1 de 3</b> em Física. Os erros foram em energia e geração de eletricidade e em termodinâmica (gases). Estude as 4 partes abaixo, nesta ordem. Toque para abrir.</p>
+  <span class="pill">⏱ ~2h25 no total</span><span class="pill">📖 4 partes</span><span class="pill">✍️ 17 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente! Física em dia 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
