@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Prova de Química – Raphael</title>
+<meta name="theme-color" content="#111827">
+<style>
+:root{--ciano:#22d3ee;--roxo:#7c3aed;--lima:#a3e635;--fundo:#0b0f1a;--texto:#e6edf3;--cinza:#94a3b8;--verde:#22c55e;--vermelho:#ef4444;--card:#151b2b;--linha:#26304a;--suave:#1d2538}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}
+header{background:linear-gradient(135deg,#111827,#1e1b4b 60%,#312e81);padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:1px solid #3b3f8f}
+header h1{margin:0;font-size:17px}header .sub{font-size:12.5px;color:#c7d2fe}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:10px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ciano),var(--lima));transition:width .4s}
+main{max-width:720px;margin:0 auto;padding:16px 14px 110px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+h2{font-size:20px;margin:4px 0 10px}h3{font-size:16px;margin:16px 0 8px;color:var(--ciano)}
+p{margin:0 0 10px}b{color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#0b3320;color:#4ade80;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 12px}th,td{border-bottom:1px solid var(--linha);padding:8px 6px;text-align:left;vertical-align:top}th{color:var(--ciano);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.tbl{overflow-x:auto}
+ul{padding-left:20px;margin:6px 0 10px}li{margin-bottom:6px}
+.eq{background:#0b0f1a;border:1px solid var(--linha);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:15.5px;color:var(--lima);margin:8px 0 12px}
+.dica{background:rgba(163,230,53,.1);border-left:4px solid var(--lima);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.acc{border:1px solid var(--linha);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--texto);font:inherit;font-weight:800;font-size:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.acc .body{display:none;padding:0 16px 16px}.acc.on .body{display:block}.acc .seta{transition:transform .2s}.acc.on .seta{transform:rotate(90deg)}
+.ok{font-size:12px;color:var(--lima);margin-left:8px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn.y{background:var(--lima);color:#0b0f1a;width:100%}.btn.s{background:var(--suave);color:var(--ciano);border:1px solid var(--linha)}.btn.p{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1424;border-top:1px solid var(--linha);display:flex;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:6}
+.nav button{flex:1;background:none;border:0;color:var(--cinza);font:inherit;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer}
+.nav button span{font-size:22px}.nav button.on{color:var(--lima)}
+.flip{perspective:1000px;height:300px;margin:6px 0 14px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .v{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--linha)}
+.flip .f{background:linear-gradient(135deg,#1e1b4b,#151b2b);font-size:21px;font-weight:800}
+.flip .v{background:linear-gradient(135deg,#0e2a36,#151b2b);transform:rotateY(180deg);font-size:16.5px}
+.flip small{display:block;margin-top:14px;font-size:12px;color:var(--cinza);font-weight:600}
+.row{display:flex;gap:10px}.row .btn{flex:1}
+.q{font-size:15.5px;font-weight:700;margin-bottom:12px}
+.alt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--linha);background:var(--suave);border-radius:12px;padding:12px;font-size:15px;color:var(--texto);cursor:pointer;font-family:inherit;margin-bottom:10px}
+.alt .l{flex:0 0 30px;height:30px;border-radius:50%;background:#0b0f1a;border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ciano)}
+.alt.c{border-color:var(--verde);background:#0b2a1a}.alt.c .l{background:var(--verde);color:#fff}
+.alt.e{border-color:var(--vermelho);background:#2e0f12}.alt.e .l{background:var(--vermelho);color:#fff}
+.exp{border-radius:12px;padding:12px;font-size:14.5px;margin-top:4px}.exp.c{background:rgba(34,197,94,.12);border:1px solid #166534}.exp.e{background:rgba(239,68,68,.12);border:1px solid #7f1d1d}
+.big{font-size:56px;font-weight:900;background:linear-gradient(90deg,var(--ciano),var(--lima));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;text-align:center;margin:10px 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:15px;cursor:pointer}.chk input{width:22px;height:22px;accent-color:#a3e635;flex:none;margin-top:1px}
+.autora{text-align:center;font-size:12.5px;color:var(--cinza);margin:24px 0 8px;line-height:1.7}.autora b{color:var(--ciano)}.autora a{color:var(--ciano);text-decoration:none;font-weight:700}
+.hidden{display:none!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--suave);border:1px solid var(--linha);color:var(--cinza);margin:0 4px 6px 0}
+</style>
+</head>
+<body>
+<header><h1>⚗️ Prova de Química · Raphael</h1><div class="sub" id="sub">Átomo · Radioatividade · Meia-vida · Mol</div><div class="bar"><div id="prog"></div></div></header>
+<main id="app"></main>
+<div class="nav">
+ <button data-t="estudar" class="on"><span>📖</span>Estudar</button>
+ <button data-t="cartoes"><span>🃏</span>Cartões</button>
+ <button data-t="exercicios"><span>✍️</span>Exercícios</button>
+ <button data-t="revisao"><span>⚡</span>Revisão</button>
+</div>
+<script>
+const KEY="estudo-quimica-escola-raphael-v1";
+let S={lidas:{},q:{},chk:{},card:0};
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){};prog()};
+const $=id=>document.getElementById(id);
+const FOOT=`<div class="autora">Elaborado por <b>Dra. Gleyce Santana</b> · OAB/GO 43.167<br>Advogada especialista em Licitações Públicas<br><a href="https://instagram.com/dragleyce.licitacoes" target="_blank">📷 @dragleyce.licitacoes</a></div>`;
+
+const PARTES=[
+{id:"atomo",t:"1. Estrutura atômica: prótons, nêutrons e elétrons",tempo:"25 min",h:`
+<p>O átomo tem um <b>núcleo</b> (prótons e nêutrons) e a <b>eletrosfera</b> (elétrons girando ao redor).</p>
+<div class="tbl"><table><tr><th>Partícula</th><th>Onde fica</th><th>Carga</th><th>Massa</th></tr>
+<tr><td><b>Próton (p)</b></td><td>Núcleo</td><td>Positiva (+1)</td><td>1</td></tr>
+<tr><td><b>Nêutron (n)</b></td><td>Núcleo</td><td>Sem carga (0)</td><td>1</td></tr>
+<tr><td><b>Elétron (e)</b></td><td>Eletrosfera</td><td>Negativa (−1)</td><td>Quase zero (cerca de 1.836 vezes menor)</td></tr></table></div>
+<h3>As três fórmulas que resolvem tudo</h3>
+<div class="eq">Z = prótons · A = prótons + nêutrons · n = A − Z</div>
+<ul><li><b>Z</b> = número atômico (identifica o elemento). <b>A</b> = número de massa.</li>
+<li>Átomo <b>neutro</b>: elétrons = prótons.</li>
+<li>Notação: ²³₁₁Na → A = 23 (em cima), Z = 11 (embaixo). Então p = 11, e = 11, n = 23 − 11 = <b>12</b>.</li></ul>
+<h3>Íons: quando o átomo ganha ou perde elétrons</h3>
+<ul><li><b>Cátion</b> (carga +): <b>perdeu</b> elétrons. Na⁺ tem 11 prótons e <b>10</b> elétrons. Ca²⁺ (Z = 20) tem <b>18</b> elétrons.</li>
+<li><b>Ânion</b> (carga −): <b>ganhou</b> elétrons. Cl⁻ (Z = 17) tem <b>18</b> elétrons. O²⁻ (Z = 8) tem <b>10</b> elétrons.</li>
+<li>Os <b>prótons nunca mudam</b> num íon. Só os elétrons.</li></ul>
+<div class="dica">💡 Truque: carga <b>+</b> → <b>subtrai</b> dos elétrons; carga <b>−</b> → <b>soma</b> aos elétrons. Ca²⁺: 20 − 2 = 18. Cl⁻: 17 + 1 = 18.</div>`},
+{id:"isotopos",t:"2. Isótopos, isóbaros e isótonos",tempo:"15 min",h:`
+<p><b>Isótopos</b> são átomos do <b>mesmo elemento</b> (mesmo número de prótons) com <b>massas diferentes</b> (número de nêutrons diferente).</p>
+<div class="tbl"><table><tr><th>Tipo</th><th>Igual</th><th>Exemplo</th></tr>
+<tr><td><b>Isótopos</b></td><td>Prótons (Z)</td><td>¹²C, ¹³C e ¹⁴C (todos com 6 prótons)</td></tr>
+<tr><td><b>Isóbaros</b></td><td>Massa (A)</td><td>¹⁴C e ¹⁴N (A = 14)</td></tr>
+<tr><td><b>Isótonos</b></td><td>Nêutrons (n)</td><td>¹³C (7 n) e ¹⁴N (7 n)</td></tr></table></div>
+<div class="dica">🧠 <b>Memorize pela letra:</b> isóto<b>P</b>os = mesmo <b>P</b>róton · isób<b>A</b>ros = mesmo <b>A</b> · isóto<b>N</b>os = mesmo <b>N</b>êutron.</div>
+<h3>Os isótopos do hidrogênio</h3>
+<div class="tbl"><table><tr><th>Nome</th><th>Notação</th><th>Prótons</th><th>Nêutrons</th></tr>
+<tr><td><b>Prótio</b></td><td>¹H</td><td>1</td><td>0</td></tr>
+<tr><td><b>Deutério</b></td><td>²H</td><td>1</td><td>1</td></tr>
+<tr><td><b>Trítio</b></td><td>³H</td><td>1</td><td>2</td></tr></table></div>
+<p>Isótopos têm as <b>mesmas propriedades químicas</b> (mesmo elemento), mas massas diferentes. Alguns são radioativos, como o carbono-14.</p>`},
+{id:"distrib",t:"3. Distribuição eletrônica",tempo:"30 min",h:`
+<p>Os elétrons ficam em <b>camadas</b> (K, L, M, N, O, P, Q) e, dentro delas, em <b>subníveis</b> (s, p, d, f). A ordem de preenchimento segue o <b>diagrama de Linus Pauling</b> (as diagonais).</p>
+<h3>Ordem do diagrama (decore esta sequência)</h3>
+<div class="eq" style="font-size:14px">1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p</div>
+<div class="tbl"><table><tr><th>Subnível</th><th>Máximo de elétrons</th></tr><tr><td><b>s</b></td><td>2</td></tr><tr><td><b>p</b></td><td>6</td></tr><tr><td><b>d</b></td><td>10</td></tr><tr><td><b>f</b></td><td>14</td></tr></table></div>
+<p>Máximo por camada: K = 2 · L = 8 · M = 18 · N = 32 · O = 32 · P = 18 · Q = 8.</p>
+<h3>Exemplos resolvidos</h3>
+<div class="tbl"><table><tr><th>Elemento</th><th>Distribuição (Pauling)</th><th>Camadas</th></tr>
+<tr><td><b>Na</b> (Z = 11)</td><td>1s² 2s² 2p⁶ 3s¹</td><td>K2 L8 M1</td></tr>
+<tr><td><b>Cl</b> (Z = 17)</td><td>1s² 2s² 2p⁶ 3s² 3p⁵</td><td>K2 L8 M7</td></tr>
+<tr><td><b>Ca</b> (Z = 20)</td><td>1s² 2s² 2p⁶ 3s² 3p⁶ 4s²</td><td>K2 L8 M8 N2</td></tr>
+<tr><td><b>Fe</b> (Z = 26)</td><td>1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶</td><td>K2 L8 M14 N2</td></tr></table></div>
+<h3>O que a prova costuma perguntar</h3>
+<ul><li><b>Camada de valência:</b> a camada mais externa (a de número maior). No Cl: 3s² 3p⁵ → <b>7 elétrons</b> de valência.</li>
+<li><b>Subnível mais energético:</b> o <b>último</b> que você escreveu na ordem de Pauling. No Fe: <b>3d⁶</b>.</li>
+<li>Para <b>camadas</b>, junte os elétrons pelo número: no Fe, 3s² 3p⁶ 3d⁶ formam a camada M com 14.</li></ul>
+<div class="dica">✅ Confira sempre: <b>a soma dos expoentes tem que dar o Z</b> (para átomo neutro). Fe: 2+2+6+2+6+2+6 = 26.</div>`},
+{id:"radio",t:"4. Radioatividade: alfa, beta e gama",tempo:"30 min",h:`
+<p><b>Radioatividade</b> é a emissão de partículas ou energia pelo <b>núcleo</b> de átomos instáveis. O núcleo se transforma e, muitas vezes, vira <b>outro elemento</b>.</p>
+<div class="tbl"><table><tr><th>Emissão</th><th>O que é</th><th>Símbolo</th><th>Efeito no núcleo</th><th>Barrada por</th></tr>
+<tr><td><b>Alfa (α)</b></td><td>2 prótons + 2 nêutrons (núcleo de hélio)</td><td>⁴₂α</td><td><b>A − 4 e Z − 2</b></td><td>Folha de papel, pele</td></tr>
+<tr><td><b>Beta (β)</b></td><td>Elétron que sai do núcleo (um nêutron vira próton)</td><td>⁰₋₁β</td><td><b>A igual e Z + 1</b></td><td>Alumínio, madeira</td></tr>
+<tr><td><b>Gama (γ)</b></td><td>Onda eletromagnética, sem massa e sem carga</td><td>⁰₀γ</td><td><b>Não muda A nem Z</b></td><td>Chumbo, concreto grosso</td></tr></table></div>
+<p><b>Poder de penetração:</b> alfa &lt; beta &lt; gama. A gama é a mais penetrante e a alfa, a menos.</p>
+<h3>Aplicações e riscos</h3>
+<ul><li><b>Medicina:</b> radioterapia contra o câncer, iodo-131 para a tireoide, exames de imagem.</li>
+<li><b>Datação:</b> carbono-14 para descobrir a idade de fósseis e objetos antigos.</li>
+<li><b>Energia:</b> usinas nucleares.</li>
+<li><b>Riscos:</b> o acidente com o <b>césio-137 em Goiânia (1987)</b>, o maior acidente radiológico do Brasil, e o de Chernobyl (1986).</li></ul>`},
+{id:"transf",t:"5. Transformações nucleares: qual elemento se forma?",tempo:"30 min",h:`
+<p>Nas equações nucleares, a <b>soma dos números de cima (A)</b> e a <b>soma dos números de baixo (Z)</b> têm que ser <b>iguais dos dois lados</b>. Depois, o <b>Z</b> diz qual é o elemento (procure na tabela periódica).</p>
+<h3>Uma emissão</h3>
+<ul><li><b>Alfa:</b> ²³⁸₉₂U → ⁴₂α + ²³⁴₉₀Th. Conta: 238 − 4 = 234 e 92 − 2 = 90 → Z = 90 é o <b>tório (Th)</b>.</li>
+<li><b>Beta:</b> ²³⁴₉₀Th → ⁰₋₁β + ²³⁴₉₁Pa. A fica 234; Z = 90 + 1 = 91 → <b>protactínio (Pa)</b>.</li>
+<li><b>Carbono-14:</b> ¹⁴₆C → ⁰₋₁β + ¹⁴₇N. Z = 6 + 1 = 7 → <b>nitrogênio</b>.</li></ul>
+<h3>Várias emissões: quantas alfa e quantas beta?</h3>
+<ol><li><b>Alfas pela massa:</b> só a alfa muda o A. Número de α = (A inicial − A final) ÷ 4.</li>
+<li><b>Betas pelo Z:</b> Z final = Z inicial − 2 × (nº de α) + (nº de β).</li></ol>
+<p><b>Exemplo:</b> ²³⁸₉₂U → ²⁰⁶₈₂Pb.</p>
+<ul><li>α = (238 − 206) ÷ 4 = 32 ÷ 4 = <b>8 alfa</b>.</li>
+<li>82 = 92 − 2 × 8 + β → 82 = 76 + β → <b>β = 6</b>.</li></ul>
+<h3>Fissão e fusão</h3>
+<ul><li><b>Fissão:</b> um núcleo grande (urânio) se <b>divide</b> em núcleos menores, liberando muita energia. Usinas nucleares e bomba atômica.</li>
+<li><b>Fusão:</b> núcleos pequenos (hidrogênio) se <b>unem</b> formando um maior (hélio). É o que acontece no <b>Sol</b>.</li></ul>`},
+{id:"meiavida",t:"6. Meia-vida: tempo e massa restante",tempo:"30 min",h:`
+<p><b>Meia-vida (P ou t½)</b> é o tempo para <b>metade</b> da massa (ou dos átomos) de um material radioativo se desintegrar.</p>
+<h3>Jeito mais fácil: ir dividindo por 2</h3>
+<p>80 g de um material com meia-vida de 5 dias:</p>
+<div class="eq" style="font-size:14px">80 g →(5 d)→ 40 g →(10 d)→ 20 g →(15 d)→ 10 g →(20 d)→ 5 g</div>
+<p>Depois de 20 dias (4 meias-vidas), restam <b>5 g</b>.</p>
+<h3>Com fórmula</h3>
+<div class="eq">m = m₀ ÷ 2ⁿ   e   n = t ÷ P</div>
+<ul><li>m₀ = massa inicial · m = massa que resta · n = número de meias-vidas · t = tempo total · P = meia-vida.</li>
+<li>Ex.: 80 g, P = 5 dias, t = 20 dias → n = 20 ÷ 5 = 4 → m = 80 ÷ 2⁴ = 80 ÷ 16 = <b>5 g</b>.</li></ul>
+<h3>Achando o tempo</h3>
+<p>O iodo-131 tem meia-vida de 8 dias. Quanto tempo para 100 g virarem 12,5 g?</p>
+<p>100 → 50 → 25 → 12,5: foram <b>3 meias-vidas</b> → 3 × 8 = <b>24 dias</b>.</p>
+<h3>Em porcentagem</h3>
+<div class="tbl"><table><tr><th>Meias-vidas</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td><b>Resta</b></td><td>50%</td><td>25%</td><td>12,5%</td><td>6,25%</td><td>3,125%</td></tr></table></div>
+<div class="dica">⚠️ A meia-vida <b>não depende</b> da quantidade inicial nem da temperatura. É uma característica de cada isótopo. O carbono-14 tem meia-vida de cerca de 5.730 anos.</div>`},
+{id:"massaat",t:"7. Massa atômica: média ponderada dos isótopos",tempo:"20 min",h:`
+<p>A massa atômica que aparece na tabela periódica é a <b>média ponderada</b> das massas dos isótopos do elemento, levando em conta quanto existe de cada um na natureza (a abundância, em %).</p>
+<div class="eq">MA = (massa₁ × %₁ + massa₂ × %₂) ÷ 100</div>
+<h3>Exemplo: cloro</h3>
+<p>Cl-35 (75%) e Cl-37 (25%):</p>
+<p>MA = (35 × 75 + 37 × 25) ÷ 100 = (2.625 + 925) ÷ 100 = <b>35,5 u</b>.</p>
+<h3>Exemplo: boro</h3>
+<p>B-10 (20%) e B-11 (80%):</p>
+<p>MA = (10 × 20 + 11 × 80) ÷ 100 = (200 + 880) ÷ 100 = <b>10,8 u</b>.</p>
+<div class="dica">✅ Confira: o resultado fica <b>entre</b> as massas dos isótopos e <b>mais perto do mais abundante</b>. Cloro: 35,5 está mais perto de 35, que é 75%.</div>
+<p><b>u</b> = unidade de massa atômica = 1/12 da massa do carbono-12.</p>`},
+{id:"massamol",t:"8. Massa molecular",tempo:"20 min",h:`
+<p><b>Massa molecular</b> = soma das massas atômicas de todos os átomos da fórmula. Multiplique a massa de cada elemento pelo número de átomos dele (o numerozinho embaixo).</p>
+<div class="dica">📋 <b>Massas atômicas usadas aqui:</b> H = 1 · C = 12 · N = 14 · O = 16 · Na = 23 · Mg = 24 · S = 32 · Cl = 35,5 · Ca = 40. Na prova, use sempre a tabela que o professor der.</div>
+<div class="tbl"><table><tr><th>Substância</th><th>Conta</th><th>Massa</th></tr>
+<tr><td><b>H₂O</b></td><td>2 × 1 + 16</td><td>18 u</td></tr>
+<tr><td><b>CO₂</b></td><td>12 + 2 × 16</td><td>44 u</td></tr>
+<tr><td><b>NaCl</b></td><td>23 + 35,5</td><td>58,5 u</td></tr>
+<tr><td><b>H₂SO₄</b></td><td>2 × 1 + 32 + 4 × 16</td><td>98 u</td></tr>
+<tr><td><b>CaCO₃</b></td><td>40 + 12 + 3 × 16</td><td>100 u</td></tr>
+<tr><td><b>C₆H₁₂O₆</b> (glicose)</td><td>6 × 12 + 12 × 1 + 6 × 16</td><td>180 u</td></tr>
+<tr><td><b>Ca(OH)₂</b></td><td>40 + 2 × (16 + 1)</td><td>74 u</td></tr></table></div>
+<div class="dica">⚠️ <b>Parênteses:</b> o número fora multiplica tudo que está dentro. Ca(OH)₂ tem 2 O e 2 H.</div>`},
+{id:"mol",t:"9. Mol e número de Avogadro",tempo:"30 min",h:`
+<p><b>Mol</b> é uma "quantidade", como dúzia. Uma dúzia = 12; <b>1 mol = 6,02 × 10²³</b> unidades (átomos, moléculas, íons). Esse é o <b>número de Avogadro</b>.</p>
+<h3>Massa molar</h3>
+<p>A <b>massa molar (M)</b> é a massa de 1 mol, em gramas. É o <b>mesmo número</b> da massa molecular: água = 18 u → 1 mol de água = <b>18 g</b>.</p>
+<div class="eq">n = m ÷ M</div>
+<p>n = número de mols · m = massa em gramas · M = massa molar (g/mol).</p>
+<h3>As três conversões (regra de três)</h3>
+<div class="eq" style="font-size:14px">1 mol = massa molar (g) = 6,02 × 10²³ moléculas</div>
+<ul><li><b>Massa → mol:</b> 36 g de água ÷ 18 g/mol = <b>2 mol</b>.</li>
+<li><b>Mol → massa:</b> 0,5 mol de glicose × 180 g/mol = <b>90 g</b>.</li>
+<li><b>Mol → moléculas:</b> 2 mol de CO₂ × 6,02 × 10²³ = <b>1,204 × 10²⁴ moléculas</b>.</li>
+<li><b>Massa → moléculas:</b> 9 g de água = 0,5 mol → 0,5 × 6,02 × 10²³ = <b>3,01 × 10²³ moléculas</b>.</li></ul>
+<div class="dica">🧮 <b>Potências de 10:</b> 2 × 6,02 × 10²³ = 12,04 × 10²³ = <b>1,204 × 10²⁴</b> (a vírgula anda uma casa, o expoente sobe 1).</div>`},
+{id:"formulas",t:"10. Fórmulas e composição molecular",tempo:"25 min",h:`
+<p>A fórmula mostra <b>quais elementos</b> e <b>quantos átomos</b> de cada um existem numa molécula.</p>
+<h3>Contando átomos</h3>
+<div class="tbl"><table><tr><th>Fórmula</th><th>Átomos de cada</th><th>Total por molécula</th></tr>
+<tr><td><b>H₂O</b></td><td>2 H, 1 O</td><td>3</td></tr>
+<tr><td><b>CO₂</b></td><td>1 C, 2 O</td><td>3</td></tr>
+<tr><td><b>H₂SO₄</b></td><td>2 H, 1 S, 4 O</td><td>7</td></tr>
+<tr><td><b>Ca(OH)₂</b></td><td>1 Ca, 2 O, 2 H</td><td>5</td></tr>
+<tr><td><b>C₆H₁₂O₆</b></td><td>6 C, 12 H, 6 O</td><td>24</td></tr></table></div>
+<h3>Número na frente da fórmula (coeficiente)</h3>
+<p>Multiplica a molécula inteira: <b>3 H₂O</b> = 3 moléculas = 6 H e 3 O (9 átomos).</p>
+<h3>Átomos em mols</h3>
+<ul><li>1 molécula de H₂O tem 3 átomos → <b>1 mol</b> de H₂O tem 3 × 6,02 × 10²³ = <b>1,806 × 10²⁴ átomos</b>.</li>
+<li>1 mol de H₂O tem <b>2 mol de átomos de H</b> e 1 mol de átomos de O.</li></ul>
+<h3>Composição em porcentagem</h3>
+<p>% de um elemento = (massa dele na fórmula ÷ massa molecular) × 100. Na água: H = 2 ÷ 18 × 100 ≈ <b>11,1%</b> e O = 16 ÷ 18 × 100 ≈ <b>88,9%</b>.</p>`}
+];
+
+const CARDS=[
+["Número atômico (Z)","Número de prótons. Identifica o elemento."],
+["Número de massa (A)","Prótons + nêutrons."],
+["Como achar os nêutrons?","n = A − Z"],
+["Átomo neutro","Elétrons = prótons."],
+["Cátion","Perdeu elétrons (carga +). Ca²⁺ (Z = 20) tem 18 elétrons."],
+["Ânion","Ganhou elétrons (carga −). Cl⁻ (Z = 17) tem 18 elétrons."],
+["Isótopos","Mesmo número de prótons, massas diferentes. Ex.: ¹²C e ¹⁴C."],
+["Isóbaros e isótonos","Isóbaros: mesmo A. Isótonos: mesmo número de nêutrons."],
+["Isótopos do hidrogênio","Prótio (¹H), deutério (²H) e trítio (³H)."],
+["Ordem de Linus Pauling","1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s…"],
+["Máximo em s, p, d, f","2, 6, 10, 14."],
+["Camada de valência","A camada mais externa. Cl: 7 elétrons de valência."],
+["Subnível mais energético","O último preenchido na ordem de Pauling. Fe: 3d⁶."],
+["Emissão alfa (α)","⁴₂α: A diminui 4 e Z diminui 2. Barrada por papel."],
+["Emissão beta (β)","⁰₋₁β: A não muda e Z aumenta 1. Barrada por alumínio."],
+["Emissão gama (γ)","Onda sem massa e sem carga: não muda A nem Z. Barrada por chumbo."],
+["Ordem de penetração","Alfa < beta < gama."],
+["Quantas alfas numa série?","(A inicial − A final) ÷ 4."],
+["Quantas betas numa série?","Z final = Z inicial − 2α + β."],
+["Fissão x fusão","Fissão: núcleo grande se divide (usina). Fusão: núcleos pequenos se unem (Sol)."],
+["Meia-vida","Tempo para metade da massa se desintegrar."],
+["Fórmula da meia-vida","m = m₀ ÷ 2ⁿ, com n = t ÷ P."],
+["Quanto resta após 3 meias-vidas?","12,5% (100 → 50 → 25 → 12,5)."],
+["Massa atômica","Média ponderada: (m₁ × %₁ + m₂ × %₂) ÷ 100. Cloro = 35,5."],
+["Massa molecular de H₂O, CO₂ e H₂SO₄","18 u, 44 u e 98 u."],
+["Número de Avogadro","1 mol = 6,02 × 10²³ unidades."],
+["Fórmula do mol","n = m ÷ M"],
+["Massa molar da água","18 g/mol."],
+["Átomos em uma molécula de H₂SO₄","7 (2 H, 1 S, 4 O)."],
+["Coeficiente na frente: 3 H₂O","3 moléculas: 6 H e 3 O."]
+];
+
+const QS=[
+{p:"O átomo de alumínio ²⁷₁₃Al tem, respectivamente, quantos prótons, nêutrons e elétrons?",a:["13, 27 e 13","13, 14 e 13","14, 13 e 14","27, 13 e 27","13, 14 e 14"],r:1,e:"Z = 13 → 13 prótons. n = A − Z = 27 − 13 = 14. Átomo neutro: elétrons = prótons = 13."},
+{p:"Um átomo tem 17 prótons e 18 nêutrons. Seu número de massa (A) é:",a:["1","17","18","35","36"],r:3,e:"A = prótons + nêutrons = 17 + 18 = 35. É o cloro-35."},
+{p:"O cátion Ca²⁺ (Z = 20) possui quantos elétrons?",a:["18","20","22","40","2"],r:0,e:"Carga 2+ significa que perdeu 2 elétrons: 20 − 2 = 18 elétrons. Os prótons continuam 20."},
+{p:"O ânion O²⁻ (Z = 8) possui quantos elétrons?",a:["6","8","10","16","2"],r:2,e:"Carga 2− significa que ganhou 2 elétrons: 8 + 2 = 10 elétrons."},
+{p:"Isótopos são átomos que possuem o mesmo número de:",a:["nêutrons","massa","prótons","elétrons e nêutrons","camadas"],r:2,e:"Isótopos são do mesmo elemento: mesmo número de prótons (Z) e massas diferentes."},
+{p:"Os átomos ¹²C, ¹³C e ¹⁴C são:",a:["isóbaros","isótonos","isótopos","íons","elementos diferentes"],r:2,e:"Todos têm Z = 6 (6 prótons) e massas diferentes: são isótopos do carbono."},
+{p:"Os átomos ¹⁴₆C e ¹⁴₇N têm o mesmo número de massa. Eles são:",a:["isótopos","isóbaros","isótonos","alótropos","o mesmo elemento"],r:1,e:"Mesmo A (14) e prótons diferentes: isóbaros (isób-A-ros = mesmo A)."},
+{p:"A distribuição eletrônica do sódio (Z = 11) é:",a:["1s² 2s² 2p⁷","1s² 2s² 2p⁶ 3s¹","1s² 2s² 2p⁵ 3s²","1s² 2s⁶ 3s³","1s² 2p⁶ 3s³"],r:1,e:"Seguindo Pauling: 1s² 2s² 2p⁶ 3s¹. Soma dos expoentes: 2 + 2 + 6 + 1 = 11."},
+{p:"A distribuição do cálcio (Z = 20) por camadas é:",a:["K2 L8 M10","K2 L8 M8 N2","K2 L18","K2 L8 M9 N1","K2 L10 M8"],r:1,e:"1s² 2s² 2p⁶ 3s² 3p⁶ 4s² → K = 2, L = 8, M = 8, N = 2."},
+{p:"Quantos elétrons o cloro (Z = 17) tem na camada de valência?",a:["1","2","5","7","8"],r:3,e:"1s² 2s² 2p⁶ 3s² 3p⁵. A camada mais externa é a 3: 3s² 3p⁵ = 2 + 5 = 7 elétrons."},
+{p:"O subnível mais energético do ferro (Z = 26) é:",a:["4s²","3p⁶","3d⁶","4p²","3d⁸"],r:2,e:"1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. O último preenchido na ordem de Pauling é o 3d⁶."},
+{p:"Quando um núcleo emite uma partícula alfa, seu número de massa e seu número atômico:",a:["aumentam 4 e 2","diminuem 4 e 2","não mudam","A fica igual e Z aumenta 1","diminuem 2 e 4"],r:1,e:"A alfa (⁴₂α) leva 2 prótons e 2 nêutrons: A diminui 4 e Z diminui 2."},
+{p:"Quando um núcleo emite uma partícula beta:",a:["A diminui 4 e Z diminui 2","A não muda e Z aumenta 1","A aumenta 1 e Z não muda","A e Z não mudam","A não muda e Z diminui 1"],r:1,e:"Na beta, um nêutron vira próton e sai um elétron (⁰₋₁β). A massa não muda e o Z aumenta 1."},
+{p:"A radiação mais penetrante, que só é barrada por placas grossas de chumbo ou concreto, é a:",a:["alfa","beta","gama","próton","nêutron lento"],r:2,e:"A gama é uma onda eletromagnética sem massa e sem carga: a mais penetrante. Ordem: alfa < beta < gama."},
+{p:"O urânio ²³⁸₉₂U emite uma partícula alfa. O núcleo formado é:",a:["²³⁴₉₀Th","²³⁸₉₃Np","²³⁴₉₄Pu","²³⁶₉₁Pa","²³⁸₉₀Th"],r:0,e:"A: 238 − 4 = 234. Z: 92 − 2 = 90. Z = 90 é o tório (Th)."},
+{p:"O carbono-14 (¹⁴₆C) emite uma partícula beta. O elemento formado é:",a:["¹⁴₅B","¹⁰₄Be","¹⁴₇N","¹³₆C","¹⁸₈O"],r:2,e:"Beta: A igual (14) e Z + 1 (6 + 1 = 7). Z = 7 é o nitrogênio: ¹⁴₇N."},
+{p:"Na série ²³⁸₉₂U → ²⁰⁶₈₂Pb, foram emitidas quantas partículas alfa e beta?",a:["8 alfa e 6 beta","6 alfa e 8 beta","8 alfa e 8 beta","32 alfa e 10 beta","4 alfa e 6 beta"],r:0,e:"Alfa: (238 − 206) ÷ 4 = 8. Beta: 82 = 92 − 2 × 8 + β → 82 = 76 + β → β = 6."},
+{p:"O Sol produz energia unindo núcleos de hidrogênio para formar hélio. Esse processo é a:",a:["fissão nuclear","fusão nuclear","emissão alfa","combustão","meia-vida"],r:1,e:"Núcleos pequenos se unindo formam um maior: fusão nuclear. A fissão é a divisão de núcleos grandes, como nas usinas."},
+{p:"Uma amostra de 80 g de um isótopo radioativo tem meia-vida de 5 dias. Depois de 20 dias, restam:",a:["40 g","20 g","10 g","5 g","2,5 g"],r:3,e:"20 ÷ 5 = 4 meias-vidas. 80 → 40 → 20 → 10 → 5 g."},
+{p:"O iodo-131 tem meia-vida de 8 dias. Em quanto tempo 100 g se reduzem a 12,5 g?",a:["8 dias","16 dias","24 dias","32 dias","12,5 dias"],r:2,e:"100 → 50 → 25 → 12,5: 3 meias-vidas. 3 × 8 = 24 dias."},
+{p:"Depois de 3 meias-vidas, qual porcentagem da amostra radioativa inicial ainda resta?",a:["50%","33%","25%","12,5%","0%"],r:3,e:"100% → 50% → 25% → 12,5%."},
+{p:"O cloro tem dois isótopos: Cl-35 (75%) e Cl-37 (25%). A massa atômica do cloro é:",a:["35","35,5","36","36,5","37"],r:1,e:"(35 × 75 + 37 × 25) ÷ 100 = (2.625 + 925) ÷ 100 = 35,5 u."},
+{p:"O boro tem os isótopos B-10 (20%) e B-11 (80%). Sua massa atômica é:",a:["10,2","10,5","10,8","11","21"],r:2,e:"(10 × 20 + 11 × 80) ÷ 100 = (200 + 880) ÷ 100 = 10,8 u."},
+{p:"A massa molecular do ácido sulfúrico, H₂SO₄, é (H = 1, S = 32, O = 16):",a:["49 u","66 u","96 u","98 u","100 u"],r:3,e:"2 × 1 + 32 + 4 × 16 = 2 + 32 + 64 = 98 u."},
+{p:"A massa molecular da glicose, C₆H₁₂O₆, é (C = 12, H = 1, O = 16):",a:["29 u","96 u","168 u","180 u","342 u"],r:3,e:"6 × 12 + 12 × 1 + 6 × 16 = 72 + 12 + 96 = 180 u."},
+{p:"Quantos mols existem em 36 g de água (H₂O = 18 g/mol)?",a:["0,5 mol","1 mol","2 mol","18 mol","36 mol"],r:2,e:"n = m ÷ M = 36 ÷ 18 = 2 mol."},
+{p:"Qual é a massa de 0,5 mol de glicose (C₆H₁₂O₆ = 180 g/mol)?",a:["45 g","90 g","180 g","360 g","0,5 g"],r:1,e:"m = n × M = 0,5 × 180 = 90 g."},
+{p:"Quantas moléculas existem em 2 mol de CO₂? (Avogadro = 6,02 × 10²³)",a:["6,02 × 10²³","3,01 × 10²³","1,204 × 10²⁴","1,204 × 10²³","2 × 10²³"],r:2,e:"2 × 6,02 × 10²³ = 12,04 × 10²³ = 1,204 × 10²⁴ moléculas."},
+{p:"Quantas moléculas existem em 9 g de água (H₂O = 18 g/mol)?",a:["3,01 × 10²³","6,02 × 10²³","1,204 × 10²⁴","9 × 10²³","1,806 × 10²⁴"],r:0,e:"9 g ÷ 18 g/mol = 0,5 mol. 0,5 × 6,02 × 10²³ = 3,01 × 10²³ moléculas."},
+{p:"Quantos átomos existem em uma molécula de H₂SO₄?",a:["3","4","6","7","8"],r:3,e:"2 hidrogênios + 1 enxofre + 4 oxigênios = 7 átomos."},
+{p:"Em 3 H₂O, existem quantos átomos de hidrogênio?",a:["2","3","5","6","9"],r:3,e:"O coeficiente 3 multiplica a molécula toda: 3 × 2 = 6 átomos de hidrogênio (e 3 de oxigênio)."},
+{p:"A fórmula Ca(OH)₂ apresenta, por fórmula:",a:["1 Ca, 1 O e 2 H","1 Ca, 2 O e 2 H","2 Ca, 2 O e 2 H","1 Ca, 2 O e 1 H","1 Ca, 1 O e 1 H"],r:1,e:"O 2 fora do parêntese multiplica o O e o H: 1 Ca, 2 O e 2 H (5 átomos)."}
+];
+
+const BOLSO=["<b>Z</b> = prótons · <b>A</b> = p + n · <b>n = A − Z</b> · neutro: e = p.","<b>Cátion</b> (+) perdeu elétrons · <b>ânion</b> (−) ganhou. Ca²⁺: 18 e⁻ · Cl⁻: 18 e⁻.","isóto<b>P</b>os = mesmo próton · isób<b>A</b>ros = mesmo A · isóto<b>N</b>os = mesmo nêutron.","Pauling: <b>1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p</b>. s2 p6 d10 f14.","<b>Valência</b> = camada mais externa · <b>mais energético</b> = último subnível de Pauling.","<b>Alfa</b>: A − 4, Z − 2 · <b>beta</b>: A igual, Z + 1 · <b>gama</b>: não muda nada.","Penetração: <b>alfa &lt; beta &lt; gama</b> (papel, alumínio, chumbo).","Série: <b>nº de α = ΔA ÷ 4</b>; depois <b>Z final = Z inicial − 2α + β</b>.","<b>Fissão</b>: núcleo se divide (usina) · <b>fusão</b>: núcleos se unem (Sol).","<b>Meia-vida</b>: divide por 2 a cada período. <b>m = m₀ ÷ 2ⁿ</b>, n = t ÷ P.","Resta: 1 → 50% · 2 → 25% · 3 → 12,5% · 4 → 6,25%.","<b>Massa atômica</b> = (m₁·%₁ + m₂·%₂) ÷ 100. Cloro = 35,5.","<b>Massa molecular</b> = soma das massas × número de átomos. H₂O 18 · CO₂ 44 · H₂SO₄ 98.","<b>1 mol = 6,02 × 10²³</b> = massa molar em gramas. <b>n = m ÷ M</b>.","Coeficiente multiplica a molécula toda: 3 H₂O = 6 H e 3 O. Parênteses multiplicam o que está dentro."];
+
+const CHK=["Calculo prótons, nêutrons e elétrons de átomos e íons","Diferencio isótopos, isóbaros e isótonos","Faço a distribuição eletrônica pelo diagrama de Pauling","Acho a camada de valência e o subnível mais energético","Sei o que muda no núcleo com alfa, beta e gama","Descubro o elemento formado numa emissão","Calculo quantas alfas e betas há numa série radioativa","Resolvo problemas de meia-vida (massa e tempo)","Calculo massa atômica por média ponderada","Calculo massa molecular","Converto massa, mol e número de moléculas","Conto átomos em fórmulas com coeficientes e parênteses"];
+
+function prog(){
+  const tot=PARTES.length+QS.length+CHK.length;
+  const feito=Object.keys(S.lidas).length+Object.keys(S.q).length+Object.values(S.chk).filter(Boolean).length;
+  $("prog").style.width=Math.round(feito/tot*100)+"%";
+  $("sub").textContent=`Progresso: ${Math.round(feito/tot*100)}% · ${Object.values(S.q).filter(x=>x.ok).length}/${QS.length} exercícios certos`;
+}
+let aba="estudar",qi=0,flipOn=false;
+function estudar(){
+  return `<div class="card"><span class="tag">Plano de estudo</span><h2>Olá, Raphael! 👋</h2><p>Revisão completa para a <b>prova de Química de amanhã</b>, com os 10 conteúdos da lista do professor. Estude na ordem, faça os exercícios de cálculo com lápis e papel e, antes de dormir, leia o resumo de bolso na aba ⚡ Revisão. Toque para abrir.</p>
+  <span class="pill">⏱ ~4h no total</span><span class="pill">📖 10 partes</span><span class="pill">✍️ 32 exercícios</span></div>`+
+  PARTES.map((p,i)=>`<div class="acc" id="acc-${p.id}"><button onclick="abrir('${p.id}')"><span>${p.t}${S.lidas[p.id]?'<span class="ok">✓ lido</span>':''}</span><span class="seta">›</span></button><div class="body">
+   <p style="color:var(--cinza);font-size:13px">⏱ ${p.tempo}</p>${p.h}
+   <button class="btn y" style="margin-top:8px" onclick="lido('${p.id}')">${S.lidas[p.id]?"✓ Parte concluída":"Terminei esta parte ✓"}</button></div></div>`).join("")+
+  `<div class="card"><p style="margin:0">Depois de ler, vá em <b>🃏 Cartões</b> para memorizar e em <b>✍️ Exercícios</b> para treinar.</p></div>`;
+}
+function abrir(id){const el=$("acc-"+id);el.classList.toggle("on")}
+function lido(id){S.lidas[id]=1;save();render();setTimeout(()=>{const n=PARTES.findIndex(p=>p.id===id)+1;if(PARTES[n])$("acc-"+PARTES[n].id).classList.add("on")},50)}
+function cartoes(){
+  const i=S.card%CARDS.length,c=CARDS[i];
+  return `<div class="card"><span class="tag">Cartões de memória</span><p style="margin:0">Leia a frente, tente lembrar a resposta e toque no cartão para virar.</p></div>
+  <div class="flip ${flipOn?'on':''}" onclick="virar()"><div class="in"><div class="f">${c[0]}<small>Toque para ver a resposta · ${i+1} de ${CARDS.length}</small></div><div class="v">${c[1]}<small>Toque para voltar</small></div></div></div>
+  <div class="row"><button class="btn s" onclick="mudar(-1)">‹ Anterior</button><button class="btn p" onclick="mudar(1)">Próximo ›</button></div>
+  <button class="btn s" style="width:100%;margin-top:10px" onclick="embaralhar()">🔀 Embaralhar</button>`;
+}
+function virar(){flipOn=!flipOn;document.querySelector(".flip").classList.toggle("on",flipOn)}
+function mudar(d){flipOn=false;S.card=(S.card+d+CARDS.length)%CARDS.length;save();render()}
+function embaralhar(){for(let i=CARDS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[CARDS[i],CARDS[j]]=[CARDS[j],CARDS[i]]}S.card=0;flipOn=false;save();render()}
+function exercicios(){
+  const feitos=Object.keys(S.q).length,cert=Object.values(S.q).filter(x=>x.ok).length;
+  if(qi>=QS.length){
+    const pct=Math.round(cert/QS.length*100);
+    return `<div class="card" style="text-align:center"><span class="tag">Resultado</span><div class="big">${cert}/${QS.length}</div><p><b>${pct>=80?"Excelente, Raphael! Pronto para a prova de Química 🚀":pct>=60?"Bom! Revise os que errou 💪":"Releia os resumos e tente de novo 📚"}</b></p>
+    <button class="btn y" onclick="refazer()">Refazer exercícios</button><button class="btn s" style="width:100%;margin-top:8px" onclick="qi=0;render()">Ver as questões de novo</button></div>`;
+  }
+  const q=QS[qi],r=S.q[qi];
+  let h=`<div class="card"><span class="tag">Exercício ${qi+1} de ${QS.length}</span><div class="q">${q.p}</div>`+
+  ordem(qi).map((k,pos)=>{let c="";if(r){if(k===q.r)c="c";else if(k===r.esc)c="e"}return `<button class="alt ${c}" onclick="resp(${k})"><span class="l">${"ABCDE"[pos]}</span><span>${q.a[k]}</span></button>`}).join("");
+  if(r)h+=`<div class="exp ${r.ok?'c':'e'}"><b>${r.ok?"✅ Acertou!":"❌ Não foi dessa vez. Resposta: "+"ABCDE"[ordem(qi).indexOf(q.r)]}</b><br>${q.e}</div>`;
+  h+=`</div><div class="row"><button class="btn s" onclick="qi=Math.max(0,qi-1);render()" ${qi===0?"disabled":""}>‹ Voltar</button><button class="btn p" onclick="qi++;render()">${qi===QS.length-1?"Ver resultado":"Próximo ›"}</button></div>
+  <p style="text-align:center;color:var(--cinza);font-size:13px;margin-top:10px">${cert} certos de ${feitos} respondidos</p>`;
+  return h;
+}
+function ordem(i){let t=(i+1)*2654435761+55>>>0;const rnd=()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296};const a=[0,1,2,3,4];for(let k=4;k>0;k--){const j=Math.floor(rnd()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function resp(k){if(S.q[qi])return;S.q[qi]={esc:k,ok:k===QS[qi].r};try{navigator.vibrate&&navigator.vibrate(k===QS[qi].r?60:[80,60,80])}catch(e){};save();render()}
+function refazer(){S.q={};qi=0;save();render()}
+function revisao(){
+  return `<div class="card"><span class="tag">Resumo de bolso</span><h2>⚡ Revise em 5 minutos</h2><p style="color:var(--cinza)">Leia antes de dormir e de manhã, antes da prova.</p><ul>${BOLSO.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="card chk"><span class="tag">Checklist</span><h2>Eu já sei…</h2>${CHK.map((t,i)=>`<label><input type="checkbox" ${S.chk[i]?"checked":""} onchange="S.chk[${i}]=this.checked;save()">${t}</label>`).join("")}</div>`;
+}
+function render(){
+  const V={estudar,cartoes,exercicios,revisao};
+  $("app").innerHTML=V[aba]()+FOOT;prog();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{aba=b.dataset.t;document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("on",x===b));flipOn=false;render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
