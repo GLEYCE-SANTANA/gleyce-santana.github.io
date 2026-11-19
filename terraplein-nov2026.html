@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda TERRAPLEIN — Novembro 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f131b;--card:#171d2a;--card-hover:#1c2435;--border:#232b3d;--gold:#c9a84c;--gold-light:#e8c97a;--navy:#0d1b3e;--text:#e4e4e7;--muted:#8b8fa3;--green:#22c55e;--green-bg:rgba(34,197,94,.12);--red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);--orange:#f59e0b;--rs:#6366f1;--sc:#06b6d4;font-family:'Manrope',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px}
+.header{background:linear-gradient(135deg,#0d1b3e 0%,#162448 100%);padding:28px 24px 20px;border-bottom:2px solid var(--gold)}
+.header-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo-gs{width:48px;height:48px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:#0d1b3e;flex-shrink:0}
+.header h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(22px,4vw,32px);color:var(--gold-light);letter-spacing:.5px;line-height:1.1}
+.header h1 span{color:var(--muted);font-weight:400;font-size:.55em;display:block;margin-top:2px;letter-spacing:0}
+.header-sub{margin-top:12px;font-size:13px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.header-sub .badge{background:var(--gold);color:#0d1b3e;padding:2px 10px;border-radius:99px;font-weight:700;font-size:11px;letter-spacing:.3px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:16px 24px 8px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-align:center}
+.stat .n{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;color:var(--gold)}
+.stat .n.green{color:var(--green)}.stat .n.red{color:var(--red)}.stat .n.blue{color:var(--blue)}
+.stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.filters{padding:8px 24px 0;display:flex;gap:8px;flex-wrap:wrap}
+.fbtn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+.fbtn:hover,.fbtn.active{background:var(--gold);color:#0d1b3e;border-color:var(--gold)}
+.cards{padding:12px 24px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:.2s;position:relative;overflow:hidden}
+.card:hover{background:var(--card-hover);border-color:var(--gold)}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.card.uf-RS::before{background:var(--rs)}.card.uf-SC::before{background:var(--sc)}
+.card.dec-participar{border-color:var(--green);background:var(--green-bg)}
+.card.dec-descartar{opacity:.45;border-color:#333}
+.card.dec-analise{border-color:var(--orange)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.card-num{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:var(--gold);background:rgba(201,168,76,.12);padding:2px 10px;border-radius:6px;white-space:nowrap}
+.card-date{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:var(--gold-light);white-space:nowrap}
+.card-date .dias{font-size:11px;color:var(--muted);font-weight:500;margin-left:6px}
+.card-date .dias.urgente{color:var(--red);font-weight:700}
+.card-orgao{font-weight:700;font-size:14px;margin-top:6px;color:var(--text)}
+.card-local{font-size:12px;color:var(--muted);margin-top:2px}
+.card-local .uf-tag{font-weight:700;padding:1px 6px;border-radius:4px;font-size:10px;margin-left:4px}
+.uf-tag.RS{background:rgba(99,102,241,.18);color:#818cf8}
+.uf-tag.SC{background:rgba(6,182,212,.18);color:#22d3ee}
+.card-obj{font-size:13px;color:var(--text);margin-top:8px;line-height:1.5;opacity:.9}
+.card-valor{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:var(--gold);margin-top:8px}
+.card-valor.sigiloso{font-size:14px;color:var(--orange);font-style:italic}
+.card-obs{font-size:11px;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);line-height:1.4}
+.card-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.card-actions button{padding:6px 14px;border-radius:8px;border:1px solid var(--border);font-size:11px;font-weight:700;cursor:pointer;transition:.15s;text-transform:uppercase;letter-spacing:.3px}
+.btn-participar{background:var(--green-bg);color:var(--green);border-color:rgba(34,197,94,.3)}
+.btn-participar:hover,.btn-participar.active{background:var(--green);color:#fff}
+.btn-descartar{background:var(--red-bg);color:var(--red);border-color:rgba(239,68,68,.3)}
+.btn-descartar:hover,.btn-descartar.active{background:var(--red);color:#fff}
+.btn-analise{background:var(--blue-bg);color:var(--blue);border-color:rgba(59,130,246,.3)}
+.btn-analise:hover,.btn-analise.active{background:var(--blue);color:#fff}
+.whatsapp-bar{position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:2px solid var(--gold);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:100;flex-wrap:wrap}
+.wpp-info{font-size:12px;color:var(--gold-light)}
+.wpp-info strong{color:var(--gold)}
+.btn-wpp{background:#25d366;color:#fff;border:none;padding:10px 20px;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.15s}
+.btn-wpp:hover{background:#1ebe57}
+.footer-cred{text-align:center;padding:20px 24px 90px;font-size:11px;color:var(--muted)}
+.footer-cred a{color:var(--gold)}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.cards{padding:8px 12px}.card{padding:12px 14px}.whatsapp-bar{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <div class="logo-gs">GS</div>
+    <h1>AGENDA DE LICITAÇÕES — TERRAPLEIN LTDA<span>Pavimentação · Terraplenagem · Drenagem — RS e SC</span></h1>
+  </div>
+  <div class="header-sub">
+    <span class="badge">NOV — JAN 2027</span>
+    <span>Fonte: PNCP · Portal de Compras Públicas</span>
+    <span>Gerada em 19/11/2026</span>
+    <span>Dra. Gleyce Santana — OAB/GO 43.167</span>
+  </div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="filters" id="filters">
+  <button class="fbtn active" data-f="all">Todas</button>
+  <button class="fbtn" data-f="RS">RS</button>
+  <button class="fbtn" data-f="SC">SC</button>
+  <button class="fbtn" data-f="participar">✅ Participar</button>
+  <button class="fbtn" data-f="analise">🔎 Em análise</button>
+  <button class="fbtn" data-f="pendente">Sem decisão</button>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<div class="whatsapp-bar" id="wppbar">
+  <div class="wpp-info">Escolhidas: <strong id="wpp-count">0</strong> · Valor: <strong id="wpp-valor">R$ 0</strong></div>
+  <button class="btn-wpp" id="btn-wpp" onclick="enviarWhatsApp()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Enviar ao Cliente
+  </button>
+</div>
+
+<div class="footer-cred">
+  GS Licitações · Dra. Gleyce Kely Santana Alves · OAB/GO 43.167<br>
+  <a href="https://wa.me/5562998580927" target="_blank">WhatsApp +55 62 9858-0927</a>
+</div>
+
+<script>
+const LICITACOES=[
+{n:1,orgao:"Município de Porto Belo",mun:"Porto Belo",uf:"SC",edital:"Edital 286/2026",valor:7918099.96,data:"2026-11-23",hora:"09:00",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas",obj:"Requalificação do binário Rua Blumenau e José Alexandre Rocha — pavimentação, drenagem, abastecimento de água, ciclovia, passeios e sinalização viária (Lotes 1 e 2)",obs:"Sessão em 4 dias — prazo apertado para preparação"},
+{n:2,orgao:"Município de Pelotas / FUNRIGS / SANEP",mun:"Pelotas",uf:"RS",edital:"CE 021/2026",valor:20582734.57,data:"2026-11-26",hora:"09:00",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas",obj:"Execução de obras de diques, drenagem e pavimentação no Bairro Laranjal — FUNRIGS/SANEP",obs:""},
+{n:3,orgao:"Município de Nova Alvorada",mun:"Nova Alvorada",uf:"RS",edital:"CE 17/2026",valor:14832990.71,data:"2026-11-27",hora:"09:00",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Pavimentação asfáltica ERS-132 trecho Nova Alvorada–Itapuca, compreendendo terraplenagem, drenagem, pavimentação e sinalização",obs:""},
+{n:4,orgao:"Município de Vila Flores",mun:"Vila Flores",uf:"RS",edital:"CE 9/2026",valor:null,data:"2026-12-01",hora:"08:29",mod:"Concorrência Eletrônica",portal:"Tecnosweb",obj:"Obras e Instalações (objeto genérico — verificar edital para detalhamento)",obs:"Valor sigiloso. Descrição genérica no PNCP — confirmar escopo no edital"},
+{n:5,orgao:"Município de Balneário Rincão",mun:"Balneário Rincão",uf:"SC",edital:"CE 170/2026",valor:5297815.59,data:"2026-12-01",hora:"09:00",mod:"Concorrência Eletrônica",portal:"Betha Sistemas",obj:"Pavimentação com lajotas sextavadas em 17 ruas no Loteamento Lagoa dos Freitas, Balneário Rincão/SC",obs:""},
+{n:6,orgao:"Município de Balneário Gaivota",mun:"Balneário Gaivota",uf:"SC",edital:"CE 19/2026",valor:7439904.17,data:"2026-12-01",hora:"08:59",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas",obj:"Pavimentação asfáltica em CBUQ da Rodovia Almiro Manoel de Souza (Figueirinha–Palmeira) e Rua Isaac, extensão total 7.353m, incluindo drenagem e sinalização",obs:""},
+{n:7,orgao:"Município de Itaqui",mun:"Itaqui",uf:"RS",edital:"CE 016/2026",valor:8966147.04,data:"2026-12-02",hora:"09:00",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Pavimentação viária em concreto — Segundo Lote, município de Itaqui/RS",obs:""},
+{n:8,orgao:"Município de Alegrete",mun:"Alegrete",uf:"RS",edital:"CE 11/2026",valor:12080639.94,data:"2026-12-03",hora:"13:30",mod:"Concorrência Eletrônica",portal:"Governançabrasil",obj:"Pavimentação asfáltica de ruas no município de Alegrete/RS, referente ao Contrato de Repasse nº 946116/2023 — recurso federal",obs:""},
+{n:9,orgao:"Município de Forquilhinha",mun:"Forquilhinha",uf:"SC",edital:"CE 194/2026",valor:5353651.34,data:"2026-12-03",hora:"14:00",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Infraestrutura viária com execução de base e sub-base em 3 ruas no município de Forquilhinha/SC",obs:""},
+{n:10,orgao:"SAMAE — Brusque",mun:"Brusque",uf:"SC",edital:"CCE 66/2026",valor:13264250.00,data:"2026-12-09",hora:"08:00",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas / IPM",obj:"Registro de preços para serviço de reposição de pavimento asfáltico — SAMAE Brusque/SC",obs:"SRP — modo de disputa aberto-fechado"},
+{n:11,orgao:"Município de Florianópolis",mun:"Florianópolis",uf:"SC",edital:"CE 36/2026",valor:null,data:"2026-12-17",hora:"14:00",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas",obj:"Drenagem e pavimentação da Rua Professor Bayer Filho, bairro Coqueiros, Florianópolis/SC",obs:"Valor sigiloso"},
+{n:12,orgao:"Município de São José — Sec. Infraestrutura",mun:"São José",uf:"SC",edital:"CCE 8/2026",valor:null,data:"2026-12-18",hora:"13:30",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Duplicação da Av. Antônio Jovita Duarte (entre rótulas), incluindo 2ª Ponte sobre Rio Forquilhas — terraplanagem, drenagem e pavimentação asfáltica",obs:"Valor sigiloso. Obra de grande porte — sede da TERRAPLEIN"},
+{n:13,orgao:"Município de São José — Sec. Infraestrutura",mun:"São José",uf:"SC",edital:"CCE 11/2026",valor:null,data:"2026-12-18",hora:"13:30",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Terraplanagem, drenagem e pavimentação asfáltica da Rua Bernardo Halfeld, Bairro Nossa Sra. do Rosário, São José/SC",obs:"Valor sigiloso — sede da TERRAPLEIN"},
+{n:14,orgao:"Município de São José — Sec. Infraestrutura",mun:"São José",uf:"SC",edital:"CCE 10/2026",valor:null,data:"2026-12-18",hora:"13:30",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Execução de duas pontes sobre o Rio Imaruí — ligação Rua Jorge José Zimmermann/Rua Jorge José da Silva e Rua Afonso Pena/Rua Dalva da Silva Weise, Sertão do Maruim",obs:"Valor sigiloso. Pontes rodoviárias — confirmar se se enquadra nos atestados da empresa"},
+{n:15,orgao:"Município de Alpestre",mun:"Alpestre",uf:"RS",edital:"CE 07/2026",valor:13055714.22,data:"2026-12-24",hora:"09:00",mod:"Concorrência Eletrônica",portal:"BLL",obj:"Pavimentação asfáltica Trecho II no município de Alpestre/RS — operação de crédito Banco do Brasil",obs:""},
+{n:16,orgao:"Município de Itajaí",mun:"Itajaí",uf:"SC",edital:"CE 021/2026",valor:46970901.17,data:"2026-12-29",hora:"09:00",mod:"Concorrência Eletrônica",portal:"BLL",obj:"Binário Oeste — Av. Osvaldo Reis: terraplenagem, drenagem, pavimentação asfáltica, ciclovia e sinalização viária",obs:""},
+{n:17,orgao:"Município de São José — Sec. Infraestrutura",mun:"São José",uf:"SC",edital:"CCE 12/2026",valor:null,data:"2026-12-30",hora:"00:00",mod:"Concorrência Eletrônica",portal:"IPM Sistemas",obj:"Terraplanagem, drenagem e pavimentação asfáltica da Rua Paulino Luiz Machado, São José/SC",obs:"Valor sigiloso. Horário a confirmar (publicado como 00:00) — sede da TERRAPLEIN"},
+{n:18,orgao:"DMAE — Porto Alegre",mun:"Porto Alegre",uf:"RS",edital:"CE 13/2026",valor:158989516.76,data:"2027-01-25",hora:"08:30",mod:"Concorrência Eletrônica",portal:"Portal de Compras Públicas",obj:"Contratação integrada para macrodrenagem e proteção contra cheias do Pôlder Sarandi — EBAP 10 (nova estação de bombeamento)",obs:"Maior valor da carteira. Contratação integrada (projeto básico + executivo + execução)"}
+];
+
+const HOJE=new Date(2026,10,19);
+let decisoes={};
+try{const s=localStorage.getItem('terraplein_nov2026');if(s)decisoes=JSON.parse(s)}catch(e){}
+
+function salvar(){try{localStorage.setItem('terraplein_nov2026',JSON.stringify(decisoes))}catch(e){}}
+
+function diasAte(ds){const d=new Date(ds+'T12:00:00');return Math.round((d-HOJE)/(864e5))}
+
+function fmtValor(v){if(!v)return null;return'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+
+function renderStats(){
+  const el=document.getElementById('stats');
+  const total=LICITACOES.length;
+  const valorTotal=LICITACOES.reduce((s,l)=>s+(l.valor||0),0);
+  const part=Object.values(decisoes).filter(d=>d==='participar').length;
+  const desc=Object.values(decisoes).filter(d=>d==='descartar').length;
+  const pend=total-Object.keys(decisoes).length;
+  const valorPart=LICITACOES.filter(l=>decisoes[l.n]==='participar').reduce((s,l)=>s+(l.valor||0),0);
+  el.innerHTML=`
+    <div class="stat"><div class="n">${total}</div><div class="l">Oportunidades</div></div>
+    <div class="stat"><div class="n" style="font-size:20px">${fmtValor(valorTotal)||'—'}</div><div class="l">Valor em Carteira</div></div>
+    <div class="stat"><div class="n green">${part}</div><div class="l">Participar</div></div>
+    <div class="stat"><div class="n red">${desc}</div><div class="l">Descartadas</div></div>
+    <div class="stat"><div class="n blue">${pend}</div><div class="l">Pendentes</div></div>
+    <div class="stat"><div class="n green" style="font-size:18px">${fmtValor(valorPart)||'R$ 0'}</div><div class="l">Valor Escolhidas</div></div>
+  `;
+  document.getElementById('wpp-count').textContent=part;
+  document.getElementById('wpp-valor').textContent=fmtValor(valorPart)||'R$ 0';
+}
+
+let filtroAtual='all';
+function renderCards(){
+  const el=document.getElementById('cards');
+  let html='';
+  const lista=LICITACOES.filter(l=>{
+    const dec=decisoes[l.n]||'';
+    if(filtroAtual==='RS')return l.uf==='RS';
+    if(filtroAtual==='SC')return l.uf==='SC';
+    if(filtroAtual==='participar')return dec==='participar';
+    if(filtroAtual==='analise')return dec==='analise';
+    if(filtroAtual==='pendente')return !dec;
+    return true;
+  });
+  lista.forEach(l=>{
+    const dias=diasAte(l.data);
+    const dec=decisoes[l.n]||'';
+    const urgente=dias<=5&&dias>=0;
+    const valorStr=l.valor?fmtValor(l.valor):null;
+    html+=`<div class="card uf-${l.uf} ${dec?'dec-'+dec:''}" id="card-${l.n}">
+      <div class="card-top">
+        <div class="card-num">#${l.n} · ${l.edital}</div>
+        <div class="card-date">${new Date(l.data+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'short',year:'numeric'})} · ${l.hora==='00:00'?'Horário a confirmar':l.hora} <span class="dias ${urgente?'urgente':''}">${dias===0?'HOJE':dias===1?'AMANHÃ':dias>0?dias+' dias':'Encerrada'}</span></div>
+      </div>
+      <div class="card-orgao">${l.orgao}</div>
+      <div class="card-local">${l.mun} <span class="uf-tag ${l.uf}">${l.uf}</span> · ${l.mod} · ${l.portal}</div>
+      <div class="card-obj">${l.obj}</div>
+      <div class="card-valor ${valorStr?'':'sigiloso'}">${valorStr||'VALOR SIGILOSO'}</div>
+      ${l.obs?`<div class="card-obs">⚠ ${l.obs}</div>`:''}
+      <div class="card-actions">
+        <button class="btn-participar ${dec==='participar'?'active':''}" onclick="decidir(${l.n},'participar')">✅ Participar</button>
+        <button class="btn-analise ${dec==='analise'?'active':''}" onclick="decidir(${l.n},'analise')">🔎 Analisar</button>
+        <button class="btn-descartar ${dec==='descartar'?'active':''}" onclick="decidir(${l.n},'descartar')">❌ Descartar</button>
+      </div>
+    </div>`;
+  });
+  if(!lista.length)html='<div style="text-align:center;padding:40px;color:var(--muted)">Nenhuma licitação neste filtro.</div>';
+  el.innerHTML=html;
+}
+
+function decidir(n,dec){
+  if(decisoes[n]===dec)delete decisoes[n];
+  else decisoes[n]=dec;
+  salvar();renderStats();renderCards();
+}
+
+document.getElementById('filters').addEventListener('click',e=>{
+  if(!e.target.classList.contains('fbtn'))return;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  filtroAtual=e.target.dataset.f;
+  renderCards();
+});
+
+function enviarWhatsApp(){
+  const escolhidas=LICITACOES.filter(l=>decisoes[l.n]==='participar');
+  if(!escolhidas.length){alert('Marque ao menos uma licitação como PARTICIPAR.');return}
+  let msg=`*AGENDA TERRAPLEIN — ${escolhidas.length} licitação(ões) escolhida(s)*\n\n`;
+  escolhidas.forEach((l,i)=>{
+    msg+=`*${i+1}. ${l.mun}/${l.uf}* — ${l.edital}\n`;
+    msg+=`📅 ${new Date(l.data+'T12:00:00').toLocaleDateString('pt-BR')} às ${l.hora}\n`;
+    msg+=`💰 ${l.valor?fmtValor(l.valor):'Valor sigiloso'}\n`;
+    msg+=`📋 ${l.obj.substring(0,100)}${l.obj.length>100?'…':''}\n\n`;
+  });
+  const valorTotal=escolhidas.reduce((s,l)=>s+(l.valor||0),0);
+  msg+=`*Valor total:* ${fmtValor(valorTotal)}\n`;
+  msg+=`\n_Dra. Gleyce Santana — OAB/GO 43.167_`;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+
+renderStats();renderCards();
+</script>
+</body>
+</html>
