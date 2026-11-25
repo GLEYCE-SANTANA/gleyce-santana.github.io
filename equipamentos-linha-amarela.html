@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#141821">
+<title>Radar Equipamentos — Linha Amarela e Asfalto — Agenda de Licitações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f131b; --bg2:#141a24; --card:#1b222e; --card2:#212a38;
+  --ink:#eef2f7; --mut:#9aa7b8; --line:#2b3543;
+  --amber:#f5a623; --green:#22c55e; --greenD:#15803d; --red:#ef4444; --redD:#b91c1c; --blue:#3b82f6; --yellow:#eab308;
+  --shadow:0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:linear-gradient(180deg,#0d1119,#0f131b 240px);color:var(--ink);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.45;
+  padding-bottom:110px;overscroll-behavior-y:contain}
+h1,h2,h3,.disp{font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px;margin:0}
+
+/* HEADER */
+.top{position:sticky;top:0;z-index:40;background:rgba(15,19,27,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.top .bar{background:repeating-linear-gradient(90deg,var(--amber) 0 22px,#111 22px 40px);height:6px}
+.head{padding:12px 15px 10px}
+.head .kicker{font-size:11px;letter-spacing:2.5px;color:var(--amber);font-weight:700;text-transform:uppercase}
+.head h1{font-size:26px;font-weight:700;line-height:1;margin-top:3px}
+.head .sub{font-size:11.5px;color:var(--mut);margin-top:5px}
+/* SUMMARY */
+.sum{display:flex;gap:6px;padding:0 12px 11px}
+.chipstat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;min-width:0}
+.chipstat .n{font-family:'Barlow Condensed';font-size:24px;font-weight:700;line-height:1}
+.chipstat .l{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.chipstat.p .n{color:var(--green)} .chipstat.d .n{color:var(--red)} .chipstat.a .n{color:var(--yellow)} .chipstat.pd .n{color:var(--mut)}
+.totbar{margin:0 12px 10px;background:linear-gradient(100deg,#15361f,#123)}
+.totbar{border:1px solid #24613a;border-radius:12px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center}
+.totbar .lbl{font-size:11px;color:#8fe3ab;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.totbar .val{font-family:'Barlow Condensed';font-size:22px;font-weight:700;color:#c9f6d8}
+/* progress */
+.prog{height:5px;background:var(--line);border-radius:9px;margin:0 12px 10px;overflow:hidden}
+.prog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--green));transition:width .4s}
+
+/* FILTERS */
+.filters{display:flex;gap:7px;overflow-x:auto;padding:2px 12px 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex:none;background:var(--card);border:1px solid var(--line);color:var(--mut);
+  padding:7px 13px;border-radius:20px;font-size:12.5px;font-weight:600;white-space:nowrap;cursor:pointer}
+.fbtn.on{background:var(--amber);color:#1a1205;border-color:var(--amber)}
+
+/* DAY GROUP */
+.day{margin:16px 12px 0}
+.dayhd{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:11px;color:#fff;
+  font-family:'Barlow Condensed';font-weight:700;box-shadow:var(--shadow);position:sticky;top:6px;z-index:20}
+.dayhd .dw{font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:1px}
+.dayhd .dd{font-size:21px;line-height:1}
+.dayhd .cnt{margin-left:auto;background:rgba(0,0,0,.28);padding:3px 10px;border-radius:20px;font-size:13px;font-weight:600}
+.dayhd .dv{font-size:11px;opacity:.92;font-weight:600;font-family:'Manrope'}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);
+  border-radius:13px;margin-top:9px;padding:12px 13px;box-shadow:var(--shadow);transition:.18s}
+.card.p{border-left-color:var(--green);background:linear-gradient(100deg,#15291d,#1b222e 60%)}
+.card.d{border-left-color:var(--red);opacity:.62}
+.card.d .obj,.card.d .mun{text-decoration:line-through}
+.card.a{border-left-color:var(--yellow);background:linear-gradient(100deg,#282413,#1b222e 60%)}
+.crow{display:flex;align-items:baseline;gap:8px}
+.mun{font-family:'Barlow Condensed';font-size:20px;font-weight:700;line-height:1;flex:1}
+.uf{font-size:10px;font-weight:800;padding:2px 6px;border-radius:5px;background:#33405a;color:#cdd9ee;letter-spacing:.5px}
+.uf.ma{background:#3a2740;color:#eccdf0}
+.hora{font-size:12px;color:var(--amber);font-weight:700;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.tg{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:#26303f;color:#b9c6d8;border:1px solid #313d4e}
+.tg.km{background:#2a2213;color:#f0cf8f;border-color:#4a3a17}
+.tg.mass{background:#2b1533;color:#f0b6ff;border-color:#5a2a68}
+.obj{font-size:13px;color:#d3dce8;margin:2px 0 3px;max-height:38px;overflow:hidden;position:relative;transition:max-height .25s}
+.obj.open{max-height:400px}
+.more{font-size:11.5px;color:var(--amber);font-weight:700;cursor:pointer;display:inline-block;margin-bottom:6px}
+.meta{font-size:11px;color:var(--mut);margin-top:4px;display:flex;flex-wrap:wrap;gap:3px 12px}
+.val{font-family:'Barlow Condensed';font-size:19px;font-weight:700;color:#eef2f7}
+.val.nd{font-size:12px;color:var(--mut);font-family:'Manrope';font-style:italic}
+.warn{font-size:11px;color:#ffcf8f;background:#3a2a12;border:1px solid #5a3f16;border-radius:8px;padding:6px 9px;margin-top:7px}
+/* decision buttons */
+.dec{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:11px}
+.db{border:none;border-radius:10px;padding:12px 4px;font-family:'Manrope';font-weight:800;font-size:13px;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card2);color:var(--mut);border:1.5px solid var(--line)}
+.db .ic{font-size:16px}
+.db.selP{background:var(--green);color:#062b12;border-color:var(--green)}
+.db.selA{background:var(--yellow);color:#3a2f04;border-color:var(--yellow)}
+.db.selD{background:var(--red);color:#fff;border-color:var(--red)}
+.db:active{transform:scale(.96)}
+
+.empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px}
+
+/* FOOTER ACTION */
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,17,25,.96);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.foot .row{display:flex;gap:8px}
+.wapp{flex:1;background:#25d366;color:#053d1c;border:none;border-radius:13px;padding:14px;font-weight:800;font-size:15.5px;
+  font-family:'Manrope';cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.wapp:active{transform:scale(.98)}
+.wapp:disabled{background:#2a3340;color:#6b7688;box-shadow:none}
+.mini{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:13px;padding:0 15px;font-weight:700;font-size:13px;cursor:pointer}
+.foot .hint{font-size:10.5px;color:var(--mut);text-align:center;margin-top:6px}
+
+/* toast */
+.toast{position:fixed;bottom:120px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:#eef2f7;color:#141821;padding:11px 18px;border-radius:11px;font-weight:700;font-size:13px;
+  z-index:80;transition:.3s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:88%}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="nojsBanner" style="background:#f5a623;color:#1a1205;padding:12px 14px;font:600 13.5px -apple-system,BlinkMacSystemFont,sans-serif;text-align:center;line-height:1.5">⚠️ Para a versao INTERATIVA (tocar em Participar/Descartar) abra pelo <b>LINK no navegador</b>:<br><a href="https://gleyce-santana.github.io/equipamentos-linha-amarela.html" style="color:#7a3b00">https://gleyce-santana.github.io/equipamentos-linha-amarela.html</a></div>
+<div class="top">
+  <div class="bar"></div>
+  <div class="head">
+    <div class="kicker">GS Licitações · Agenda Interativa</div>
+    <h1>Radar Equipamentos — Linha Amarela e Asfalto</h1>
+    <div class="sub">Compra de máquinas de linha amarela e equipamentos de asfalto · todos os estados<br>PNCP + eLicitaBoletim · levantamento de 25/11/2026</div>
+  </div>
+  <div class="sum">
+    <div class="chipstat p"><div class="n" id="cP">0</div><div class="l">Participar</div></div>
+    <div class="chipstat a"><div class="n" id="cA">0</div><div class="l">Análise</div></div>
+    <div class="chipstat d"><div class="n" id="cD">0</div><div class="l">Descartar</div></div>
+    <div class="chipstat pd"><div class="n" id="cN">0</div><div class="l">Pendente</div></div>
+  </div>
+  <div class="totbar"><span class="lbl">💰 Valor a disputar (participar)</span><span class="val" id="totV">R$ 0</span></div>
+  <div class="prog"><i id="progBar"></i></div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="foot">
+  <div class="row">
+    <button class="wapp" id="btnWapp" disabled><span>📲</span><span id="wappTxt">Enviar decisões no WhatsApp</span></button>
+    <button class="mini" id="btnCopy">Copiar</button>
+  </div>
+  <div class="hint" id="footHint">Toque em PARTICIPAR, ANÁLISE ou DESCARTAR em cada card</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+window.onerror=function(m,src,ln,col,err){try{var d=document.getElementById("__err")||document.createElement("div");d.id="__err";d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#b91c1c;color:#fff;padding:10px 12px;font:12px -apple-system,sans-serif;white-space:pre-wrap";d.textContent="⚠ "+m+" (linha "+ln+")";document.body.appendChild(d);}catch(_){}return false;};
+const ITENS = [{"orgao": "MUNICIPIO DE INHUMAS", "mun": "Inhumas", "uf": "GO", "edital": "70/2026", "valor": 368333.33, "data": "2026-11-26", "hora": "08:00", "mod": "Pregão-Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "01 (um) trator de esteira usado", "tipo_obra": "Trator de esteira", "link": "https://inhumas.go.gov.br/", "srp": false, "nota_extra": "Equipamento USADO.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 0}, {"orgao": "MUNICIPIO DE APIAI", "mun": "Apiaí", "uf": "SP", "edital": "061/2026", "valor": 678444, "data": "2026-11-26", "hora": "08:30", "mod": "Pregão - Eletrônico", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Minicarregadeira nova, zero hora, com implementos", "tipo_obra": "Minicarregadeira", "link": "https://pncp.gov.br/app/editais/46634242000138/2026/213", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 1}, {"orgao": "MUNICIPIO DE MORRINHOS DO SUL", "mun": "Morrinhos do Sul", "uf": "RS", "edital": "486/2026", "valor": 450060, "data": "2026-11-26", "hora": "08:30", "mod": "Pregão - Eletrônico", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Máquina tipo ESCAVADEIRA HIDRÁULICA (ZERO HORA)CONVÊNIO: SPOA/SE/MAPA nº 997953/2026 – TRANSFEREGOV.BRnº 021992/2026", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/93317980000131/2026/484", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 2}, {"orgao": "MUNICIPIO DE SAO GERALDO DA PIEDADE", "mun": "São Geraldo da Piedade", "uf": "MG", "edital": "000044/2026", "valor": 498667, "data": "2026-11-26", "hora": "09:21", "mod": "Pregão - Eletrônico", "portal": "Licitar Digital", "objeto": "01 (uma) escavadeira hidráulica compacta, nova, de fábrica, sem uso anterior, com ano de fabricação/modelo igual ou superior ao ano de publicação…", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/18307470000168/2026/50", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 3}, {"orgao": "MUNICIPIO DE ANTONIO DIAS", "mun": "Antônio Dias", "uf": "MG", "edital": "82/2026", "valor": 547500, "data": "2026-11-26", "hora": "09:45", "mod": "Pregão - Eletrônico", "portal": "AMM Licita", "objeto": "Rolo compactador novo, cilindro tracionado na dianteira com conversão para pé de carneiro, com potência mínima de 130 hp, peso operacional mínimo de…", "tipo_obra": "Rolo compactador", "link": "https://pncp.gov.br/app/editais/16796575000100/2026/71", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 4}, {"orgao": "MUNICIPIO DE AUGUSTO CORREA", "mun": "Augusto Corrêa", "uf": "PA", "edital": "63/2026", "valor": 476667, "data": "2026-11-27", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Licitanet", "objeto": "Retroescavadeira para apoio a infraestrutura produtiva do município de Augusto Corrêa/PA", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/04873600000115/2026/207", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 5}, {"orgao": "MUNICIPIO DE BONITO", "mun": "Bonito", "uf": "PA", "edital": "222026", "valor": null, "data": "2026-11-27", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Motoniveladora", "tipo_obra": "Motoniveladora", "link": "https://pncp.gov.br/app/editais/05149083000107/2026/41", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 6}, {"orgao": "MUNICIPIO DE IJUI", "mun": "Ijuí", "uf": "RS", "edital": "168/2026", "valor": 476250, "data": "2026-11-27", "hora": "14:00", "mod": "Pregão - Eletrônico", "portal": "Compras Públicas", "objeto": "01 (uma) retroescavadeira nova, zero hora de trabalho, destinada às atividades da Secretaria Municipal de Desenvolvimento Rural, especialmente na…", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/90738196000109/2026/1089", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 7}, {"orgao": "MUNICIPIO DE PRAINHA", "mun": "Prainha", "uf": "PA", "edital": "PE/9.2026-024-PMP - Rep./2026", "valor": 993333, "data": "2026-11-30", "hora": "07:59", "mod": "Pregão - Eletrônico", "portal": "Compras Públicas", "objeto": "01 (uma) escavadeira hidráulica, nova, de primeiro uso, destinada ao atendimento das necessidades da secretaria municipal de produção/agricultura, do…", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/04860854000107/2026/41", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 8}, {"orgao": "MUNICIPIO DE RIACHO DE SANTANA", "mun": "Riacho de Santana", "uf": "BA", "edital": "", "valor": 103177, "data": "2026-11-30", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "01 (uma) unidade de Distribuidor de Agregados Rebocável (Spread), com capacidade mínima aproximada de 1,9 m³ e largura de trabalho compatível com…", "tipo_obra": "Distribuidor de agregados", "link": "https://pncp.gov.br/app/editais/14105191000160/2026/86", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 9}, {"orgao": "MUNICIPIO DE CRIXAS DO TOCANTINS", "mun": "Crixás Do Tocantins", "uf": "TO", "edital": "003/2026", "valor": 387233.33, "data": "2026-11-30", "hora": "10:00", "mod": "Pregão-Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Máquinas e equipamentos, sendo 01 (uma) retroescavadeira zero quilômetro, destinada ao atendimento das necessidades da Secretaria Municipal de Obras…", "tipo_obra": "Retroescavadeira", "link": "", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 10}, {"orgao": "CONSORCIO INTERMUNICIPAL DE SANEAMENTO BASICO DO ESPIRITO SA", "mun": "Colatina", "uf": "ES", "edital": "", "valor": 16250333, "data": "2026-12-01", "hora": "07:00", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Registro de precos para futura e eventual aquisicao de veiculos, motocicletas, equipamento de mobilidade individual autopropelido, miniescavadeira…", "tipo_obra": "Miniescavadeira", "link": "https://pncp.gov.br/app/editais/14934498000174/2026/77", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 11}, {"orgao": "MUNICIPIO DE BOM SUCESSO DE ITARARE", "mun": "Bom Sucesso de Itararé", "uf": "SP", "edital": "18/2026", "valor": 1048830, "data": "2026-12-01", "hora": "08:00", "mod": "Pregão - Eletrônico", "portal": "Diário Oficial do Estado", "objeto": "01 (uma) Escavadeira Hidráulica sob esteiras, nova, ano/modelo 2026 ou superior e 01 (um) Caminhão, tração 4x2, novo, equipado com caçamba basculante…", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/60123064000101/2026/70", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 12}, {"orgao": "CONSORCIO INTERMUNICIPAL DA REGIAO NORDESTE", "mun": "Sananduva", "uf": "RS", "edital": "", "valor": null, "data": "2026-12-01", "hora": "08:59", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Aquisições de escavadeiras hidráulicas novas", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/15344304000143/2026/32", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 13}, {"orgao": "MUNICIPIO DE SANTA FILOMENA", "mun": "Santa Filomena", "uf": "PE", "edital": "015/2026", "valor": 796950, "data": "2026-12-01", "hora": "10:00", "mod": "Pregão - Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "01 (uma) Escavadeira Hidráulica de Esteira - Convênio Transferegov.BR Nº 997718/2026 e Aquisição de 01 (um) Implemento Agrícola do tipo Carreta…", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/01613732000110/2026/18", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 14}, {"orgao": "SECRETARIA DE ESTADO DA AGRICULTURA, ABASTECIMENTO, AQUICULT", "mun": "Vitória", "uf": "ES", "edital": "252026", "valor": 13450000, "data": "2026-12-01", "hora": "12:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "O fornecimento de \"MOTONIVELADORA\"", "tipo_obra": "Motoniveladora", "link": "https://pncp.gov.br/app/editais/27080555000147/2026/97", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 15}, {"orgao": "MUNICIPIO DE RELVADO", "mun": "Relvado", "uf": "RS", "edital": "", "valor": 348000, "data": "2026-12-01", "hora": "13:00", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Máquina pesada", "tipo_obra": "Máquinas pesadas (diversas)", "link": "https://pncp.gov.br/app/editais/92402510000103/2026/168", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 16}, {"orgao": "MUNICIPIO DE ARCO-IRIS", "mun": "Arco-Íris", "uf": "SP", "edital": "10/2026", "valor": 438333, "data": "2026-12-01", "hora": "23:59", "mod": "Pregão - Presencial", "portal": "Diário Oficial do Estado", "objeto": "Retroescavadeira 4x4", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/01612853000147/2026/19", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 17}, {"orgao": "SERVICO AUTONOMO DE AGUA E ESGOTO S A A E", "mun": "Itapemirim", "uf": "ES", "edital": "0038/2026", "valor": 30534, "data": "2026-12-02", "hora": "08:00", "mod": "Pregão - Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Equipamentos (cortadora de piso e asfalto e compactador de solo) e ferramenta (disco diamantado)", "tipo_obra": "Rolo compactador", "link": "https://pncp.gov.br/app/editais/27780220000131/2026/107", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 18}, {"orgao": "CONSORCIO INTERMUNICIPAL DE DESENVOLVIMENTO SUSTENTAVEL DA R", "mun": "Vacaria", "uf": "RS", "edital": "RPPE38/2026", "valor": null, "data": "2026-12-02", "hora": "08:30", "mod": "Pregão - Eletrônico", "portal": "Compras Públicas", "objeto": "Maquinários, por parte dos municípios consorciados ao CONDESUS", "tipo_obra": "Máquinas pesadas (diversas)", "link": "https://pncp.gov.br/app/editais/04712762000171/2026/59", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 19}, {"orgao": "MUNICIPIO DE EXTREMA", "mun": "Extrema", "uf": "MG", "edital": "0000520/2026", "valor": 355750, "data": "2026-12-02", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "AMM Licita", "objeto": "01 (um) rolo compactador combinado autopropelido, novo, zero quilômetro, equipado com 01 (um) cilindro liso metálico e 04 (quatro) pneus pneumáticos", "tipo_obra": "Rolo compactador", "link": "https://pncp.gov.br/app/editais/18677591000100/2026/590", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 20}, {"orgao": "MUNICIPIO DE SIRINHAEM", "mun": "Sirinhaém", "uf": "PE", "edital": "011/2026", "valor": 469420, "data": "2026-12-02", "hora": "09:30", "mod": "Pregão - Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Uma retroescavadeira (0 km), destinada ao atendimento das demandas da Secretaria Municipal de Agricultura e Desenvolvimento Econômico de Sirinhaém/PE", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/10292209000120/2026/80", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 21}, {"orgao": "COMPANHIA DE DESENV. DO VALE DO SAO FRANCISCO", "mun": "Petrolina", "uf": "PE", "edital": "322026", "valor": 47387854, "data": "2026-12-03", "hora": "08:59", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Fornecimento, carga, transporte e descarga, por Sistema de Registro de Preços – SRP, de máquinas pesadas de construção para o atendimento de diversas…", "tipo_obra": "Máquinas pesadas (diversas)", "link": "https://pncp.gov.br/app/editais/00399857000126/2026/525", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 22}, {"orgao": "MUNICIPIO DE MONSENHOR PAULO", "mun": "Monsenhor Paulo", "uf": "MG", "edital": "44/2026", "valor": 533067, "data": "2026-12-03", "hora": "08:59", "mod": "Pregão - Eletrônico", "portal": "Não Identificado", "objeto": "01 (uma) Máquina Motoniveladora 125CV", "tipo_obra": "Motoniveladora", "link": "https://pncp.gov.br/app/editais/22541874000199/2026/98", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 23}, {"orgao": "MUNICIPIO DE MONTE FORMOSO", "mun": "Monte Formoso", "uf": "MG", "edital": "060/2026", "valor": 441000, "data": "2026-12-03", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "AMM Licita", "objeto": "Registro de preços para eventual aquisição de uma retroescavadeira em atendimento a secretaria municipal de obras e serviços urbanos do município de…", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/01615007000180/2026/32", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 24}, {"orgao": "MUNICIPIO DE JAPARAIBA", "mun": "Japaraíba", "uf": "MG", "edital": "77/2026", "valor": 312000, "data": "2026-12-03", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Licitanet", "objeto": "Retroescavadeira, destinada ao atendimento das demandas do Município de Japaraíba/MG", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/18306654000103/2026/164", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 25}, {"orgao": "MUNICIPIO DE BOA ESPERANÇA DO NORTE", "mun": "Boa esperança do Norte", "uf": "MT", "edital": "10/2026", "valor": null, "data": "2026-12-03", "hora": "09:00", "mod": "Pregão-Eletrônico", "portal": "Licitanet", "objeto": "01 (UMA) ESCAVADEIRA HIDRÁULICA SOBRE ESTEIRAS, NOVA, ZERO HORA, COM ANO DE FABRICAÇÃO CORRESPONDENTE AO ANO DA ENTREGA E MODELO DO MESMO ANO OU…", "tipo_obra": "Escavadeira hidráulica", "link": "https://www.boaesperancadonorte.mt.gov.br/", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 26}, {"orgao": "MUNICIPIO DE NOVA BANDEIRANTES", "mun": "Nova Bandeirantes", "uf": "MT", "edital": "85/2026", "valor": 716058.0, "data": "2026-12-03", "hora": "09:15", "mod": "Pregão-Eletrônico", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Registro de preços para futura e eventual aquisição de 1 (um) conjunto composto por minicarregadeira sobre rodas com direção deslizante e caçamba…", "tipo_obra": "Minicarregadeira, Fresadora", "link": "https://www.novabandeirantes.mt.gov.br/", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 27}, {"orgao": "MUNICIPIO DE BELA VISTA DE MINAS", "mun": "Bela Vista de Minas", "uf": "MG", "edital": "98/2026", "valor": 472238, "data": "2026-12-03", "hora": "09:30", "mod": "Pregão - Eletrônico", "portal": "AMM Licita", "objeto": "01 (uma) retroescavadeira, nova, zero quilômetro, de fabricação nacional ou importada e 01 (um) rompedor hidráulico (compatível) e acessórios padrão…", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/18311043000153/2026/55", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 28}, {"orgao": "MUNICIPIO DE PINDAMONHANGABA", "mun": "Pindamonhangaba", "uf": "SP", "edital": "20064/2026", "valor": 98500, "data": "2026-12-04", "hora": "07:59", "mod": "Pregão - Eletrônico", "portal": "Não Identificado", "objeto": "01 (um) rolo compactador liso para utilização nas obras e manutenções da subprefeitura de moreira césar", "tipo_obra": "Rolo compactador", "link": "https://pncp.gov.br/app/editais/45226214000119/2026/513", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 29}, {"orgao": "MUNICIPIO DE IVOTI", "mun": "Ivoti", "uf": "RS", "edital": "", "valor": 431433, "data": "2026-12-04", "hora": "08:55", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Uma retroescavadeira nova, zero hora, para apoio ao desenvolvimento sustentável local e integrado", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/88254909000117/2026/493", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 30}, {"orgao": "MUNICIPIO DE CUBATI", "mun": "Cubati", "uf": "PB", "edital": "22/2026", "valor": 645333, "data": "2026-12-04", "hora": "08:59", "mod": "Pregão - Eletrônico", "portal": "Compras Públicas", "objeto": "01 (uma) pá carregadeira com potência bruta aproximada de 152hp, tração 4x4, equipada com caçamba de capacidade variável entre 1,5 m³ e 3,2 m³", "tipo_obra": "Pá carregadeira", "link": "https://pncp.gov.br/app/editais/08732182000105/2026/28", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 31}, {"orgao": "DEPARTAMENTO MUNICIPAL DE AGUA E ESGOTO", "mun": "Uberlândia", "uf": "MG", "edital": "2242026", "valor": 1833162, "data": "2026-12-04", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "02 (duas) escavadeiras hidráulicas sobre esteiras e 01 (um) caminhão com plataforma, tipo caminhão prancha, em atendimento à Diretoria de Meio…", "tipo_obra": "Escavadeira hidráulica", "link": "https://pncp.gov.br/app/editais/25769548000121/2026/258", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 32}, {"orgao": "MUNICIPIO DE LIMOEIRO", "mun": "Limoeiro", "uf": "PE", "edital": "062", "valor": 1203924, "data": "2026-12-04", "hora": "09:50", "mod": "Pregão - Eletrônico", "portal": "Não Identificado", "objeto": "MÁQUINA E EQUIPAMENTOS (CAMINHÃO CAÇAMBA E RETROESCAVADEIRA) PARA ATENDER AS NECESSIDADES DA SECRETARIA MUNICIPAL DE AGRICULTURA DO MUNICÍPIO DE…", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/11097292000149/2026/107", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 33}, {"orgao": "MUNICIPIO DE CAETANOS", "mun": "Caetanos", "uf": "BA", "edital": "PE011/2026", "valor": 4622149, "data": "2026-12-07", "hora": "08:00", "mod": "Pregão - Eletrônico", "portal": "Bolsa Nacional de Compras (BNC)", "objeto": "Registro de preços para futura e eventual aquisição de máquinas pesadas novas, zero hora de operação, e caminhões novos, zero quilômetro, todos…", "tipo_obra": "Máquinas pesadas (diversas)", "link": "https://pncp.gov.br/app/editais/16418717000198/2026/23", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 34}, {"orgao": "MUNICIPIO DE CRUZ MACHADO", "mun": "Cruz Machado", "uf": "PR", "edital": "56/2026", "valor": 443902, "data": "2026-12-07", "hora": "08:00", "mod": "Pregão - Eletrônico", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "01 (uma) pá carregadeira nova, zero hora, ano modelo 2025 ou superior, equipada com motor diesel/biodisiel, potência mínima de 120HP, peso…", "tipo_obra": "Pá carregadeira", "link": "https://pncp.gov.br/app/editais/76339688000109/2026/147", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 35}, {"orgao": "MUNICIPIO DE TAQUARA", "mun": "Taquara", "uf": "RS", "edital": "", "valor": 2033830, "data": "2026-12-07", "hora": "08:29", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Aquisição e entrega de 02 (duas) motoniveladoras novas, zero hora de uso, com todos os seus acessórios, dispositivos de segurança e manuais de…", "tipo_obra": "Motoniveladora", "link": "https://pncp.gov.br/app/editais/97761407000173/2026/452", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 36}, {"orgao": "MUNICIPIO DE FREI LAGONEGRO", "mun": "Frei Lagonegro", "uf": "MG", "edital": "", "valor": 1766612, "data": "2026-12-07", "hora": "08:50", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Veículos 0 km e de retroescavadeira 0 hora: 01 ambulância tipo A simples remoção, 02 vans de transporte sanitário com acessibilidade, 01 minivan 7…", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/01615008000125/2026/39", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 37}, {"orgao": "MUNICIPIO DE BAURU", "mun": "Bauru", "uf": "SP", "edital": "122027", "valor": null, "data": "2026-12-07", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Retroescavadeira nova de fabrica", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/46137410000180/2027/6", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 38}, {"orgao": "MUNICIPIO DE RIO DO OESTE", "mun": "Rio do Oeste", "uf": "SC", "edital": "105/2026", "valor": 384500, "data": "2026-12-08", "hora": "08:30", "mod": "Pregão - Eletrônico", "portal": "Compras BR", "objeto": "Retroescavadeira nova, zero hora, tipo c, tração 4x4, peso operacional não inferior de 7.100 kg", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/83102715000182/2026/43", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 39}, {"orgao": "MUNICIPIO DE CAMBE", "mun": "Cambé", "uf": "PR", "edital": "1022026", "valor": 2509798, "data": "2026-12-08", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Equipamentos rodoviários - Convênio nº 948485/2023 do Ministério do Desenvolvimento Regional", "tipo_obra": "Máquinas pesadas (diversas)", "link": "https://pncp.gov.br/app/editais/75732057000184/2026/148", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 40}, {"orgao": "MUNICIPIO DE IVAIPORA", "mun": "Ivaiporã", "uf": "PR", "edital": "", "valor": 175000, "data": "2026-12-09", "hora": "08:30", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "01 (uma) miniescavadeira hidráulica para atendimento da secretaria municipal de obras", "tipo_obra": "Miniescavadeira", "link": "https://pncp.gov.br/app/editais/75741330000137/2026/406", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 41}, {"orgao": "UNIVERSIDADE ESTADUAL DE LONDRINA", "mun": "Londrina", "uf": "PR", "edital": "2582026", "valor": 485467, "data": "2026-12-09", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Minicarregadeira sobre rodas e implementos - garfo para pallets, para a universidade estadual de londrina", "tipo_obra": "Minicarregadeira", "link": "https://pncp.gov.br/app/editais/78640489000153/2026/1190", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 42}, {"orgao": "MUNICIPIO DE MAFRA", "mun": "Mafra", "uf": "SC", "edital": "", "valor": 2432143, "data": "2026-12-10", "hora": "08:00", "mod": "Pregão - Eletrônico", "portal": "PNCP", "objeto": "Rolos compactadores e veículos utilitários", "tipo_obra": "Rolo compactador", "link": "https://pncp.gov.br/app/editais/83102509000172/2026/83", "srp": false, "nota_extra": "O edital inclui outros itens (veículos/caminhões); o valor é o total.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 43}, {"orgao": "MUNICIPIO DE DOUTOR ULYSSES", "mun": "Doutor Ulysses", "uf": "PR", "edital": "033/2026", "valor": 480667, "data": "2026-12-10", "hora": "09:00", "mod": "Pregão - Eletrônico", "portal": "Bolsa de Licitações do Brasil (BLL)", "objeto": "Retroescavadeira nova zero hora, modelo vigente ou mais recente para atendimentos das demandas da secretaria municipal de transporte", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/95422911000113/2026/52", "srp": false, "nota_extra": "", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 44}, {"orgao": "SECRETARIA DE ESTADO DE INDUSTRIA, CIENCIA E TECNOLOGIA", "mun": "Rio Branco", "uf": "AC", "edital": "1832026", "valor": null, "data": "2026-12-10", "hora": "09:15", "mod": "Pregão - Eletrônico", "portal": "Comprasnet", "objeto": "Retroescavadeiras para atender às necessidades operacionais do Serviço de Água e Esgoto do Estado do Acre – SANEACRE", "tipo_obra": "Retroescavadeira", "link": "https://pncp.gov.br/app/editais/16958425000148/2026/495", "srp": false, "nota_extra": "Valor sigiloso ou não informado — conferir no edital.", "dist_km": "", "dist_base": "", "proc": "", "sit": "", "fonte_data": "Propostas até", "idx": 45}];
+const DAYCOLORS = ["#E8743B", "#2E8B8B", "#6C6CE0", "#C0392B", "#2E7D32", "#B7791F", "#0E7490", "#9333EA", "#DB2777", "#4D7C0F", "#1D4ED8", "#B45309"];
+const CLIENTE = "Radar Equipamentos — Linha Amarela e Asfalto";
+const STORE = "agdec_" + CLIENTE.replace(/[^a-z0-9]/gi,'').toLowerCase();
+const WA_NUM = ""; // se vazio, WhatsApp abre para escolher contato
+
+let dec = {};
+try{ dec = JSON.parse(localStorage.getItem(STORE)||"{}"); }catch(e){ dec={}; }
+let filt = "todos";
+
+const WD = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+function brl(v){ if(v==null) return null; return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function brlShort(v){ if(v==null)return 'R$ —'; if(v>=1e6)return 'R$ '+(v/1e6).toFixed(2).replace('.',',')+' mi'; if(v>=1e3)return 'R$ '+Math.round(v/1e3)+' mil'; return 'R$ '+v.toFixed(0); }
+function dpar(s){ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+function dlabel(s){ const dt=dpar(s); return {wd:WD[dt.getDay()], dd:String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonthIndex?dt.getMonthIndex:dt.getMonth()+1).toString().padStart(2,'0')}; }
+
+function save(){ try{ localStorage.setItem(STORE, JSON.stringify(dec)); }catch(e){} }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2200); }
+
+// group by date
+function groups(){
+  const g={}; ITENS.forEach(it=>{ (g[it.data]=g[it.data]||[]).push(it); });
+  return Object.keys(g).sort().map((k,i)=>({data:k, color:DAYCOLORS[i%DAYCOLORS.length], itens:g[k].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''))}));
+}
+function pass(it){
+  const s=dec[it.idx];
+  if(filt==='todos')return true;
+  if(filt.startsWith('eq:'))return new RegExp(filt.slice(3),'i').test(it.tipo_obra);
+  if(filt==='pend')return !s;
+  if(filt==='part')return s==='P';
+  return it.uf===filt;
+}
+
+function render(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  const gs=groups(); let shown=0;
+  gs.forEach(g=>{
+    const vis=g.itens.filter(pass); if(!vis.length)return; shown+=vis.length;
+    const dt=dpar(g.data); const wd=WD[dt.getDay()]; const dd=String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0');
+    const dayV=vis.reduce((a,b)=>a+(b.valor||0),0);
+    const day=document.createElement('div'); day.className='day';
+    day.innerHTML='<div class="dayhd" style="background:'+g.color+'"><span class="dw">'+wd+'</span><span class="dd">'+dd+'</span>'
+      +'<span class="cnt">'+vis.length+' licit.</span></div>';
+    vis.forEach(it=>{ day.appendChild(card(it)); });
+    list.appendChild(day);
+  });
+  if(!shown){ list.innerHTML='<div class="empty">Nenhuma licitação neste filtro.</div>'; }
+  updateSummary();
+}
+
+function card(it){
+  const s=dec[it.idx];
+  const el=document.createElement('div');
+  el.className='card'+(s==='P'?' p':s==='D'?' d':s==='A'?' a':'');
+  const isMass=/fresad|agregad|vibro|usina|espargid|tapa/i.test(it.tipo_obra);
+  const vtxt = it.valor==null ? '<span class="val nd">valor não informado</span>' : '<span class="val">'+brl(it.valor)+'</span>';
+  let badges='<span class="tg'+(isMass?' mass':'')+'">'+it.tipo_obra+'</span>';
+  if(it.dist_km) badges+='<span class="tg km">📍 ~'+it.dist_km+' km · '+it.dist_base+'</span>';
+  const warn = it.nota_extra ? '<div class="warn">⚠ '+it.nota_extra+'</div>' : '';
+  el.innerHTML=
+   '<div class="crow"><span class="mun">'+it.mun+'</span><span class="uf'+(it.uf==='MA'?' ma':'')+'">'+it.uf+'</span><span class="hora">🕐 '+(it.hora||'—')+'</span></div>'
+   +'<div class="badges">'+badges+'</div>'
+   +'<div class="obj" id="ob'+it.idx+'">'+it.objeto+'</div>'
+   +'<span class="more" data-ob="'+it.idx+'">ver mais ▾</span>'
+   +'<div class="meta"><span>'+vtxt+'</span>'+(it.link?'<span><a href="'+it.link+'" target="_blank" rel="noopener" style="color:#7fb2ff">📄 abrir edital</a></span>':(it.edital?'<span>📄 '+it.edital+'</span>':''))+'<span>🏛 '+it.portal+'</span><span>'+it.mod+'</span></div>'
+   +warn
+   +'<div class="dec">'
+     +'<button class="db'+(s==='P'?' selP':'')+'" data-a="P" data-i="'+it.idx+'"><span class="ic">✅</span>Participar</button>'
+     +'<button class="db'+(s==='A'?' selA':'')+'" data-a="A" data-i="'+it.idx+'"><span class="ic">🔎</span>Análise</button>'
+     +'<button class="db'+(s==='D'?' selD':'')+'" data-a="D" data-i="'+it.idx+'"><span class="ic">❌</span>Descartar</button>'
+   +'</div>';
+  return el;
+}
+
+function updateSummary(){
+  let p=0,a=0,d=0;
+  ITENS.forEach(it=>{ const s=dec[it.idx]; if(s==='P')p++; else if(s==='A')a++; else if(s==='D')d++; });
+  const n=ITENS.length-p-a-d;
+  const tot=ITENS.reduce((x,it)=>x+(dec[it.idx]==='P'?(it.valor||0):0),0);
+  document.getElementById('cP').textContent=p;
+  document.getElementById('cA').textContent=a;
+  document.getElementById('cD').textContent=d;
+  document.getElementById('cN').textContent=n;
+  document.getElementById('totV').textContent=brlShort(tot).replace(' mi',' mi').replace('R$ ', 'R$ ');
+  document.getElementById('totV').textContent='R$ '+tot.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const done=p+a+d;
+  document.getElementById('progBar').style.width=(done/ITENS.length*100)+'%';
+  const btn=document.getElementById('btnWapp');
+  btn.disabled = (p===0 && a===0);
+  document.getElementById('wappTxt').textContent = (p||a)? 'Enviar '+(p+a)+' decisões no WhatsApp' : 'Enviar decisões no WhatsApp';
+  document.getElementById('footHint').textContent = done+' de '+ITENS.length+' decididas';
+}
+
+// build WhatsApp / copy message
+function buildMsg(){
+  const gs=groups(); let L=[];
+  L.push('*'+CLIENTE+'*'); L.push('_Decisões da agenda de licitações — GS Licitações_'); L.push('');
+  const P=[],A=[];
+  gs.forEach(g=>{ g.itens.forEach(it=>{ if(dec[it.idx]==='P')P.push(it); else if(dec[it.idx]==='A')A.push(it); }); });
+  const totP=P.reduce((a,b)=>a+(b.valor||0),0);
+  L.push('✅ *VAMOS PARTICIPAR ('+P.length+')* — R$ '+totP.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}));
+  let curd='';
+  P.forEach(it=>{ if(it.data!==curd){curd=it.data; const dt=dpar(it.data); L.push(''); L.push('📅 '+WD[dt.getDay()]+' '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0'));}
+    L.push('• '+(it.hora||'')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra+(it.valor?(' — R$ '+it.valor.toLocaleString('pt-BR')): ' — valor n/inf.')+(it.dist_km?(' (~'+it.dist_km+'km)'):'')); });
+  if(A.length){ L.push(''); L.push('🔎 *EM ANÁLISE ('+A.length+')*');
+    A.forEach(it=>{ const dt=dpar(it.data); L.push('• '+String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0')+' '+it.mun+'/'+it.uf+' — '+it.tipo_obra); }); }
+  L.push(''); L.push('_Enviado pela agenda interativa • '+new Date().toLocaleDateString('pt-BR')+'_');
+  return L.join('\n');
+}
+
+document.addEventListener('click',e=>{
+  const db=e.target.closest('.db');
+  if(db){ const i=db.dataset.i, a=db.dataset.a; dec[i]=(dec[i]===a)?undefined:a; if(!dec[i])delete dec[i]; save();
+    // re-render only the card's day for snappiness -> simplest: full render keeps scroll
+    const y=window.scrollY; render(); window.scrollTo(0,y); return; }
+  const mr=e.target.closest('.more');
+  if(mr){ const ob=document.getElementById('ob'+mr.dataset.ob); ob.classList.toggle('open'); mr.textContent=ob.classList.contains('open')?'ver menos ▴':'ver mais ▾'; return; }
+  const fb=e.target.closest('.fbtn');
+  if(fb){ filt=fb.dataset.f; document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===fb)); render(); window.scrollTo(0,0); return; }
+});
+
+function __init(){
+var __nb=document.getElementById("nojsBanner"); if(__nb) __nb.style.display="none";
+document.getElementById('btnWapp').addEventListener('click',()=>{
+  const msg=encodeURIComponent(buildMsg());
+  const url = WA_NUM ? ('https://wa.me/'+WA_NUM+'?text='+msg) : ('https://wa.me/?text='+msg);
+  window.open(url,'_blank');
+});
+document.getElementById('btnCopy').addEventListener('click',async()=>{
+  try{ await navigator.clipboard.writeText(buildMsg()); toast('Resumo copiado ✓ cole no WhatsApp'); }
+  catch(e){ const t=document.createElement('textarea'); t.value=buildMsg(); document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); toast('Resumo copiado ✓'); }
+});
+
+// filters
+const UFS=[...new Set(ITENS.map(i=>i.uf))].filter(Boolean).sort();
+const FILTERS=[['todos','Todos'],['pend','⏳ Pendentes'],['part','✅ Participar'],['eq:retro','🚜 Retroescavadeira'],['eq:^escav|, escav|hidr','⛏ Escavadeira'],['eq:motoniv','Motoniveladora'],['eq:rolo','Rolo compactador'],['eq:carregadeira','Carregadeira'],['eq:fresad|agregad|vibro|usina|espargid|tapa','🛢 Asfalto'],...UFS.map(u=>[u,u])];
+document.getElementById('filters').innerHTML=FILTERS.map(f=>'<button class="fbtn'+(f[0]==='todos'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
+render();
+}
+try{ __init(); }
+catch(e){
+  var box=document.getElementById('list');
+  if(box){ box.innerHTML='<div class="empty">Nao foi possivel montar a versao interativa neste navegador. Lista simples abaixo.</div>'+
+    ITENS.map(function(it){return '<div class="card"><div class="crow"><span class="mun">'+it.mun+'</span><span class="uf">'+it.uf+'</span><span class="hora">'+(it.hora||'')+' '+(it.data||'')+'</span></div><div class="obj open">'+it.objeto+'</div><div class="meta">'+(it.tipo_obra||'')+(it.valor?(' — R$ '+it.valor):'')+'</div></div>';}).join(''); }
+  if(window.onerror) window.onerror('init: '+(e&&e.message?e.message:e),'',0,0,e);
+}
+</script>
+</body>
+</html>
